@@ -97,7 +97,7 @@ const HorizontalScroll = () => {
           <div className="absolute inset-0 glow-bg pointer-events-none" />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vmin] h-[80vmin] rounded-full opacity-[0.04] bg-accent blur-3xl" />
           <div className="relative max-w-6xl">
-            <p data-reveal className="eyebrow mb-8 lg:mb-10">— Usine Studio / Est. Excellence</p>
+            <p data-reveal className="eyebrow mb-8 lg:mb-10">— Start With Us / Est. Excellence</p>
             <h1 data-reveal className="font-display text-[13vw] sm:text-[11vw] md:text-[8.5vw] leading-[0.95] tracking-tight text-balance">
               We build digital <span className="italic text-accent">systems</span><br/>that generate revenue.
             </h1>
@@ -130,22 +130,23 @@ const HorizontalScroll = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-px bg-border">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-px bg-border">
             {services.map((s) => (
               <article
                 key={s.n}
                 data-reveal
-                className="group relative bg-background hover:bg-surface transition-all duration-700 p-6 sm:p-8 min-h-[220px] md:min-h-[340px] flex flex-col justify-between cursor-pointer"
+                className="service-card group relative bg-background hover:bg-surface transition-all duration-700 p-6 sm:p-8 min-h-[240px] lg:min-h-[340px] flex flex-col justify-between cursor-pointer overflow-hidden"
               >
-                <div className="flex items-start justify-between">
+                <span className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-accent to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-[1400ms] ease-out" />
+                <div className="flex items-start justify-between relative z-10">
                   <span className="text-xs tracking-[0.3em] text-muted-foreground">{s.n}</span>
-                  <span className="text-accent md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500">→</span>
+                  <span className="text-accent translate-x-0 group-hover:translate-x-1 transition-transform duration-500">→</span>
                 </div>
-                <div>
-                  <h3 className="font-display text-2xl sm:text-3xl mb-3 sm:mb-4 group-hover:text-accent transition-colors duration-500">
+                <div className="relative z-10">
+                  <h3 className="font-display text-2xl sm:text-3xl mb-3 sm:mb-4 group-hover:text-accent group-hover:translate-x-1 transition-all duration-500">
                     {s.title}
                   </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed md:opacity-0 md:group-hover:opacity-100 md:max-h-0 md:group-hover:max-h-40 md:transition-all md:duration-700 md:overflow-hidden">
+                  <p className="text-sm text-muted-foreground leading-relaxed">
                     {s.body}
                   </p>
                 </div>

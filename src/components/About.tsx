@@ -27,7 +27,7 @@ const About = () => {
         </div>
         <div className="lg:col-span-7 lg:col-start-6 space-y-8 sm:space-y-10">
           <p className="about-line text-lg sm:text-xl leading-[1.7] text-foreground/90">
-            Usine was founded on a single conviction — that the brands compounding fastest are the ones treating marketing as engineering. Not campaigns. Systems.
+            Start With Us was founded on a single conviction — that the brands compounding fastest are the ones treating marketing as engineering. Not campaigns. Systems.
           </p>
           <p className="about-line text-muted-foreground leading-relaxed">
             We work with a small number of partners each year — corporate teams seeking new velocity, founders building category-defining narratives, and ambitious individuals serious about positioning. Every engagement is led by a senior operator. No account managers. No layers.

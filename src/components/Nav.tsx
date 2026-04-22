@@ -4,6 +4,8 @@ import { Menu, X } from "lucide-react";
 const links = [
   { href: "#systems", label: "Systems" },
   { href: "#work", label: "Work" },
+  { href: "#gallery", label: "Gallery" },
+  { href: "#voices", label: "Voices" },
   { href: "#insights", label: "Insights" },
   { href: "#studio", label: "Studio" },
 ];
@@ -32,20 +34,20 @@ const Nav = () => {
       >
         <div className="max-w-[1600px] mx-auto px-5 sm:px-8 lg:px-14 flex items-center justify-between">
           <a href="#" onClick={() => setOpen(false)} className="font-display text-xl sm:text-2xl tracking-tight">
-            Usine<span className="text-accent">.</span>Studio
+            Start<span className="text-accent">·</span>With<span className="text-accent">·</span>Us
           </a>
-          <nav className="hidden md:flex items-center gap-10 text-xs uppercase tracking-[0.25em] text-muted-foreground">
+          <nav className="hidden lg:flex items-center gap-8 xl:gap-10 text-xs uppercase tracking-[0.25em] text-muted-foreground">
             {links.map((l) => (
               <a key={l.href} href={l.href} className="hover:text-foreground transition-colors">{l.label}</a>
             ))}
           </nav>
-          <a href="#contact" className="hidden md:inline-flex text-xs uppercase tracking-[0.25em] border-b border-accent text-accent pb-1">
+          <a href="#contact" className="hidden lg:inline-flex text-xs uppercase tracking-[0.25em] border-b border-accent text-accent pb-1">
             Apply
           </a>
           <button
             aria-label={open ? "Close menu" : "Open menu"}
             onClick={() => setOpen((v) => !v)}
-            className="md:hidden p-2 -mr-2 text-foreground"
+            className="lg:hidden p-2 -mr-2 text-foreground"
           >
             {open ? <X size={22} /> : <Menu size={22} />}
           </button>
@@ -54,19 +56,19 @@ const Nav = () => {
 
       {/* Mobile drawer */}
       <div
-        className={`fixed inset-0 z-40 md:hidden transition-all duration-500 ${
+        className={`fixed inset-0 z-40 lg:hidden transition-all duration-500 ${
           open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       >
         <div className="absolute inset-0 bg-background/95 backdrop-blur-xl" onClick={() => setOpen(false)} />
-        <nav className="relative h-full flex flex-col justify-center px-8 gap-2">
+        <nav className="relative h-full flex flex-col justify-center px-8 gap-1 overflow-y-auto py-24">
           {links.map((l, i) => (
             <a
               key={l.href}
               href={l.href}
               onClick={() => setOpen(false)}
               style={{ transitionDelay: open ? `${120 + i * 60}ms` : "0ms" }}
-              className={`font-display text-5xl sm:text-6xl py-3 border-b border-border transition-all duration-700 ${
+              className={`font-display text-4xl sm:text-5xl py-3 border-b border-border transition-all duration-700 ${
                 open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
               }`}
             >

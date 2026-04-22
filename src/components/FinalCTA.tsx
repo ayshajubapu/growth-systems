@@ -33,15 +33,6 @@ const FinalCTA = () => {
         </div>
       </div>
 
-      <footer className="relative max-w-[1500px] mx-auto mt-24 sm:mt-40 pt-10 sm:pt-12 border-t border-border flex flex-wrap items-center justify-between gap-5 sm:gap-6">
-        <div className="font-display text-lg sm:text-xl">Usine<span className="text-accent">.</span>Studio</div>
-        <div className="flex gap-6 sm:gap-8 text-xs uppercase tracking-[0.25em] text-muted-foreground">
-          <a href="#" className="hover:text-accent">LinkedIn</a>
-          <a href="#" className="hover:text-accent">Instagram</a>
-          <a href="#" className="hover:text-accent">X</a>
-        </div>
-        <div className="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-muted-foreground">© 2026 Usine Studio</div>
-      </footer>
     </section>
   );
 };
