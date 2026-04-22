@@ -1,16 +1,31 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useEffect } from "react";
+import Nav from "@/components/Nav";
+import HorizontalScroll from "@/components/HorizontalScroll";
+import ServicesDeep from "@/components/ServicesDeep";
+import CaseStudies from "@/components/CaseStudies";
+import Insights from "@/components/Insights";
+import About from "@/components/About";
+import FinalCTA from "@/components/FinalCTA";
 
-// IMPORTANT: Fully REPLACE this with your own code
-const PlaceholderIndex = () => {
-  // PLACEHOLDER: Replace this entire return statement with the user's app.
-  // The inline background color is intentionally not part of the design system.
+const Index = () => {
+  useEffect(() => {
+    document.title = "Maison Studio — Digital Systems That Generate Revenue";
+    const meta = document.querySelector('meta[name="description"]') || document.head.appendChild(Object.assign(document.createElement('meta'), { name: 'description' }));
+    meta.setAttribute("content", "Maison Studio — a premium digital agency building SEO, web, performance & content systems for corporate teams, startups, and ambitious operators.");
+  }, []);
+
   return (
-    <div className="flex min-h-screen items-center justify-center" style={{ backgroundColor: '#fcfbf8' }}>
-      <img data-lovable-blank-page-placeholder="REMOVE_THIS" src="/placeholder.svg" alt="Your app will live here!" />
-    </div>
+    <main className="bg-background text-foreground">
+      <Nav />
+      <h1 className="sr-only">Maison Studio — Premium Digital Agency for SEO, Web Development & Performance Marketing</h1>
+      <HorizontalScroll />
+      <ServicesDeep />
+      <CaseStudies />
+      <Insights />
+      <About />
+      <FinalCTA />
+    </main>
   );
 };
-
-const Index = PlaceholderIndex;
 
 export default Index;
