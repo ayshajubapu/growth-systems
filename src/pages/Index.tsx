@@ -9,15 +9,15 @@ import FinalCTA from "@/components/FinalCTA";
 
 const Index = () => {
   useEffect(() => {
-    document.title = "Maison Studio — Digital Systems That Generate Revenue";
+    document.title = "Usine Studio — Digital Systems That Generate Revenue";
     const meta = document.querySelector('meta[name="description"]') || document.head.appendChild(Object.assign(document.createElement('meta'), { name: 'description' }));
-    meta.setAttribute("content", "Maison Studio — a premium digital agency building SEO, web, performance & content systems for corporate teams, startups, and ambitious operators.");
+    meta.setAttribute("content", "Usine Studio — a premium digital agency building SEO, web, performance & content systems for corporate teams, startups, and ambitious operators.");
   }, []);
 
   return (
     <main className="bg-background text-foreground">
       <Nav />
-      <h1 className="sr-only">Maison Studio — Premium Digital Agency for SEO, Web Development & Performance Marketing</h1>
+      <h1 className="sr-only">Usine Studio — Premium Digital Agency for SEO, Web Development & Performance Marketing</h1>
       <HorizontalScroll />
       <ServicesDeep />
       <CaseStudies />

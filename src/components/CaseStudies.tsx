@@ -49,12 +49,12 @@ const CaseStudies = () => {
   }, []);
 
   return (
-    <section id="work" ref={ref} className="bg-surface py-32 lg:py-48 px-8 lg:px-24">
+    <section id="work" ref={ref} className="bg-surface py-24 sm:py-32 lg:py-48 px-6 sm:px-10 lg:px-24">
       <div className="max-w-[1500px] mx-auto">
-        <div className="flex items-end justify-between mb-24 flex-wrap gap-8">
+        <div className="flex items-end justify-between mb-16 sm:mb-24 flex-wrap gap-6 sm:gap-8">
           <div>
-            <p className="eyebrow mb-6">— Selected Work</p>
-            <h2 className="font-display text-5xl md:text-7xl leading-[1] max-w-3xl">
+            <p className="eyebrow mb-4 sm:mb-6">— Selected Work</p>
+            <h2 className="font-display text-4xl sm:text-5xl md:text-7xl leading-[1] max-w-3xl">
               Before. <span className="italic text-accent">After.</span><br/>The difference is the work.
             </h2>
           </div>
@@ -62,27 +62,27 @@ const CaseStudies = () => {
 
         <div className="space-y-px bg-border">
           {cases.map((c, i) => (
-            <article key={c.client} className="case-card bg-background grid md:grid-cols-12 gap-8 p-10 lg:p-16 group hover:bg-surface transition-colors duration-700">
+            <article key={c.client} className="case-card bg-background grid md:grid-cols-12 gap-6 md:gap-8 p-7 sm:p-10 lg:p-16 group hover:bg-surface transition-colors duration-700">
               <div className="md:col-span-3">
-                <p className="text-xs text-muted-foreground tracking-[0.3em] mb-4">CASE 0{i + 1}</p>
-                <h3 className="font-display text-3xl mb-2">{c.client}</h3>
+                <p className="text-xs text-muted-foreground tracking-[0.3em] mb-3 sm:mb-4">CASE 0{i + 1}</p>
+                <h3 className="font-display text-2xl sm:text-3xl mb-2">{c.client}</h3>
                 <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">{c.industry}</p>
               </div>
               <div className="md:col-span-5 flex flex-col justify-center">
-                <p className="text-muted-foreground leading-relaxed text-lg">{c.body}</p>
+                <p className="text-muted-foreground leading-relaxed text-base sm:text-lg">{c.body}</p>
               </div>
               <div className="md:col-span-4 grid grid-cols-2 gap-px bg-border">
-                <div className="bg-background p-6">
+                <div className="bg-background p-5 sm:p-6">
                   <p className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-3">Before</p>
-                  <p className="font-display text-xl text-muted-foreground line-through decoration-1">{c.before}</p>
+                  <p className="font-display text-lg sm:text-xl text-muted-foreground line-through decoration-1">{c.before}</p>
                 </div>
-                <div className="bg-background p-6">
+                <div className="bg-background p-5 sm:p-6">
                   <p className="text-[10px] uppercase tracking-[0.3em] text-accent mb-3">After</p>
-                  <p className="font-display text-xl">{c.after}</p>
+                  <p className="font-display text-lg sm:text-xl">{c.after}</p>
                 </div>
-                <div className="bg-background p-6 col-span-2 flex items-center justify-between">
+                <div className="bg-background p-5 sm:p-6 col-span-2 flex items-center justify-between">
                   <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Delta</span>
-                  <span className="num-display text-4xl text-accent">{c.metric}</span>
+                  <span className="num-display text-3xl sm:text-4xl text-accent">{c.metric}</span>
                 </div>
               </div>
             </article>

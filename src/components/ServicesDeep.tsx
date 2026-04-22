@@ -50,12 +50,12 @@ const ServicesDeep = () => {
   }, []);
 
   return (
-    <section id="systems" ref={ref} className="bg-background py-32 lg:py-48 px-8 lg:px-24">
+    <section id="systems" ref={ref} className="bg-background py-24 sm:py-32 lg:py-48 px-6 sm:px-10 lg:px-24">
       <div className="max-w-[1500px] mx-auto">
-        <div className="flex items-end justify-between mb-24 flex-wrap gap-8">
+        <div className="flex items-end justify-between mb-16 sm:mb-24 flex-wrap gap-6 sm:gap-8">
           <div>
-            <p className="eyebrow mb-6">— Growth Systems</p>
-            <h2 className="font-display text-5xl md:text-7xl leading-[1] max-w-3xl">
+            <p className="eyebrow mb-4 sm:mb-6">— Growth Systems</p>
+            <h2 className="font-display text-4xl sm:text-5xl md:text-7xl leading-[1] max-w-3xl">
               Not services.<br/><span className="italic text-accent">Systems.</span>
             </h2>
           </div>
@@ -66,18 +66,18 @@ const ServicesDeep = () => {
 
         <div className="border-t border-border">
           {items.map((it) => (
-            <article key={it.n} className="deep-row group grid md:grid-cols-12 gap-8 py-12 lg:py-16 border-b border-border items-start">
+            <article key={it.n} className="deep-row group grid md:grid-cols-12 gap-4 md:gap-8 py-10 sm:py-12 lg:py-16 border-b border-border items-start">
               <div className="md:col-span-1 text-xs text-muted-foreground tracking-[0.3em] pt-2">{it.n}</div>
               <div className="md:col-span-4">
-                <p className="text-xs uppercase tracking-[0.3em] text-accent mb-4">{it.tag}</p>
-                <h3 className="font-display text-4xl md:text-5xl group-hover:translate-x-2 transition-transform duration-700">
+                <p className="text-xs uppercase tracking-[0.3em] text-accent mb-3 sm:mb-4">{it.tag}</p>
+                <h3 className="font-display text-3xl sm:text-4xl md:text-5xl group-hover:translate-x-2 transition-transform duration-700">
                   {it.title}
                 </h3>
               </div>
-              <p className="md:col-span-5 md:col-start-7 text-muted-foreground text-lg leading-relaxed">
+              <p className="md:col-span-5 md:col-start-7 text-muted-foreground text-base sm:text-lg leading-relaxed">
                 {it.body}
               </p>
-              <div className="md:col-span-1 md:col-start-12 flex justify-end pt-2">
+              <div className="md:col-span-1 md:col-start-12 hidden md:flex justify-end pt-2">
                 <span className="text-accent opacity-40 group-hover:opacity-100 transition-opacity">→</span>
               </div>
             </article>
