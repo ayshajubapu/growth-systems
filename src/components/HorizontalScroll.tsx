@@ -25,7 +25,7 @@ const HorizontalScroll = () => {
       const panels = gsap.utils.toArray<HTMLElement>(".panel");
       const totalScroll = () => track.scrollWidth - window.innerWidth;
 
-      gsap.to(track, {
+      const scrollTween = gsap.to(track, {
         x: () => -totalScroll(),
         ease: "none",
         scrollTrigger: {
@@ -49,7 +49,7 @@ const HorizontalScroll = () => {
           stagger: 0.08,
           scrollTrigger: {
             trigger: panel,
-            containerAnimation: ScrollTrigger.getAll().find(st => st.pin === container),
+            containerAnimation: scrollTween,
             start: "left 70%",
           },
         });
