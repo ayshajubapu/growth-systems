@@ -75,22 +75,39 @@ const HorizontalScroll = () => {
         },
       });
 
-      panels.forEach((panel) => {
+      panels.forEach((panel, idx) => {
         const reveals = panel.querySelectorAll<HTMLElement>("[data-reveal]");
-        gsap.from(reveals, {
-          y: 60,
-          opacity: 0,
-          duration: 1,
-          ease: "power3.out",
-          stagger: 0.08,
-          scrollTrigger: {
-            trigger: panel,
-            containerAnimation: scrollTween,
-            start: "left right",
-            toggleActions: "play none none none",
+        if (!reveals.length) return;
+        // Use the panel's horizontal position to trigger reveals reliably
+        // regardless of panel height/DPR. Compute start as the scroll px
+        // at which the panel's left edge enters the viewport's right side.
+        gsap.set(reveals, { y: 60, opacity: 0 });
+        ScrollTrigger.create({
+          trigger: panel,
+          containerAnimation: scrollTween,
+          start: "left 95%",
+          end: "right left",
+          once: true,
+          invalidateOnRefresh: true,
+          onEnter: () => {
+            gsap.to(reveals, {
+              y: 0,
+              opacity: 1,
+              duration: 1,
+              ease: "power3.out",
+              stagger: 0.08,
+              overwrite: "auto",
+            });
           },
         });
       });
+
+      // Safety: after first refresh, force-show any reveal still hidden
+      // because its panel is already past the trigger point.
+      ScrollTrigger.addEventListener("refreshInit", () => {
+        gsap.set(".panel [data-reveal]", { clearProps: "opacity,transform" });
+      });
+      requestAnimationFrame(() => ScrollTrigger.refresh());
     }, container);
 
     return () => ctx.revert();
