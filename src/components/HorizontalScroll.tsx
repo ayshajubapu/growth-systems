@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Hero from "@/components/Hero";
 import imgTraining from "@/assets/service-training.jpg";
 import imgDesign from "@/assets/service-design.jpg";
 import imgWeb from "@/assets/service-web.jpg";
@@ -138,27 +139,8 @@ const HorizontalScroll = () => {
         style={isDesktop ? { width: "max-content" } : undefined}
       >
         {/* PANEL 1 — HERO */}
-        <section className={`panel relative ${isDesktop ? "w-screen h-screen shrink-0" : "min-h-[92vh] w-full"} flex items-center px-6 sm:px-10 lg:px-24 py-24 lg:py-0`}>
-          <div className="absolute inset-0 glow-bg pointer-events-none" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vmin] h-[80vmin] rounded-full opacity-[0.04] bg-accent blur-3xl" />
-          <div className="relative max-w-6xl">
-            <p data-reveal className="eyebrow mb-8 lg:mb-10">— Start With Us / Est. Excellence</p>
-            <h1 data-reveal className="font-display text-[12vw] sm:text-[10vw] md:text-[7.5vw] leading-[0.98] tracking-tight text-balance">
-              We train teams, build brands,<br/>and grow businesses<br/>that <span className="italic text-accent">mean it</span>.
-            </h1>
-            <p data-reveal className="mt-8 lg:mt-12 text-base sm:text-lg text-muted-foreground max-w-2xl tracking-wide leading-relaxed">
-              Corporate training programs, conversion-led web design, and performance digital marketing — for companies, colleges, and institutions ready to grow with intent.
-            </p>
-            <div data-reveal className="mt-10 lg:mt-14 flex flex-wrap gap-3 sm:gap-4">
-              <a href="#contact" className="btn-gold">Request a Training Demo →</a>
-              <a href="#work" className="btn-ghost">See Our Work</a>
-            </div>
-          </div>
-          {isDesktop && (
-            <div className="absolute bottom-10 right-10 text-xs uppercase tracking-[0.4em] text-muted-foreground rotate-90 origin-bottom-right">
-              Scroll —
-            </div>
-          )}
+        <section className={`panel relative ${isDesktop ? "w-screen h-screen shrink-0" : "min-h-[100vh] w-full"}`}>
+          <Hero />
         </section>
 
         {/* PANEL 2 — SERVICES */}
