@@ -22,21 +22,21 @@ const About = () => {
         <div className="lg:col-span-4">
           <p className="about-line eyebrow mb-4 sm:mb-6">— The Studio</p>
           <h2 className="about-line font-display text-4xl sm:text-5xl md:text-6xl leading-[1.05]">
-            A studio<br/>of operators,<br/>not <span className="italic text-accent">vendors</span>.
+            A studio that builds<br/>what businesses<br/>actually <span className="italic text-accent">need</span>.
           </h2>
         </div>
         <div className="lg:col-span-7 lg:col-start-6 space-y-8 sm:space-y-10">
           <p className="about-line text-lg sm:text-xl leading-[1.7] text-foreground/90">
-            Start With Us was founded on a single conviction — that the brands compounding fastest are the ones treating marketing as engineering. Not campaigns. Systems.
+            Start With Us was founded on a simple premise: that the best companies don't separate training, design, and marketing — they treat them as one connected growth system.
           </p>
           <p className="about-line text-muted-foreground leading-relaxed">
-            We work with a small number of partners each year — corporate teams seeking new velocity, founders building category-defining narratives, and ambitious individuals serious about positioning. Every engagement is led by a senior operator. No account managers. No layers.
+            We partner with corporate teams, colleges, and institutions that want all three done well, without the overhead of managing multiple vendors. Every engagement is led by a senior practitioner. No layers, no handoffs, no excuses.
           </p>
           <div className="about-line grid grid-cols-3 gap-px bg-border mt-10 sm:mt-12">
             {[
-              ["09", "Years operating"],
-              ["27", "Specialists in studio"],
-              ["4", "Continents served"],
+              ["9", "Years in practice"],
+              ["3,200+", "Professionals trained"],
+              ["60+", "Institutions partnered"],
             ].map(([v, l]) => (
               <div key={l} className="bg-surface p-5 sm:p-8">
                 <div className="num-display text-3xl sm:text-4xl text-accent mb-2 sm:mb-3">{v}</div>

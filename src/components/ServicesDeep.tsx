@@ -1,33 +1,41 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import imgTraining from "@/assets/service-training.jpg";
+import imgDesign from "@/assets/service-design.jpg";
+import imgWeb from "@/assets/service-web.jpg";
+import imgMarketing from "@/assets/service-marketing.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const items = [
   {
     n: "01",
-    title: "Search Authority",
-    tag: "SEO / Topical Systems",
-    body: "We architect topical authority models that compound over years — built around buyer intent, technical foundations, and editorial depth most agencies refuse to do.",
+    title: "Corporate Training",
+    tag: "Workforce & Campus Training",
+    body: "Structured learning programs for corporate teams, colleges, and institutions. From digital skills and leadership modules to industry-specific workshops — we design curriculum that sticks and outcomes that show up in performance reviews.",
+    image: imgTraining,
   },
   {
     n: "02",
-    title: "Conversion Architecture",
-    tag: "Web Development",
-    body: "Websites engineered as revenue systems. Considered design, sub-second performance, and narrative structures that move buyers through commitment.",
+    title: "Design",
+    tag: "Brand & Visual Design",
+    body: "Identity systems, UI/UX, and marketing collateral built for clarity and recognition. Whether you're launching a new brand or refreshing a stale one, we design for people who have to make decisions fast.",
+    image: imgDesign,
   },
   {
     n: "03",
-    title: "Brand Gravity",
-    tag: "Social & Content",
-    body: "Editorial content cycles that earn attention without begging for it. We build the gravity that turns audiences into communities — and communities into pipeline.",
+    title: "Web Development",
+    tag: "Conversion-Led Web Development",
+    body: "Websites engineered around your buyer's journey — fast, considered, and built to convert. From institutional portals to startup landing pages, every build ships with performance and purpose.",
+    image: imgWeb,
   },
   {
     n: "04",
-    title: "Paid Velocity",
-    tag: "Performance Marketing",
-    body: "Full-funnel paid systems with creative as the variable, not the constant. Attribution, testing, and operator-grade reporting — without the noise.",
+    title: "Digital Marketing",
+    tag: "Digital Marketing & Growth",
+    body: "SEO, paid media, social, and content — operated as a system, not a set of loose campaigns. We build inbound pipelines and manage full-funnel growth for brands serious about their numbers.",
+    image: imgMarketing,
   },
 ];
 
@@ -66,18 +74,31 @@ const ServicesDeep = () => {
 
         <div className="border-t border-border">
           {items.map((it) => (
-            <article key={it.n} className="deep-row group grid md:grid-cols-12 gap-4 md:gap-8 py-10 sm:py-12 lg:py-16 border-b border-border items-start">
-              <div className="md:col-span-1 text-xs text-muted-foreground tracking-[0.3em] pt-2">{it.n}</div>
-              <div className="md:col-span-4">
+            <article key={it.n} className="deep-row group relative grid md:grid-cols-12 gap-4 md:gap-8 py-10 sm:py-12 lg:py-16 border-b border-border items-start overflow-hidden">
+              {/* Hover image — desktop floating preview */}
+              <div className="pointer-events-none hidden lg:block absolute right-12 top-1/2 -translate-y-1/2 w-[280px] h-[200px] overflow-hidden opacity-0 group-hover:opacity-100 translate-x-6 group-hover:translate-x-0 transition-all duration-700 ease-out z-0">
+                <img
+                  src={it.image}
+                  alt={it.title}
+                  loading="lazy"
+                  width={1024}
+                  height={1280}
+                  className="w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-[1600ms] ease-out"
+                />
+                <div className="absolute inset-0 bg-gradient-to-tr from-background/60 to-transparent" />
+              </div>
+
+              <div className="md:col-span-1 text-xs text-muted-foreground tracking-[0.3em] pt-2 relative z-10">{it.n}</div>
+              <div className="md:col-span-4 relative z-10">
                 <p className="text-xs uppercase tracking-[0.3em] text-accent mb-3 sm:mb-4">{it.tag}</p>
                 <h3 className="font-display text-3xl sm:text-4xl md:text-5xl group-hover:translate-x-2 transition-transform duration-700">
                   {it.title}
                 </h3>
               </div>
-              <p className="md:col-span-5 md:col-start-7 text-muted-foreground text-base sm:text-lg leading-relaxed">
+              <p className="md:col-span-5 md:col-start-7 text-muted-foreground text-base sm:text-lg leading-relaxed relative z-10 lg:max-w-md">
                 {it.body}
               </p>
-              <div className="md:col-span-1 md:col-start-12 hidden md:flex justify-end pt-2">
+              <div className="md:col-span-1 md:col-start-12 hidden md:flex justify-end pt-2 relative z-10">
                 <span className="text-accent opacity-40 group-hover:opacity-100 transition-opacity">→</span>
               </div>
             </article>
