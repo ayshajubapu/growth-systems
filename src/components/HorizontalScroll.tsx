@@ -86,7 +86,8 @@ const HorizontalScroll = () => {
           scrollTrigger: {
             trigger: panel,
             containerAnimation: scrollTween,
-            start: "left 70%",
+            start: "left right",
+            toggleActions: "play none none none",
           },
         });
       });
