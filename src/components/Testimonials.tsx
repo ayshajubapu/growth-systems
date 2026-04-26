@@ -6,19 +6,19 @@ gsap.registerPlugin(ScrollTrigger);
 
 const quotes = [
   {
-    quote: "They operate like an in-house team — only sharper. Our pipeline doubled within two quarters and the work is some of the most considered we've ever shipped.",
-    name: "Anaya Rao",
-    role: "VP Marketing, Halcyon Capital",
+    quote: "The training program they built for our mid-management cohort was the first L&D initiative that actually showed up in our quarterly reviews. Measurable, practical, and surprisingly engaging.",
+    name: "Head of HR",
+    role: "Mid-size FMCG Company",
   },
   {
-    quote: "We've worked with three agencies before. None of them treated growth as architecture. Start With Us is the first partner that builds systems instead of campaigns.",
-    name: "Marcus Lindholm",
-    role: "Founder, Atelier Norra",
+    quote: "They redesigned our college portal and ran a full digital marketing push for our open-day campaign. Applications increased 38% year-on-year.",
+    name: "Director of Admissions",
+    role: "Private University",
   },
   {
-    quote: "Senior thinking, no layers, no theatrics. They cut our CAC by 71% in under six months while quietly elevating the entire brand.",
-    name: "Priya Mehta",
-    role: "CEO, Kestrel Health",
+    quote: "Finally an agency that doesn't split design, dev, and marketing across three vendors. One team, clean process, and results we can show the board.",
+    name: "Founder",
+    role: "B2B SaaS Startup",
   },
 ];
 
@@ -43,7 +43,7 @@ const Testimonials = () => {
           <div>
             <p className="eyebrow mb-4 sm:mb-6">— Voices</p>
             <h2 className="font-display text-4xl sm:text-5xl md:text-7xl leading-[1] max-w-3xl">
-              Words from<br/>the <span className="italic text-accent">operators</span> we serve.
+              Words from the teams<br/>we've <span className="italic text-accent">built alongside</span>.
             </h2>
           </div>
           <p className="text-muted-foreground max-w-sm leading-relaxed">
@@ -54,7 +54,7 @@ const Testimonials = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border">
           {quotes.map((q, i) => (
             <figure
-              key={q.name}
+              key={q.role}
               className="voice group relative bg-surface hover:bg-background transition-colors duration-700 p-8 sm:p-10 lg:p-12 flex flex-col justify-between min-h-[400px] overflow-hidden"
             >
               <span className="font-display text-7xl text-accent/30 leading-none mb-6 select-none">"</span>

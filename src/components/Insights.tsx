@@ -5,9 +5,34 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const posts = [
-  { cat: "Strategy", date: "Apr 2026", read: "8 min", title: "The compounding myth: why most brand systems plateau at month nine.", excerpt: "An operator's view on the structural reasons growth stalls — and the architectural fixes that restart it." },
-  { cat: "SEO", date: "Mar 2026", read: "12 min", title: "Topical authority is not a content strategy. It's an org chart.", excerpt: "Why the brands winning search in 2026 organize editorial like a publishing house, not a marketing team." },
-  { cat: "Performance", date: "Mar 2026", read: "6 min", title: "Creative is the only variable that still moves CAC.", excerpt: "The boring truth about paid media in a privacy-first world: it's a creative testing problem, not a targeting one." },
+  {
+    cat: "Training",
+    date: "Apr 2026",
+    read: "8 min",
+    title: "Why corporate training fails at month three — and the curriculum fix that reverses it.",
+    excerpt: "The structural reasons skill retention drops, and how modular design solves it.",
+  },
+  {
+    cat: "Web Development",
+    date: "Mar 2026",
+    read: "10 min",
+    title: "What colleges get wrong about their websites (and why it costs them applicants).",
+    excerpt: "Institutional sites optimised for administrators, not students. Here's the difference.",
+  },
+  {
+    cat: "Digital Marketing",
+    date: "Mar 2026",
+    read: "7 min",
+    title: "Performance marketing for service businesses: why CAC math looks different here.",
+    excerpt: "A practical breakdown for training providers, agencies, and professional services.",
+  },
+  {
+    cat: "Design",
+    date: "Feb 2026",
+    read: "6 min",
+    title: "The brand consistency problem most growing companies don't notice until it's expensive.",
+    excerpt: "Design debt is real. How to audit and fix it before it undermines your credibility.",
+  },
 ];
 
 const Insights = () => {
@@ -31,15 +56,15 @@ const Insights = () => {
           <div>
             <p className="eyebrow mb-4 sm:mb-6">— Field Notes</p>
             <h2 className="font-display text-4xl sm:text-5xl md:text-7xl leading-[1] max-w-3xl">
-              Insights from<br/>the <span className="italic text-accent">workshop</span>.
+              Practical thinking<br/>from the <span className="italic text-accent">studio floor</span>.
             </h2>
           </div>
           <a href="#" className="text-xs uppercase tracking-[0.25em] text-accent border-b border-accent pb-1">All Writing →</a>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border">
           {posts.map((p, i) => (
-            <article key={p.title} className="post group bg-background p-8 sm:p-10 lg:p-12 min-h-[360px] sm:min-h-[480px] flex flex-col justify-between hover:bg-surface transition-colors duration-700 cursor-pointer">
+            <article key={p.title} className="post group bg-background p-8 sm:p-10 lg:p-12 min-h-[320px] sm:min-h-[420px] flex flex-col justify-between hover:bg-surface transition-colors duration-700 cursor-pointer">
               <div>
                 <div className="flex items-center justify-between mb-8 sm:mb-12">
                   <span className="text-[10px] uppercase tracking-[0.3em] text-accent">{p.cat}</span>
