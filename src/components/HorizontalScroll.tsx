@@ -190,9 +190,9 @@ const HorizontalScroll = () => {
                     loading="lazy"
                     width={1024}
                     height={1280}
-                    className="absolute inset-0 w-full h-full object-cover opacity-0 scale-110 group-hover:opacity-40 group-hover:scale-100 transition-all duration-[1400ms] ease-out"
+                    className="absolute inset-0 w-full h-full object-cover opacity-0 scale-110 group-hover:opacity-90 group-hover:scale-100 transition-all duration-[1400ms] ease-out"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/85 to-background/40 opacity-100 group-hover:opacity-90 transition-opacity duration-700" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/10 opacity-100 group-hover:opacity-60 transition-opacity duration-700" />
                 </div>
 
                 <span className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-accent to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-[1400ms] ease-out" />
