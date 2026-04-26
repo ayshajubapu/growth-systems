@@ -144,11 +144,11 @@ const HorizontalScroll = () => {
         </section>
 
         {/* PANEL 2 — SERVICES */}
-        <section className={`panel relative ${isDesktop ? "w-screen h-screen shrink-0" : "w-full"} flex flex-col justify-center px-6 sm:px-10 lg:px-24 py-24 lg:py-0`}>
-          <div className="flex items-end justify-between mb-12 lg:mb-16 flex-wrap gap-6">
+        <section className={`panel relative ${isDesktop ? "w-screen h-screen shrink-0" : "w-full"} flex flex-col justify-center px-6 sm:px-10 lg:px-24 py-16 lg:py-12`}>
+          <div className="flex items-end justify-between mb-8 lg:mb-10 flex-wrap gap-6">
             <div>
               <p data-reveal className="eyebrow mb-4 lg:mb-6">02 — Growth Systems</p>
-              <h2 data-reveal className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1] max-w-3xl">
+              <h2 data-reveal className="font-display text-4xl sm:text-5xl md:text-5xl lg:text-6xl leading-[1] max-w-3xl">
                 Three disciplines.<br/>One <span className="italic text-accent">compounding</span> system.
               </h2>
             </div>
@@ -162,7 +162,7 @@ const HorizontalScroll = () => {
               <article
                 key={s.n}
                 data-reveal
-                className="service-card group relative bg-background transition-all duration-700 p-6 sm:p-8 min-h-[260px] lg:min-h-[380px] flex flex-col justify-between cursor-pointer overflow-hidden"
+                className="service-card group relative bg-background transition-all duration-700 p-6 sm:p-7 min-h-[260px] lg:min-h-[300px] xl:min-h-[340px] flex flex-col justify-between cursor-pointer overflow-hidden"
               >
                 {/* Image reveal layer */}
                 <div className="absolute inset-0 overflow-hidden">
