@@ -75,22 +75,39 @@ const HorizontalScroll = () => {
         },
       });
 
-      panels.forEach((panel) => {
+      panels.forEach((panel, idx) => {
         const reveals = panel.querySelectorAll<HTMLElement>("[data-reveal]");
-        gsap.from(reveals, {
-          y: 60,
-          opacity: 0,
-          duration: 1,
-          ease: "power3.out",
-          stagger: 0.08,
-          scrollTrigger: {
-            trigger: panel,
-            containerAnimation: scrollTween,
-            start: "left right",
-            toggleActions: "play none none none",
+        if (!reveals.length) return;
+        // Use the panel's horizontal position to trigger reveals reliably
+        // regardless of panel height/DPR. Compute start as the scroll px
+        // at which the panel's left edge enters the viewport's right side.
+        gsap.set(reveals, { y: 60, opacity: 0 });
+        ScrollTrigger.create({
+          trigger: panel,
+          containerAnimation: scrollTween,
+          start: "left 95%",
+          end: "right left",
+          once: true,
+          invalidateOnRefresh: true,
+          onEnter: () => {
+            gsap.to(reveals, {
+              y: 0,
+              opacity: 1,
+              duration: 1,
+              ease: "power3.out",
+              stagger: 0.08,
+              overwrite: "auto",
+            });
           },
         });
       });
+
+      // Safety: after first refresh, force-show any reveal still hidden
+      // because its panel is already past the trigger point.
+      ScrollTrigger.addEventListener("refreshInit", () => {
+        gsap.set(".panel [data-reveal]", { clearProps: "opacity,transform" });
+      });
+      requestAnimationFrame(() => ScrollTrigger.refresh());
     }, container);
 
     return () => ctx.revert();
@@ -173,9 +190,9 @@ const HorizontalScroll = () => {
                     loading="lazy"
                     width={1024}
                     height={1280}
-                    className="absolute inset-0 w-full h-full object-cover opacity-0 scale-110 group-hover:opacity-40 group-hover:scale-100 transition-all duration-[1400ms] ease-out"
+                    className="absolute inset-0 w-full h-full object-cover opacity-0 scale-110 group-hover:opacity-90 group-hover:scale-100 transition-all duration-[1400ms] ease-out"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/85 to-background/40 opacity-100 group-hover:opacity-90 transition-opacity duration-700" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/10 opacity-100 group-hover:opacity-60 transition-opacity duration-700" />
                 </div>
 
                 <span className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-accent to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-[1400ms] ease-out" />

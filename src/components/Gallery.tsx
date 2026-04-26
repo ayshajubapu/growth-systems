@@ -1,16 +1,22 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import gal1 from "@/assets/gal-1.jpg";
+import gal2 from "@/assets/gal-2.jpg";
+import gal3 from "@/assets/gal-3.jpg";
+import gal4 from "@/assets/gal-4.jpg";
+import gal5 from "@/assets/gal-5.jpg";
+import gal6 from "@/assets/gal-6.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const items = [
-  { tag: "Brand", title: "Halcyon Capital", year: "2026", span: "md:col-span-7 md:row-span-2", h: "h-[420px] md:h-full", grad: "from-[#3a2f1f] via-[#1a1612] to-[#0a0a0a]" },
-  { tag: "Web", title: "Atelier Norra", year: "2025", span: "md:col-span-5", h: "h-[320px]", grad: "from-[#2a2620] via-[#15130f] to-[#0a0a0a]" },
-  { tag: "Performance", title: "Kestrel Health", year: "2025", span: "md:col-span-5", h: "h-[320px]", grad: "from-[#1f2a2e] via-[#11171a] to-[#0a0a0a]" },
-  { tag: "SEO", title: "Maison Verre", year: "2025", span: "md:col-span-4", h: "h-[300px]", grad: "from-[#332a1a] via-[#1a160e] to-[#0a0a0a]" },
-  { tag: "Content", title: "Orbital Studios", year: "2025", span: "md:col-span-4", h: "h-[300px]", grad: "from-[#262023] via-[#161214] to-[#0a0a0a]" },
-  { tag: "Brand", title: "Northwind Spirits", year: "2024", span: "md:col-span-4", h: "h-[300px]", grad: "from-[#2a2418] via-[#171410] to-[#0a0a0a]" },
+  { tag: "Brand", title: "Halcyon Capital", year: "2026", span: "md:col-span-7 md:row-span-2", h: "h-[420px] md:h-full", img: gal1 },
+  { tag: "Web", title: "Atelier Norra", year: "2025", span: "md:col-span-5", h: "h-[320px]", img: gal2 },
+  { tag: "Performance", title: "Kestrel Health", year: "2025", span: "md:col-span-5", h: "h-[320px]", img: gal3 },
+  { tag: "Architecture", title: "Maison Verre", year: "2025", span: "md:col-span-4", h: "h-[300px]", img: gal4 },
+  { tag: "Editorial", title: "Orbital Studios", year: "2025", span: "md:col-span-4", h: "h-[300px]", img: gal5 },
+  { tag: "Brand", title: "Northwind Spirits", year: "2024", span: "md:col-span-4", h: "h-[300px]", img: gal6 },
 ];
 
 const Gallery = () => {
@@ -49,21 +55,26 @@ const Gallery = () => {
               href="#"
               className={`gal-tile group relative block overflow-hidden border border-border ${it.span} ${it.h}`}
             >
-              <div className={`absolute inset-0 bg-gradient-to-br ${it.grad} transition-transform duration-[1400ms] ease-out group-hover:scale-[1.06]`} />
-              <div className="absolute inset-0 opacity-[0.04] mix-blend-overlay [background-image:radial-gradient(rgba(255,255,255,0.6)_1px,transparent_1px)] [background-size:3px_3px]" />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-700" />
-              <div className="absolute top-5 left-5 right-5 flex items-center justify-between">
+              <img
+                src={it.img}
+                alt={it.title}
+                loading="lazy"
+                className="absolute inset-0 w-full h-full object-cover scale-[1.04] group-hover:scale-110 transition-transform duration-[1600ms] ease-out"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/55 to-background/10 opacity-95 group-hover:opacity-70 transition-opacity duration-700" />
+              <div className="absolute inset-0 opacity-[0.05] mix-blend-overlay [background-image:radial-gradient(rgba(255,255,255,0.6)_1px,transparent_1px)] [background-size:3px_3px]" />
+              <div className="absolute top-5 left-5 right-5 flex items-center justify-between z-10">
                 <span className="text-[10px] uppercase tracking-[0.3em] text-accent">{it.tag}</span>
                 <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">N° 0{i + 1}</span>
               </div>
-              <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between gap-4 translate-y-0 group-hover:-translate-y-1 transition-transform duration-700">
+              <div className="absolute bottom-5 left-5 right-5 z-10 flex items-end justify-between gap-4 translate-y-0 group-hover:-translate-y-1 transition-transform duration-700">
                 <div>
-                  <h3 className="font-display text-2xl sm:text-3xl text-foreground leading-tight">{it.title}</h3>
+                  <h3 className="font-display text-2xl sm:text-3xl text-foreground leading-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">{it.title}</h3>
                   <p className="text-[11px] uppercase tracking-[0.3em] text-muted-foreground mt-2">{it.year}</p>
                 </div>
                 <span className="text-accent text-xl translate-x-0 group-hover:translate-x-1 transition-transform duration-500">→</span>
               </div>
-              <span className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-accent to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-[1400ms] ease-out" />
+              <span className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-accent to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-[1400ms] ease-out z-20" />
             </a>
           ))}
         </div>
