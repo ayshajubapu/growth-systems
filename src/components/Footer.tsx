@@ -1,34 +1,38 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Phone, Mail, MessageCircle, MapPin } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const cols = [
   {
-    title: "Studio",
+    title: "Services",
     links: [
-      { l: "About", h: "#studio" },
-      { l: "Systems", h: "#systems" },
-      { l: "Work", h: "#work" },
-      { l: "Gallery", h: "#gallery" },
+      { l: "Web App Development", h: "#systems" },
+      { l: "Mobile App Development", h: "#systems" },
+      { l: "Digital Marketing", h: "#systems" },
+      { l: "Web Design", h: "#systems" },
+      { l: "E-Commerce", h: "#systems" },
     ],
   },
   {
-    title: "Engage",
+    title: "Studio",
     links: [
-      { l: "Apply", h: "#contact" },
-      { l: "Strategy Call", h: "#contact" },
-      { l: "Voices", h: "#voices" },
-      { l: "Insights", h: "#insights" },
+      { l: "Home", h: "#" },
+      { l: "Portfolio", h: "#work" },
+      { l: "Gallery", h: "#gallery" },
+      { l: "Clients", h: "#voices" },
+      { l: "Blog", h: "#insights" },
+      { l: "About", h: "#studio" },
     ],
   },
   {
     title: "Connect",
     links: [
-      { l: "LinkedIn", h: "#" },
       { l: "Instagram", h: "#" },
-      { l: "X / Twitter", h: "#" },
+      { l: "LinkedIn", h: "#" },
+      { l: "Behance", h: "#" },
       { l: "Dribbble", h: "#" },
     ],
   },
@@ -54,24 +58,42 @@ const Footer = () => {
     <footer ref={ref} className="relative bg-background border-t border-border overflow-hidden">
       <div className="absolute inset-0 glow-bg pointer-events-none opacity-60" />
 
-      <div className="relative max-w-[1500px] mx-auto px-6 sm:px-10 lg:px-24 pt-24 sm:pt-32 lg:pt-40 pb-10">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
+      <div className="relative max-w-[1500px] mx-auto px-5 sm:px-10 lg:px-24 pt-20 sm:pt-28 lg:pt-36 pb-10">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
           <div className="lg:col-span-5">
-            <p className="eyebrow mb-6">— A Studio In Practice</p>
-            <h3 className="foot-mark font-display text-4xl sm:text-5xl lg:text-6xl leading-[1.05]">
-              Build something<br/>that <span className="italic text-accent">compounds</span>.
+            <p className="eyebrow mb-5">— Get In Touch</p>
+            <h3 className="foot-mark font-display text-3xl sm:text-4xl lg:text-5xl leading-[1.05]">
+              Ready to build<br/>something that <span className="italic text-accent">works</span>?
             </h3>
-            <p className="mt-6 sm:mt-8 text-muted-foreground max-w-md leading-relaxed">
-              Limited engagements each quarter. We reply to every serious enquiry within 48 hours.
+            <p className="mt-5 sm:mt-7 text-muted-foreground max-w-md leading-relaxed text-sm sm:text-base">
+              SmartPixel — Conversion-focused websites, apps, and growth systems for businesses that mean business.
             </p>
-            <a href="#contact" className="btn-gold mt-8 sm:mt-10">Apply To Work With Us →</a>
+            <a href="#contact" className="btn-gold mt-7 sm:mt-9">Book Your Strategy Call →</a>
+
+            {/* Glass contact strip */}
+            <div className="mt-8 sm:mt-10 grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <a href="tel:+919886069488" className="glass p-4 flex items-center gap-3 hover:border-accent/30 transition-colors">
+                <Phone size={16} className="text-accent shrink-0" />
+                <div>
+                  <div className="text-[9px] uppercase tracking-[0.3em] text-muted-foreground">Call</div>
+                  <div className="text-sm font-display">+91 98860 69488</div>
+                </div>
+              </a>
+              <a href="https://wa.me/919886069488" className="glass p-4 flex items-center gap-3 hover:border-accent/30 transition-colors">
+                <MessageCircle size={16} className="text-accent shrink-0" />
+                <div>
+                  <div className="text-[9px] uppercase tracking-[0.3em] text-muted-foreground">WhatsApp</div>
+                  <div className="text-sm font-display">Chat with us</div>
+                </div>
+              </a>
+            </div>
           </div>
 
           <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8 sm:gap-12 lg:gap-8 lg:pl-10">
             {cols.map((c) => (
               <div key={c.title} className="foot-col">
                 <p className="text-[10px] uppercase tracking-[0.3em] text-accent mb-5 sm:mb-6">— {c.title}</p>
-                <ul className="space-y-3 sm:space-y-4">
+                <ul className="space-y-3">
                   {c.links.map((lk) => (
                     <li key={lk.l}>
                       <a href={lk.h} className="group inline-flex items-center gap-2 text-sm text-foreground/80 hover:text-accent transition-colors duration-500">
@@ -83,31 +105,31 @@ const Footer = () => {
                 </ul>
               </div>
             ))}
-            <div className="foot-col col-span-2 sm:col-span-3 lg:col-span-3">
+            <div className="foot-col col-span-2 sm:col-span-3">
               <p className="text-[10px] uppercase tracking-[0.3em] text-accent mb-5 sm:mb-6">— Studio</p>
-              <address className="not-italic text-sm text-muted-foreground leading-[1.9]">
-                hello@startwithus.studio<br/>
-                +91 98 0000 0000<br/>
-                Bengaluru · London · Dubai
+              <address className="not-italic text-sm text-muted-foreground leading-[1.9] flex flex-col gap-2">
+                <span className="flex items-center gap-2"><Mail size={13} className="text-accent" /> workwithsmartpixel@gmail.com</span>
+                <span className="flex items-center gap-2"><Phone size={13} className="text-accent" /> +91 98860 69488</span>
+                <span className="flex items-center gap-2"><MapPin size={13} className="text-accent" /> Chrompet, Chennai · smartpixel.in</span>
               </address>
             </div>
           </div>
         </div>
 
         {/* Wordmark */}
-        <div className="mt-20 sm:mt-28 lg:mt-32 overflow-hidden">
-          <div className="foot-mark font-display text-[18vw] leading-[0.85] tracking-tight whitespace-nowrap text-foreground/[0.07] select-none">
-            Start·With·Us
+        <div className="mt-16 sm:mt-24 lg:mt-28 overflow-hidden">
+          <div className="foot-mark font-display text-[20vw] leading-[0.85] tracking-tight whitespace-nowrap text-foreground/[0.07] select-none">
+            Smart·Pixel
           </div>
         </div>
 
-        <div className="mt-10 pt-8 border-t border-border flex flex-wrap items-center justify-between gap-5 text-[11px] uppercase tracking-[0.3em] text-muted-foreground">
+        <div className="mt-8 pt-7 border-t border-border flex flex-wrap items-center justify-between gap-4 text-[11px] uppercase tracking-[0.3em] text-muted-foreground">
           <div className="flex items-center gap-3">
             <span className="inline-block h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
-            Accepting Q3 partners
+            Accepting new projects
           </div>
-          <div>© {new Date().getFullYear()} Start With Us — All rights reserved</div>
-          <div className="flex gap-6">
+          <div>© {new Date().getFullYear()} SmartPixel — All rights reserved</div>
+          <div className="flex gap-5">
             <a href="#" className="hover:text-accent transition-colors">Privacy</a>
             <a href="#" className="hover:text-accent transition-colors">Terms</a>
           </div>
