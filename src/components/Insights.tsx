@@ -52,7 +52,7 @@ const Insights = () => {
   return (
     <section id="insights" ref={ref} className="bg-background py-24 sm:py-32 lg:py-48 px-6 sm:px-10 lg:px-24">
       <div className="max-w-[1500px] mx-auto">
-        <div className="flex items-end justify-between mb-16 sm:mb-24 flex-wrap gap-6 sm:gap-8">
+        <div className="flex items-end justify-between mb-12 sm:mb-20 flex-wrap gap-6 sm:gap-8">
           <div>
             <p className="eyebrow mb-4 sm:mb-6">— Field Notes</p>
             <h2 className="font-display text-4xl sm:text-5xl md:text-7xl leading-[1] max-w-3xl">
