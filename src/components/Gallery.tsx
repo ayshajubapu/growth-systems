@@ -36,15 +36,15 @@ const Gallery = () => {
   return (
     <section id="gallery" ref={ref} className="bg-background py-24 sm:py-32 lg:py-48 px-6 sm:px-10 lg:px-24 border-t border-border">
       <div className="max-w-[1500px] mx-auto">
-        <div className="flex items-end justify-between mb-16 sm:mb-24 flex-wrap gap-6 sm:gap-8">
+        <div className="flex items-end justify-between mb-12 sm:mb-20 flex-wrap gap-6 sm:gap-8">
           <div>
             <p className="eyebrow mb-4 sm:mb-6">— Gallery</p>
             <h2 className="font-display text-4xl sm:text-5xl md:text-7xl leading-[1] max-w-3xl">
-              Selected <span className="italic text-accent">artefacts</span><br/>from the studio.
+              Selected <span className="italic text-accent">work</span><br/>from the studio.
             </h2>
           </div>
-          <p className="text-muted-foreground max-w-sm leading-relaxed">
-            A small archive of recent work — brand systems, sites, and campaigns built for compounding.
+          <p className="text-muted-foreground max-w-sm leading-relaxed text-sm sm:text-base">
+            Recent websites, apps, and e-commerce builds — across travel, education, retail and beyond.
           </p>
         </div>
 
