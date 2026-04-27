@@ -6,32 +6,32 @@ gsap.registerPlugin(ScrollTrigger);
 
 const posts = [
   {
-    cat: "Training",
+    cat: "Web Development",
     date: "Apr 2026",
     read: "8 min",
-    title: "Why corporate training fails at month three — and the curriculum fix that reverses it.",
-    excerpt: "The structural reasons skill retention drops, and how modular design solves it.",
+    title: "Why most business websites collect compliments instead of customers — and the rebuild that fixes it.",
+    excerpt: "The structural reasons sites fail to convert, and the conversion-led architecture we use instead.",
   },
   {
-    cat: "Web Development",
+    cat: "Mobile Apps",
     date: "Mar 2026",
     read: "10 min",
-    title: "What colleges get wrong about their websites (and why it costs them applicants).",
-    excerpt: "Institutional sites optimised for administrators, not students. Here's the difference.",
+    title: "Most apps get deleted in a week. Here's what the ones that survive get right.",
+    excerpt: "A practical breakdown of speed, simplicity, and UX patterns that earn second opens.",
   },
   {
     cat: "Digital Marketing",
     date: "Mar 2026",
     read: "7 min",
-    title: "Performance marketing for service businesses: why CAC math looks different here.",
-    excerpt: "A practical breakdown for training providers, agencies, and professional services.",
+    title: "Traffic is vanity. The marketing math that actually grows a service business.",
+    excerpt: "Why CAC, LTV and pipeline beat impressions and clicks — for agencies, retailers, and operators.",
   },
   {
-    cat: "Design",
+    cat: "E-Commerce",
     date: "Feb 2026",
     read: "6 min",
-    title: "The brand consistency problem most growing companies don't notice until it's expensive.",
-    excerpt: "Design debt is real. How to audit and fix it before it undermines your credibility.",
+    title: "The leaks in your e-commerce funnel — and how to find them before your competitors do.",
+    excerpt: "From product page to checkout, the patterns that kill revenue across Shopify and WooCommerce stores.",
   },
 ];
 
@@ -52,7 +52,7 @@ const Insights = () => {
   return (
     <section id="insights" ref={ref} className="bg-background py-24 sm:py-32 lg:py-48 px-6 sm:px-10 lg:px-24">
       <div className="max-w-[1500px] mx-auto">
-        <div className="flex items-end justify-between mb-16 sm:mb-24 flex-wrap gap-6 sm:gap-8">
+        <div className="flex items-end justify-between mb-12 sm:mb-20 flex-wrap gap-6 sm:gap-8">
           <div>
             <p className="eyebrow mb-4 sm:mb-6">— Field Notes</p>
             <h2 className="font-display text-4xl sm:text-5xl md:text-7xl leading-[1] max-w-3xl">

@@ -17,29 +17,35 @@ const About = () => {
   }, []);
 
   return (
-    <section id="studio" ref={ref} className="bg-surface py-24 sm:py-32 lg:py-48 px-6 sm:px-10 lg:px-24 border-y border-border">
+    <section id="studio" ref={ref} className="bg-surface py-20 sm:py-32 lg:py-40 px-5 sm:px-10 lg:px-24 border-y border-border">
       <div className="max-w-[1500px] mx-auto grid lg:grid-cols-12 gap-12 lg:gap-16">
         <div className="lg:col-span-4">
-          <p className="about-line eyebrow mb-4 sm:mb-6">— The Studio</p>
+          <p className="about-line eyebrow mb-4 sm:mb-6">— Built On What Works</p>
           <h2 className="about-line font-display text-4xl sm:text-5xl md:text-6xl leading-[1.05]">
-            A studio that builds<br/>what businesses<br/>actually <span className="italic text-accent">need</span>.
+            Industry-grade tools.<br/>No unnecessary <span className="italic text-accent">complexity</span>.
           </h2>
         </div>
         <div className="lg:col-span-7 lg:col-start-6 space-y-8 sm:space-y-10">
           <p className="about-line text-lg sm:text-xl leading-[1.7] text-foreground/90">
-            Start With Us was founded on a simple premise: that the best companies don't separate training, design, and marketing — they treat them as one connected growth system.
+            We use the stack that gets the job done — not the one that looks impressive in a pitch deck. Every choice made for performance, maintainability, and your long-term benefit.
           </p>
-          <p className="about-line text-muted-foreground leading-relaxed">
-            We partner with corporate teams, colleges, and institutions that want all three done well, without the overhead of managing multiple vendors. Every engagement is led by a senior practitioner. No layers, no handoffs, no excuses.
-          </p>
-          <div className="about-line grid grid-cols-3 gap-px bg-border mt-10 sm:mt-12">
+
+          <div className="about-line grid grid-cols-3 sm:grid-cols-4 gap-2 sm:gap-3">
+            {["React", "Next.js", "Node.js", "TypeScript", "Tailwind", "MongoDB", "PostgreSQL", "GraphQL", "AWS", "Stripe", "Figma", "GSAP"].map((t) => (
+              <div key={t} className="glass px-3 py-3 sm:px-4 sm:py-4 text-center text-xs sm:text-sm font-display tracking-tight hover:text-accent transition-colors">
+                {t}
+              </div>
+            ))}
+          </div>
+
+          <div className="about-line grid grid-cols-3 gap-px bg-border mt-6 sm:mt-10">
             {[
-              ["9", "Years in practice"],
-              ["3,200+", "Professionals trained"],
-              ["60+", "Institutions partnered"],
+              ["15+", "Trusted clients"],
+              ["98%", "Satisfaction"],
+              ["3×", "Conversion lift"],
             ].map(([v, l]) => (
-              <div key={l} className="bg-surface p-5 sm:p-8">
-                <div className="num-display text-3xl sm:text-4xl text-accent mb-2 sm:mb-3">{v}</div>
+              <div key={l} className="bg-surface p-4 sm:p-7">
+                <div className="num-display text-2xl sm:text-4xl text-accent mb-2 sm:mb-3">{v}</div>
                 <div className="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-muted-foreground">{l}</div>
               </div>
             ))}
