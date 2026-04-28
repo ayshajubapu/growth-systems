@@ -12,3 +12,6 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+Sitemap: https://www.smartpixel.in/sitemap.xml
+Host: https://www.smartpixel.in
