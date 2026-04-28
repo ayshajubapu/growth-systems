@@ -138,7 +138,7 @@ const HorizontalScroll = () => {
       <div
         ref={trackRef}
         className={isDesktop ? "flex h-screen will-change-transform" : "flex flex-col"}
-        style={isDesktop ? { width: "max-content" } : undefined}
+        style={isDesktop ? { width: "max-content" } :   undefined}
       >
         
   {/* SEO */}
