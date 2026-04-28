@@ -3,7 +3,7 @@ import Nav from "@/components/Nav";
 import HorizontalScroll from "@/components/HorizontalScroll";
 import ServicesDeep from "@/components/ServicesDeep";
 import CaseStudies from "@/components/CaseStudies";
-import Gallery from "@/components/Gallery";
+
 import Testimonials from "@/components/Testimonials";
 import Insights from "@/components/Insights";
 import About from "@/components/About";
@@ -34,7 +34,7 @@ const Index = () => {
       <HorizontalScroll />
       <ServicesDeep />
       <CaseStudies />
-      <Gallery />
+     
       <Testimonials />
       <Insights />
       <About />

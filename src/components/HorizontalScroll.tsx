@@ -7,6 +7,7 @@ import imgMarketing from "@/assets/sp-marketing.jpg";
 import imgDesign from "@/assets/sp-design.jpg";
 import imgEcom from "@/assets/sp-ecom.jpg";
 import imgHero from "@/assets/sp-hero.jpg";
+import { Helmet } from "react-helmet-async";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -139,60 +140,173 @@ const HorizontalScroll = () => {
         className={isDesktop ? "flex h-screen will-change-transform" : "flex flex-col"}
         style={isDesktop ? { width: "max-content" } : undefined}
       >
-        {/* PANEL 1 — HERO */}
-        <section className={`panel relative ${isDesktop ? "w-screen h-screen shrink-0" : "min-h-[100svh] w-full"} flex items-center px-5 sm:px-10 lg:px-24 pt-28 pb-16 lg:py-0`}>
-          {/* Hero background image */}
-          <div className="absolute inset-0">
-            <img
-              src={imgHero}
-              alt="Premium digital agency hero"
-              className="w-full h-full object-cover opacity-30 lg:opacity-40"
-              fetchPriority="high"
-              width={1920}
-              height={1080}
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/30" />
-          </div>
-          <div className="absolute inset-0 glow-bg pointer-events-none" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vmin] h-[80vmin] rounded-full opacity-[0.05] bg-accent blur-3xl" />
+        
+  {/* SEO */}
+  <Helmet>
+    <title>
+      SmartPixel | Website Development Company in Chennai
+    </title>
 
-          <div className="relative max-w-6xl">
-            <div data-reveal className="glass inline-flex items-center gap-2 px-3 py-1.5 mb-6 lg:mb-8 text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
-              <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-              SmartPixel · Chrompet, Chennai
-            </div>
-            <h1 data-reveal className="font-display text-[10.5vw] sm:text-[8.5vw] md:text-[7vw] lg:text-[6.2vw] leading-[1] tracking-tight text-balance">
-              Your website should be your<br className="hidden sm:block"/> <span className="italic text-accent">best salesperson</span>.<br/>
-              <span className="text-muted-foreground">Most aren't.</span>
-            </h1>
-            <p data-reveal className="mt-6 sm:mt-8 lg:mt-10 text-base sm:text-lg text-muted-foreground max-w-2xl tracking-wide leading-relaxed">
-              We build websites, apps, and e-commerce stores that actually earn their keep — designed to convert visitors into paying customers, not just collect compliments.
-            </p>
-            <div data-reveal className="mt-8 sm:mt-10 lg:mt-14 flex flex-wrap gap-3 sm:gap-4">
-              <a href="#contact" className="btn-gold">Let's Talk About Your Project →</a>
-              <a href="#work" className="btn-ghost">See Our Work</a>
-            </div>
+    <meta
+      name="description"
+      content="SmartPixel is a premium Chennai website development company building websites, mobile apps, ecommerce stores and digital marketing systems that generate leads and sales."
+    />
 
-            {/* Glass stat strip */}
-            <div data-reveal className="mt-10 sm:mt-14 grid grid-cols-3 gap-3 max-w-2xl">
-              {[
-                ["15+", "Trusted clients"],
-                ["2 wks", "Avg launch"],
-                ["3×", "Conv. lift"],
-              ].map(([v, l]) => (
-                <div key={l} className="glass px-4 py-3 sm:px-5 sm:py-4">
-                  <div className="num-display text-xl sm:text-2xl text-accent">{v}</div>
-                  <div className="text-[9px] sm:text-[10px] uppercase tracking-[0.25em] text-muted-foreground mt-1">{l}</div>
-                </div>
-              ))}
-            </div>
+    <meta
+      name="keywords"
+      content="website development Chennai, web design Chennai, ecommerce Chennai, app development Chennai, SEO Chennai, SmartPixel"
+    />
+
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="SmartPixel" />
+
+    <link rel="canonical" href="https://smartpixel.in/" />
+
+    {/* Open Graph */}
+    <meta
+      property="og:title"
+      content="SmartPixel | Premium Website & App Company Chennai"
+    />
+
+    <meta
+      property="og:description"
+      content="We build websites, apps, ecommerce stores and growth systems that convert visitors into paying customers."
+    />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://smartpixel.in/" />
+    <meta property="og:image" content="https://smartpixel.in/logo.png" />
+
+    {/* Twitter */}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="SmartPixel Chennai"
+    />
+    <meta
+      name="twitter:description"
+      content="Websites, apps, ecommerce and SEO systems built for growth."
+    />
+    <meta name="twitter:image" content="https://smartpixel.in/logo.png" />
+
+    {/* Schema */}
+    <script type="application/ld+json">
+      {JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        name: "SmartPixel",
+        url: "https://smartpixel.in",
+        logo: "https://smartpixel.in/logo.png",
+        image: "https://smartpixel.in/logo.png",
+        telephone: "+91-9886069488",
+        email: "workwithsmartpixel@gmail.com",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Chennai",
+          addressRegion: "Tamil Nadu",
+          addressCountry: "IN",
+        },
+        sameAs: [
+          "https://www.instagram.com/smartpiixel/",
+          "https://www.threads.net/@smartpiixel"
+        ],
+        serviceType: [
+          "Website Development",
+          "Web Design",
+          "Ecommerce Development",
+          "Mobile App Development",
+          "SEO Services",
+          "Digital Marketing"
+        ]
+      })}
+    </script>
+  </Helmet>
+
+ 
+  {/* PANEL 1 — HERO */}
+<section
+  className={`panel relative ${
+    isDesktop
+      ? "w-screen h-screen shrink-0"
+      : "min-h-[100svh] w-full"
+  } flex items-center justify-center px-5 sm:px-10 lg:px-24 pt-28 pb-16 lg:py-0`}
+>
+  {/* Hero background image */}
+  <div className="absolute inset-0">
+    <img
+      src={imgHero}
+      alt="Premium digital agency hero"
+      className="w-full h-full object-cover opacity-30 lg:opacity-40"
+      fetchPriority="high"
+      width={1920}
+      height={1080}
+    />
+    <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/30" />
+  </div>
+
+  <div className="absolute inset-0 glow-bg pointer-events-none" />
+  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vmin] h-[80vmin] rounded-full opacity-[0.05] bg-accent blur-3xl" />
+
+  {/* LOWERED CONTENT */}
+  <div className="relative max-w-6xl mx-auto text-center translate-y-8 sm:translate-y-10 lg:translate-y-12">
+    
+    <h1
+      data-reveal
+      className="font-display text-[10.5vw] sm:text-[8.5vw] md:text-[7vw] lg:text-[6.2vw] leading-[1] tracking-tight text-balance"
+    >
+      Your website should be your
+      <br className="hidden sm:block" />
+      <span className="italic text-accent">best salesperson</span>.
+      <br />
+      <span className="text-muted-foreground">Most aren't.</span>
+    </h1>
+
+    <p
+      data-reveal
+      className="mt-6 sm:mt-8 lg:mt-10 text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto tracking-wide leading-relaxed"
+    >
+      We build websites, apps, and e-commerce stores that actually earn their keep — designed to convert visitors into paying customers, not just collect compliments.
+    </p>
+
+    <div
+      data-reveal
+      className="mt-8 sm:mt-10 lg:mt-14 flex flex-wrap justify-center gap-3 sm:gap-4"
+    >
+      <a href="#contact" className="btn-gold">
+        Let's Talk About Your Project →
+      </a>
+      <a href="#work" className="btn-ghost">
+        See Our Work
+      </a>
+    </div>
+
+    <div
+      data-reveal
+      className="mt-10 sm:mt-14 grid grid-cols-3 gap-3 max-w-2xl mx-auto"
+    >
+      {[
+        ["15+", "Trusted clients"],
+        ["2 wks", "Avg launch"],
+        ["3×", "Conv. lift"],
+      ].map(([v, l]) => (
+        <div key={l} className="glass px-4 py-3 sm:px-5 sm:py-4">
+          <div className="num-display text-xl sm:text-2xl text-accent">
+            {v}
           </div>
-          {isDesktop && (
-            <div className="absolute bottom-10 right-10 text-xs uppercase tracking-[0.4em] text-muted-foreground rotate-90 origin-bottom-right">
-              Scroll —
-            </div>
-          )}
-        </section>
+          <div className="text-[9px] sm:text-[10px] uppercase tracking-[0.25em] text-muted-foreground mt-1">
+            {l}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  {isDesktop && (
+    <div className="absolute bottom-10 right-10 text-xs uppercase tracking-[0.4em] text-muted-foreground rotate-90 origin-bottom-right">
+      Scroll —
+    </div>
+  )}
+</section>
 
         {/* PANEL 2 — SERVICES */}
         <section className={`panel relative ${isDesktop ? "w-screen h-screen shrink-0" : "w-full"} flex flex-col justify-center px-5 sm:px-10 lg:px-24 py-16 lg:py-12`}>
@@ -308,7 +422,7 @@ const HorizontalScroll = () => {
 
       {/* Marquee — client ticker */}
       <div className="relative overflow-hidden border-y border-border bg-background py-5 lg:py-7">
-        <p className="absolute top-2 left-1/2 -translate-x-1/2 text-[9px] uppercase tracking-[0.4em] text-muted-foreground/60">— Trusted across travel, education, retail & beyond</p>
+        <p className="absolute top-2 left-1/2 -translate-x-1/2 text-[9px] uppercase tracking-[0.4em] text-muted-foreground/60"></p>
         <div className="flex whitespace-nowrap animate-marquee gap-12 text-muted-foreground mt-3">
           {Array.from({ length: 2 }).map((_, k) => (
             <div key={k} className="flex items-center gap-12 shrink-0">

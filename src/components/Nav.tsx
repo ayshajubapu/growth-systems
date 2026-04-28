@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { Menu, X, Phone } from "lucide-react";
+import logo from "@/public/logo.png";
 
 const links = [
   { href: "#systems", label: "Services" },
   { href: "#work", label: "Portfolio" },
-  { href: "#gallery", label: "Gallery" },
+ 
   { href: "#voices", label: "Clients" },
   { href: "#insights", label: "Blog" },
   { href: "#studio", label: "About" },
@@ -33,10 +34,21 @@ const Nav = () => {
         }`}
       >
         <div className="max-w-[1600px] mx-auto px-5 sm:px-8 lg:px-14 flex items-center justify-between gap-4">
-          <a href="#" onClick={() => setOpen(false)} className="font-display text-xl sm:text-2xl tracking-tight flex items-center gap-2">
-            <span className="inline-block w-2 h-2 rounded-full bg-accent animate-pulse" />
-            Smart<span className="text-accent">Pixel</span>
-          </a>
+      <a
+  href="#"
+  onClick={() => setOpen(false)}
+  className="font-display text-xl sm:text-2xl tracking-tight flex items-center gap-3"
+>
+  <img
+    src="/logo.png"
+    alt="SmartPixel Logo"
+    className="w-10 h-10 object-contain"
+  />
+
+  <span>
+    Smart<span className="text-accent">Pixel</span>
+  </span>
+</a>
           <nav className="hidden lg:flex items-center gap-8 xl:gap-10 text-xs uppercase tracking-[0.25em] text-muted-foreground">
             {links.map((l) => (
               <a key={l.href} href={l.href} className="relative hover:text-foreground transition-colors group py-2">
