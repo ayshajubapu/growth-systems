@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Menu, X, Phone } from "lucide-react";
-import logo from "@/public/logo.png";
 
 const links = [
   { href: "#systems", label: "Services" },

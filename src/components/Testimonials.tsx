@@ -27,6 +27,8 @@ type Card = {
   src?: string;
   /** ghost = empty rounded card (background filler at far edges) */
   ghost?: boolean;
+  /** anonymous = blur this client's portrait for privacy */
+  anonymous?: boolean;
   x: number; // percentage from left of container
   y: number; // px vertical offset (lower = pushed down)
   rot: number; // rotation degrees
@@ -35,24 +37,21 @@ type Card = {
   delay: number;
 };
 
+// 12 portrait cards arranged in a downward-dipping arc.
+// Toggle `anonymous: true` on any card to ship with a blurred face for privacy.
 const cards: Card[] = [
-  { ghost: true, x: 2,  y: -30, rot: 0, w: 110, z: 1,  delay: 0 },
-  { src: p1,   x: 8,  y: 60,  rot: -2, w: 130, z: 4,  delay: 0.05 },
-  { src: p2,   x: 17, y: 0,   rot: -3, w: 130, z: 5,  delay: 0.1 },
-  { ghost: true, x: 23, y: -40, rot: 0, w: 110, z: 1,  delay: 0.05 },
-  { src: p12,  x: 22, y: 110, rot: 2,  w: 130, z: 3,  delay: 0.15 },
-  { src: p3,   x: 30, y: 60,  rot: -1, w: 130, z: 4,  delay: 0.2 },
-  { src: p4,   x: 39, y: 30,  rot: 1,  w: 140, z: 6,  delay: 0.25 },
-  { ghost: true, x: 47, y: -30, rot: 0, w: 110, z: 1,  delay: 0.1 },
-  { src: p5,   x: 49, y: 80,  rot: -1, w: 140, z: 5,  delay: 0.3 },
-  { src: p6,   x: 60, y: 30,  rot: 2,  w: 140, z: 6,  delay: 0.35 },
-  { ghost: true, x: 70, y: -40, rot: 0, w: 110, z: 1,  delay: 0.15 },
-  { src: p7,   x: 71, y: 60,  rot: -2, w: 140, z: 4,  delay: 0.4 },
-  { src: p8,   x: 82, y: 0,   rot: 3,  w: 130, z: 5,  delay: 0.45 },
-  { src: p10,  x: 88, y: 130, rot: -3, w: 130, z: 3,  delay: 0.5 },
-  { src: p9,   x: 92, y: 50,  rot: 2,  w: 130, z: 4,  delay: 0.55 },
-  { ghost: true, x: 97, y: -20, rot: 0, w: 100, z: 1,  delay: 0.2 },
-  { src: p11,  x: 0.5, y: 200, rot: -2, w: 120, z: 3, delay: 0.6 },
+  { src: p1,  x: 6,  y: 70,  rot: -3, w: 140, z: 4, delay: 0.05 },
+  { src: p2,  x: 15, y: 20,  rot: -2, w: 140, z: 5, delay: 0.10 },
+  { src: p3,  x: 24, y: 90,  rot:  2, w: 140, z: 4, delay: 0.15 },
+  { src: p4,  x: 33, y: 35,  rot: -1, w: 150, z: 6, delay: 0.20 },
+  { src: p5,  x: 42, y: 95,  rot:  1, w: 150, z: 5, delay: 0.25 },
+  { src: p6,  x: 50, y: 50,  rot: -2, w: 160, z: 7, delay: 0.30 },
+  { src: p7,  x: 58, y: 95,  rot:  2, w: 150, z: 5, delay: 0.35 },
+  { src: p8,  x: 67, y: 35,  rot: -1, w: 150, z: 6, delay: 0.40 },
+  { src: p9,  x: 76, y: 90,  rot:  3, w: 140, z: 4, delay: 0.45 },
+  { src: p10, x: 85, y: 25,  rot: -2, w: 140, z: 5, delay: 0.50, anonymous: true },
+  { src: p11, x: 94, y: 80,  rot:  2, w: 140, z: 4, delay: 0.55 },
+  { src: p12, x: 39, y: 165, rot: -2, w: 130, z: 3, delay: 0.60, anonymous: true },
 ];
 
 const Testimonials = () => {
@@ -166,14 +165,23 @@ const Testimonials = () => {
                   }}
                 >
                   {!c.ghost && c.src && (
-                    <img
-                      src={c.src}
-                      alt="SmartPixel client"
-                      width={512}
-                      height={768}
-                      loading="lazy"
-                      className="w-full h-full object-cover"
-                    />
+                    <div className="relative w-full h-full overflow-hidden">
+                      <img
+                        src={c.src}
+                        alt={c.anonymous ? "Anonymous SmartPixel client" : "SmartPixel client"}
+                        width={512}
+                        height={768}
+                        loading="lazy"
+                        className={`w-full h-full object-cover transition-all duration-700 ${
+                          c.anonymous ? "blur-md scale-110" : ""
+                        }`}
+                      />
+                      {c.anonymous && (
+                        <span className="absolute bottom-2 left-1/2 -translate-x-1/2 text-[8px] uppercase tracking-[0.2em] text-foreground/70 px-2 py-0.5 rounded-full bg-background/60 backdrop-blur-md border border-white/10">
+                          Private
+                        </span>
+                      )}
+                    </div>
                   )}
                 </div>
               </div>

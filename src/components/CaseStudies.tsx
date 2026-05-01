@@ -2,131 +2,97 @@ import { Helmet } from "react-helmet-async";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { TrendingUp } from "lucide-react";
+
+import cs1b from "@/assets/cs-1-before.jpg";
+import cs1a from "@/assets/cs-1-after.jpg";
+import cs2b from "@/assets/cs-2-before.jpg";
+import cs2a from "@/assets/cs-2-after.jpg";
+import cs3b from "@/assets/cs-3-before.jpg";
+import cs3a from "@/assets/cs-3-after.jpg";
+import cs4b from "@/assets/cs-4-before.jpg";
+import cs4a from "@/assets/cs-4-after.jpg";
+import cs5b from "@/assets/cs-5-before.jpg";
+import cs5a from "@/assets/cs-5-after.jpg";
+import cs6b from "@/assets/cs-6-before.jpg";
+import cs6a from "@/assets/cs-6-after.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const cases = [
- {
+  {
     client: "Triumph Travels",
     industry: "Travel",
-    before: "Outdated branding",
-    after: "Modern growth site",
-    metric: "+Leads",
-    body: "Modernized online presence with faster pages and better enquiry flow.",
+    quote: "Modernized online presence with faster pages and better enquiry flow.",
     person: "Client",
+    before: cs1b,
+    after: cs1a,
+    metric: "+Leads",
+    metricSub: "Generated",
     link: "https://triumphtravels.com/",
   },
   {
     client: "Priya Silver Jewellery",
     industry: "Jewellery",
-    before: "Offline only feel",
-    after: "Luxury online presence",
-    metric: "+Sales",
-    body: "Elegant e-commerce ready design crafted for jewellery buyers.",
+    quote: "Elegant e-commerce ready design crafted for jewellery buyers.",
     person: "Client",
+    before: cs2b,
+    after: cs2a,
+    metric: "+Sales",
+    metricSub: "Increase",
     link: "https://www.priyasilverjewellery.com/",
   },
   {
     client: "Fotrio Edu",
     industry: "Education",
-    before: "Low visibility",
-    after: "Modern trust brand",
-    metric: "+Enrollments",
-    body: "Built a student-first website with clarity and strong calls to action.",
+    quote: "Built a student-first website with clarity and strong calls to action.",
     person: "Client",
+    before: cs3b,
+    after: cs3a,
+    metric: "+Enrollments",
+    metricSub: "Growth",
     link: "https://fotrioedu.com/",
   },
   {
     client: "Gulf To World Consultants",
     industry: "Immigration",
-    before: "No premium presence",
-    after: "Lead-ready website",
-    metric: "+Trust",
-    body: "Created a premium immigration website focused on authority, trust, and conversion.",
+    quote: "Created a premium immigration website focused on authority, trust, and conversion.",
     person: "Client",
+    before: cs4b,
+    after: cs4a,
+    metric: "+Trust",
+    metricSub: "Built",
     link: "https://gulftoworldconsultants.com/",
   },
   {
     client: "Travel Hub Tambaram",
     industry: "Travel & Tourism",
-    before: "Mostly idle site",
-    after: "3× booked calls",
-    metric: "+200%",
-    body: "Full rebuild focused on getting visitors to actually book a call. Within the first month, booked calls tripled.",
+    quote: "Full rebuild focused on getting visitors to actually book a call. Within the first month, booked calls tripled.",
     person: "Junaid",
+    before: cs5b,
+    after: cs5a,
+    metric: "+200%",
+    metricSub: "Booked Calls",
     link: "https://www.travelhubtambaram.in/",
   },
   {
     client: "LTS Learning Academy",
     industry: "Education",
-    before: "Generic site",
-    after: "Conversion-led rebuild",
-    metric: "3 weeks",
-    body: "Three weeks from kickoff to a live website. Built with enquiry-focused structure and premium trust design.",
+    quote: "Three weeks from kickoff to a live website. Built with enquiry-focused structure and premium trust design.",
     person: "Gagan",
+    before: cs6b,
+    after: cs6a,
+    metric: "3 Weeks",
+    metricSub: "Turnaround",
     link: "https://www.ltslearningacademy.com/",
   },
+];
 
-  {
-    client: "Surya Prakash Metals",
-    industry: "Manufacturing",
-    before: "3 disconnected vendors",
-    after: "1 team, 1 conversation",
-    metric: "+ROI",
-    body: "One team, one conversation, one result-driven website that actually generates business.",
-    person: "Amit",
-    link: "https://suryaprakashmetals.com/",
-  },
-  {
-    client: "Manohar Jewelleries",
-    industry: "Jewellery",
-    before: "Traditional only",
-    after: "Premium showcase",
-    metric: "+Walk-ins",
-    body: "Designed a premium digital showroom to attract local buyers.",
-    person: "Client",
-    link: "https://www.manoharjewelleries.com/",
-  },
-  {
-    client: "Ayishro",
-    industry: "Fashion",
-    before: "No online identity",
-    after: "Brand website",
-    metric: "+Branding",
-    body: "Created a clean premium fashion website for customer trust and reach.",
-    person: "Client",
-    link: "https://ayishro.com/",
-  },
-  {
-    client: "Manha Hajj & Umrah",
-    industry: "Religious Travel",
-    before: "No funnel",
-    after: "Booking ready site",
-    metric: "+Calls",
-    body: "Simple and trust-focused website for Hajj & Umrah enquiries.",
-    person: "Client",
-    link: "http://manhahajjandumrahservice.in/",
-  },
-  {
-  client: "Flying Bird Solution",
-  industry: "Business Services",
-  before: "No strong online presence",
-  after: "Professional business website",
-  metric: "+Leads",
-  body: "Built a clean and modern business website focused on credibility, enquiries, and growth.",
-  person: "Client",
-  link: "https://flyingbirdsolution.netlify.app/",
-},
-{
-  client: "Blossom Bloom",
-  industry: "Flowers & Gifts",
-  before: "No digital storefront",
-  after: "Elegant brand website",
-  metric: "+Orders",
-  body: "Created a visually appealing floral website designed to attract customers and increase online orders.",
-  person: "Client",
-  link: "https://blossom-bloom.vercel.app/",
-},
+const stats = [
+  { v: "250+", l: "Projects Completed" },
+  { v: "120+", l: "Happy Clients" },
+  { v: "98%", l: "Success Rate" },
+  { v: "5+", l: "Years of Experience" },
 ];
 
 const CaseStudies = () => {
@@ -134,164 +100,169 @@ const CaseStudies = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.utils.toArray<HTMLElement>(".case-card").forEach((c) => {
+      gsap.utils.toArray<HTMLElement>(".cs-row").forEach((c) => {
         gsap.from(c, {
-          y: 100,
+          y: 60,
           opacity: 0,
-          duration: 1.2,
+          duration: 1,
           ease: "power3.out",
-          scrollTrigger: {
-            trigger: c,
-            start: "top 85%",
-          },
+          scrollTrigger: { trigger: c, start: "top 88%" },
         });
       });
+      gsap.from(".cs-head > *", {
+        y: 40, opacity: 0, duration: 1, ease: "power3.out", stagger: 0.08,
+        scrollTrigger: { trigger: ref.current, start: "top 75%" },
+      });
     }, ref);
-
     return () => ctx.revert();
   }, []);
 
   return (
     <>
-      {/* SEO */}
       <Helmet>
-        <title>
-          Our Portfolio | Website Projects & Client Results | SmartPixel Chennai
-        </title>
-
-        <meta
-          name="description"
-          content="Explore SmartPixel portfolio featuring website design, ecommerce stores and growth-focused digital projects for travel, jewellery, flowers and business brands."
-        />
-
-        <meta
-          name="keywords"
-          content="SmartPixel portfolio, Chennai web design portfolio, website projects Chennai, ecommerce website examples, SmartPixel case studies"
-        />
-
+        <title>Our Work | SmartPixel Case Studies — Before & After Results</title>
+        <meta name="description" content="Real businesses, real results. Before and after web design case studies from SmartPixel — websites built to convert, designed to grow." />
         <link rel="canonical" href="https://smartpixel.in/portfolio" />
-
-        <meta
-          property="og:title"
-          content="SmartPixel Portfolio | Real Client Results"
-        />
-
-        <meta
-          property="og:description"
-          content="See how SmartPixel helps businesses grow with premium websites and conversion-focused digital systems."
-        />
-
-        <meta
-          property="og:url"
-          content="https://smartpixel.in/portfolio"
-        />
-
-        <meta property="og:type" content="website" />
-
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "CollectionPage",
-            name: "SmartPixel Portfolio",
-            url: "https://smartpixel.in/portfolio",
-            about: "Website Design Portfolio and Case Studies",
-            publisher: {
-              "@type": "Organization",
-              name: "SmartPixel",
-              url: "https://smartpixel.in",
-              logo: {
-                "@type": "ImageObject",
-                url: "https://smartpixel.in/logo.png",
-              },
-            },
-          })}
-        </script>
       </Helmet>
 
       <section
         id="work"
         ref={ref}
-        className="bg-surface py-20 sm:py-32 lg:py-40 px-5 sm:px-10 lg:px-24"
+        className="relative bg-background py-20 sm:py-28 lg:py-36 px-5 sm:px-10 lg:px-20 overflow-hidden"
       >
-        <div className="max-w-[1500px] mx-auto">
-          <div className="mb-12 sm:mb-20">
-            <p className="eyebrow mb-4 sm:mb-6">— Selected Work</p>
+        {/* Big watermark SP */}
+        <div
+          aria-hidden
+          className="absolute top-10 right-0 lg:right-10 font-display text-[28vw] lg:text-[18vw] leading-none text-foreground/[0.03] select-none pointer-events-none"
+        >
+          SP
+        </div>
 
-            <h2 className="font-display text-4xl sm:text-5xl md:text-7xl leading-[1] max-w-4xl">
+        <div className="max-w-[1500px] mx-auto relative">
+          {/* Header */}
+          <div className="cs-head mb-12 lg:mb-16">
+            <p className="eyebrow mb-5">— Our Work</p>
+            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1] max-w-3xl">
               The results speak.
               <br />
-              <span className="italic text-accent">
-                We let clients say it.
-              </span>
+              <span className="italic text-accent">We let clients say it.</span>
             </h2>
+            <p className="mt-6 text-muted-foreground max-w-md">
+              Real businesses. Real results.
+              <br />
+              Websites built to convert, designed to grow.
+            </p>
+
+            {/* Stats strip */}
+            <div className="mt-10 lg:mt-12 grid grid-cols-2 md:grid-cols-4 gap-px bg-white/5 border-y border-white/10">
+              {stats.map((s) => (
+                <div key={s.l} className="bg-background px-5 py-5 lg:py-6">
+                  <div className="num-display text-3xl md:text-4xl text-accent">{s.v}</div>
+                  <div className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground mt-2">
+                    {s.l}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
 
-          <div className="space-y-px bg-border">
+          {/* Case rows */}
+          <div className="divide-y divide-white/10 border-y border-white/10">
             {cases.map((c, i) => (
               <a
                 key={c.client}
                 href={c.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block"
+                className="cs-row group grid md:grid-cols-12 gap-6 md:gap-6 py-8 lg:py-10 items-center hover:bg-surface/40 transition-colors duration-500"
               >
-                <article className="case-card bg-background grid md:grid-cols-12 gap-6 md:gap-8 p-6 sm:p-10 lg:p-14 group hover:bg-surface transition-all duration-700 cursor-pointer">
-                  <div className="md:col-span-3">
-                    <p className="text-xs text-muted-foreground tracking-[0.3em] mb-3 sm:mb-4">
-                      CASE 0{i + 1}
-                    </p>
+                {/* Number */}
+                <div className="md:col-span-1 flex md:block items-baseline gap-3">
+                  <span className="num-display text-3xl md:text-4xl text-foreground/80">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                </div>
 
-                    <h3 className="font-display text-2xl sm:text-3xl mb-2 group-hover:text-accent transition-colors">
-                      {c.client}
-                    </h3>
+                {/* Client meta */}
+                <div className="md:col-span-3 md:pl-2 md:border-l md:border-white/10">
+                  <h3 className="font-display text-2xl md:text-[1.7rem] leading-tight group-hover:text-accent transition-colors">
+                    {c.client}
+                  </h3>
+                  <p className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground mt-2">
+                    {c.industry}
+                  </p>
+                  <p className="mt-4 text-sm text-muted-foreground italic leading-relaxed">
+                    "{c.quote}"
+                  </p>
+                  <p className="mt-3 text-[10px] uppercase tracking-[0.3em] text-accent">
+                    — {c.person}
+                  </p>
+                </div>
 
-                    <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground mb-4">
-                      {c.industry}
-                    </p>
-
-                    <p className="text-[11px] uppercase tracking-[0.25em] text-accent">
-                      — {c.person}
-                    </p>
+                {/* Before */}
+                <div className="md:col-span-3">
+                  <p className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-2">
+                    Before
+                  </p>
+                  <div className="overflow-hidden rounded-md border border-white/5 bg-surface">
+                    <img
+                      src={c.before}
+                      alt={`${c.client} before`}
+                      width={896}
+                      height={576}
+                      loading="lazy"
+                      className="w-full h-auto opacity-70 grayscale-[20%] group-hover:opacity-90 transition-all duration-700"
+                    />
                   </div>
+                </div>
 
-                  <div className="md:col-span-5 flex flex-col justify-center">
-                    <p className="text-muted-foreground leading-relaxed text-base sm:text-lg italic">
-                      "{c.body}"
-                    </p>
+                {/* After */}
+                <div className="md:col-span-3">
+                  <p className="text-[10px] uppercase tracking-[0.3em] text-accent mb-2">
+                    After
+                  </p>
+                  <div className="overflow-hidden rounded-md border border-accent/20 bg-surface shadow-[0_20px_60px_-20px_hsl(0_0%_0%/0.7)]">
+                    <img
+                      src={c.after}
+                      alt={`${c.client} after`}
+                      width={896}
+                      height={576}
+                      loading="lazy"
+                      className="w-full h-auto group-hover:scale-[1.02] transition-transform duration-700"
+                    />
                   </div>
+                </div>
 
-                  <div className="md:col-span-4 grid grid-cols-2 gap-px bg-border">
-                    <div className="bg-background p-4 sm:p-5">
-                      <p className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-2">
-                        Before
-                      </p>
-                      <p className="font-display text-base sm:text-lg text-muted-foreground">
-                        {c.before}
-                      </p>
-                    </div>
-
-                    <div className="bg-background p-4 sm:p-5">
-                      <p className="text-[10px] uppercase tracking-[0.3em] text-accent mb-2">
-                        After
-                      </p>
-                      <p className="font-display text-base sm:text-lg">
-                        {c.after}
-                      </p>
-                    </div>
-
-                    <div className="bg-background p-4 sm:p-5 col-span-2 flex items-center justify-between glass-gold">
-                      <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
-                        Outcome
-                      </span>
-
-                      <span className="num-display text-2xl sm:text-3xl text-accent">
-                        {c.metric}
-                      </span>
-                    </div>
+                {/* Outcome */}
+                <div className="md:col-span-2 md:pl-4 md:border-l md:border-white/10">
+                  <p className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-3">
+                    Outcome
+                  </p>
+                  <div className="num-display text-2xl md:text-3xl text-accent leading-tight">
+                    {c.metric}
                   </div>
-                </article>
+                  <p className="text-xs text-muted-foreground mt-1">{c.metricSub}</p>
+                  <span className="mt-4 inline-flex w-9 h-9 rounded-full border border-accent/40 items-center justify-center text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-all">
+                    <TrendingUp size={14} />
+                  </span>
+                </div>
               </a>
             ))}
+          </div>
+
+          {/* Bottom CTA bar */}
+          <div className="mt-10 lg:mt-14 glass-gold rounded-md p-6 sm:p-7 flex flex-wrap items-center justify-between gap-4">
+            <div>
+              <p className="font-display text-xl sm:text-2xl">
+                Want results like these?
+              </p>
+              <p className="text-sm text-muted-foreground mt-1">
+                Let's build something unstoppable for your business.
+              </p>
+            </div>
+            <a href="#contact" className="btn-gold">
+              Let's Talk →
+            </a>
           </div>
         </div>
       </section>
