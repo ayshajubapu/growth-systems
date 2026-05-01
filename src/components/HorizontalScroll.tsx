@@ -7,6 +7,8 @@ import imgMarketing from "@/assets/sp-marketing.jpg";
 import imgDesign from "@/assets/sp-design.jpg";
 import imgEcom from "@/assets/sp-ecom.jpg";
 import imgHero from "@/assets/sp-hero.jpg";
+import imgHero3D from "@/assets/sp-hero-3d.jpg";
+import { Play, Trophy, Users, TrendingUp, Star } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -223,89 +225,130 @@ const HorizontalScroll = () => {
   </Helmet>
 
  
-  {/* PANEL 1 — HERO */}
+  {/* PANEL 1 — HERO (reference layout) */}
 <section
   className={`panel relative ${
     isDesktop
       ? "w-screen h-screen shrink-0"
       : "min-h-[100svh] w-full"
-  } flex items-center justify-center px-5 sm:px-10 lg:px-24 pt-28 pb-16 lg:py-0`}
+  } flex flex-col px-5 sm:px-10 lg:px-20 pt-28 pb-10 lg:py-0`}
 >
-  {/* Hero background image */}
-  <div className="absolute inset-0">
-    <img
-      src={imgHero}
-      alt="Premium digital agency hero"
-      className="w-full h-full object-cover opacity-30 lg:opacity-40"
-      fetchPriority="high"
-      width={1920}
-      height={1080}
+  {/* Atmosphere */}
+  <div className="absolute inset-0 pointer-events-none">
+    <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-[hsl(0_0%_2%)]" />
+    <div
+      aria-hidden
+      className="absolute inset-0 opacity-[0.05]"
+      style={{
+        backgroundImage:
+          "repeating-linear-gradient(to right, hsl(var(--accent)) 0 1px, transparent 1px 9%)",
+      }}
     />
-    <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/30" />
+    <div className="absolute top-1/2 right-[15%] -translate-y-1/2 w-[55vmin] h-[55vmin] rounded-full opacity-[0.18] bg-accent blur-[120px]" />
   </div>
 
-  <div className="absolute inset-0 glow-bg pointer-events-none" />
-  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vmin] h-[80vmin] rounded-full opacity-[0.05] bg-accent blur-3xl" />
+  {/* Content grid: copy left / 3D logo right */}
+  <div className="relative flex-1 flex items-center w-full">
+    <div className="grid lg:grid-cols-12 gap-10 lg:gap-6 items-center w-full max-w-[1500px] mx-auto">
+      {/* LEFT — copy */}
+      <div className="lg:col-span-7 relative">
+        {/* Vertical gold tick rail */}
+        <div className="hidden lg:flex absolute -left-10 top-2 bottom-2 flex-col justify-between">
+          {Array.from({ length: 8 }).map((_, i) => (
+            <span key={i} className="block w-px h-1 bg-accent/40" />
+          ))}
+        </div>
 
-  {/* LOWERED CONTENT */}
-  <div className="relative max-w-6xl mx-auto text-center translate-y-8 sm:translate-y-10 lg:translate-y-12">
-    
-    <h1
-      data-reveal
-      className="font-display text-[10.5vw] sm:text-[8.5vw] md:text-[7vw] lg:text-[6.2vw] leading-[1] tracking-tight text-balance"
-    >
-      Your website should be your
-      <br className="hidden sm:block" />
-      <span className="italic text-accent">best salesperson</span>.
-      <br />
-      <span className="text-muted-foreground">Most aren't.</span>
-    </h1>
+        <p data-reveal className="eyebrow mb-6 text-accent">
+          — Digital solutions that drive real growth
+        </p>
 
-    <p
-      data-reveal
-      className="mt-6 sm:mt-8 lg:mt-10 text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto tracking-wide leading-relaxed"
-    >
-      We build websites, apps, and e-commerce stores that actually earn their keep — designed to convert visitors into paying customers, not just collect compliments.
-    </p>
+        <h1
+          data-reveal
+          className="font-display text-[10vw] sm:text-[8vw] lg:text-[5.6vw] xl:text-[5vw] leading-[1.02] tracking-tight text-balance"
+        >
+          Your website
+          <br className="hidden sm:block" /> should be your{" "}
+          <span className="italic text-accent">best salesperson</span>.
+          <br />
+          <span className="text-muted-foreground">Most aren't.</span>
+        </h1>
 
-    <div
-      data-reveal
-      className="mt-8 sm:mt-10 lg:mt-14 flex flex-wrap justify-center gap-3 sm:gap-4"
-    >
-      <a href="#contact" className="btn-gold">
-        Let's Talk About Your Project →
-      </a>
-      <a href="#work" className="btn-ghost">
-        See Our Work
-      </a>
+        <p
+          data-reveal
+          className="mt-6 lg:mt-8 text-base sm:text-lg text-muted-foreground max-w-xl leading-relaxed"
+        >
+          We build websites, apps, and e-commerce stores that actually earn
+          their keep — designed to convert visitors into paying customers,
+          not just collect compliments.
+        </p>
+
+        <div data-reveal className="mt-8 lg:mt-10 flex flex-wrap gap-3 sm:gap-4">
+          <a href="#contact" className="btn-gold">
+            Let's Talk About Your Project →
+          </a>
+          <a href="#work" className="btn-ghost">
+            See Our Work
+          </a>
+        </div>
+      </div>
+
+      {/* RIGHT — 3D logo render + watch showreel */}
+      <div data-reveal className="lg:col-span-5 relative flex items-center justify-center">
+        <div className="relative w-full max-w-[520px] aspect-square">
+          <img
+            src={imgHero3D}
+            alt="SmartPixel premium 3D SP monogram with code window"
+            fetchPriority="high"
+            width={1024}
+            height={1024}
+            className="w-full h-full object-cover rounded-2xl"
+          />
+          <div className="absolute inset-0 rounded-2xl ring-1 ring-white/5" />
+          {/* gold glow */}
+          <div className="absolute -inset-6 -z-10 bg-accent/15 blur-3xl rounded-full" />
+        </div>
+
+        <a
+          href="#work"
+          className="hidden lg:flex absolute -right-2 bottom-4 flex-col items-center gap-2 group"
+          aria-label="Watch showreel"
+        >
+          <span className="w-12 h-12 rounded-full border border-accent/50 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-all">
+            <Play size={16} className="ml-0.5" />
+          </span>
+          <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
+            Watch
+            <br />
+            Showreel
+          </span>
+        </a>
+      </div>
     </div>
+  </div>
 
-    <div
-      data-reveal
-      className="mt-10 sm:mt-14 grid grid-cols-3 gap-3 max-w-2xl mx-auto"
-    >
+  {/* TRUST STRIP — bottom of hero */}
+  <div
+    data-reveal
+    className="relative mt-8 lg:mt-0 lg:absolute lg:bottom-6 lg:left-20 lg:right-20 border-t border-white/10 pt-6 lg:pt-5"
+  >
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
       {[
-        ["15+", "Trusted clients"],
-        ["2 wks", "Avg launch"],
-        ["3×", "Conv. lift"],
-      ].map(([v, l]) => (
-        <div key={l} className="glass px-4 py-3 sm:px-5 sm:py-4">
-          <div className="num-display text-xl sm:text-2xl text-accent">
-            {v}
-          </div>
-          <div className="text-[9px] sm:text-[10px] uppercase tracking-[0.25em] text-muted-foreground mt-1">
+        { v: "250+", l: "Projects Completed", I: Trophy },
+        { v: "120+", l: "Happy Clients", I: Users },
+        { v: "98%", l: "Success Rate", I: TrendingUp },
+        { v: "5+", l: "Years of Experience", I: Star },
+      ].map(({ v, l, I }) => (
+        <div key={l} className="flex flex-col items-center text-center">
+          <I size={20} className="text-accent mb-2" />
+          <div className="num-display text-3xl md:text-4xl text-accent">{v}</div>
+          <div className="text-[9px] sm:text-[10px] uppercase tracking-[0.3em] text-muted-foreground mt-1.5">
             {l}
           </div>
         </div>
       ))}
     </div>
   </div>
-
-  {isDesktop && (
-    <div className="absolute bottom-10 right-10 text-xs uppercase tracking-[0.4em] text-muted-foreground rotate-90 origin-bottom-right">
-      Scroll —
-    </div>
-  )}
 </section>
 
         {/* PANEL 2 — SERVICES */}
