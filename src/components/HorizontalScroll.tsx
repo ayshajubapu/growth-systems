@@ -1,56 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import imgWeb from "@/assets/sp-web.jpg";
-import imgMobile from "@/assets/sp-mobile.jpg";
-import imgMarketing from "@/assets/sp-marketing.jpg";
-import imgDesign from "@/assets/sp-design.jpg";
-import imgEcom from "@/assets/sp-ecom.jpg";
-import imgHero from "@/assets/sp-hero.jpg";
 import imgHero3D from "@/assets/sp-hero-3d.jpg";
 import { Play, Trophy, Users, TrendingUp, Star } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 
 gsap.registerPlugin(ScrollTrigger);
-
-const services = [
-  {
-    n: "01",
-    title: "Web App Development",
-    tag: "Custom Builds",
-    body: "Web applications engineered for real traffic, real transactions, and real complexity — without the fragility of cut corners.",
-    image: imgWeb,
-  },
-  {
-    n: "02",
-    title: "Mobile App Development",
-    tag: "iOS & Android",
-    badge: "Most Popular",
-    body: "Native and cross-platform apps your customers will actually open again — built with respect for performance and user time.",
-    image: imgMobile,
-  },
-  {
-    n: "03",
-    title: "Digital Marketing",
-    tag: "Growth Systems",
-    body: "Connected pipelines of SEO, paid media, and content that compound. We work on the numbers that keep businesses alive.",
-    image: imgMarketing,
-  },
-  {
-    n: "04",
-    title: "Web Design",
-    tag: "Brand & Experience",
-    body: "Design that earns trust before a single word is read. Clean, fast, and built to hold up across every screen that matters.",
-    image: imgDesign,
-  },
-  {
-    n: "05",
-    title: "E-Commerce Development",
-    tag: "Online Stores",
-    body: "A storefront that's open 24 hours and built to sell — Shopify, WooCommerce, and custom platforms that scale.",
-    image: imgEcom,
-  },
-];
 
 const clients = [
   "Al Miraj", "Travel Hub Tambaram", "Gulf To World", "Arabian Vibes",
