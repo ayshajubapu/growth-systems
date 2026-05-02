@@ -218,7 +218,7 @@ const ServicesDeep = () => {
             {items.map((it) => (
               <article
                 key={it.n}
-                className="deep-row grid md:grid-cols-12 gap-4 md:gap-8 py-8 sm:py-12 lg:py-16 border-b border-border"
+                className="deep-row group relative grid md:grid-cols-12 gap-4 md:gap-8 py-8 sm:py-12 lg:py-16 border-b border-border transition-colors duration-500 hover:bg-surface/40"
               >
                 <div className="md:col-span-1 text-xs text-muted-foreground tracking-[0.3em]">
                   {it.n}
@@ -229,7 +229,7 @@ const ServicesDeep = () => {
                     {it.tag}
                   </p>
 
-                  <h3 className="font-display text-2xl sm:text-3xl md:text-5xl">
+                  <h3 className="font-display text-2xl sm:text-3xl md:text-5xl transition-colors duration-500 group-hover:text-accent">
                     {it.title}
                   </h3>
                 </div>
@@ -247,6 +247,25 @@ const ServicesDeep = () => {
                       </li>
                     ))}
                   </ul>
+                </div>
+
+                {/* Floating image preview on hover (desktop only) */}
+                <div
+                  aria-hidden
+                  className="pointer-events-none hidden lg:block absolute right-6 top-1/2 -translate-y-1/2 w-[280px] aspect-[4/3] rounded-xl overflow-hidden border border-accent/30 shadow-[0_30px_80px_-20px_hsl(0_0%_0%/0.9)] opacity-0 translate-x-6 scale-95 group-hover:opacity-100 group-hover:translate-x-0 group-hover:scale-100 transition-all duration-500 ease-out z-20"
+                >
+                  <img
+                    src={it.image}
+                    alt={`${it.title} preview`}
+                    loading="lazy"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+                  <div className="absolute bottom-3 left-3 right-3">
+                    <p className="text-[10px] uppercase tracking-[0.3em] text-accent">{it.tag}</p>
+                    <p className="font-display text-lg leading-tight mt-1">{it.title}</p>
+                  </div>
+                  <div className="absolute -inset-1 -z-10 bg-accent/20 blur-2xl rounded-full" />
                 </div>
               </article>
             ))}
