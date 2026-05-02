@@ -116,8 +116,9 @@ const CaseStudies = ({ showAllByDefault = false }: { showAllByDefault?: boolean 
         scrollTrigger: { trigger: ref.current, start: "top 75%" },
       });
     }, ref);
+    ScrollTrigger.refresh();
     return () => ctx.revert();
-  }, []);
+  }, [showAll]);
 
   return (
     <>
