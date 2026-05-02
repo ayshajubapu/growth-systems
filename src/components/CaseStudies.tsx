@@ -86,7 +86,53 @@ const cases = [
     metricSub: "Turnaround",
     link: "https://www.ltslearningacademy.com/",
   },
+  {
+    client: "Al Miraj",
+    industry: "Travel & Hajj",
+    quote: "Premium pilgrimage brand site with multi-package booking flow.",
+    person: "Client",
+    before: cs1b,
+    after: cs5a,
+    metric: "+Bookings",
+    metricSub: "Pipeline",
+    link: "#",
+  },
+  {
+    client: "Arabian Vibes",
+    industry: "Travel & Tours",
+    quote: "Visual-first travel storytelling with a clear enquiry funnel.",
+    person: "Client",
+    before: cs2b,
+    after: cs4a,
+    metric: "+Enquiries",
+    metricSub: "Monthly",
+    link: "#",
+  },
+  {
+    client: "Manohar Jewelleries",
+    industry: "Jewellery",
+    quote: "Elegant catalogue-style ecommerce design built for high-ticket buyers.",
+    person: "Client",
+    before: cs3b,
+    after: cs2a,
+    metric: "+Catalogue",
+    metricSub: "Live",
+    link: "#",
+  },
+  {
+    client: "Surya Prakash Metals",
+    industry: "Industrial",
+    quote: "B2B website rebuilt to attract bulk enquiries from procurement teams.",
+    person: "Client",
+    before: cs4b,
+    after: cs3a,
+    metric: "+B2B Leads",
+    metricSub: "Inbound",
+    link: "#",
+  },
 ];
+
+const INITIAL_VISIBLE = 3;
 
 const stats = [
   { v: "250+", l: "Projects Completed" },
@@ -98,7 +144,7 @@ const stats = [
 const CaseStudies = ({ showAllByDefault = false }: { showAllByDefault?: boolean }) => {
   const ref = useRef<HTMLDivElement>(null);
   const [showAll, setShowAll] = useState(showAllByDefault);
-  const visibleCases = showAll ? cases : cases.slice(0, 3);
+  const visibleCases = showAll ? cases : cases.slice(0, INITIAL_VISIBLE);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -254,7 +300,7 @@ const CaseStudies = ({ showAllByDefault = false }: { showAllByDefault?: boolean 
           </div>
 
           {/* More / Less toggle */}
-          {cases.length > 3 && (
+          {cases.length > INITIAL_VISIBLE && (
             <div className="mt-10 flex justify-center">
               <button
                 type="button"
