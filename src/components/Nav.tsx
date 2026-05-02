@@ -33,8 +33,8 @@ const Nav = () => {
         }`}
       >
         <div className="max-w-[1600px] mx-auto px-5 sm:px-8 lg:px-14 flex items-center justify-between gap-4">
-      <a
-  href="#"
+      <Link
+  to="/"
   onClick={() => setOpen(false)}
   className="font-display text-xl sm:text-2xl tracking-tight flex items-center gap-3"
 >
@@ -47,22 +47,22 @@ const Nav = () => {
   <span>
     Smart<span className="text-accent">Pixel</span>
   </span>
-</a>
+</Link>
           <nav className="hidden lg:flex items-center gap-8 xl:gap-10 text-xs uppercase tracking-[0.25em] text-muted-foreground">
             {links.map((l) => (
-              <a key={l.href} href={l.href} className="relative hover:text-foreground transition-colors group py-2">
+              <Link key={l.href} to={l.href} className="relative hover:text-foreground transition-colors group py-2">
                 {l.label}
                 <span className="absolute left-0 -bottom-0.5 h-px w-0 bg-accent group-hover:w-full transition-all duration-500" />
-              </a>
+              </Link>
             ))}
           </nav>
           <div className="hidden lg:flex items-center gap-4">
             <a href="tel:+919886069488" className="text-xs uppercase tracking-[0.2em] text-muted-foreground hover:text-accent transition-colors flex items-center gap-2">
               <Phone size={13} /> 98860 69488
             </a>
-            <a href="#contact" className="glass-gold inline-flex items-center gap-2 px-5 py-2.5 text-xs uppercase tracking-[0.2em] text-accent hover:text-foreground transition-colors">
+            <Link to="/contact" className="glass-gold inline-flex items-center gap-2 px-5 py-2.5 text-xs uppercase tracking-[0.2em] text-accent hover:text-foreground transition-colors">
               Let's Talk →
-            </a>
+            </Link>
           </div>
           <button
             aria-label={open ? "Close menu" : "Open menu"}
