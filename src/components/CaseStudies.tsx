@@ -95,8 +95,10 @@ const stats = [
   { v: "5+", l: "Years of Experience" },
 ];
 
-const CaseStudies = () => {
+const CaseStudies = ({ showAllByDefault = false }: { showAllByDefault?: boolean }) => {
   const ref = useRef<HTMLDivElement>(null);
+  const [showAll, setShowAll] = useState(showAllByDefault);
+  const visibleCases = showAll ? cases : cases.slice(0, 3);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
