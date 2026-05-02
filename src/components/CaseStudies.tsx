@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { TrendingUp } from "lucide-react";
@@ -95,8 +95,10 @@ const stats = [
   { v: "5+", l: "Years of Experience" },
 ];
 
-const CaseStudies = () => {
+const CaseStudies = ({ showAllByDefault = false }: { showAllByDefault?: boolean }) => {
   const ref = useRef<HTMLDivElement>(null);
+  const [showAll, setShowAll] = useState(showAllByDefault);
+  const visibleCases = showAll ? cases : cases.slice(0, 3);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -114,8 +116,9 @@ const CaseStudies = () => {
         scrollTrigger: { trigger: ref.current, start: "top 75%" },
       });
     }, ref);
+    ScrollTrigger.refresh();
     return () => ctx.revert();
-  }, []);
+  }, [showAll]);
 
   return (
     <>
@@ -168,7 +171,7 @@ const CaseStudies = () => {
 
           {/* Case rows */}
           <div className="divide-y divide-white/10 border-y border-white/10">
-            {cases.map((c, i) => (
+            {visibleCases.map((c, i) => (
               <a
                 key={c.client}
                 href={c.link}
@@ -250,7 +253,20 @@ const CaseStudies = () => {
             ))}
           </div>
 
-          {/* Bottom CTA bar */}
+          {/* More / Less toggle */}
+          {cases.length > 3 && (
+            <div className="mt-10 flex justify-center">
+              <button
+                type="button"
+                onClick={() => setShowAll((v) => !v)}
+                className="btn-ghost"
+                aria-expanded={showAll}
+              >
+                {showAll ? "Show Less" : `View All Case Studies (${cases.length})`}
+              </button>
+            </div>
+          )}
+
           <div className="mt-10 lg:mt-14 glass-gold rounded-md p-6 sm:p-7 flex flex-wrap items-center justify-between gap-4">
             <div>
               <p className="font-display text-xl sm:text-2xl">
