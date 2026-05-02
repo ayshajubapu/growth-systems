@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { TrendingUp } from "lucide-react";
