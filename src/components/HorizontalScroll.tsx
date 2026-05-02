@@ -248,8 +248,8 @@ const HorizontalScroll = () => {
         </div>
       </div>
 
-      {/* RIGHT — 3D logo render + watch showreel */}
-      <div data-reveal className="lg:col-span-5 relative flex items-center justify-center">
+      {/* RIGHT — 3D logo render + watch showreel (hidden on mobile) */}
+      <div data-reveal className="hidden lg:flex lg:col-span-5 relative items-center justify-center">
         <div className="relative w-full max-w-[520px] aspect-square">
           <img
             src={imgHero3D}
