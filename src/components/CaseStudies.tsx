@@ -171,7 +171,7 @@ const CaseStudies = ({ showAllByDefault = false }: { showAllByDefault?: boolean 
 
           {/* Case rows */}
           <div className="divide-y divide-white/10 border-y border-white/10">
-            {cases.map((c, i) => (
+            {visibleCases.map((c, i) => (
               <a
                 key={c.client}
                 href={c.link}
