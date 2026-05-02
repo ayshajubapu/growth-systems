@@ -39,19 +39,15 @@ type Card = {
 
 // 12 portrait cards arranged in a downward-dipping arc.
 // Toggle `anonymous: true` on any card to ship with a blurred face for privacy.
+// 7 portrait cards arranged in a downward-dipping arc — clean, premium, not cluttered.
 const cards: Card[] = [
-  { src: p1,  x: 6,  y: 70,  rot: -3, w: 140, z: 4, delay: 0.05 },
-  { src: p2,  x: 15, y: 20,  rot: -2, w: 140, z: 5, delay: 0.10 },
-  { src: p3,  x: 24, y: 90,  rot:  2, w: 140, z: 4, delay: 0.15 },
-  { src: p4,  x: 33, y: 35,  rot: -1, w: 150, z: 6, delay: 0.20 },
-  { src: p5,  x: 42, y: 95,  rot:  1, w: 150, z: 5, delay: 0.25 },
-  { src: p6,  x: 50, y: 50,  rot: -2, w: 160, z: 7, delay: 0.30 },
-  { src: p7,  x: 58, y: 95,  rot:  2, w: 150, z: 5, delay: 0.35 },
-  { src: p8,  x: 67, y: 35,  rot: -1, w: 150, z: 6, delay: 0.40 },
-  { src: p9,  x: 76, y: 90,  rot:  3, w: 140, z: 4, delay: 0.45 },
-  { src: p10, x: 85, y: 25,  rot: -2, w: 140, z: 5, delay: 0.50, anonymous: true },
-  { src: p11, x: 94, y: 80,  rot:  2, w: 140, z: 4, delay: 0.55 },
-  { src: p12, x: 39, y: 165, rot: -2, w: 130, z: 3, delay: 0.60, anonymous: true },
+  { src: p1,  x: 10, y: 60,  rot: -4, w: 150, z: 4, delay: 0.05 },
+  { src: p2,  x: 23, y: 20,  rot: -2, w: 160, z: 5, delay: 0.12 },
+  { src: p4,  x: 36, y: 80,  rot:  2, w: 160, z: 6, delay: 0.18 },
+  { src: p6,  x: 50, y: 30,  rot: -1, w: 180, z: 7, delay: 0.25 },
+  { src: p8,  x: 64, y: 80,  rot:  2, w: 160, z: 6, delay: 0.32 },
+  { src: p9,  x: 77, y: 20,  rot: -2, w: 160, z: 5, delay: 0.40, anonymous: true },
+  { src: p11, x: 90, y: 65,  rot:  3, w: 150, z: 4, delay: 0.48 },
 ];
 
 const Testimonials = () => {
