@@ -84,9 +84,9 @@ const Nav = () => {
         <nav className="relative h-full flex flex-col justify-center px-7 sm:px-10 gap-1 overflow-y-auto py-24">
           <p className="eyebrow mb-8" style={{ transitionDelay: open ? "60ms" : "0ms" }}>— Navigate</p>
           {links.map((l, i) => (
-            <a
+            <Link
               key={l.href}
-              href={l.href}
+              to={l.href}
               onClick={() => setOpen(false)}
               style={{ transitionDelay: open ? `${120 + i * 60}ms` : "0ms" }}
               className={`font-display text-4xl sm:text-5xl py-3 border-b border-border transition-all duration-700 hover:text-accent ${
@@ -94,7 +94,7 @@ const Nav = () => {
               }`}
             >
               {l.label}
-            </a>
+            </Link>
           ))}
           <a
             href="tel:+919886069488"
@@ -106,8 +106,8 @@ const Nav = () => {
           >
             <Phone size={14} className="text-accent" /> +91 98860 69488
           </a>
-          <a
-            href="#contact"
+          <Link
+            to="/contact"
             onClick={() => setOpen(false)}
             style={{ transitionDelay: open ? `${180 + links.length * 60}ms` : "0ms" }}
             className={`mt-6 glass-gold inline-flex w-fit items-center gap-3 px-6 py-4 text-sm uppercase tracking-[0.2em] text-accent transition-all duration-700 ${
@@ -115,7 +115,7 @@ const Nav = () => {
             }`}
           >
             Let's Talk About Your Project →
-          </a>
+          </Link>
         </nav>
       </div>
     </>
