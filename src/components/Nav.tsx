@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { Menu, X, Phone } from "lucide-react";
 
 const links = [
-  { href: "#systems", label: "Services" },
-  { href: "#work", label: "Portfolio" },
- 
-  { href: "#voices", label: "Clients" },
-  { href: "#insights", label: "Blog" },
-  { href: "#studio", label: "About" },
+  { href: "/services", label: "Services" },
+  { href: "/portfolio", label: "Portfolio" },
+  { href: "/about", label: "About" },
+  { href: "/blog", label: "Blog" },
+  { href: "/contact", label: "Contact" },
 ];
 
 const Nav = () => {
