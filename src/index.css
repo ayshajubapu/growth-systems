@@ -18,15 +18,15 @@
     --border: 0 0% 100%;            /* used with /8 opacity */
 
     /* Mapped shadcn tokens */
-    --card: 0 0% 7%;
+    --card: 0 0% 5%;
     --card-foreground: 0 0% 92%;
-    --popover: 0 0% 7%;
+    --popover: 0 0% 5%;
     --popover-foreground: 0 0% 92%;
     --primary: 39 41% 60%;
-    --primary-foreground: 0 0% 7%;
-    --secondary: 0 0% 10%;
+    --primary-foreground: 0 0% 5%;
+    --secondary: 0 0% 7%;
     --secondary-foreground: 0 0% 92%;
-    --muted: 0 0% 10%;
+    --muted: 0 0% 7%;
     --accent-foreground: 0 0% 7%;
     --destructive: 0 62% 40%;
     --destructive-foreground: 0 0% 92%;
