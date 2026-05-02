@@ -351,63 +351,7 @@ const HorizontalScroll = () => {
   </div>
 </section>
 
-        {/* PANEL 2 — SERVICES */}
-        <section className={`panel relative ${isDesktop ? "w-screen h-screen shrink-0" : "w-full"} flex flex-col justify-center px-5 sm:px-10 lg:px-24 py-16 lg:py-12`}>
-          <div className="flex items-end justify-between mb-8 lg:mb-10 flex-wrap gap-6">
-            <div>
-              <p data-reveal className="eyebrow mb-4 lg:mb-6">— What We Build</p>
-              <h2 data-reveal className="font-display text-4xl sm:text-5xl md:text-5xl lg:text-6xl leading-[1] max-w-3xl">
-                One team. Every piece<br/>of the <span className="italic text-accent">puzzle</span>.
-              </h2>
-            </div>
-            <p data-reveal className="hidden lg:block text-sm text-muted-foreground max-w-xs">
-              From the first wireframe to your first sale — strategy, build, and growth, handled.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 sm:gap-px bg-transparent sm:bg-border">
-            {services.map((s) => (
-              <article
-                key={s.n}
-                data-reveal
-                className="service-card group relative bg-background transition-all duration-700 p-5 sm:p-6 min-h-[220px] sm:min-h-[260px] lg:min-h-[320px] flex flex-col justify-between cursor-pointer overflow-hidden border border-border sm:border-0"
-              >
-                <div className="absolute inset-0 overflow-hidden">
-                  <img
-                    src={s.image}
-                    alt={s.title}
-                    loading="lazy"
-                    width={1024}
-                    height={1280}
-                    className="absolute inset-0 w-full h-full object-cover opacity-0 scale-110 group-hover:opacity-90 group-hover:scale-100 transition-all duration-[1400ms] ease-out"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/10 opacity-100 group-hover:opacity-60 transition-opacity duration-700" />
-                </div>
-
-                <span className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-accent to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-[1400ms] ease-out" />
-
-                <div className="flex items-start justify-between relative z-10">
-                  <span className="text-xs tracking-[0.3em] text-muted-foreground">{s.n}</span>
-                  {s.badge ? (
-                    <span className="glass-gold text-[9px] uppercase tracking-[0.25em] px-2 py-1 text-accent">{s.badge}</span>
-                  ) : (
-                    <span className="text-accent translate-x-0 group-hover:translate-x-1 transition-transform duration-500">→</span>
-                  )}
-                </div>
-                <div className="relative z-10">
-                  <p className="text-[10px] uppercase tracking-[0.3em] text-accent/80 mb-2 sm:mb-3">{s.tag}</p>
-                  <h3 className="font-display text-xl sm:text-2xl lg:text-[1.7rem] mb-2 sm:mb-3 leading-tight group-hover:text-accent group-hover:translate-x-1 transition-all duration-500">
-                    {s.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                    {s.body}
-                  </p>
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
-
+        {/* PANEL 2 removed — services now live in ServicesDeep section to avoid duplication */}
         {/* PANEL 3 — WHY SMARTPIXEL */}
         <section className={`panel relative ${isDesktop ? "w-screen h-screen shrink-0" : "w-full"} grid md:grid-cols-2`}>
           <div className="flex flex-col justify-center px-5 sm:px-10 lg:px-24 py-20">
