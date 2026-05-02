@@ -253,7 +253,20 @@ const CaseStudies = ({ showAllByDefault = false }: { showAllByDefault?: boolean 
             ))}
           </div>
 
-          {/* Bottom CTA bar */}
+          {/* More / Less toggle */}
+          {cases.length > 3 && (
+            <div className="mt-10 flex justify-center">
+              <button
+                type="button"
+                onClick={() => setShowAll((v) => !v)}
+                className="btn-ghost"
+                aria-expanded={showAll}
+              >
+                {showAll ? "Show Less" : `View All Case Studies (${cases.length})`}
+              </button>
+            </div>
+          )}
+
           <div className="mt-10 lg:mt-14 glass-gold rounded-md p-6 sm:p-7 flex flex-wrap items-center justify-between gap-4">
             <div>
               <p className="font-display text-xl sm:text-2xl">
