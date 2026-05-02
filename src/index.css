@@ -8,9 +8,9 @@
 
 @layer base {
   :root {
-    /* Core palette */
-    --background: 0 0% 4%;          /* #0A0A0A */
-    --surface: 0 0% 7%;             /* #121212 */
+    /* Core palette — matte black */
+    --background: 0 0% 0%;          /* #000000 pure matte */
+    --surface: 0 0% 5%;             /* #0D0D0D */
     --foreground: 0 0% 92%;         /* #EAEAEA */
     --muted-foreground: 0 0% 54%;   /* #8A8A8A */
     --accent: 39 41% 60%;           /* #C6A96B muted gold */
