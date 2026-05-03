@@ -34,7 +34,7 @@ export const SeoServicesChennai = () => (
     faqs={[
       { q: "How long does SEO take to show results in Chennai?", a: "Local SEO often shows movement in 4–8 weeks. Competitive keywords take 3–6 months." },
       { q: "Do you guarantee #1 rankings?", a: "No ethical SEO does. We guarantee transparent work and measurable ranking improvements." },
-      { q: "How much does SEO cost in Chennai?", a: "Plans start from ₹8,000/month for local SEO and scale based on competition." },
+      { q: "How much does SEO cost in Chennai?", a: "Plans start from ₹6,000/month for local SEO and scale based on competition." },
     ]}
   />
 );
@@ -71,7 +71,7 @@ export const EcommerceChennai = () => (
     ]}
     faqs={[
       { q: "Shopify or WooCommerce — which is better?", a: "Shopify is faster to launch and easier to maintain. WooCommerce gives more control and lower long-term cost." },
-      { q: "How much does an ecommerce website cost in Chennai?", a: "From ₹40,000 for a Shopify store to ₹1.5L+ for custom WooCommerce builds." },
+      { q: "How much does an ecommerce website cost in Chennai?", a: "From ₹40,000 for a Shopify store to ₹1L+ for custom Website with admin panel." },
       { q: "Do you integrate UPI?", a: "Yes — via Razorpay, PayU or Cashfree, all major UPI apps work." },
     ]}
   />
@@ -222,7 +222,7 @@ export const MobileAppDevelopment = () => (
       "Store submission + launch",
     ]}
     faqs={[
-      { q: "How much does a mobile app cost in Chennai?", a: "MVPs from ₹3L. Production apps with backend ₹8L–₹25L." },
+      { q: "How much does a mobile app cost in Chennai?", a: "MVPs from ₹1.5L. Production apps with backend ₹2L–₹5L." },
       { q: "How long to launch?", a: "Typical timeline is 8–16 weeks from kickoff to App Store." },
       { q: "Do you handle App Store submission?", a: "Yes — including Apple Developer account setup and review responses." },
     ]}
@@ -261,7 +261,7 @@ export const DigitalMarketingChennai = () => (
     ]}
     faqs={[
       { q: "Minimum ad budget?", a: "We recommend ₹15,000+/month ad spend for meaningful results in Chennai." },
-      { q: "What's your management fee?", a: "From ₹15,000/month based on scope and platforms." },
+      { q: "What's your management fee?", a: "From ₹8,000/month based on scope and platforms." },
       { q: "Do you build landing pages?", a: "Yes — every ad campaign should have a dedicated landing page." },
     ]}
   />
