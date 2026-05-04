@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import SeoPageLayout from "@/components/SeoPageLayout";
 
 type Props = {
@@ -55,11 +56,15 @@ const LocationPage = ({ area, slug, nearby, landmark }: Props) => {
       ctaText={`Get a free quote for your ${area} business →`}
       intro={
         <>
-          SmartPixel provides website development, SEO and WhatsApp automation
+          SmartPixel provides{" "}
+          <Link to="/services/web-design-chennai" className="text-accent underline">website development</Link>,{" "}
+          <Link to="/seo-services-chennai" className="text-accent underline">SEO services</Link> and{" "}
+          <Link to="/whatsapp-automation-chennai" className="text-accent underline">WhatsApp automation</Link>{" "}
           to businesses in <strong className="text-foreground/70">{area}, Chennai</strong>.
           Whether you run a shop, clinic, agency or startup in {area}
           {landmark ? ` near ${landmark}` : ""}, we build fast, conversion-focused websites
-          that turn local visitors into paying customers.
+          that turn local visitors into paying customers. Ready to start?{" "}
+          <Link to="/contact" className="text-accent underline">Get a free quote from SmartPixel Chennai</Link>.
         </>
       }
       sections={[
@@ -67,11 +72,11 @@ const LocationPage = ({ area, slug, nearby, landmark }: Props) => {
           h2: `Services for ${area} businesses`,
           body: (
             <ul className="list-disc pl-5 space-y-2">
-              <li>Web design & development tailored for {area}</li>
-              <li>Ecommerce stores with payment gateway integration</li>
-              <li>SEO services to rank locally in {area} searches</li>
-              <li>WhatsApp automation for leads, bookings and follow-ups</li>
-              <li>Mobile and web app development</li>
+              <li><Link to="/services/web-design-chennai" className="text-accent underline">Web design services for {area} businesses</Link> — tailored UI built around enquiries</li>
+              <li><Link to="/ecommerce-website-chennai" className="text-accent underline">Ecommerce website development in Chennai</Link> with payment gateway integration</li>
+              <li><Link to="/seo-services-chennai" className="text-accent underline">SEO services in Chennai</Link> to rank locally for "{area.toLowerCase()}" searches</li>
+              <li><Link to="/whatsapp-automation-chennai" className="text-accent underline">WhatsApp automation in Chennai</Link> for leads, bookings and follow-ups</li>
+              <li><Link to="/services/mobile-app-development" className="text-accent underline">Mobile and web app development</Link></li>
             </ul>
           ),
         },
@@ -83,6 +88,9 @@ const LocationPage = ({ area, slug, nearby, landmark }: Props) => {
               and we understand the {area} market{landmark ? `, including key spots like ${landmark}` : ""}.
               Every site we build is fast, mobile-first and tuned for Google's local pack
               so customers searching "web design {area.toLowerCase()}" actually find you.
+              Take a look at our{" "}
+              <Link to="/portfolio" className="text-accent underline">portfolio of Chennai case studies</Link>{" "}
+              or <Link to="/contact" className="text-accent underline">get a free quote from SmartPixel Chennai</Link>.
             </p>
           ),
         },
