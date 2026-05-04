@@ -19,6 +19,8 @@ import {
 import {
   Pallavaram, Tambaram, Chrompet, Guindy, TNagar, Saidapet, Nungambakkam, Chitlapakkam,
 } from "./pages/seo/locations.tsx";
+import Backlinks from "./pages/Backlinks.tsx";
+import ScrollToTop from "./components/ScrollToTop.tsx";
 
 const queryClient = new QueryClient();
 
@@ -28,6 +30,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/services" element={<Services />} />
@@ -38,6 +41,7 @@ const App = () => (
           <Route path="/contact" element={<Contact />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<Terms />} />
+          <Route path="/backlinks" element={<Backlinks />} />
 
           {/* Service pages */}
           <Route path="/seo-services-chennai" element={<SeoServicesChennai />} />

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import SeoPageLayout, { FaqItem } from "@/components/SeoPageLayout";
 import { ReactNode } from "react";
 
@@ -63,11 +64,32 @@ const ServicePage = (p: ServiceProps) => {
           h2: `Our process`,
           body: <ol className="list-decimal pl-5 space-y-2">{p.process.map((w) => <li key={w}>{w}</li>)}</ol>,
         },
+        {
+          h2: `Areas in Chennai we serve`,
+          body: (
+            <p>
+              We deliver this service across Chennai — including{" "}
+              <Link to="/web-design-pallavaram" className="text-accent underline">Pallavaram</Link>,{" "}
+              <Link to="/web-design-tambaram" className="text-accent underline">Tambaram</Link>,{" "}
+              <Link to="/web-design-chrompet" className="text-accent underline">Chrompet</Link>,{" "}
+              <Link to="/web-design-guindy" className="text-accent underline">Guindy</Link> and{" "}
+              <Link to="/web-design-t-nagar" className="text-accent underline">T Nagar</Link>.{" "}
+              Pair it with our{" "}
+              <Link to="/seo-services-chennai" className="text-accent underline">SEO services in Chennai</Link>{" "}
+              or <Link to="/ecommerce-website-chennai" className="text-accent underline">ecommerce website development in Chennai</Link>{" "}
+              for a full growth stack — or{" "}
+              <Link to="/contact" className="text-accent underline">get a free quote from SmartPixel Chennai</Link>.
+            </p>
+          ),
+        },
       ]}
       internalLinks={[
-        { label: "All Services", href: "/services" },
-        { label: "Portfolio", href: "/portfolio" },
-        { label: "Contact", href: "/contact" },
+        { label: "Web design services for Chennai businesses", href: "/services/web-design-chennai" },
+        { label: "SEO services in Chennai", href: "/seo-services-chennai" },
+        { label: "Ecommerce website development Chennai", href: "/ecommerce-website-chennai" },
+        { label: "WhatsApp automation in Chennai", href: "/whatsapp-automation-chennai" },
+        { label: "Portfolio of Chennai case studies", href: "/portfolio" },
+        { label: "Get a free quote from SmartPixel Chennai", href: "/contact" },
       ]}
       faqs={p.faqs}
     />
