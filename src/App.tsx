@@ -20,6 +20,7 @@ import {
   Pallavaram, Tambaram, Chrompet, Guindy, TNagar, Saidapet, Nungambakkam, Chitlapakkam,
 } from "./pages/seo/locations.tsx";
 import Backlinks from "./pages/Backlinks.tsx";
+import SeoChecklist from "./pages/SeoChecklist.tsx";
 import ScrollToTop from "./components/ScrollToTop.tsx";
 
 const queryClient = new QueryClient();
@@ -42,6 +43,7 @@ const App = () => (
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/backlinks" element={<Backlinks />} />
+          <Route path="/seo-checklist" element={<SeoChecklist />} />
 
           {/* Service pages */}
           <Route path="/seo-services-chennai" element={<SeoServicesChennai />} />
