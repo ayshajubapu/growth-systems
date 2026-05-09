@@ -311,7 +311,7 @@ const CaseStudies = ({ showAllByDefault = false }: { showAllByDefault?: boolean 
                   <div className="overflow-hidden rounded-md border border-white/5 bg-surface">
                     <img
                       src={c.before}
-                      alt={`${c.client} before`}
+                      alt={c.beforeAlt ?? `${c.client} website before SmartPixel redesign`}
                       width={896}
                       height={576}
                       loading="lazy"
