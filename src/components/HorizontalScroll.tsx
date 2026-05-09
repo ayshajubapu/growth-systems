@@ -168,10 +168,6 @@ const HorizontalScroll = () => {
                   ))}
                 </div>
 
-                <p data-reveal className="eyebrow mb-6 text-accent">
-                  — Digital solutions that drive real growth
-                </p>
-
                 {/*
                   SEO FIX 1: Visually hidden H1 with primary keyword.
                   The display heading below keeps your design intact.
@@ -204,23 +200,26 @@ const HorizontalScroll = () => {
                   data-reveal
                   className="mt-6 lg:mt-8 text-base sm:text-lg text-muted-foreground max-w-xl leading-relaxed"
                 >
-                  We build websites, apps, and e-commerce stores for businesses
-                  in <strong className="text-foreground/70">Chennai — Pallavaram, Tambaram, Chrompet,
-                  Guindy and T Nagar</strong> — designed to convert visitors into
-                  paying customers, not just collect compliments.
+                  We build websites, apps, and e-commerce stores designed to
+                  convert visitors into paying customers — not just collect
+                  compliments.
+                </p>
+                <p
+                  data-reveal
+                  className="mt-3 text-xs sm:text-sm uppercase tracking-[0.25em] text-muted-foreground/80"
+                >
+                  Chennai · Pallavaram · Tambaram · Chrompet · Guindy · T Nagar
                 </p>
 
-                <div data-reveal className="mt-8 lg:mt-10 flex flex-wrap gap-3 sm:gap-4">
-                  <a href="#contact" className="btn-gold">
-                    Let's Talk About Your Project →
+                <div data-reveal className="mt-8 lg:mt-10 flex flex-wrap items-center gap-3 sm:gap-4">
+                  <a href="/contact" className="btn-gold">
+                    Book a free strategy call →
                   </a>
-                  {/*
-                    SEO FIX 3: Internal page links (not just anchors).
-                    Each href is a real page Google can crawl independently
-                    and rank for its own keyword.
-                  */}
-                  <a href="/our-work" className="btn-ghost">
-                    See Our Work
+                  <a
+                    href="#work"
+                    className="text-sm uppercase tracking-[0.25em] text-foreground/70 hover:text-accent border-b border-foreground/30 hover:border-accent pb-1 transition-colors"
+                  >
+                    See our work
                   </a>
                 </div>
 
@@ -289,10 +288,10 @@ const HorizontalScroll = () => {
           >
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {[
-                { v: "250+", l: "Projects Completed", I: Trophy },
-                { v: "120+", l: "Happy Clients", I: Users },
-                { v: "98%",  l: "Success Rate",       I: TrendingUp },
-                { v: "5+",   l: "Years of Experience", I: Star },
+                { v: "40+",  l: "Clients",             I: Users },
+                { v: "98%",  l: "Satisfaction",        I: Star },
+                { v: "3×",   l: "Avg conversion lift", I: TrendingUp },
+                { v: "2 wk", l: "Avg turnaround",      I: Trophy },
               ].map(({ v, l, I }) => (
                 <div key={l} className="flex flex-col items-center text-center">
                   <I size={20} className="text-accent mb-2" />
