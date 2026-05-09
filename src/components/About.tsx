@@ -121,21 +121,17 @@ const About = () => {
               Every decision is made for speed, maintainability, scalability, and long-term ROI.
             </p>
 
+            <p className="about-line text-sm text-muted-foreground max-w-2xl leading-relaxed">
+              In plain English: the same tools used by Swiggy, Razorpay and
+              Zomato — built to handle your traffic and grow with your business.
+            </p>
+
             {/* Tech Grid */}
             <div className="about-line grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
               {[
-                "React",
-                "Next.js",
-                "Node.js",
-                "TypeScript",
-                "Tailwind",
-                "MongoDB",
-                "PostgreSQL",
-                "GraphQL",
-                "AWS",
-                "Stripe",
-                "Figma",
-                "GSAP",
+                "React", "Next.js", "Node.js", "TypeScript",
+                "Tailwind", "MongoDB", "PostgreSQL", "GraphQL",
+                "AWS", "Stripe", "Figma", "GSAP",
               ].map((t) => (
                 <div
                   key={t}
@@ -146,20 +142,17 @@ const About = () => {
               ))}
             </div>
 
-            {/* Stats */}
-            <div className="about-line grid grid-cols-1 sm:grid-cols-3 gap-px bg-border mt-8 sm:mt-10 rounded-2xl overflow-hidden">
+            {/* Stats — unified set */}
+            <div className="about-line grid grid-cols-2 sm:grid-cols-4 gap-px bg-border mt-8 sm:mt-10 rounded-2xl overflow-hidden">
               {[
-                ["15+", "Trusted clients"],
-                ["98%", "Client satisfaction"],
-                ["3×", "Conversion lift"],
+                ["40+", "Clients"],
+                ["98%", "Satisfaction"],
+                ["3×", "Avg conversion lift"],
+                ["2 wk", "Avg turnaround"],
               ].map(([v, l]) => (
-                <div key={l} className="bg-background p-6 sm:p-8">
-                  <div className="num-display text-3xl sm:text-5xl text-accent mb-2 sm:mb-3">
-                    {v}
-                  </div>
-                  <div className="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-muted-foreground">
-                    {l}
-                  </div>
+                <div key={l} className="bg-background p-5 sm:p-6">
+                  <div className="num-display text-2xl sm:text-4xl text-accent mb-2 sm:mb-3">{v}</div>
+                  <div className="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-muted-foreground">{l}</div>
                 </div>
               ))}
             </div>
