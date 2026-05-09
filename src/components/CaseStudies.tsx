@@ -76,7 +76,7 @@ const cases = [
     quote: "Full rebuild focused on getting visitors to actually book a call. Within the first month, booked calls tripled.",
     person: "Junaid",
     before: cs5b,
-    after: cs5a,
+    after: csTravelHubAfter,
     metric: "+200%",
     metricSub: "Booked Calls",
     link: "https://www.travelhubtambaram.in/",
