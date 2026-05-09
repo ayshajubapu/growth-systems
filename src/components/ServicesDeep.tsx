@@ -42,94 +42,45 @@ const items = [
     n: "01",
     title: "Web Design",
     tag: "Brand & Experience",
-    /*
-      SEO FIX 3: Body text now includes "Chennai" naturally.
-      Google uses paragraph text to confirm topical + local relevance.
-      Before: no location mentioned anywhere in the body copy.
-    */
-    body: "You have about four seconds before a visitor decides whether to stay. We design websites for businesses in Chennai that communicate credibility, clarity, and intent from the first scroll.",
-    points: [
-      "WordPress design & development",
-      "Custom HTML/CSS builds",
-      "E-commerce design",
-      "Responsive layouts",
-      "Ongoing support",
-    ],
+    body: "You have about four seconds before a visitor decides whether to stay. We design websites for Chennai businesses that communicate credibility and intent from the first scroll.",
+    outcome: "40+ websites shipped for Chennai businesses. Average build: 2 weeks.",
+    points: ["Custom design + development", "Conversion-led structure", "Ongoing support"],
+    badges: ["WhatsApp Automation"],
     image: imgDesign,
-    /*
-      SEO FIX 4: alt text now keyword-rich instead of generic "preview".
-      Google uses image alt text as a ranking signal — especially for
-      image search and confirming page relevance.
-    */
     alt: "Web design services in Chennai by SmartPixel",
     href: "/services/web-design-chennai",
+    lead: true,
   },
   {
     n: "02",
     title: "E-Commerce Development",
     tag: "Online Stores",
-    body: "We build ecommerce stores for Chennai businesses focused on speed, trust, checkout conversions, and long-term growth.",
-    points: [
-      "Shopify & WooCommerce",
-      "Payment gateway integration",
-      "Inventory systems",
-      "Marketplace setup",
-      "Product catalogue",
-    ],
+    body: "We build ecommerce stores focused on speed, trust and checkout conversions — built to grow with your catalogue.",
+    outcome: "Shopify & WooCommerce stores live in 2–3 weeks, payments included.",
+    points: ["Shopify & WooCommerce", "Payment + inventory", "Product catalogue"],
     image: imgEcom,
     alt: "Ecommerce website development in Chennai — SmartPixel",
     href: "/ecommerce-website-chennai",
+    lead: true,
   },
   {
     n: "03",
-    title: "Web App Development",
-    tag: "Custom Builds",
-    body: "Custom web applications built for Chennai businesses that handle traffic, workflows, users, and scale without compromise.",
-    points: [
-      "Frontend + Backend",
-      "Custom CMS",
-      "Business portals",
-      "PWA builds",
-      "Scalable architecture",
-    ],
-    image: imgWeb,
-    alt: "Web app development company in Chennai — SmartPixel",
-    href: "/services/web-app-development",
-  },
-  {
-    n: "04",
     title: "Mobile App Development",
     tag: "iOS & Android",
-    body: "Modern mobile apps built for Chennai businesses — focused on user retention, speed, and polished user experience.",
-    points: [
-      "iOS Apps",
-      "Android Apps",
-      "Flutter",
-      "React Native",
-      "UI/UX Prototyping",
-    ],
+    body: "Modern mobile apps built for retention, speed and a polished user experience.",
+    outcome: "Cross-platform builds with React Native & Flutter.",
+    points: ["iOS & Android", "React Native / Flutter"],
     image: imgMobile,
     alt: "Mobile app development in Chennai — iOS and Android — SmartPixel",
     href: "/services/mobile-app-development",
   },
   {
-    n: "05",
+    n: "04",
     title: "SEO & Digital Marketing",
     tag: "Growth Systems",
-    /*
-      SEO FIX 5: Renamed from "Digital Marketing" to "SEO & Digital Marketing"
-      — "SEO" is the higher-value, higher-search-volume keyword.
-      Also updated href to /seo-services-chennai which is your
-      dedicated SEO landing page.
-    */
-    body: "SEO, paid ads, content and growth systems designed to help Chennai businesses generate leads and revenue from Google.",
-    points: [
-      "SEO Services Chennai",
-      "Google Ads",
-      "Meta Ads",
-      "Social Media",
-      "Local SEO Chennai",
-    ],
+    body: "SEO, paid ads and content systems designed to generate leads and revenue from Google.",
+    outcome: "Local SEO + Google/Meta ads tuned for Chennai search demand.",
+    points: ["SEO + Local SEO", "Google & Meta ads"],
     image: imgMarketing,
     alt: "SEO and digital marketing services in Chennai — SmartPixel",
     href: "/seo-services-chennai",
@@ -167,22 +118,11 @@ const ServicesDeep = () => {
       <div className="max-w-[1500px] mx-auto">
         <div className="flex items-end justify-between mb-12 sm:mb-20 flex-wrap gap-6 sm:gap-8">
           <div>
-            <p className="eyebrow mb-4 sm:mb-6">— What We Build</p>
-
-            {/*
-              SEO FIX 6: H2 now contains the primary keyword.
-              Before: "Not services. Systems." — no keyword value at all.
-              After: Keyword-first H2 with your brand voice preserved below.
-
-              sr-only span carries the keyword for Google.
-              The visible display text keeps your design language.
-            */}
+            <p className="eyebrow mb-4 sm:mb-6 opacity-60">
+              — Website Development &amp; Digital Marketing Services in Chennai
+            </p>
             <h2 className="font-display text-4xl sm:text-5xl md:text-7xl leading-[1] max-w-3xl">
-              <span className="sr-only">
-                Website Development & Digital Marketing Services in Chennai —
-              </span>
-              Not services.
-              <br />
+              Not services.{" "}
               <span className="italic text-accent">Systems.</span>
             </h2>
           </div>
