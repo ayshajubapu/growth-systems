@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import { useEffect, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -8,6 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 const posts = [
   {
     cat: "Web Development",
+    slug: "websites-that-collect-customers-not-compliments",
     date: "Apr 2026",
     read: "8 min",
     title:
@@ -17,6 +18,7 @@ const posts = [
   },
   {
     cat: "Mobile Apps",
+    slug: "apps-that-survive-the-first-week",
     date: "Mar 2026",
     read: "10 min",
     title:
@@ -25,27 +27,41 @@ const posts = [
       "A practical breakdown of speed, simplicity, and UX patterns that earn second opens.",
   },
   {
-    cat: "Digital Marketing",
+    cat: "Marketing",
+    slug: "marketing-math-that-actually-grows",
     date: "Mar 2026",
     read: "7 min",
     title:
       "Traffic is vanity. The marketing math that actually grows a service business.",
-    excerpt:
-      "Why CAC, LTV and pipeline beat impressions and clicks.",
+    excerpt: "Why CAC, LTV and pipeline beat impressions and clicks.",
   },
   {
-    cat: "E-Commerce",
+    cat: "Ecommerce",
+    slug: "ecommerce-funnel-leaks",
     date: "Feb 2026",
     read: "6 min",
     title:
       "The leaks in your e-commerce funnel — and how to find them before competitors do.",
-    excerpt:
-      "From product page to checkout, patterns that kill revenue.",
+    excerpt: "From product page to checkout, patterns that kill revenue.",
   },
 ];
 
+const FILTERS = ["All", "Web", "Apps", "Marketing", "Ecommerce"] as const;
+type Filter = (typeof FILTERS)[number];
+
+const matches = (cat: string, f: Filter) => {
+  if (f === "All") return true;
+  if (f === "Web") return cat.toLowerCase().includes("web");
+  if (f === "Apps") return cat.toLowerCase().includes("app");
+  if (f === "Marketing") return cat.toLowerCase().includes("marketing");
+  if (f === "Ecommerce") return cat.toLowerCase().includes("ecom");
+  return true;
+};
+
 const Insights = () => {
   const ref = useRef<HTMLDivElement>(null);
+  const [filter, setFilter] = useState<Filter>("All");
+  const visible = useMemo(() => posts.filter((p) => matches(p.cat, filter)), [filter]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -56,16 +72,12 @@ const Insights = () => {
           duration: 1,
           delay: i * 0.05,
           ease: "power3.out",
-          scrollTrigger: {
-            trigger: p,
-            start: "top 85%",
-          },
+          scrollTrigger: { trigger: p, start: "top 85%" },
         });
       });
     }, ref);
-
     return () => ctx.revert();
-  }, []);
+  }, [filter]);
 
   return (
     <>
