@@ -100,7 +100,7 @@ const cases = [
     quote: "Elegant catalogue-style ecommerce design built for high-ticket buyers.",
     person: "Client",
     before: cs3b,
-    after: cs2a,
+    after: csManoharAfter,
     metric: "+Catalogue",
     metricSub: "Live",
     link: "https://www.manoharjewelleries.com/",
