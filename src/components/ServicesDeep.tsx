@@ -143,7 +143,9 @@ const ServicesDeep = () => {
             */
             <article
               key={it.n}
-              className="deep-row group relative grid md:grid-cols-12 gap-4 md:gap-8 py-8 sm:py-12 lg:py-16 border-b border-border transition-colors duration-500 hover:bg-surface/40"
+              className={`deep-row group relative grid md:grid-cols-12 gap-4 md:gap-8 border-b border-border transition-colors duration-500 hover:bg-surface/40 ${
+                it.lead ? "py-12 sm:py-16 lg:py-24" : "py-6 sm:py-9 lg:py-12"
+              }`}
             >
               <div className="md:col-span-1 text-xs text-muted-foreground tracking-[0.3em]">
                 {it.n}
@@ -154,17 +156,23 @@ const ServicesDeep = () => {
                   {it.tag}
                 </p>
 
-                <h3 className="font-display text-2xl sm:text-3xl md:text-5xl transition-colors duration-500 group-hover:text-accent">
+                <h3
+                  className={`font-display leading-[1] transition-colors duration-500 group-hover:text-accent ${
+                    it.lead
+                      ? "text-3xl sm:text-5xl md:text-6xl"
+                      : "text-2xl sm:text-3xl md:text-4xl text-foreground/85"
+                  }`}
+                >
                   {it.title}
                 </h3>
               </div>
 
-              <div className="md:col-span-6 md:col-start-6 space-y-5">
-                <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+              <div className="md:col-span-6 md:col-start-6 space-y-4">
+                <p className={`text-muted-foreground leading-relaxed ${it.lead ? "text-base sm:text-lg" : "text-sm"}`}>
                   {it.body}
                 </p>
 
-                <ul className="grid sm:grid-cols-2 gap-2 text-xs sm:text-sm">
+                <ul className="flex flex-wrap gap-x-5 gap-y-2 text-xs sm:text-sm">
                   {it.points.map((p) => (
                     <li key={p} className="flex gap-2">
                       <span className="text-accent">◆</span>
@@ -173,13 +181,23 @@ const ServicesDeep = () => {
                   ))}
                 </ul>
 
-                {/*
-                  SEO FIX 8: "Learn more" CTA link per service.
-                  Explicit anchor text ("Web Design Services →") is far
-                  stronger than just wrapping the whole card in an <a>.
-                  Google reads anchor text to understand what the
-                  linked page is about.
-                */}
+                <p className="text-xs sm:text-sm text-foreground/70 italic">
+                  {it.outcome}
+                </p>
+
+                {it.badges && (
+                  <div className="flex flex-wrap gap-2 pt-1">
+                    {it.badges.map((b) => (
+                      <span
+                        key={b}
+                        className="text-[10px] uppercase tracking-[0.25em] px-3 py-1 rounded-full border border-accent/40 text-accent/90 bg-accent/5"
+                      >
+                        + {b}
+                      </span>
+                    ))}
+                  </div>
+                )}
+
                 <a
                   href={it.href}
                   className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-accent hover:gap-4 transition-all duration-300"
