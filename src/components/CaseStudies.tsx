@@ -16,6 +16,12 @@ import cs5b from "@/assets/cs-5-before.jpg";
 import cs5a from "@/assets/cs-5-after.jpg";
 import cs6b from "@/assets/cs-6-before.jpg";
 import cs6a from "@/assets/cs-6-after.jpg";
+import csGulfAfter from "@/assets/cs-gulf2world-after.png";
+import csTravelHubAfter from "@/assets/cs-travelhub-after.png";
+import csLtsAfter from "@/assets/cs-lts-after.png";
+import csManoharAfter from "@/assets/cs-manohar-after.png";
+import csSuryaAfter from "@/assets/cs-suryaprakash-after.png";
+import csAyishroAfter from "@/assets/cs-ayishro-after.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -59,7 +65,7 @@ const cases = [
     quote: "Created a premium immigration website focused on authority, trust, and conversion.",
     person: "Client",
     before: cs4b,
-    after: cs4a,
+    after: csGulfAfter,
     metric: "+Trust",
     metricSub: "Built",
     link: "https://gulftoworldconsultants.com/",
@@ -70,7 +76,7 @@ const cases = [
     quote: "Full rebuild focused on getting visitors to actually book a call. Within the first month, booked calls tripled.",
     person: "Junaid",
     before: cs5b,
-    after: cs5a,
+    after: csTravelHubAfter,
     metric: "+200%",
     metricSub: "Booked Calls",
     link: "https://www.travelhubtambaram.in/",
@@ -81,7 +87,7 @@ const cases = [
     quote: "Three weeks from kickoff to a live website. Built with enquiry-focused structure and premium trust design.",
     person: "Gagan",
     before: cs6b,
-    after: cs6a,
+    after: csLtsAfter,
     metric: "3 Weeks",
     metricSub: "Turnaround",
     link: "https://www.ltslearningacademy.com/",
@@ -94,7 +100,7 @@ const cases = [
     quote: "Elegant catalogue-style ecommerce design built for high-ticket buyers.",
     person: "Client",
     before: cs3b,
-    after: cs2a,
+    after: csManoharAfter,
     metric: "+Catalogue",
     metricSub: "Live",
     link: "https://www.manoharjewelleries.com/",
@@ -105,21 +111,21 @@ const cases = [
     quote: "B2B website rebuilt to attract bulk enquiries from procurement teams.",
     person: "Client",
     before: cs4b,
-    after: cs3a,
+    after: csSuryaAfter,
     metric: "+B2B Leads",
     metricSub: "Inbound",
     link: "https://www.suryaprakashmetals.com/",
   },
   {
     client: "Ayishro",
-    industry: "Fashion",
-    quote: "Created a clean premium fashion website for customer trust and reach.",
+    industry: "Water Purifiers",
+    quote: "Premium RO water purification brand site built for trust, leads, and Chennai-wide reach.",
     person: "Client",
     before: cs2b,
-    after: cs1a,
-    metric: "+Branding",
-    metricSub: "Built",
-    link: "https://www..com/",
+    after: csAyishroAfter,
+    metric: "+Enquiries",
+    metricSub: "Online",
+    link: "https://ayishro.com/",
   },
   {
     client: "Manha Hajj & Umrah",
