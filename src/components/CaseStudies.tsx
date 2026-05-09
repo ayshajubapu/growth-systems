@@ -22,6 +22,9 @@ import csLtsAfter from "@/assets/cs-lts-after.png";
 import csManoharAfter from "@/assets/cs-manohar-after.png";
 import csSuryaAfter from "@/assets/cs-suryaprakash-after.png";
 import csAyishroAfter from "@/assets/cs-ayishro-after.png";
+import csManhaAfter from "@/assets/cs-manha-after.png";
+import csFlyingBirdAfter from "@/assets/cs-flyingbird-after.png";
+import csBlossomAfter from "@/assets/cs-blossombloom-after.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
