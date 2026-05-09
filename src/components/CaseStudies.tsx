@@ -38,8 +38,8 @@ const cases = [
     after: cs1a,
     beforeAlt: "Triumph Travels old website screenshot before SmartPixel redesign — outdated travel agency layout",
     afterAlt: "Triumph Travels modern website after SmartPixel redesign — fast, conversion-focused travel agency homepage",
-    metric: "+Leads",
-    metricSub: "Generated",
+    metric: "Modernised",
+    metricSub: "Faster pages, cleaner enquiry flow",
     link: "https://triumphtravels.com/",
   },
   {
@@ -51,8 +51,8 @@ const cases = [
     after: cs2b,
     beforeAlt: "Priya Silver Jewellery website before redesign — basic jewellery store layout",
     afterAlt: "Priya Silver Jewellery e-commerce website after SmartPixel redesign — elegant product showcase for jewellery buyers",
-    metric: "+Sales",
-    metricSub: "Increase",
+    metric: "Launched",
+    metricSub: "First true ecommerce presence",
     link: "https://www.priyasilverjewellery.com/",
   },
   {
@@ -64,8 +64,8 @@ const cases = [
     after: cs3a,
     beforeAlt: "Fotrio Edu old education website before SmartPixel redesign — cluttered course listing layout",
     afterAlt: "Fotrio Edu student-first education website after SmartPixel redesign — clear calls to action and course discovery",
-    metric: "+Enrollments",
-    metricSub: "Growth",
+    metric: "Clearer",
+    metricSub: "Course pages built around enquiry",
     link: "https://fotrioedu.com/",
   },
   {
@@ -77,8 +77,8 @@ const cases = [
     after: csGulfAfter,
     beforeAlt: "Gulf To World Consultants old immigration website before SmartPixel redesign",
     afterAlt: "Gulf To World Consultants premium immigration website after SmartPixel redesign — Canada, Australia and EU visa services with consultation CTA",
-    metric: "+Trust",
-    metricSub: "Built",
+    metric: "Authority",
+    metricSub: "Premium immigration brand site",
     link: "https://gulftoworldconsultants.com/",
   },
   {
@@ -116,8 +116,8 @@ const cases = [
     after: csManoharAfter,
     beforeAlt: "Manohar Jewelleries old website before SmartPixel redesign",
     afterAlt: "Manohar Jewelleries luxury jewellery website after SmartPixel redesign — heritage gold catalogue with premium dark hero",
-    metric: "+Catalogue",
-    metricSub: "Live",
+    metric: "First-ever",
+    metricSub: "Online catalogue for a 30-yr brand",
     link: "https://www.manoharjewelleries.com/",
   },
   {
@@ -129,8 +129,8 @@ const cases = [
     after: csSuryaAfter,
     beforeAlt: "Surya Prakash Metals old B2B website before SmartPixel redesign",
     afterAlt: "Surya Prakash Metals B2B manufacturer website after SmartPixel redesign — bulk copper, brass and bronze quote request hero",
-    metric: "+B2B Leads",
-    metricSub: "Inbound",
+    metric: "B2B-ready",
+    metricSub: "Built for procurement enquiries",
     link: "https://www.suryaprakashmetals.com/",
   },
   {
@@ -142,8 +142,8 @@ const cases = [
     after: csAyishroAfter,
     beforeAlt: "Ayishro old RO water purifier website before SmartPixel redesign",
     afterAlt: "Ayishro premium RO water purifier website after SmartPixel redesign — Chennai service hero with quote request CTA",
-    metric: "+Enquiries",
-    metricSub: "Online",
+    metric: "Trust-led",
+    metricSub: "RO water brand for Chennai",
     link: "https://ayishro.com/",
   },
   {
@@ -155,8 +155,8 @@ const cases = [
     after: csManhaAfter,
     beforeAlt: "Manha Hajj & Umrah old website before SmartPixel redesign",
     afterAlt: "Manha Hajj & Umrah website after SmartPixel redesign — cinematic Kaaba hero with Umrah 2026 booking CTA",
-    metric: "+Calls",
-    metricSub: "Booked",
+    metric: "Booking-ready",
+    metricSub: "Hajj & Umrah enquiry site",
     link: "https://manhahajjandumrahservice.in/",
   },
   {
@@ -168,8 +168,8 @@ const cases = [
     after: csFlyingBirdAfter,
     beforeAlt: "Flying Bird Solution old travel website before SmartPixel redesign",
     afterAlt: "Flying Bird Solution travel website after SmartPixel redesign — Kashmir, Ladakh and Himachal experiences with curated activity cards",
-    metric: "+Leads",
-    metricSub: "Generated",
+    metric: "Credibility",
+    metricSub: "Curated travel experience cards",
     link: "https://flyingbirdsolution.netlify.app/",
   },
   {
@@ -181,20 +181,16 @@ const cases = [
     after: csBlossomAfter,
     beforeAlt: "Blossom Bloom old website before SmartPixel redesign",
     afterAlt: "Blossom Bloom fashion e-commerce website after SmartPixel redesign — coord sets lookbook hero with shop CTA",
-    metric: "+Orders",
-    metricSub: "Online",
+    metric: "Lookbook",
+    metricSub: "Visual storefront for new brand",
     link: "https://blossom-bloom.vercel.app/",
   },
 ];
 
 const INITIAL_VISIBLE = 3;
 
-const stats = [
-  { v: "250+", l: "Projects Completed" },
-  { v: "120+", l: "Happy Clients" },
-  { v: "98%", l: "Success Rate" },
-  { v: "5+", l: "Years of Experience" },
-];
+
+
 
 const CaseStudies = ({ showAllByDefault = false }: { showAllByDefault?: boolean }) => {
   const ref = useRef<HTMLDivElement>(null);
@@ -257,17 +253,6 @@ const CaseStudies = ({ showAllByDefault = false }: { showAllByDefault?: boolean 
               Websites built to convert, designed to grow.
             </p>
 
-            {/* Stats strip */}
-            <div className="mt-10 lg:mt-12 grid grid-cols-2 md:grid-cols-4 gap-px bg-white/5 border-y border-white/10">
-              {stats.map((s) => (
-                <div key={s.l} className="bg-background px-5 py-5 lg:py-6">
-                  <div className="num-display text-3xl md:text-4xl text-accent">{s.v}</div>
-                  <div className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground mt-2">
-                    {s.l}
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
 
           {/* Case rows */}

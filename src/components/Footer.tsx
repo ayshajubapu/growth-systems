@@ -43,7 +43,7 @@ const cols = [
     ],
   },
   {
-    title: "Studio",
+    title: "Pages",
     links: [
       { l: "Home",      h: "/" },
       { l: "Portfolio", h: "/our-work" },

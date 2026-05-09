@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import { useEffect, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -8,6 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 const posts = [
   {
     cat: "Web Development",
+    slug: "websites-that-collect-customers-not-compliments",
     date: "Apr 2026",
     read: "8 min",
     title:
@@ -17,6 +18,7 @@ const posts = [
   },
   {
     cat: "Mobile Apps",
+    slug: "apps-that-survive-the-first-week",
     date: "Mar 2026",
     read: "10 min",
     title:
@@ -25,27 +27,41 @@ const posts = [
       "A practical breakdown of speed, simplicity, and UX patterns that earn second opens.",
   },
   {
-    cat: "Digital Marketing",
+    cat: "Marketing",
+    slug: "marketing-math-that-actually-grows",
     date: "Mar 2026",
     read: "7 min",
     title:
       "Traffic is vanity. The marketing math that actually grows a service business.",
-    excerpt:
-      "Why CAC, LTV and pipeline beat impressions and clicks.",
+    excerpt: "Why CAC, LTV and pipeline beat impressions and clicks.",
   },
   {
-    cat: "E-Commerce",
+    cat: "Ecommerce",
+    slug: "ecommerce-funnel-leaks",
     date: "Feb 2026",
     read: "6 min",
     title:
       "The leaks in your e-commerce funnel — and how to find them before competitors do.",
-    excerpt:
-      "From product page to checkout, patterns that kill revenue.",
+    excerpt: "From product page to checkout, patterns that kill revenue.",
   },
 ];
 
+const FILTERS = ["All", "Web", "Apps", "Marketing", "Ecommerce"] as const;
+type Filter = (typeof FILTERS)[number];
+
+const matches = (cat: string, f: Filter) => {
+  if (f === "All") return true;
+  if (f === "Web") return cat.toLowerCase().includes("web");
+  if (f === "Apps") return cat.toLowerCase().includes("app");
+  if (f === "Marketing") return cat.toLowerCase().includes("marketing");
+  if (f === "Ecommerce") return cat.toLowerCase().includes("ecom");
+  return true;
+};
+
 const Insights = () => {
   const ref = useRef<HTMLDivElement>(null);
+  const [filter, setFilter] = useState<Filter>("All");
+  const visible = useMemo(() => posts.filter((p) => matches(p.cat, filter)), [filter]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -56,16 +72,12 @@ const Insights = () => {
           duration: 1,
           delay: i * 0.05,
           ease: "power3.out",
-          scrollTrigger: {
-            trigger: p,
-            start: "top 85%",
-          },
+          scrollTrigger: { trigger: p, start: "top 85%" },
         });
       });
     }, ref);
-
     return () => ctx.revert();
-  }, []);
+  }, [filter]);
 
   return (
     <>
@@ -167,10 +179,31 @@ const Insights = () => {
             </a>
           </div>
 
+          {/* Category filter */}
+          <div className="flex flex-wrap gap-2 mb-10" role="tablist" aria-label="Filter articles">
+            {FILTERS.map((f) => (
+              <button
+                key={f}
+                type="button"
+                role="tab"
+                aria-selected={filter === f}
+                onClick={() => setFilter(f)}
+                className={`text-[11px] uppercase tracking-[0.25em] px-4 py-2 rounded-full border transition-colors ${
+                  filter === f
+                    ? "bg-accent text-accent-foreground border-accent"
+                    : "border-border text-muted-foreground hover:text-accent hover:border-accent/50"
+                }`}
+              >
+                {f}
+              </button>
+            ))}
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border">
-            {posts.map((p, i) => (
-              <article
+            {visible.map((p, i) => (
+              <a
                 key={p.title}
+                href={`/blog/${p.slug}`}
                 className="post group bg-background p-8 sm:p-10 lg:p-12 min-h-[320px] sm:min-h-[420px] flex flex-col justify-between hover:bg-surface transition-colors duration-700 cursor-pointer"
               >
                 <div>
@@ -178,7 +211,6 @@ const Insights = () => {
                     <span className="text-[10px] uppercase tracking-[0.3em] text-accent">
                       {p.cat}
                     </span>
-
                     <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
                       N° 0{i + 1}
                     </span>
@@ -197,14 +229,19 @@ const Insights = () => {
                   <span className="text-xs text-muted-foreground tracking-wider">
                     {p.date} · {p.read}
                   </span>
-
                   <span className="text-accent md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500">
                     →
                   </span>
                 </div>
-              </article>
+              </a>
             ))}
           </div>
+
+          {visible.length === 0 && (
+            <p className="mt-10 text-sm text-muted-foreground text-center">
+              No articles in this category yet.
+            </p>
+          )}
         </div>
       </section>
     </>

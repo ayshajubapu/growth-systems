@@ -2,52 +2,46 @@ import { Helmet } from "react-helmet-async";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-import p1 from "@/assets/portrait-1.jpg";
-import p2 from "@/assets/portrait-2.jpg";
-import p3 from "@/assets/portrait-3.jpg";
-import p4 from "@/assets/portrait-4.jpg";
-import p5 from "@/assets/portrait-5.jpg";
-import p6 from "@/assets/portrait-6.jpg";
-import p7 from "@/assets/portrait-7.jpg";
-import p8 from "@/assets/portrait-8.jpg";
-import p9 from "@/assets/portrait-9.jpg";
-import p10 from "@/assets/portrait-10.jpg";
-import p11 from "@/assets/portrait-11.jpg";
-import p12 from "@/assets/portrait-12.jpg";
+import { Quote } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-/**
- * Arc / fan composition of portrait cards.
- * Each card has: image, x offset (vw-ish via %), y offset (px), rotation, width, z-index.
- * Layout designed so the row dips in the middle (arc) — exactly like the reference.
- */
-type Card = {
-  src?: string;
-  /** ghost = empty rounded card (background filler at far edges) */
-  ghost?: boolean;
-  /** anonymous = blur this client's portrait for privacy */
-  anonymous?: boolean;
-  x: number; // percentage from left of container
-  y: number; // px vertical offset (lower = pushed down)
-  rot: number; // rotation degrees
-  w: number; // px width on desktop
-  z: number;
-  delay: number;
+type Testimonial = {
+  name: string;
+  company: string;
+  initials: string;
+  result: string;
+  quote: string;
+  link?: string;
 };
 
-// 12 portrait cards arranged in a downward-dipping arc.
-// Toggle `anonymous: true` on any card to ship with a blurred face for privacy.
-// 7 portrait cards arranged in a downward-dipping arc — clean, premium, not cluttered.
-const cards: Card[] = [
-  { src: p1,  x: 10, y: 60,  rot: -4, w: 150, z: 4, delay: 0.05 },
-  { src: p2,  x: 23, y: 20,  rot: -2, w: 160, z: 5, delay: 0.12 },
-  { src: p4,  x: 36, y: 80,  rot:  2, w: 160, z: 6, delay: 0.18 },
-  { src: p6,  x: 50, y: 30,  rot: -1, w: 180, z: 7, delay: 0.25 },
-  { src: p8,  x: 64, y: 80,  rot:  2, w: 160, z: 6, delay: 0.32 },
-  { src: p9,  x: 77, y: 20,  rot: -2, w: 160, z: 5, delay: 0.40, anonymous: true },
-  { src: p11, x: 90, y: 65,  rot:  3, w: 150, z: 4, delay: 0.48 },
+const testimonials: Testimonial[] = [
+  {
+    name: "Junaid",
+    company: "Travel Hub Tambaram",
+    initials: "JU",
+    result: "Booked calls tripled (+200%) in the first month",
+    quote:
+      "SmartPixel rebuilt our website end-to-end with one focus — getting visitors to actually book a call. The difference was visible in week one.",
+    link: "https://www.travelhubtambaram.in/",
+  },
+  {
+    name: "Gagan",
+    company: "LTS Learning Academy",
+    initials: "GA",
+    result: "Live in 3 weeks with an enquiry-led structure",
+    quote:
+      "From kickoff to launch in three weeks. The site looks premium, loads fast, and the enquiry flow is exactly how we wanted students to discover us.",
+    link: "https://www.ltslearningacademy.com/",
+  },
+  {
+    name: "Your story next",
+    company: "Become our next case study",
+    initials: "+",
+    result: "We're taking on a small number of new builds this quarter.",
+    quote:
+      "Tell us your goal — we'll show you the structure, timeline, and outcome we'd build for it. No pitch decks. One call.",
+  },
 ];
 
 const Testimonials = () => {
@@ -55,49 +49,23 @@ const Testimonials = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Arc cards reveal — fall in from above with a subtle stagger
-      gsap.set(".t-card", { y: -120, opacity: 0, rotate: 0 });
-      gsap.utils.toArray<HTMLElement>(".t-card").forEach((el) => {
-        const targetRot = parseFloat(el.dataset.rot || "0");
-        const delay = parseFloat(el.dataset.delay || "0");
-        gsap.to(el, {
-          y: 0,
-          opacity: 1,
-          rotate: targetRot,
-          duration: 1.2,
-          delay,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: ref.current,
-            start: "top 70%",
-            once: true,
-          },
-        });
-      });
-
-      // Headline + body reveal
-      gsap.from(".t-reveal > *", {
+      gsap.from(".t-card", {
         y: 40,
         opacity: 0,
         duration: 1,
         stagger: 0.1,
         ease: "power3.out",
-        scrollTrigger: { trigger: ref.current, start: "top 60%" },
+        scrollTrigger: { trigger: ref.current, start: "top 80%" },
       });
-
-      // Subtle parallax drift on the whole arc
-      gsap.to(".t-arc", {
-        y: -40,
-        ease: "none",
-        scrollTrigger: {
-          trigger: ref.current,
-          start: "top bottom",
-          end: "bottom top",
-          scrub: true,
-        },
+      gsap.from(".t-reveal > *", {
+        y: 30,
+        opacity: 0,
+        duration: 0.9,
+        stagger: 0.08,
+        ease: "power3.out",
+        scrollTrigger: { trigger: ref.current, start: "top 80%" },
       });
     }, ref);
-
     return () => ctx.revert();
   }, []);
 
@@ -107,7 +75,7 @@ const Testimonials = () => {
         <title>Client Testimonials | SmartPixel Chennai</title>
         <meta
           name="description"
-          content="Trusted by leaders across travel, education, retail and more. Read what SmartPixel clients say about our websites, apps and growth systems."
+          content="Real results from SmartPixel clients in travel, education, jewellery and more. Read what founders say about working with us."
         />
         <link rel="canonical" href="https://smartpixel.in/#testimonials" />
       </Helmet>
@@ -115,114 +83,86 @@ const Testimonials = () => {
       <section
         id="voices"
         ref={ref}
-        className="relative overflow-hidden bg-surface border-y border-border"
+        className="relative bg-surface border-y border-border py-20 sm:py-28 lg:py-32 px-5 sm:px-10 lg:px-24"
       >
-        {/* faint vertical guide lines (like the reference) */}
-        <div
-          aria-hidden
-          className="absolute inset-0 opacity-[0.06] pointer-events-none"
-          style={{
-            backgroundImage:
-              "repeating-linear-gradient(to right, hsl(var(--accent)) 0 1px, transparent 1px 140px)",
-          }}
-        />
-
-        {/* ARC of portrait cards */}
-        <div
-          className="t-arc relative w-full mx-auto"
-          style={{ height: "clamp(340px, 38vw, 520px)" }}
-        >
-          {cards.map((c, i) => {
-            const heightRatio = 1.35; // portrait aspect
-            return (
-              <div
-                key={i}
-                className="t-card absolute will-change-transform"
-                data-rot={c.rot}
-                data-delay={c.delay}
-                style={{
-                  left: `${c.x}%`,
-                  top: `${c.y}px`,
-                  width: `clamp(70px, ${c.w / 14}vw, ${c.w}px)`,
-                  zIndex: c.z,
-                  transform: "translate(-50%, 0)",
-                }}
-              >
-                <div
-                  className="overflow-hidden rounded-2xl border border-border"
-                  style={{
-                    aspectRatio: `1 / ${heightRatio}`,
-                    background: c.ghost
-                      ? "linear-gradient(180deg, hsl(0 0% 100% / 0.04), hsl(0 0% 100% / 0.01))"
-                      : "hsl(var(--background))",
-                    boxShadow: c.ghost
-                      ? "none"
-                      : "0 20px 50px -20px hsl(0 0% 0% / 0.7)",
-                  }}
-                >
-                  {!c.ghost && c.src && (
-                    <div className="relative w-full h-full overflow-hidden">
-                      <img
-                        src={c.src}
-                        alt={c.anonymous ? "Anonymous SmartPixel client" : "SmartPixel client"}
-                        width={512}
-                        height={768}
-                        loading="lazy"
-                        className={`w-full h-full object-cover transition-all duration-700 ${
-                          c.anonymous ? "blur-md scale-110" : ""
-                        }`}
-                      />
-                      {c.anonymous && (
-                        <span className="absolute bottom-2 left-1/2 -translate-x-1/2 text-[8px] uppercase tracking-[0.2em] text-foreground/70 px-2 py-0.5 rounded-full bg-background/60 backdrop-blur-md border border-white/10">
-                          Private
-                        </span>
-                      )}
-                    </div>
-                  )}
-                </div>
-              </div>
-            );
-          })}
-
-          {/* gradient fade so the arc bleeds into the headline area */}
-          <div
-            aria-hidden
-            className="absolute inset-x-0 bottom-0 h-40 pointer-events-none"
-            style={{
-              background:
-                "linear-gradient(to bottom, transparent, hsl(var(--surface)) 90%)",
-            }}
-          />
-        </div>
-
-        {/* HEADLINE BLOCK — centered, exactly like reference */}
-        <div className="t-reveal relative z-10 max-w-4xl mx-auto px-6 text-center pb-24 sm:pb-32 -mt-10 sm:-mt-16">
-          {/* pill */}
-          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full glass text-xs uppercase tracking-[0.3em] text-foreground mb-8">
+        <div className="t-reveal max-w-3xl mx-auto text-center mb-14 sm:mb-20">
+          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full glass text-xs uppercase tracking-[0.3em] text-foreground mb-6">
             Testimonials
           </div>
-
-          <h2 className="font-display text-4xl sm:text-6xl md:text-7xl leading-[1.05] tracking-tight">
-            <span className="block text-foreground">Trusted by leaders</span>
-            <span className="block text-muted-foreground italic">
-              from various industries
-            </span>
+          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl leading-[1.05] tracking-tight">
+            <span className="block text-foreground">Real founders.</span>
+            <span className="block text-muted-foreground italic">Real results.</span>
           </h2>
-
-          <p className="mt-6 text-base sm:text-lg text-muted-foreground max-w-xl mx-auto">
-            Learn why founders and operators trust SmartPixel to build
-            websites, apps and growth systems that actually convert.
+          <p className="mt-5 text-base text-muted-foreground max-w-xl mx-auto">
+            We let our clients do the talking. Here's what working with
+            SmartPixel actually looks like.
           </p>
+        </div>
 
-          <div className="mt-10">
-            <a
-              href="#work"
-              className="inline-flex items-center gap-3 px-7 py-4 rounded-full bg-foreground text-background text-sm font-medium hover:opacity-90 transition-opacity"
-            >
-              Read Success Stories
-              <span aria-hidden>→</span>
-            </a>
-          </div>
+        <div className="grid md:grid-cols-3 gap-5 sm:gap-6 max-w-[1200px] mx-auto">
+          {testimonials.map((t) => {
+            const isCTA = t.initials === "+";
+            const Wrapper = (t.link ? "a" : "div") as "a" | "div";
+            const wrapperProps = t.link
+              ? { href: t.link, target: "_blank", rel: "noopener noreferrer" }
+              : {};
+            return (
+              <Wrapper
+                key={t.name + t.company}
+                {...(wrapperProps as Record<string, string>)}
+                className={`t-card group relative flex flex-col p-7 sm:p-8 rounded-2xl border transition-all duration-500 ${
+                  isCTA
+                    ? "border-accent/40 bg-accent/5 hover:bg-accent/10"
+                    : "border-border bg-background hover:border-accent/30"
+                }`}
+              >
+                <div className="flex items-center gap-4 mb-6">
+                  <div
+                    className={`w-12 h-12 rounded-full flex items-center justify-center font-display text-base ${
+                      isCTA
+                        ? "bg-accent text-accent-foreground"
+                        : "bg-foreground/10 text-foreground"
+                    }`}
+                  >
+                    {t.initials}
+                  </div>
+                  <div>
+                    <p className="font-display text-lg leading-tight">{t.name}</p>
+                    <p className="text-xs text-muted-foreground tracking-wide mt-0.5">
+                      {t.company}
+                    </p>
+                  </div>
+                </div>
+
+                <p className="text-xs uppercase tracking-[0.25em] text-accent mb-3">
+                  {isCTA ? "Open slot" : "Result"}
+                </p>
+                <p className="font-display text-lg sm:text-xl leading-snug mb-5">
+                  {t.result}
+                </p>
+
+                <div className="relative mt-auto pt-5 border-t border-border">
+                  <Quote
+                    size={18}
+                    className="text-accent/60 mb-2"
+                    aria-hidden
+                  />
+                  <p className="text-sm text-muted-foreground leading-relaxed italic">
+                    "{t.quote}"
+                  </p>
+                </div>
+
+                {isCTA && (
+                  <a
+                    href="/contact"
+                    className="mt-6 inline-flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-accent hover:gap-4 transition-all"
+                  >
+                    Book a strategy call →
+                  </a>
+                )}
+              </Wrapper>
+            );
+          })}
         </div>
       </section>
     </>
