@@ -111,7 +111,7 @@ const cases = [
     quote: "B2B website rebuilt to attract bulk enquiries from procurement teams.",
     person: "Client",
     before: cs4b,
-    after: cs3a,
+    after: csSuryaAfter,
     metric: "+B2B Leads",
     metricSub: "Inbound",
     link: "https://www.suryaprakashmetals.com/",
