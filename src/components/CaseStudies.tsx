@@ -87,7 +87,7 @@ const cases = [
     quote: "Three weeks from kickoff to a live website. Built with enquiry-focused structure and premium trust design.",
     person: "Gagan",
     before: cs6b,
-    after: cs6a,
+    after: csLtsAfter,
     metric: "3 Weeks",
     metricSub: "Turnaround",
     link: "https://www.ltslearningacademy.com/",
