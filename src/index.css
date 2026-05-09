@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -61,7 +61,11 @@
     color: hsl(var(--foreground));
   }
 }
-
+body {
+  font-family: 'Satoshi', sans-serif;
+  /* or 'Plus Jakarta Sans', sans-serif */
+  /* or 'DM Sans', sans-serif */
+}
 @layer components {
   .font-display {
     font-family: 'Playfair Display', Georgia, serif;

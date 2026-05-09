@@ -36,8 +36,8 @@ const cases = [
     industry: "Jewellery",
     quote: "Elegant e-commerce ready design crafted for jewellery buyers.",
     person: "Client",
-    before: cs2b,
-    after: cs2a,
+    before: cs2a,
+    after: cs2b,
     metric: "+Sales",
     metricSub: "Increase",
     link: "https://www.priyasilverjewellery.com/",
@@ -86,28 +86,8 @@ const cases = [
     metricSub: "Turnaround",
     link: "https://www.ltslearningacademy.com/",
   },
-  {
-    client: "Al Miraj",
-    industry: "Travel & Hajj",
-    quote: "Premium pilgrimage brand site with multi-package booking flow.",
-    person: "Client",
-    before: cs1b,
-    after: cs5a,
-    metric: "+Bookings",
-    metricSub: "Pipeline",
-    link: "#",
-  },
-  {
-    client: "Arabian Vibes",
-    industry: "Travel & Tours",
-    quote: "Visual-first travel storytelling with a clear enquiry funnel.",
-    person: "Client",
-    before: cs2b,
-    after: cs4a,
-    metric: "+Enquiries",
-    metricSub: "Monthly",
-    link: "#",
-  },
+ 
+ 
   {
     client: "Manohar Jewelleries",
     industry: "Jewellery",
@@ -117,7 +97,7 @@ const cases = [
     after: cs2a,
     metric: "+Catalogue",
     metricSub: "Live",
-    link: "#",
+    link: "https://www.manoharjewelleries.com/",
   },
   {
     client: "Surya Prakash Metals",
@@ -128,7 +108,7 @@ const cases = [
     after: cs3a,
     metric: "+B2B Leads",
     metricSub: "Inbound",
-    link: "#",
+    link: "https://www.suryaprakashmetals.com/",
   },
   {
     client: "Ayishro",
@@ -139,7 +119,7 @@ const cases = [
     after: cs1a,
     metric: "+Branding",
     metricSub: "Built",
-    link: "#",
+    link: "https://www..com/",
   },
   {
     client: "Manha Hajj & Umrah",
@@ -150,7 +130,7 @@ const cases = [
     after: cs6a,
     metric: "+Calls",
     metricSub: "Booked",
-    link: "#",
+    link: "https://manhahajjandumrahservice.in/",
   },
   {
     client: "Flying Bird Solution",
@@ -161,7 +141,7 @@ const cases = [
     after: cs4a,
     metric: "+Leads",
     metricSub: "Generated",
-    link: "#",
+    link: "https://flyingbirdsolution.netlify.app/",
   },
   {
     client: "Blossom Bloom",
@@ -172,7 +152,7 @@ const cases = [
     after: cs2a,
     metric: "+Orders",
     metricSub: "Online",
-    link: "#",
+    link: "https://blossom-bloom.vercel.app/",
   },
 ];
 
