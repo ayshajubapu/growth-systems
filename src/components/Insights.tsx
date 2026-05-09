@@ -179,10 +179,31 @@ const Insights = () => {
             </a>
           </div>
 
+          {/* Category filter */}
+          <div className="flex flex-wrap gap-2 mb-10" role="tablist" aria-label="Filter articles">
+            {FILTERS.map((f) => (
+              <button
+                key={f}
+                type="button"
+                role="tab"
+                aria-selected={filter === f}
+                onClick={() => setFilter(f)}
+                className={`text-[11px] uppercase tracking-[0.25em] px-4 py-2 rounded-full border transition-colors ${
+                  filter === f
+                    ? "bg-accent text-accent-foreground border-accent"
+                    : "border-border text-muted-foreground hover:text-accent hover:border-accent/50"
+                }`}
+              >
+                {f}
+              </button>
+            ))}
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border">
-            {posts.map((p, i) => (
-              <article
+            {visible.map((p, i) => (
+              <a
                 key={p.title}
+                href={`/blog/${p.slug}`}
                 className="post group bg-background p-8 sm:p-10 lg:p-12 min-h-[320px] sm:min-h-[420px] flex flex-col justify-between hover:bg-surface transition-colors duration-700 cursor-pointer"
               >
                 <div>
@@ -190,7 +211,6 @@ const Insights = () => {
                     <span className="text-[10px] uppercase tracking-[0.3em] text-accent">
                       {p.cat}
                     </span>
-
                     <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
                       N° 0{i + 1}
                     </span>
@@ -209,14 +229,19 @@ const Insights = () => {
                   <span className="text-xs text-muted-foreground tracking-wider">
                     {p.date} · {p.read}
                   </span>
-
                   <span className="text-accent md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500">
                     →
                   </span>
                 </div>
-              </article>
+              </a>
             ))}
           </div>
+
+          {visible.length === 0 && (
+            <p className="mt-10 text-sm text-muted-foreground text-center">
+              No articles in this category yet.
+            </p>
+          )}
         </div>
       </section>
     </>
