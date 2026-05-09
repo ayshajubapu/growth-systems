@@ -65,7 +65,7 @@ const cases = [
     quote: "Created a premium immigration website focused on authority, trust, and conversion.",
     person: "Client",
     before: cs4b,
-    after: cs4a,
+    after: csGulfAfter,
     metric: "+Trust",
     metricSub: "Built",
     link: "https://gulftoworldconsultants.com/",
