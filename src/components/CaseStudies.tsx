@@ -189,12 +189,8 @@ const cases = [
 
 const INITIAL_VISIBLE = 3;
 
-const stats = [
-  { v: "250+", l: "Projects Completed" },
-  { v: "120+", l: "Happy Clients" },
-  { v: "98%", l: "Success Rate" },
-  { v: "5+", l: "Years of Experience" },
-];
+
+
 
 const CaseStudies = ({ showAllByDefault = false }: { showAllByDefault?: boolean }) => {
   const ref = useRef<HTMLDivElement>(null);
