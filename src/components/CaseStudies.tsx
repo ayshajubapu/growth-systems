@@ -257,17 +257,6 @@ const CaseStudies = ({ showAllByDefault = false }: { showAllByDefault?: boolean 
               Websites built to convert, designed to grow.
             </p>
 
-            {/* Stats strip */}
-            <div className="mt-10 lg:mt-12 grid grid-cols-2 md:grid-cols-4 gap-px bg-white/5 border-y border-white/10">
-              {stats.map((s) => (
-                <div key={s.l} className="bg-background px-5 py-5 lg:py-6">
-                  <div className="num-display text-3xl md:text-4xl text-accent">{s.v}</div>
-                  <div className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground mt-2">
-                    {s.l}
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
 
           {/* Case rows */}
