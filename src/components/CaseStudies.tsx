@@ -16,6 +16,12 @@ import cs5b from "@/assets/cs-5-before.jpg";
 import cs5a from "@/assets/cs-5-after.jpg";
 import cs6b from "@/assets/cs-6-before.jpg";
 import cs6a from "@/assets/cs-6-after.jpg";
+import csGulfAfter from "@/assets/cs-gulf2world-after.png";
+import csTravelHubAfter from "@/assets/cs-travelhub-after.png";
+import csLtsAfter from "@/assets/cs-lts-after.png";
+import csManoharAfter from "@/assets/cs-manohar-after.png";
+import csSuryaAfter from "@/assets/cs-suryaprakash-after.png";
+import csAyishroAfter from "@/assets/cs-ayishro-after.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
