@@ -13,7 +13,7 @@ import imgEcom from "@/assets/sp-ecom.jpg";
   This component is used on the homepage AND potentially the /services
   page. Having Helmet here causes:
   - Title "Website Design, Ecommerce..." to overwrite the homepage title
-  - canonical "https://smartpixel.in/services" injected on the homepage
+  - canonical "https://www.smartpixel.in/services" injected on the homepage
     — Google sees your homepage as a duplicate of /services
   - ProfessionalService schema duplicated (already in index.html)
 

@@ -70,7 +70,7 @@ const SeoPageLayout = ({
               {i === breadcrumbs.length - 1 ? (
                 <span className="text-foreground/70">{b.name}</span>
               ) : (
-                <Link to={b.url.replace("https://smartpixel.in", "")} className="hover:text-accent">{b.name}</Link>
+                <Link to={b.url.replace("https://www.smartpixel.in", "")} className="hover:text-accent">{b.name}</Link>
               )}
             </span>
           ))}

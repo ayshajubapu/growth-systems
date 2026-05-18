@@ -99,7 +99,7 @@ const Insights = () => {
 
         <meta name="robots" content="index, follow" />
 
-        <link rel="canonical" href="https://smartpixel.in/insights" />
+        <link rel="canonical" href="https://www.smartpixel.in/insights" />
 
         {/* Open Graph */}
         <meta
@@ -114,11 +114,11 @@ const Insights = () => {
 
         <meta
           property="og:url"
-          content="https://smartpixel.in/insights"
+          content="https://www.smartpixel.in/insights"
         />
 
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://smartpixel.in/logo.png" />
+        <meta property="og:image" content="https://www.smartpixel.in/logo.png" />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -130,7 +130,7 @@ const Insights = () => {
           name="twitter:description"
           content="Read premium website, SEO and growth content from SmartPixel."
         />
-        <meta name="twitter:image" content="https://smartpixel.in/logo.png" />
+        <meta name="twitter:image" content="https://www.smartpixel.in/logo.png" />
 
         {/* Schema */}
         <script type="application/ld+json">
@@ -138,13 +138,13 @@ const Insights = () => {
             "@context": "https://schema.org",
             "@type": "Blog",
             name: "SmartPixel Insights",
-            url: "https://smartpixel.in/insights",
+            url: "https://www.smartpixel.in/insights",
             publisher: {
               "@type": "Organization",
               name: "SmartPixel",
               logo: {
                 "@type": "ImageObject",
-                url: "https://smartpixel.in/logo.png",
+                url: "https://www.smartpixel.in/logo.png",
               },
             },
           })}

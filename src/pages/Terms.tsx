@@ -7,7 +7,7 @@ const Terms = () => (
     <Helmet>
       <title>Terms of Service | SmartPixel Chennai</title>
       <meta name="description" content="Terms of service for engaging SmartPixel for website, app, ecommerce and SEO services in Chennai." />
-      <link rel="canonical" href="https://smartpixel.in/terms" />
+      <link rel="canonical" href="https://www.smartpixel.in/terms" />
     </Helmet>
     <Nav />
     <article className="pt-32 pb-20 px-5 sm:px-10 lg:px-20 max-w-[900px] mx-auto">

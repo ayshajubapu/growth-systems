@@ -13,10 +13,10 @@ const Contact = () => (
         name="description"
         content="Get in touch with SmartPixel — website development company in Chennai. Call +91 98860 69488 or email us. Serving Chrompet, Pallavaram, Tambaram, Guindy and all Chennai."
       />
-      <link rel="canonical" href="https://smartpixel.in/contact" />
+      <link rel="canonical" href="https://www.smartpixel.in/contact" />
       <meta property="og:title" content="Contact SmartPixel | Website Development Chennai" />
       <meta property="og:description" content="Talk to SmartPixel about your website, ecommerce or SEO project. Based in Chrompet, Chennai." />
-      <meta property="og:url" content="https://smartpixel.in/contact" />
+      <meta property="og:url" content="https://www.smartpixel.in/contact" />
       <meta property="og:type" content="website" />
  
       {/* BreadcrumbList schema — helps Google show breadcrumbs in search results */}
@@ -29,13 +29,13 @@ const Contact = () => (
               "@type": "ListItem",
               "position": 1,
               "name": "Home",
-              "item": "https://smartpixel.in/"
+              "item": "https://www.smartpixel.in/"
             },
             {
               "@type": "ListItem",
               "position": 2,
               "name": "Contact",
-              "item": "https://smartpixel.in/contact"
+              "item": "https://www.smartpixel.in/contact"
             }
           ]
         })}
@@ -47,7 +47,7 @@ const Contact = () => (
           "@context": "https://schema.org",
           "@type": "ContactPage",
           "name": "Contact SmartPixel",
-          "url": "https://smartpixel.in/contact",
+          "url": "https://www.smartpixel.in/contact",
           "description": "Contact SmartPixel, a website development company in Chennai, for websites, ecommerce, SEO and WhatsApp automation services.",
           "mainEntity": {
             "@type": "LocalBusiness",

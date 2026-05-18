@@ -10,7 +10,7 @@ gsap.registerPlugin(ScrollTrigger);
   
   The Footer renders on EVERY page. Having Helmet here means:
   - The title "Contact SmartPixel" overwrites every page's title
-  - canonical "https://smartpixel.in/contact" is injected on
+  - canonical "https://www.smartpixel.in/contact" is injected on
     every page — Google treats ALL your pages as duplicates of /contact
   - schema runs on every page, conflicting with page-specific schema
   
