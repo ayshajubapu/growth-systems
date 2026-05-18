@@ -113,20 +113,20 @@ const HorizontalScroll = () => {
 
         <meta name="robots" content="index, follow" />
         <meta name="author" content="SmartPixel" />
-        <link rel="canonical" href="https://smartpixel.in/" />
+        <link rel="canonical" href="https://www.smartpixel.in/" />
 
         {/* Open Graph */}
         <meta property="og:title" content="Website Development Company in Chennai | SmartPixel" />
         <meta property="og:description" content="We build websites, ecommerce stores and automation systems that generate leads and grow your business across Chennai." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://smartpixel.in/" />
-        <meta property="og:image" content="https://smartpixel.in/logo.png" />
+        <meta property="og:url" content="https://www.smartpixel.in/" />
+        <meta property="og:image" content="https://www.smartpixel.in/logo.png" />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Website Development Company in Chennai | SmartPixel" />
         <meta name="twitter:description" content="High-converting websites, SEO and automation systems for Chennai businesses." />
-        <meta name="twitter:image" content="https://smartpixel.in/logo.png" />
+        <meta name="twitter:image" content="https://www.smartpixel.in/logo.png" />
       </Helmet>
 
       <div

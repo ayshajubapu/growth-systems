@@ -5,7 +5,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { CheckCircle2, XCircle, Loader2, RefreshCw } from "lucide-react";
 
-const ORIGIN = "https://smartpixel.in";
+const ORIGIN = "https://www.smartpixel.in";
 
 const ROUTES: { path: string; label: string }[] = [
   { path: "/", label: "Home" },
@@ -209,7 +209,7 @@ const SeoChecklist = () => {
       <Helmet>
         <title>SEO Checklist | SmartPixel — robots, sitemap & canonical audit</title>
         <meta name="description" content="On-page SEO checklist that automatically verifies robots.txt, sitemap.xml and canonical tags for every SmartPixel page." />
-        <link rel="canonical" href="https://smartpixel.in/seo-checklist" />
+        <link rel="canonical" href="https://www.smartpixel.in/seo-checklist" />
         <meta name="robots" content="noindex,follow" />
       </Helmet>
 

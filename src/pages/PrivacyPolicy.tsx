@@ -7,7 +7,7 @@ const PrivacyPolicy = () => (
     <Helmet>
       <title>Privacy Policy | SmartPixel Chennai</title>
       <meta name="description" content="Privacy policy for SmartPixel — website development company in Chennai. How we collect, use and protect your information." />
-      <link rel="canonical" href="https://smartpixel.in/privacy-policy" />
+      <link rel="canonical" href="https://www.smartpixel.in/privacy-policy" />
     </Helmet>
     <Nav />
     <article className="pt-32 pb-20 px-5 sm:px-10 lg:px-20 max-w-[900px] mx-auto">

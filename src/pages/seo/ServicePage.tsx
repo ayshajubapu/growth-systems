@@ -17,7 +17,7 @@ export type ServiceProps = {
 };
 
 const ServicePage = (p: ServiceProps) => {
-  const url = `https://smartpixel.in/${p.slug}`;
+  const url = `https://www.smartpixel.in/${p.slug}`;
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -45,8 +45,8 @@ const ServicePage = (p: ServiceProps) => {
       canonical={url}
       h1={p.h1}
       breadcrumbs={[
-        { name: "Home", url: "https://smartpixel.in/" },
-        { name: "Services", url: "https://smartpixel.in/services" },
+        { name: "Home", url: "https://www.smartpixel.in/" },
+        { name: "Services", url: "https://www.smartpixel.in/services" },
         { name: p.crumbName, url },
       ]}
       schema={[serviceSchema]}

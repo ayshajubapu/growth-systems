@@ -77,7 +77,7 @@ const Testimonials = () => {
           name="description"
           content="Real results from SmartPixel clients in travel, education, jewellery and more. Read what founders say about working with us."
         />
-        <link rel="canonical" href="https://smartpixel.in/#testimonials" />
+        <link rel="canonical" href="https://www.smartpixel.in/#testimonials" />
       </Helmet>
 
       <section

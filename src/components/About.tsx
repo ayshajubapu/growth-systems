@@ -44,7 +44,7 @@ const About = () => {
           content="about SmartPixel, Chennai web company, website developer Chennai, ecommerce company Chennai, app development Chennai"
         />
 
-        <link rel="canonical" href="https://smartpixel.in/about" />
+        <link rel="canonical" href="https://www.smartpixel.in/about" />
 
         <meta
           property="og:title"
@@ -58,7 +58,7 @@ const About = () => {
 
         <meta
           property="og:url"
-          content="https://smartpixel.in/about"
+          content="https://www.smartpixel.in/about"
         />
 
         <meta property="og:type" content="website" />
@@ -68,8 +68,8 @@ const About = () => {
             "@context": "https://schema.org",
             "@type": "Organization",
             name: "SmartPixel",
-            url: "https://smartpixel.in",
-            logo: "https://smartpixel.in/logo.png",
+            url: "https://www.smartpixel.in",
+            logo: "https://www.smartpixel.in/logo.png",
             sameAs: [
               "https://www.instagram.com/smartpiixel/",
               "https://www.threads.net/@smartpiixel",
