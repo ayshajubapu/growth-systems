@@ -22,6 +22,7 @@ import {
 import Backlinks from "./pages/Backlinks.tsx";
 import SeoChecklist from "./pages/SeoChecklist.tsx";
 import ScrollToTop from "./components/ScrollToTop.tsx";
+import CookieConsent from "./components/CookieConsent.tsx";
 
 const queryClient = new QueryClient();
 
@@ -68,6 +69,7 @@ const App = () => (
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <CookieConsent />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

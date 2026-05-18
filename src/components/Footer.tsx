@@ -272,6 +272,13 @@ const Footer = () => {
             */}
             <a href="/privacy-policy" className="hover:text-accent transition-colors">Privacy</a>
             <a href="/terms" className="hover:text-accent transition-colors">Terms</a>
+            <button
+              type="button"
+              onClick={() => window.dispatchEvent(new Event("open-cookie-settings"))}
+              className="hover:text-accent transition-colors"
+            >
+              Cookie settings
+            </button>
           </div>
         </div>
       </div>
