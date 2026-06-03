@@ -61,10 +61,10 @@ const FinalCTA = () => {
           {/* Buttons */}
           <div className="cta-el mt-8 sm:mt-12 flex flex-wrap gap-3 sm:gap-4 justify-center">
             <a
-              href="mailto:workwithsmartpixel@gmail.com"
+              href="mailto:hello@smartpixel.in"
               className="btn-gold"
             >
-              Book Your Free Strategy Call →
+              Book a free 20-min strategy call →
             </a>
 
             <a
@@ -100,8 +100,8 @@ const FinalCTA = () => {
             {
               Icon: Mail,
               label: "Email",
-              value: "workwithsmartpixel@gmail.com",
-              href: "mailto:workwithsmartpixel@gmail.com",
+              value: "hello@smartpixel.in",
+              href: "mailto:hello@smartpixel.in",
             },
             {
               Icon: MapPin,

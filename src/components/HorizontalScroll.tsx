@@ -200,9 +200,11 @@ const HorizontalScroll = () => {
                   data-reveal
                   className="mt-6 lg:mt-8 text-base sm:text-lg text-muted-foreground max-w-xl leading-relaxed"
                 >
-                  We build websites, apps, and e-commerce stores designed to
-                  convert visitors into paying customers — not just collect
-                  compliments.
+                  SmartPixel is a web design and development agency based in
+                  Chrompet, Chennai. We've built 40+ websites for local
+                  businesses across Tambaram, Pallavaram, Guindy and T Nagar
+                  — with an average turnaround of 2 weeks and a 3× average
+                  improvement in conversion rate.
                 </p>
                 <p
                   data-reveal
@@ -213,7 +215,7 @@ const HorizontalScroll = () => {
 
                 <div data-reveal className="mt-8 lg:mt-10 flex flex-wrap items-center gap-3 sm:gap-4">
                   <a href="/contact" className="btn-gold">
-                    Book a free strategy call →
+                    Book a free 20-min strategy call →
                   </a>
                   <a
                     href="#work"

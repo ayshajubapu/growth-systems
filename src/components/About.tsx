@@ -117,8 +117,11 @@ const About = () => {
           {/* Right */}
           <div className="lg:col-span-7 lg:col-start-6 space-y-8 sm:space-y-10">
             <p className="about-line text-lg sm:text-xl leading-[1.8] text-foreground/90 max-w-3xl">
-              We use the stack that gets results — not the one that sounds fancy in a meeting.
-              Every decision is made for speed, maintainability, scalability, and long-term ROI.
+              SmartPixel was founded in Chennai, Tamil Nadu in 2023 by Aysha.
+              We specialise in conversion-focused websites, ecommerce stores,
+              and mobile apps for small and mid-size businesses. Our clients
+              include travel agencies, jewellery brands, education institutes,
+              and B2B manufacturers — primarily across South Chennai.
             </p>
 
             <p className="about-line text-sm text-muted-foreground max-w-2xl leading-relaxed">
