@@ -79,76 +79,21 @@
   <!-- ✅ ADD: Your Twitter/X handle if you have one -->
   <!-- <meta name="twitter:site" content="@yourhandle" /> -->
 
-  <!-- Schema: Professional Service -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "SmartPixel",
-    "image": "https://www.smartpixel.in/og-banner.jpg",
-    "logo": "https://www.smartpixel.in/logo.png",
-    "url": "https://www.smartpixel.in/",
-    "telephone": "+91-9886069488",
-    "email": "workwithsmartpixel@gmail.com",
-    "description": "SmartPixel is a website development company in Chennai helping businesses generate leads with websites, SEO, ecommerce and WhatsApp automation systems.",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Chrompet",
-      "addressLocality": "Chennai",
-      "addressRegion": "Tamil Nadu",
-      "postalCode": "600044",
-      "addressCountry": "IN"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": "12.9516",
-      "longitude": "80.2012"
-    },
-    "openingHoursSpecification": [
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
-        "opens": "09:00",
-        "closes": "18:00"
-      }
-    ],
-    "areaServed": [
-      {"@type": "City", "name": "Chennai"},
-      {"@type": "Place", "name": "Pallavaram"},
-      {"@type": "Place", "name": "Tambaram"},
-      {"@type": "Place", "name": "Guindy"},
-      {"@type": "Place", "name": "T Nagar"},
-      {"@type": "Place", "name": "Nungambakkam"},
-      {"@type": "Place", "name": "Saidapet"},
-      {"@type": "Place", "name": "Triplicane"},
-      {"@type": "Place", "name": "Chrompet"},
-      {"@type": "Place", "name": "Chitlapakkam"},
-      {"@type": "Place", "name": "West Tambaram"}
-    ],
-    "priceRange": "₹₹",
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Services",
-      "itemListElement": [
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Website Development"}},
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "SEO Services"}},
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Ecommerce Development"}},
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "WhatsApp Automation"}}
-      ]
-    }
-  }
-  </script>
-
-  <!-- Schema: Local Business -->
+  <!-- Schema: LocalBusiness (single source of truth) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
+    "@id": "https://www.smartpixel.in/#business",
     "name": "SmartPixel",
     "image": "https://www.smartpixel.in/og-banner.jpg",
+    "logo": "https://www.smartpixel.in/logo.png",
     "url": "https://www.smartpixel.in/",
-    "telephone": "+91-9886069488",
-    "email": "workwithsmartpixel@gmail.com",
+    "telephone": ["+91-9886069488", "+91-9164975073"],
+    "email": "hello@smartpixel.in",
+    "description": "SmartPixel is a web design and development agency in Chrompet, Chennai. We build conversion-focused websites, ecommerce stores and mobile apps for small and mid-size businesses across Chennai.",
+    "foundingDate": "2023",
+    "founder": {"@type": "Person", "name": "Aysha"},
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Chrompet",
@@ -157,146 +102,61 @@
       "postalCode": "600044",
       "addressCountry": "IN"
     },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": "12.9516",
-      "longitude": "80.2012"
-    },
-    "openingHoursSpecification": [
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
-        "opens": "09:00",
-        "closes": "18:00"
-      }
-    ],
+    "geo": {"@type": "GeoCoordinates", "latitude": "12.9516", "longitude": "80.2012"},
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+      "opens": "09:00", "closes": "18:00"
+    }],
     "priceRange": "₹₹",
+    "areaServed": [
+      {"@type": "Place", "name": "Chrompet"},
+      {"@type": "Place", "name": "Tambaram"},
+      {"@type": "Place", "name": "Pallavaram"},
+      {"@type": "Place", "name": "Guindy"},
+      {"@type": "Place", "name": "T Nagar"},
+      {"@type": "Place", "name": "Saidapet"},
+      {"@type": "Place", "name": "Nungambakkam"},
+      {"@type": "Place", "name": "Chitlapakkam"}
+    ],
     "sameAs": [
-      "https://www.instagram.com/smartpixel.in",
-      "https://www.facebook.com/smartpixel.in"
-    ]
+      "https://www.instagram.com/smartpiixel/",
+      "https://www.threads.net/@smartpiixel"
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "40",
+      "bestRating": "5"
+    }
   }
   </script>
 
-  <!-- Schema: FAQPage (merged into one — Google only reads one per page) -->
+  <!-- Schema: Services -->
+  <script type="application/ld+json">
+  [
+    {"@context":"https://schema.org","@type":"Service","serviceType":"Web Design & Development","provider":{"@type":"LocalBusiness","name":"SmartPixel","@id":"https://www.smartpixel.in/#business"},"areaServed":{"@type":"City","name":"Chennai"},"description":"Conversion-focused website design and development for small and mid-size businesses in Chennai.","offers":{"@type":"Offer","priceCurrency":"INR","price":"25000","priceSpecification":{"@type":"PriceSpecification","minPrice":"25000","maxPrice":"150000","priceCurrency":"INR"}}},
+    {"@context":"https://schema.org","@type":"Service","serviceType":"Ecommerce Website Development","provider":{"@type":"LocalBusiness","name":"SmartPixel","@id":"https://www.smartpixel.in/#business"},"areaServed":{"@type":"City","name":"Chennai"},"description":"Custom ecommerce stores with payment integration, product catalogues and conversion optimisation.","offers":{"@type":"Offer","priceCurrency":"INR","price":"50000","priceSpecification":{"@type":"PriceSpecification","minPrice":"50000","maxPrice":"200000","priceCurrency":"INR"}}},
+    {"@context":"https://schema.org","@type":"Service","serviceType":"Mobile App Development","provider":{"@type":"LocalBusiness","name":"SmartPixel","@id":"https://www.smartpixel.in/#business"},"areaServed":{"@type":"City","name":"Chennai"},"description":"iOS and Android mobile app development for service businesses and startups.","offers":{"@type":"Offer","priceCurrency":"INR","price":"150000","priceSpecification":{"@type":"PriceSpecification","minPrice":"150000","maxPrice":"600000","priceCurrency":"INR"}}},
+    {"@context":"https://schema.org","@type":"Service","serviceType":"SEO Services","provider":{"@type":"LocalBusiness","name":"SmartPixel","@id":"https://www.smartpixel.in/#business"},"areaServed":{"@type":"City","name":"Chennai"},"description":"On-page, technical and local SEO to help Chennai businesses rank for high-intent searches.","offers":{"@type":"Offer","priceCurrency":"INR","price":"15000","priceSpecification":{"@type":"PriceSpecification","minPrice":"15000","maxPrice":"60000","priceCurrency":"INR"}}}
+  ]
+  </script>
+
+  <!-- Schema: FAQPage -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What is the best website development company in Chennai?",
-        "acceptedAnswer": {"@type": "Answer", "text": "SmartPixel is one of the top website development companies in Chennai offering modern, high-converting websites and automation solutions."}
-      },
-      {
-        "@type": "Question",
-        "name": "How much does a website cost in Chennai?",
-        "acceptedAnswer": {"@type": "Answer", "text": "Website cost in Chennai starts from ₹10,000 and depends on features like ecommerce, SEO and automation systems."}
-      },
-      {
-        "@type": "Question",
-        "name": "Do you provide website development in Pallavaram and Tambaram?",
-        "acceptedAnswer": {"@type": "Answer", "text": "Yes, SmartPixel provides website development services in Pallavaram, Tambaram, Chrompet and nearby areas."}
-      },
-      {
-        "@type": "Question",
-        "name": "Do you offer SEO services in Chennai?",
-        "acceptedAnswer": {"@type": "Answer", "text": "Yes, we provide SEO services to help businesses rank higher on Google and generate leads."}
-      },
-      {
-        "@type": "Question",
-        "name": "Do you create ecommerce websites?",
-        "acceptedAnswer": {"@type": "Answer", "text": "Yes, we build ecommerce websites with payment integration, product management and conversion optimization."}
-      },
-      {
-        "@type": "Question",
-        "name": "Do you provide WhatsApp automation?",
-        "acceptedAnswer": {"@type": "Answer", "text": "Yes, we build WhatsApp automation systems for lead generation, follow-ups and booking automation."}
-      },
-      {
-        "@type": "Question",
-        "name": "Which areas do you serve in Chennai?",
-        "acceptedAnswer": {"@type": "Answer", "text": "We serve Pallavaram, Chrompet, Tambaram, Guindy, T Nagar, Saidapet, Nungambakkam, Chitlapakkam, West Tambaram and all Chennai locations."}
-      },
-      {
-        "@type": "Question",
-        "name": "How long does it take to build a website?",
-        "acceptedAnswer": {"@type": "Answer", "text": "Most websites are completed within 5 to 10 days depending on requirements."}
-      },
-      {
-        "@type": "Question",
-        "name": "Do you provide maintenance?",
-        "acceptedAnswer": {"@type": "Answer", "text": "Yes, we provide free maintenance support for initial months and ongoing support options."}
-      },
-      {
-        "@type": "Question",
-        "name": "Can websites generate leads automatically?",
-        "acceptedAnswer": {"@type": "Answer", "text": "Yes, SmartPixel builds websites integrated with automation systems to generate and capture leads."}
-      },
-      {
-        "@type": "Question",
-        "name": "Who is the best website developer in Pallavaram?",
-        "acceptedAnswer": {"@type": "Answer", "text": "SmartPixel provides website development services in Pallavaram with modern design and lead generation focus."}
-      },
-      {
-        "@type": "Question",
-        "name": "Which company offers web design in Tambaram?",
-        "acceptedAnswer": {"@type": "Answer", "text": "SmartPixel offers web design and development services in Tambaram for small and growing businesses."}
-      },
-      {
-        "@type": "Question",
-        "name": "Do you provide SEO services in Guindy?",
-        "acceptedAnswer": {"@type": "Answer", "text": "Yes, SmartPixel provides SEO services in Guindy to help businesses rank on Google."}
-      },
-      {
-        "@type": "Question",
-        "name": "Can I get an ecommerce website in T Nagar?",
-        "acceptedAnswer": {"@type": "Answer", "text": "Yes, ecommerce websites with payment integration are available for businesses in T Nagar."}
-      },
-      {
-        "@type": "Question",
-        "name": "Website developer near Chrompet Chennai?",
-        "acceptedAnswer": {"@type": "Answer", "text": "SmartPixel is located near Chrompet offering website development and automation services."}
-      },
-      {
-        "@type": "Question",
-        "name": "Affordable website development in Chennai?",
-        "acceptedAnswer": {"@type": "Answer", "text": "SmartPixel offers affordable website development packages starting from ₹10,000."}
-      },
-      {
-        "@type": "Question",
-        "name": "Best SEO company near me in Chennai?",
-        "acceptedAnswer": {"@type": "Answer", "text": "SmartPixel provides SEO services across Chennai helping businesses grow organically."}
-      },
-      {
-        "@type": "Question",
-        "name": "Do you provide website services in Saidapet?",
-        "acceptedAnswer": {"@type": "Answer", "text": "Yes, SmartPixel serves Saidapet and nearby locations with website and SEO services."}
-      },
-      {
-        "@type": "Question",
-        "name": "Website development in Nungambakkam Chennai?",
-        "acceptedAnswer": {"@type": "Answer", "text": "We provide website development services in Nungambakkam for startups and businesses."}
-      },
-      {
-        "@type": "Question",
-        "name": "Do you build websites for small businesses in Chennai?",
-        "acceptedAnswer": {"@type": "Answer", "text": "Yes, we specialize in small business websites that generate leads."}
-      },
-      {
-        "@type": "Question",
-        "name": "Can I get help generating leads for my business?",
-        "acceptedAnswer": {"@type": "Answer", "text": "Yes, our websites are designed with lead generation strategies including SEO, automation and conversion optimization."}
-      },
-      {
-        "@type": "Question",
-        "name": "Do you provide WhatsApp automation for businesses?",
-        "acceptedAnswer": {"@type": "Answer", "text": "Yes, we provide WhatsApp automation for bookings, follow-ups and lead nurturing."}
-      }
+      {"@type":"Question","name":"How much does SmartPixel charge for a website?","acceptedAnswer":{"@type":"Answer","text":"Our projects start from ₹25,000 for business sites and go up to ₹1,50,000+ for custom ecommerce or web app builds. Every project includes a free strategy call before we quote."}},
+      {"@type":"Question","name":"How long does a website build take?","acceptedAnswer":{"@type":"Answer","text":"Our average is 2 weeks from brief to launch. Ecommerce stores typically take 2–3 weeks. Mobile apps start from 6 weeks."}},
+      {"@type":"Question","name":"Does SmartPixel work with businesses outside Chennai?","acceptedAnswer":{"@type":"Answer","text":"Yes. We're based in Chrompet but work with clients across India remotely. Most of our team communication is async."}},
+      {"@type":"Question","name":"What makes SmartPixel different from other Chennai agencies?","acceptedAnswer":{"@type":"Answer","text":"One team owns your project start to finish — no account managers, no handoffs. You talk directly to the people doing the work."}},
+      {"@type":"Question","name":"Do you offer ongoing support after launch?","acceptedAnswer":{"@type":"Answer","text":"Yes. All projects include a support period post-launch. We offer ongoing retainers for maintenance and growth."}}
     ]
   }
   </script>
+
 
 </head>
 
