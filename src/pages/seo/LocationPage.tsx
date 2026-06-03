@@ -30,7 +30,7 @@ const LocationPage = ({ area, slug, nearby, landmark }: Props) => {
     image: "https://www.smartpixel.in/logo.png",
     url,
     telephone: "+91-9886069488",
-    email: "workwithsmartpixel@gmail.com",
+    email: "hello@smartpixel.in",
     areaServed: `${area}, Chennai`,
     address: {
       "@type": "PostalAddress",
