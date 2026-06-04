@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { CheckCircle2, XCircle, Loader2, RefreshCw } from "lucide-react";
+import WeightedHeading from "@/components/WeightedHeading";
 
 const ORIGIN = "https://www.smartpixel.in";
 
@@ -219,9 +220,7 @@ const SeoChecklist = () => {
       <article className="px-5 sm:px-10 lg:px-20 py-16 max-w-[1200px] mx-auto">
         <p className="eyebrow mb-5">— SEO Audit</p>
         <div className="flex items-start justify-between gap-6 flex-wrap mb-6">
-          <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl leading-tight">
-            On-page SEO Checklist
-          </h1>
+          <WeightedHeading text="On-page SEO Checklist" className="text-4xl sm:text-5xl lg:text-6xl leading-tight" />
           <button
             onClick={runChecks}
             disabled={running}

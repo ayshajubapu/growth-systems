@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import WeightedHeading from "@/components/WeightedHeading";
 
 const Terms = () => (
   <main className="bg-background text-foreground">
@@ -11,7 +12,7 @@ const Terms = () => (
     </Helmet>
     <Nav />
     <article className="pt-32 pb-20 px-5 sm:px-10 lg:px-20 max-w-[900px] mx-auto">
-      <h1 className="font-display text-4xl sm:text-5xl mb-8">Terms of Service</h1>
+      <WeightedHeading text="Terms of Service" className="text-4xl sm:text-5xl mb-8" />
       <div className="space-y-6 text-muted-foreground leading-relaxed">
         <p>By engaging SmartPixel for any services, you agree to the terms below.</p>
         <h2 className="font-display text-2xl text-foreground">Scope of work</h2>

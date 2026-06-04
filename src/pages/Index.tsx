@@ -31,7 +31,6 @@ const Index = () => {
   return (
     <main className="bg-background text-foreground">
       <Nav />
-      <h1 className="sr-only">SmartPixel — Premium Web, App & E-commerce Development Agency in Chennai</h1>
       <HorizontalScroll />
       <CaseStudies />
       <ServicesDeep />

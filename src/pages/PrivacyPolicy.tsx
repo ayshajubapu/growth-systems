@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import WeightedHeading from "@/components/WeightedHeading";
 
 const PrivacyPolicy = () => (
   <main className="bg-background text-foreground">
@@ -11,7 +12,7 @@ const PrivacyPolicy = () => (
     </Helmet>
     <Nav />
     <article className="pt-32 pb-20 px-5 sm:px-10 lg:px-20 max-w-[900px] mx-auto">
-      <h1 className="font-display text-4xl sm:text-5xl mb-8">Privacy Policy</h1>
+      <WeightedHeading text="Privacy Policy" className="text-4xl sm:text-5xl mb-8" />
       <div className="space-y-6 text-muted-foreground leading-relaxed">
         <p>SmartPixel ("we", "us") respects your privacy. This policy explains what data we collect via smartpixel.in and how we use it.</p>
         <h2 className="font-display text-2xl text-foreground">Information we collect</h2>

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import FinalCTA from "@/components/FinalCTA";
+import WeightedHeading from "@/components/WeightedHeading";
 import { ReactNode } from "react";
 
 export type FaqItem = { q: string; a: string };
@@ -76,7 +77,7 @@ const SeoPageLayout = ({
           ))}
         </nav>
 
-        <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl leading-tight mb-6">{h1}</h1>
+        <WeightedHeading text={h1} className="text-4xl sm:text-5xl lg:text-6xl leading-tight mb-6" />
         <div className="text-muted-foreground text-base sm:text-lg leading-relaxed mb-12 max-w-3xl">{intro}</div>
 
         {sections.map((s) => (

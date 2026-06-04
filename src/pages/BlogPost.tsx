@@ -3,6 +3,7 @@ import { Link, useParams, Navigate } from "react-router-dom";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import FinalCTA from "@/components/FinalCTA";
+import WeightedHeading from "@/components/WeightedHeading";
 
 type Post = {
   slug: string;
@@ -130,9 +131,7 @@ const BlogPost = () => {
         </nav>
 
         <p className="eyebrow mb-5">— {post.cat}</p>
-        <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl leading-[1.05] mb-6">
-          {post.title}
-        </h1>
+        <WeightedHeading text={post.title} className="text-4xl sm:text-5xl lg:text-6xl leading-[1.05] mb-6" />
         <p className="text-sm text-muted-foreground tracking-wide mb-10">
           {post.date} · {post.read} · By Aysha
         </p>
