@@ -4,6 +4,7 @@ import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
 import { Helmet } from "react-helmet-async";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import WeightedHeading from "@/components/WeightedHeading";
  
 const Contact = () => (
   <main className="bg-background text-foreground">
@@ -83,10 +84,11 @@ const Contact = () => (
     <section className="px-5 sm:px-10 lg:px-20 py-16 max-w-[1200px] mx-auto">
  
       {/* H1 — keyword-rich and visible */}
-      <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl leading-tight mb-4">
-        Talk to a website expert{" "}
-        <span className="italic text-accent">in Chennai</span>
-      </h1>
+      <WeightedHeading
+        text="Talk to a website expert in Chennai"
+        className="text-4xl sm:text-5xl lg:text-6xl leading-tight mb-4"
+        lightClassName="font-light italic text-accent"
+      />
  
       <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mb-12 leading-relaxed">
         Whether you need a new website, an ecommerce store, SEO services or
