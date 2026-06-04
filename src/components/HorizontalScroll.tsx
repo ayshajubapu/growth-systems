@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import imgHero3D from "@/assets/sp-hero-3d.jpg";
+import heroVideo from "@/assets/hero-bg.mp4.asset.json";
 import { Play, Trophy, Users, TrendingUp, Star } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 
@@ -168,28 +169,16 @@ const HorizontalScroll = () => {
                   ))}
                 </div>
 
-                {/*
-                  SEO FIX 1: Visually hidden H1 with primary keyword.
-                  The display heading below keeps your design intact.
-                  Google reads sr-only elements — this is the correct
-                  approach when your design heading has no keyword.
-                */}
-                <h1 className="sr-only">
-                  Website Development Company in Chennai | SmartPixel
-                </h1>
-
-                {/* Display heading — design-first, unchanged */}
-                <p
+                <h1
                   data-reveal
-                  aria-hidden="true"
-                  className="font-display text-[10vw] sm:text-[8vw] lg:text-[5.6vw] xl:text-[5vw] leading-[1.02] tracking-tight text-balance"
+                  className="font-display text-[10vw] sm:text-[8vw] lg:text-[5.6vw] xl:text-[5vw] leading-[1.02] tracking-tight text-balance font-normal"
                 >
-                  Your website
+                  <span className="font-normal">Your website</span>
                   <br className="hidden sm:block" /> should be your{" "}
-                  <span className="italic text-accent">best salesperson</span>.
+                  <span className="font-normal italic text-accent">best salesperson</span>.
                   <br />
-                  <span className="text-muted-foreground">Most aren't.</span>
-                </p>
+                  <span className="font-light text-muted-foreground">Most aren't.</span>
+                </h1>
 
                 {/*
                   SEO FIX 2: Location keywords added naturally to the
@@ -249,18 +238,25 @@ const HorizontalScroll = () => {
                 </nav>
               </div>
 
-              {/* RIGHT — 3D logo render */}
+              {/* RIGHT — hero video */}
               <div data-reveal className="hidden lg:flex lg:col-span-5 relative items-center justify-center">
                 <div className="relative w-full max-w-[520px] aspect-square">
-                  <img
-                    src={imgHero3D}
-                  
-                    alt="SmartPixel website development company in Chennai — 3D brand logo"
-                    fetchPriority="high"
-                    width={1024}
-                    height={1024}
+                  <video
+                    src={heroVideo.url}
+                    poster={imgHero3D}
+                    aria-label="SmartPixel cinematic digital pixel hero video"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="metadata"
                     className="w-full h-full object-cover rounded-2xl"
-                  />
+                  >
+                    <img
+                      src={imgHero3D}
+                      alt="SmartPixel website development company in Chennai — 3D brand logo"
+                    />
+                  </video>
                   <div className="absolute inset-0 rounded-2xl ring-1 ring-white/5" />
                   <div className="absolute -inset-6 -z-10 bg-accent/15 blur-3xl rounded-full" />
                 </div>
