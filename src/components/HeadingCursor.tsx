@@ -147,14 +147,14 @@ const HeadingCursor = ({
     };
   }, [size, glowIntensity, magneticStrength, offsetY, hue, saturation, lightness]);
 
-  const colorSoft = `hsl(${hue} ${saturation}% ${lightness + 10}% / 0.35)`;
-  const colorMid = `hsl(${hue} ${saturation}% ${lightness}% / 0.18)`;
-  const borderColor = `hsl(${hue} ${saturation}% ${lightness + 20}% / 0.35)`;
-  const glowColor = `hsl(${hue} ${saturation}% ${lightness}%`;
-  const insetColor = `hsl(${hue} ${saturation}% ${lightness + 25}% / 0.18)`;
-  const dashColor = `hsl(${hue} ${saturation}% ${lightness + 20}% / 0.25)`;
+  const c = (l: number, a: number) => `hsl(${hue} ${saturation}% ${l}% / ${a})`;
+  const colorSoft = c(lightness + 10, 0.35);
+  const colorMid = c(lightness, 0.18);
+  const borderColor = c(lightness + 20, 0.35);
+  const insetColor = c(lightness + 25, 0.18);
+  const dashColor = c(lightness + 20, 0.25);
   const particleColor = `hsl(${hue} ${saturation}% ${lightness + 25}%)`;
-  const particleGlow = `hsl(${hue} ${saturation}% ${lightness + 10}% / 0.9)`;
+  const particleGlow = c(lightness + 10, 0.9);
 
   return (
     <div
