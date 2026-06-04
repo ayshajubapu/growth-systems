@@ -48,24 +48,66 @@ const Testimonials = () => {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Safety: if ref not mounted yet, bail
+    if (!ref.current) return;
+
+    // Force ScrollTrigger to recalculate page dimensions
+    // (fixes cases where it fires before layout is complete)
+    ScrollTrigger.refresh();
+
     const ctx = gsap.context(() => {
-      gsap.from(".t-card", {
-        y: 40,
-        opacity: 0,
-        duration: 1,
-        stagger: 0.1,
-        ease: "power3.out",
-        scrollTrigger: { trigger: ref.current, start: "top 80%" },
-      });
-      gsap.from(".t-reveal > *", {
-        y: 30,
-        opacity: 0,
+      // Set initial state explicitly BEFORE ScrollTrigger is created
+      // This prevents flash of invisible content if trigger never fires
+      gsap.set(".t-card", { y: 40, opacity: 0 });
+      gsap.set(".t-reveal > *", { y: 30, opacity: 0 });
+
+      gsap.to(".t-reveal > *", {
+        y: 0,
+        opacity: 1,
         duration: 0.9,
         stagger: 0.08,
         ease: "power3.out",
-        scrollTrigger: { trigger: ref.current, start: "top 80%" },
+        scrollTrigger: {
+          trigger: ref.current,
+          start: "top 85%",
+          // Once fired, don't reverse — prevents re-hiding on scroll back up
+          once: true,
+          // Fallback: if trigger never fires (short pages), animate anyway
+          onEnter: () => {
+            gsap.to(".t-reveal > *", {
+              y: 0,
+              opacity: 1,
+              duration: 0.9,
+              stagger: 0.08,
+              ease: "power3.out",
+            });
+          },
+        },
+      });
+
+      gsap.to(".t-card", {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        stagger: 0.12,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ref.current,
+          start: "top 85%",
+          once: true,
+          onEnter: () => {
+            gsap.to(".t-card", {
+              y: 0,
+              opacity: 1,
+              duration: 1,
+              stagger: 0.12,
+              ease: "power3.out",
+            });
+          },
+        },
       });
     }, ref);
+
     return () => ctx.revert();
   }, []);
 
@@ -81,7 +123,7 @@ const Testimonials = () => {
       </Helmet>
 
       <section
-        id="voices"
+        id="testimonials"
         ref={ref}
         className="relative bg-surface border-y border-border py-20 sm:py-28 lg:py-32 px-5 sm:px-10 lg:px-24"
       >
