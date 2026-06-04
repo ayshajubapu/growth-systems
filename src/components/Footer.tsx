@@ -177,13 +177,13 @@ const Footer = () => {
               </a>
 
               <a
-                href="mailto:hello@smartpixel.in"
+                href="mailto:workwithsmartpixel@gmail.com"
                 className="glass p-4 flex items-center gap-3 hover:border-accent/30 transition-colors"
               >
                 <Mail size={16} className="text-accent shrink-0" />
                 <div>
                   <div className="text-[9px] uppercase tracking-[0.3em] text-muted-foreground">Email</div>
-                  <div className="text-sm font-display">hello@smartpixel.in</div>
+                  <div className="text-sm font-display">workwithsmartpixel@gmail.com</div>
                 </div>
               </a>
             </div>
@@ -253,9 +253,9 @@ const Footer = () => {
                 Also added postalCode which strengthens local signals.
               */}
               <address className="not-italic text-sm text-muted-foreground leading-[1.9] flex flex-col gap-2">
-                <a href="mailto:hello@smartpixel.in" className="flex items-center gap-2 hover:text-accent transition-colors">
+                <a href="mailto:workwithsmartpixel@gmail.com" className="flex items-center gap-2 hover:text-accent transition-colors">
                   <Mail size={13} className="text-accent shrink-0" />
-                  hello@smartpixel.in
+                  workwithsmartpixel@gmail.com
                 </a>
                 <a href="tel:+919886069488" className="flex items-center gap-2 hover:text-accent transition-colors">
                   <Phone size={13} className="text-accent shrink-0" />

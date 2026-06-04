@@ -24,7 +24,7 @@ const PrivacyPolicy = () => (
         <h2 className="font-display text-2xl text-foreground">Third-party services</h2>
         <p>We use Google Analytics, Google Ads and Meta Pixel for measurement. They process data per their own policies.</p>
         <h2 className="font-display text-2xl text-foreground">Your rights</h2>
-        <p>You may request access, correction or deletion of your data by emailing <a className="text-accent" href="mailto:hello@smartpixel.in">hello@smartpixel.in</a>.</p>
+        <p>You may request access, correction or deletion of your data by emailing <a className="text-accent" href="mailto:workwithsmartpixel@gmail.com">workwithsmartpixel@gmail.com</a>.</p>
         <h2 className="font-display text-2xl text-foreground">Contact</h2>
         <p>SmartPixel, Chrompet, Chennai 600044 — +91 98860 69488.</p>
       </div>

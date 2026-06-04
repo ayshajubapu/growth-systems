@@ -54,7 +54,7 @@ const Contact = () => (
             "@type": "LocalBusiness",
             "name": "SmartPixel",
             "telephone": "+91-9886069488",
-            "email": "hello@smartpixel.in",
+            "email": "workwithsmartpixel@gmail.com",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "Chrompet",
@@ -110,8 +110,8 @@ const Contact = () => (
           {
             icon: Mail,
             label: "Email",
-            value: "hello@smartpixel.in",
-            href: "mailto:hello@smartpixel.in",
+            value: "workwithsmartpixel@gmail.com",
+            href: "mailto:workwithsmartpixel@gmail.com",
           },
           {
             icon: MapPin,
