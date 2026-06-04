@@ -175,7 +175,7 @@ const HeadingCursor = ({
           backdropFilter: "blur(14px) saturate(160%)",
           WebkitBackdropFilter: "blur(14px) saturate(160%)",
           border: `1px solid ${borderColor}`,
-          boxShadow: `0 0 calc(60px * var(--glow, 0.5)) ${glowColor} / calc(0.55 * var(--glow, 0.5))), inset 0 0 30px ${insetColor}`,
+          boxShadow: `0 0 calc(60px * var(--glow, 0.5)) hsl(${hue} ${saturation}% ${lightness}% / calc(0.55 * var(--glow, 0.5))), inset 0 0 30px ${insetColor}`,
         }}
       >
         {[
