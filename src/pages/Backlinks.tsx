@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import FinalCTA from "@/components/FinalCTA";
+import WeightedHeading from "@/components/WeightedHeading";
 import { Download, ExternalLink } from "lucide-react";
 
 type Status = "todo" | "in-progress" | "done";
@@ -109,9 +110,7 @@ const Backlinks = () => {
 
       <article className="px-5 sm:px-10 lg:px-20 py-16 max-w-[1200px] mx-auto">
         <p className="eyebrow mb-5">— SEO Playbook</p>
-        <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl leading-tight mb-6">
-          Backlinks & Outreach Plan
-        </h1>
+        <WeightedHeading text="Backlinks & Outreach Plan" className="text-4xl sm:text-5xl lg:text-6xl leading-tight mb-6" />
         <p className="text-muted-foreground text-base sm:text-lg leading-relaxed max-w-3xl mb-12">
           High-authority links pointing to{" "}
           <Link to="/" className="text-accent underline">smartpixel.in</Link>{" "}
