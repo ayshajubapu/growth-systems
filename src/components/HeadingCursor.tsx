@@ -1,17 +1,34 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 
-/**
- * HeadingCursor
- * Premium glass cursor that appears under headings (h1/h2/h3) and
- * elements with the `.hover-title` class. Desktop only.
- */
-const SELECTOR = "h1, h2, h3, .hover-title";
-const SIZE = 150; // px
-const OFFSET_Y = 64; // px below cursor
-const MAGNETIC = 0.18; // pull toward heading center
+export interface HeadingCursorProps {
+  /** Cursor circle diameter in px (default: 150) */
+  size?: number;
+  /** Base glow intensity 0–1, drives shadow spread & opacity (default: 0.5) */
+  glowIntensity?: number;
+  /** Magnetic pull toward heading center 0–1 (default: 0.18) */
+  magneticStrength?: number;
+  /** Vertical offset below cursor in px (default: 64) */
+  offsetY?: number;
+  /** Color hue for the glow (default: 39 for gold) */
+  hue?: number;
+  /** Color saturation % (default: 41) */
+  saturation?: number;
+  /** Color lightness % (default: 60) */
+  lightness?: number;
+}
 
-const HeadingCursor = () => {
+const SELECTOR = "h1, h2, h3, .hover-title";
+
+const HeadingCursor = ({
+  size = 150,
+  glowIntensity = 0.5,
+  magneticStrength = 0.18,
+  offsetY = 64,
+  hue = 39,
+  saturation = 41,
+  lightness = 60,
+}: HeadingCursorProps) => {
   const rootRef = useRef<HTMLDivElement>(null);
   const innerRef = useRef<HTMLDivElement>(null);
 
@@ -47,7 +64,7 @@ const HeadingCursor = () => {
 
     const onMove = (e: MouseEvent) => {
       mouseX = e.clientX;
-      mouseY = e.clientY + OFFSET_Y;
+      mouseY = e.clientY + offsetY;
     };
 
     const isHeading = (node: Element | null): HTMLElement | null => {
@@ -91,9 +108,9 @@ const HeadingCursor = () => {
       targetY = mouseY;
       if (active && activeRect) {
         const cx = activeRect.left + activeRect.width / 2;
-        const cy = activeRect.top + activeRect.height / 2 + OFFSET_Y;
-        targetX += (cx - targetX) * MAGNETIC;
-        targetY += (cy - targetY) * MAGNETIC;
+        const cy = activeRect.top + activeRect.height / 2 + offsetY;
+        targetX += (cx - targetX) * magneticStrength;
+        targetY += (cy - targetY) * magneticStrength;
       }
       currentX += (targetX - currentX) * 0.18;
       currentY += (targetY - currentY) * 0.18;
@@ -106,14 +123,14 @@ const HeadingCursor = () => {
       lastY = currentY;
 
       const blur = Math.min(8, speed * 0.25);
-      const glow = 0.4 + Math.min(0.6, speed * 0.03);
+      const dynamicGlow = glowIntensity + Math.min(0.5, speed * 0.03);
 
       gsap.set(el, {
         x: currentX,
         y: currentY,
         filter: `blur(${blur * 0.35}px)`,
       });
-      el.style.setProperty("--glow", String(glow));
+      el.style.setProperty("--glow", String(dynamicGlow));
     };
 
     gsap.ticker.add(tick);
@@ -128,7 +145,16 @@ const HeadingCursor = () => {
       document.removeEventListener("mouseout", onOut);
       gsap.killTweensOf([el, inner]);
     };
-  }, []);
+  }, [size, glowIntensity, magneticStrength, offsetY, hue, saturation, lightness]);
+
+  const colorSoft = `hsl(${hue} ${saturation}% ${lightness + 10}% / 0.35)`;
+  const colorMid = `hsl(${hue} ${saturation}% ${lightness}% / 0.18)`;
+  const borderColor = `hsl(${hue} ${saturation}% ${lightness + 20}% / 0.35)`;
+  const glowColor = `hsl(${hue} ${saturation}% ${lightness}%`;
+  const insetColor = `hsl(${hue} ${saturation}% ${lightness + 25}% / 0.18)`;
+  const dashColor = `hsl(${hue} ${saturation}% ${lightness + 20}% / 0.25)`;
+  const particleColor = `hsl(${hue} ${saturation}% ${lightness + 25}%)`;
+  const particleGlow = `hsl(${hue} ${saturation}% ${lightness + 10}% / 0.9)`;
 
   return (
     <div
@@ -136,8 +162,8 @@ const HeadingCursor = () => {
       aria-hidden
       className="pointer-events-none fixed left-0 top-0 z-[9999] hidden md:block"
       style={{
-        width: SIZE,
-        height: SIZE,
+        width: size,
+        height: size,
         willChange: "transform, filter",
       }}
     >
@@ -145,16 +171,13 @@ const HeadingCursor = () => {
         ref={innerRef}
         className="relative w-full h-full rounded-full"
         style={{
-          background:
-            "radial-gradient(circle at 30% 30%, hsl(190 100% 70% / 0.35), hsl(220 100% 60% / 0.18) 55%, transparent 75%)",
+          background: `radial-gradient(circle at 30% 30%, ${colorSoft}, ${colorMid} 55%, transparent 75%)`,
           backdropFilter: "blur(14px) saturate(160%)",
           WebkitBackdropFilter: "blur(14px) saturate(160%)",
-          border: "1px solid hsl(190 100% 80% / 0.35)",
-          boxShadow:
-            "0 0 calc(60px * var(--glow, 0.5)) hsl(190 100% 60% / calc(0.55 * var(--glow, 0.5))), inset 0 0 30px hsl(200 100% 80% / 0.18)",
+          border: `1px solid ${borderColor}`,
+          boxShadow: `0 0 calc(60px * var(--glow, 0.5)) ${glowColor} / calc(0.55 * var(--glow, 0.5))), inset 0 0 30px ${insetColor}`,
         }}
       >
-        {/* particles */}
         {[
           { t: "12%", l: "30%", s: 4 },
           { t: "70%", l: "22%", s: 3 },
@@ -170,8 +193,8 @@ const HeadingCursor = () => {
               left: p.l,
               width: p.s,
               height: p.s,
-              background: "hsl(190 100% 85%)",
-              boxShadow: "0 0 8px hsl(190 100% 70% / 0.9)",
+              background: particleColor,
+              boxShadow: `0 0 8px ${particleGlow}`,
               animationDuration: `${2 + i * 0.4}s`,
             }}
           />
@@ -179,7 +202,7 @@ const HeadingCursor = () => {
         <div
           className="absolute inset-2 rounded-full"
           style={{
-            border: "1px dashed hsl(190 100% 80% / 0.25)",
+            border: `1px dashed ${dashColor}`,
           }}
         />
       </div>
