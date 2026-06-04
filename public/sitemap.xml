@@ -5,6 +5,10 @@
   <url><loc>https://www.smartpixel.in/portfolio</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.smartpixel.in/about</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.smartpixel.in/blog</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.smartpixel.in/blog/websites-that-collect-customers-not-compliments</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.smartpixel.in/blog/apps-that-survive-the-first-week</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.smartpixel.in/blog/marketing-math-that-actually-grows</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.smartpixel.in/blog/ecommerce-funnel-leaks</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.smartpixel.in/contact</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
   <!-- Service pages -->
@@ -25,6 +29,9 @@
   <url><loc>https://www.smartpixel.in/web-design-saidapet</loc><priority>0.8</priority></url>
   <url><loc>https://www.smartpixel.in/web-design-nungambakkam</loc><priority>0.8</priority></url>
   <url><loc>https://www.smartpixel.in/web-design-chitlapakkam</loc><priority>0.8</priority></url>
+  <url><loc>https://www.smartpixel.in/web-design-tambaram</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.smartpixel.in/web-design-chrompet</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.smartpixel.in/web-design-pallavaram</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
   <!-- Legal -->
   <url><loc>https://www.smartpixel.in/privacy-policy</loc><priority>0.3</priority></url>
