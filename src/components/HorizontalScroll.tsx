@@ -239,7 +239,7 @@ const HorizontalScroll = () => {
               </div>
 
               {/* RIGHT — hero video */}
-              <div data-reveal className="hidden lg:flex lg:col-span-5 relative items-center justify-center">
+              <div data-reveal className="flex lg:col-span-5 relative items-center justify-center">
                 <div className="relative w-full max-w-[520px] aspect-square">
                   <video
                     src={heroVideo.url}
