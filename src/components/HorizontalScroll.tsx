@@ -155,110 +155,77 @@ const HorizontalScroll = () => {
             <div className="absolute top-1/2 right-[15%] -translate-y-1/2 w-[55vmin] h-[55vmin] rounded-full opacity-[0.18] bg-accent blur-[120px]" />
           </div>
 
-          {/* Content grid */}
-          <div className="relative flex-1 flex items-center w-full">
-            <div className="grid lg:grid-cols-12 gap-10 lg:gap-6 items-center w-full max-w-[1500px] mx-auto">
+          {/* Orb as ambient background, centered behind content */}
+          <div
+            aria-hidden
+            className="absolute inset-0 flex items-center justify-center pointer-events-none"
+          >
+            <div className="relative w-[min(90vw,820px)] aspect-square opacity-[0.55]">
+              <Orb hue={210} hoverIntensity={0.4} rotateOnHover backgroundColor="#000000" />
+              <div className="absolute -inset-10 -z-10 bg-accent/20 blur-3xl rounded-full" />
+            </div>
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/10 to-background/60 pointer-events-none" />
 
-              {/* LEFT — copy */}
-              <div className="lg:col-span-7 relative">
-                {/* Vertical gold tick rail */}
-                <div className="hidden lg:flex absolute -left-10 top-2 bottom-2 flex-col justify-between">
-                  {Array.from({ length: 8 }).map((_, i) => (
-                    <span key={i} className="block w-px h-1 bg-accent/40" />
-                  ))}
-                </div>
+          {/* Centered content */}
+          <div className="relative flex-1 flex items-center justify-center w-full">
+            <div className="w-full max-w-4xl mx-auto text-center flex flex-col items-center">
+              <h1
+                data-reveal
+                className="font-display text-[10vw] sm:text-[7vw] lg:text-[5vw] xl:text-[4.4vw] leading-[1.02] tracking-tight text-balance font-normal"
+              >
+                <span className="font-normal">Your website</span>
+                <br className="hidden sm:block" /> should be your{" "}
+                <span className="font-normal italic text-accent">best salesperson</span>.
+                <br />
+                <span className="font-light text-muted-foreground">Most aren't.</span>
+              </h1>
 
-                <h1
-                  data-reveal
-                  className="font-display text-[10vw] sm:text-[8vw] lg:text-[5.6vw] xl:text-[5vw] leading-[1.02] tracking-tight text-balance font-normal"
-                >
-                  <span className="font-normal">Your website</span>
-                  <br className="hidden sm:block" /> should be your{" "}
-                  <span className="font-normal italic text-accent">best salesperson</span>.
-                  <br />
-                  <span className="font-light text-muted-foreground">Most aren't.</span>
-                </h1>
+              <p
+                data-reveal
+                className="mt-6 lg:mt-8 text-base sm:text-lg text-muted-foreground max-w-2xl leading-relaxed mx-auto"
+              >
+                SmartPixel is a web design and development agency based in
+                Chrompet, Chennai. We've built 40+ websites for local
+                businesses across Tambaram, Pallavaram, Guindy and T Nagar
+                — with an average turnaround of 2 weeks and a 3× average
+                improvement in conversion rate.
+              </p>
+              <p
+                data-reveal
+                className="mt-3 text-xs sm:text-sm uppercase tracking-[0.25em] text-muted-foreground/80"
+              >
+                Chennai · Pallavaram · Tambaram · Chrompet · Guindy · T Nagar
+              </p>
 
-                {/*
-                  SEO FIX 2: Location keywords added naturally to the
-                  subheading paragraph — this is what Google crawls and
-                  uses to confirm your local relevance.
-                */}
-                <p
-                  data-reveal
-                  className="mt-6 lg:mt-8 text-base sm:text-lg text-muted-foreground max-w-xl leading-relaxed"
-                >
-                  SmartPixel is a web design and development agency based in
-                  Chrompet, Chennai. We've built 40+ websites for local
-                  businesses across Tambaram, Pallavaram, Guindy and T Nagar
-                  — with an average turnaround of 2 weeks and a 3× average
-                  improvement in conversion rate.
-                </p>
-                <p
-                  data-reveal
-                  className="mt-3 text-xs sm:text-sm uppercase tracking-[0.25em] text-muted-foreground/80"
-                >
-                  Chennai · Pallavaram · Tambaram · Chrompet · Guindy · T Nagar
-                </p>
-
-                <div data-reveal className="mt-8 lg:mt-10 flex flex-wrap items-center gap-3 sm:gap-4">
-                  <a href="/contact" className="btn-gold">
-                    Book a free 20-min strategy call →
-                  </a>
-                  <a
-                    href="#work"
-                    className="text-sm uppercase tracking-[0.25em] text-foreground/70 hover:text-accent border-b border-foreground/30 hover:border-accent pb-1 transition-colors"
-                  >
-                    See our work
-                  </a>
-                </div>
-
-                {/*
-                  SEO FIX 4: Internal service links.
-                  Each anchor link = a crawlable URL Google can rank
-                  for that specific keyword (e.g. "seo services chennai").
-                  Add these pages to your React Router as real routes.
-                */}
-                <nav
-                  data-reveal
-                  aria-label="Our services"
-                  className="mt-6 lg:mt-8 flex flex-wrap gap-2 text-xs text-muted-foreground"
-                >
-                  <span className="uppercase tracking-widest mr-1 opacity-50">Services:</span>
-                  <a href="/seo-services-chennai" className="hover:text-accent underline underline-offset-2 transition-colors">SEO</a>
-                  <span className="opacity-30">·</span>
-                  <a href="/ecommerce-website-chennai" className="hover:text-accent underline underline-offset-2 transition-colors">Ecommerce</a>
-                  <span className="opacity-30">·</span>
-                  <a href="/whatsapp-automation-chennai" className="hover:text-accent underline underline-offset-2 transition-colors">WhatsApp Automation</a>
-                  <span className="opacity-30">·</span>
-                  <a href="/web-design-pallavaram" className="hover:text-accent underline underline-offset-2 transition-colors">Pallavaram</a>
-                  <span className="opacity-30">·</span>
-                  <a href="/web-design-tambaram" className="hover:text-accent underline underline-offset-2 transition-colors">Tambaram</a>
-                </nav>
-              </div>
-
-              {/* RIGHT — interactive Orb */}
-              <div data-reveal className="flex lg:col-span-5 relative items-center justify-center">
-                <div className="relative w-full max-w-[520px] aspect-square">
-                  <Orb hue={39} hoverIntensity={0.5} rotateOnHover backgroundColor="#000000" />
-                  <div className="absolute -inset-6 -z-10 bg-accent/15 blur-3xl rounded-full pointer-events-none" />
-                </div>
-
+              <div data-reveal className="mt-8 lg:mt-10 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+                <a href="/contact" className="btn-gold">
+                  Book a free 20-min strategy call →
+                </a>
                 <a
-                  href="/our-work"
-                  className="hidden lg:flex absolute -right-2 bottom-4 flex-col items-center gap-2 group"
-                  aria-label="Watch SmartPixel showreel"
+                  href="#work"
+                  className="text-sm uppercase tracking-[0.25em] text-foreground/70 hover:text-accent border-b border-foreground/30 hover:border-accent pb-1 transition-colors"
                 >
-                  <span className="w-12 h-12 rounded-full border border-accent/50 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-all">
-                    <Play size={16} className="ml-0.5" />
-                  </span>
-                  <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
-                    Watch
-                    <br />
-                    Showreel
-                  </span>
+                  See our work
                 </a>
               </div>
+
+              <nav
+                data-reveal
+                aria-label="Our services"
+                className="mt-6 lg:mt-8 flex flex-wrap justify-center gap-2 text-xs text-muted-foreground"
+              >
+                <span className="uppercase tracking-widest mr-1 opacity-50">Services:</span>
+                <a href="/seo-services-chennai" className="hover:text-accent underline underline-offset-2 transition-colors">SEO</a>
+                <span className="opacity-30">·</span>
+                <a href="/ecommerce-website-chennai" className="hover:text-accent underline underline-offset-2 transition-colors">Ecommerce</a>
+                <span className="opacity-30">·</span>
+                <a href="/whatsapp-automation-chennai" className="hover:text-accent underline underline-offset-2 transition-colors">WhatsApp Automation</a>
+                <span className="opacity-30">·</span>
+                <a href="/web-design-pallavaram" className="hover:text-accent underline underline-offset-2 transition-colors">Pallavaram</a>
+                <span className="opacity-30">·</span>
+                <a href="/web-design-tambaram" className="hover:text-accent underline underline-offset-2 transition-colors">Tambaram</a>
+              </nav>
             </div>
           </div>
 

@@ -12,8 +12,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ['"Playfair Display"', "Georgia", "serif"],
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        display: ['Fraunces', '"Playfair Display"', "Georgia", "serif"],
+        sans: ['Inter', 'Satoshi', 'system-ui', 'sans-serif'],
       },
       colors: {
         border: "rgb(255 255 255 / 0.08)",

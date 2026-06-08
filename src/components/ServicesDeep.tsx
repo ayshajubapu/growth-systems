@@ -157,11 +157,7 @@ const ServicesDeep = () => {
                 </p>
 
                 <h3
-                  className={`font-display leading-[1] transition-colors duration-500 group-hover:text-accent ${
-                    it.lead
-                      ? "text-3xl sm:text-5xl md:text-6xl"
-                      : "text-2xl sm:text-3xl md:text-4xl text-foreground/85"
-                  }`}
+                  className="font-display leading-[1.05] tracking-tight text-balance transition-colors duration-500 group-hover:text-accent text-3xl sm:text-4xl md:text-5xl"
                 >
                   {it.title}
                 </h3>
