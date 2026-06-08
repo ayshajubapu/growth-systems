@@ -1,4 +1,5 @@
-@import url('https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&f[]=cabinet-grotesk@400,500,700,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -50,26 +51,24 @@
   html, body, #root {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'Inter', 'Satoshi', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
   }
   body {
     overflow-x: hidden;
+    font-family: 'Inter', 'Satoshi', system-ui, sans-serif;
   }
   ::selection {
     background: hsl(var(--accent) / 0.3);
     color: hsl(var(--foreground));
   }
 }
-body {
-  font-family: 'Satoshi', sans-serif;
-  /* or 'Plus Jakarta Sans', sans-serif */
-  /* or 'DM Sans', sans-serif */
-}
 @layer components {
   .font-display {
-    font-family: 'Playfair Display', Georgia, serif;
-    letter-spacing: -0.02em;
+    font-family: 'Fraunces', 'Playfair Display', Georgia, serif;
+    font-optical-sizing: auto;
+    letter-spacing: -0.025em;
+    font-weight: 400;
   }
   .hairline {
     background: rgb(255 255 255 / 0.08);
