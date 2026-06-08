@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { TrendingUp } from "lucide-react";
+import DesktopFrame from "@/components/DesktopFrame";
 
 import cs1b from "@/assets/cs-1-before.jpg";
 import cs1a from "@/assets/cs-1-after.jpg";
@@ -293,16 +294,11 @@ const CaseStudies = ({ showAllByDefault = false }: { showAllByDefault?: boolean 
                   <p className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-2">
                     Before
                   </p>
-                  <div className="overflow-hidden rounded-md border border-white/5 bg-surface">
-                    <img
-                      src={c.before}
-                      alt={c.beforeAlt ?? `${c.client} website before SmartPixel redesign`}
-                      width={896}
-                      height={576}
-                      loading="lazy"
-                      className="w-full h-auto opacity-70 grayscale-[20%] group-hover:opacity-90 transition-all duration-700"
-                    />
-                  </div>
+                  <DesktopFrame
+                    src={c.before}
+                    alt={c.beforeAlt ?? `${c.client} website before SmartPixel redesign`}
+                    variant="before"
+                  />
                 </div>
 
                 {/* After */}
@@ -310,16 +306,11 @@ const CaseStudies = ({ showAllByDefault = false }: { showAllByDefault?: boolean 
                   <p className="text-[10px] uppercase tracking-[0.3em] text-accent mb-2">
                     After
                   </p>
-                  <div className="overflow-hidden rounded-md border border-accent/20 bg-surface shadow-[0_20px_60px_-20px_hsl(0_0%_0%/0.7)]">
-                    <img
-                      src={c.after}
-                      alt={c.afterAlt ?? `${c.client} website after SmartPixel redesign`}
-                      width={896}
-                      height={576}
-                      loading="lazy"
-                      className="w-full h-auto group-hover:scale-[1.02] transition-transform duration-700"
-                    />
-                  </div>
+                  <DesktopFrame
+                    src={c.after}
+                    alt={c.afterAlt ?? `${c.client} website after SmartPixel redesign`}
+                    variant="after"
+                  />
                 </div>
 
                 {/* Outcome */}
