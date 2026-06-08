@@ -1,8 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import imgHero3D from "@/assets/sp-hero-3d.jpg";
-import heroVideo from "@/assets/hero-bg.mp4.asset.json";
+import Orb from "@/components/Orb";
 import { Play, Trophy, Users, TrendingUp, Star } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 
@@ -238,27 +237,11 @@ const HorizontalScroll = () => {
                 </nav>
               </div>
 
-              {/* RIGHT — hero video */}
+              {/* RIGHT — interactive Orb */}
               <div data-reveal className="flex lg:col-span-5 relative items-center justify-center">
                 <div className="relative w-full max-w-[520px] aspect-square">
-                  <video
-                    src={heroVideo.url}
-                    poster={imgHero3D}
-                    aria-label="SmartPixel cinematic digital pixel hero video"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    preload="metadata"
-                    className="w-full h-full object-cover rounded-2xl"
-                  >
-                    <img
-                      src={imgHero3D}
-                      alt="SmartPixel website development company in Chennai — 3D brand logo"
-                    />
-                  </video>
-                  <div className="absolute inset-0 rounded-2xl ring-1 ring-white/5" />
-                  <div className="absolute -inset-6 -z-10 bg-accent/15 blur-3xl rounded-full" />
+                  <Orb hue={39} hoverIntensity={0.5} rotateOnHover backgroundColor="#000000" />
+                  <div className="absolute -inset-6 -z-10 bg-accent/15 blur-3xl rounded-full pointer-events-none" />
                 </div>
 
                 <a
