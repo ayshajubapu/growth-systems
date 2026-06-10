@@ -23,8 +23,7 @@ export const FadeIn = ({
   className,
   style,
 }: FadeInProps) => {
-  const MotionTag = motion.create(as as any);
-  return (
+  const MotionTag = useMemo(() => motion.create(as as any), [as]);
     <MotionTag
       initial={{ opacity: 0, y, x }}
       whileInView={{ opacity: 1, y: 0, x: 0 }}
