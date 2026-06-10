@@ -117,6 +117,19 @@
     letter-spacing: -0.04em;
   }
 
+  .font-kanit {
+    font-family: 'Kanit', sans-serif;
+  }
+
+  .hero-heading {
+    font-family: 'Kanit', sans-serif;
+    background: linear-gradient(180deg, #646973 0%, #BBCCD7 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
   /* Glassmorphism — premium frosted layer */
   .glass {
     background: linear-gradient(135deg, hsl(0 0% 100% / 0.06), hsl(0 0% 100% / 0.02));
