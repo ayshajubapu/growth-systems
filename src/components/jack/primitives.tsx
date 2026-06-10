@@ -24,6 +24,7 @@ export const FadeIn = ({
   style,
 }: FadeInProps) => {
   const MotionTag = useMemo(() => motion.create(as as any), [as]);
+  return (
     <MotionTag
       initial={{ opacity: 0, y, x }}
       whileInView={{ opacity: 1, y: 0, x: 0 }}
