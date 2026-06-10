@@ -1,5 +1,5 @@
-import { motion, useInView } from "framer-motion";
-import { useEffect, useRef, useState, ReactNode, ElementType, CSSProperties } from "react";
+import { motion } from "framer-motion";
+import { useEffect, useMemo, useRef, useState, ReactNode, ElementType, CSSProperties } from "react";
 
 /* ───── FadeIn ───── */
 type FadeInProps = {
