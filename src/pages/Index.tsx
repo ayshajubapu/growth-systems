@@ -1,10 +1,12 @@
 import { useEffect } from "react";
-import HeroJack from "@/components/jack/HeroJack";
-import MarqueeJack from "@/components/jack/MarqueeJack";
-import AboutJack from "@/components/jack/AboutJack";
-import ServicesJack from "@/components/jack/ServicesJack";
-import ProjectsJack from "@/components/jack/ProjectsJack";
+import Nav from "@/components/Nav";
+import HorizontalScroll from "@/components/HorizontalScroll";
+import ServicesDeep from "@/components/ServicesDeep";
+import CaseStudies from "@/components/CaseStudies";
+
 import Testimonials from "@/components/Testimonials";
+import Insights from "@/components/Insights";
+import About from "@/components/About";
 import Faq from "@/components/Faq";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
@@ -21,29 +23,20 @@ const Index = () => {
       }
       el.setAttribute("content", content);
     };
-    setMeta(
-      "description",
-      "SmartPixel builds conversion-focused websites, mobile apps, and e-commerce stores. Web development, app development, and digital marketing from Chrompet, Chennai. Call +91 98860 69488."
-    );
+    setMeta("description", "SmartPixel builds conversion-focused websites, mobile apps, and e-commerce stores. Web development, app development, and digital marketing from Chrompet, Chennai. Call +91 98860 69488.");
     setMeta("og:title", "SmartPixel — Conversion-focused Websites, Apps & Growth Systems", "property");
-    setMeta(
-      "og:description",
-      "Websites, apps, and e-commerce stores designed to convert visitors into paying customers.",
-      "property"
-    );
+    setMeta("og:description", "Websites, apps, and e-commerce stores designed to convert visitors into paying customers.", "property");
   }, []);
 
   return (
-    <main
-      className="text-foreground"
-      style={{ background: "#0C0C0C", overflowX: "clip" }}
-    >
-      <HeroJack />
-      <MarqueeJack />
-      <AboutJack />
-      <ServicesJack />
-      <ProjectsJack />
+    <main className="bg-background text-foreground">
+      <Nav />
+      <HorizontalScroll />
+      <CaseStudies />
+      <ServicesDeep />
       <Testimonials />
+      <Insights />
+      <About />
       <Faq />
       <FinalCTA />
       <Footer />
