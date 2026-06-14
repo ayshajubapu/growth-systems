@@ -205,6 +205,19 @@ const cases = [
     metricSub: "Visual storefront for new brand",
     link: "https://blossom-bloom.vercel.app/",
   },
+  {
+    client: "Get Butterflies",
+    industry: "Saree Styling Studio",
+    quote: "An animated luxury website for a modern saree styling studio — built to elevate the brand and convert visitors into bookings.",
+    person: "Client",
+    before: csButterfliesAfter,
+    after: csButterfliesAfter,
+    beforeAlt: "Get Butterflies first website by SmartPixel — saree styling studio",
+    afterAlt: "Get Butterflies animated luxury website after SmartPixel design — saree pre-pleating, blouse matching, and styling bookings",
+    metric: "First Site",
+    metricSub: "Animated luxury studio brand",
+    link: "https://getbutterflies.in/",
+  },
 ];
 
 const INITIAL_VISIBLE = 3;
