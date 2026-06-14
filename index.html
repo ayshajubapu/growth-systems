@@ -158,6 +158,55 @@
   }
   </script>
 
+  <!-- Schema: Organization (for AEO + Knowledge Graph) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://www.smartpixel.in/#organization",
+    "name": "SmartPixel",
+    "alternateName": "SmartPixel Web Agency",
+    "url": "https://www.smartpixel.in/",
+    "logo": "https://www.smartpixel.in/logo.png",
+    "description": "SmartPixel is a Chennai-based web design and development agency building conversion-focused websites, ecommerce stores, mobile apps and WhatsApp automation for small and mid-size businesses.",
+    "foundingDate": "2023",
+    "founder": {"@type": "Person", "name": "Aysha", "jobTitle": "Founder"},
+    "knowsAbout": ["Website Development","Web Design","Ecommerce Development","SEO Services","WhatsApp Automation","Mobile App Development","Digital Marketing","Conversion Rate Optimization"],
+    "contactPoint": [{"@type":"ContactPoint","telephone":"+91-9886069488","contactType":"customer service","email":"workwithsmartpixel@gmail.com","areaServed":"IN","availableLanguage":["English","Tamil","Hindi"]}],
+    "sameAs": ["https://www.instagram.com/smartpiixel/","https://www.threads.net/@smartpiixel"]
+  }
+  </script>
+
+  <!-- Schema: WebSite + SearchAction (for AEO + sitelinks search) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://www.smartpixel.in/#website",
+    "url": "https://www.smartpixel.in/",
+    "name": "SmartPixel",
+    "publisher": {"@id": "https://www.smartpixel.in/#organization"},
+    "inLanguage": "en-IN",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {"@type":"EntryPoint","urlTemplate":"https://www.smartpixel.in/blog?q={search_term_string}"},
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <!-- Schema: Speakable (for voice answers / AEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": "https://www.smartpixel.in/",
+    "speakable": {"@type":"SpeakableSpecification","cssSelector":["h1","h2",".speakable","[data-speakable]"]}
+  }
+  </script>
+
+
+
 
 </head>
 
