@@ -26,6 +26,12 @@ import csAyishroAfter from "@/assets/cs-ayishro-after.png";
 import csManhaAfter from "@/assets/cs-manha-after.png";
 import csFlyingBirdAfter from "@/assets/cs-flyingbird-after.png";
 import csBlossomAfter from "@/assets/cs-blossombloom-after.png";
+import csVjBeforeAsset from "@/assets/cs-vjrealestate-before.png.asset.json";
+import csVjAfterAsset from "@/assets/cs-vjrealestate-after.png.asset.json";
+import csButterfliesAsset from "@/assets/cs-butterflies-after.png.asset.json";
+const csVjBefore = csVjBeforeAsset.url;
+const csVjAfter = csVjAfterAsset.url;
+const csButterfliesAfter = csButterfliesAsset.url;
 
 gsap.registerPlugin(ScrollTrigger);
 
