@@ -26,6 +26,12 @@ import csAyishroAfter from "@/assets/cs-ayishro-after.png";
 import csManhaAfter from "@/assets/cs-manha-after.png";
 import csFlyingBirdAfter from "@/assets/cs-flyingbird-after.png";
 import csBlossomAfter from "@/assets/cs-blossombloom-after.png";
+import csVjBeforeAsset from "@/assets/cs-vjrealestate-before.png.asset.json";
+import csVjAfterAsset from "@/assets/cs-vjrealestate-after.png.asset.json";
+import csButterfliesAsset from "@/assets/cs-butterflies-after.png.asset.json";
+const csVjBefore = csVjBeforeAsset.url;
+const csVjAfter = csVjAfterAsset.url;
+const csButterfliesAfter = csButterfliesAsset.url;
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -55,6 +61,19 @@ const cases = [
     metric: "Launched",
     metricSub: "First true ecommerce presence",
     link: "https://www.priyasilverjewellery.com/",
+  },
+  {
+    client: "VJ Real Estate",
+    industry: "Luxury Real Estate",
+    quote: "A luxury property discovery platform crafted to showcase premium Pune real estate while driving qualified buyer enquiries through dynamic SEO.",
+    person: "Founder, VJ Real Estate",
+    before: csVjBefore,
+    after: csVjAfter,
+    beforeAlt: "Traditional real estate website before SmartPixel redesign",
+    afterAlt: "Luxury real estate platform after SmartPixel redesign featuring dynamic listings, investment content, and advanced SEO architecture",
+    metric: "Luxury SEO",
+    metricSub: "Properties • Locations • Investment Blogs",
+    link: "https://www.vjrealestate.co.in/",
   },
   {
     client: "Fotrio Edu",
@@ -185,6 +204,19 @@ const cases = [
     metric: "Lookbook",
     metricSub: "Visual storefront for new brand",
     link: "https://blossom-bloom.vercel.app/",
+  },
+  {
+    client: "Get Butterflies",
+    industry: "Saree Styling Studio",
+    quote: "An animated luxury website for a modern saree styling studio — built to elevate the brand and convert visitors into bookings.",
+    person: "Client",
+    before: csButterfliesAfter,
+    after: csButterfliesAfter,
+    beforeAlt: "Get Butterflies first website by SmartPixel — saree styling studio",
+    afterAlt: "Get Butterflies animated luxury website after SmartPixel design — saree pre-pleating, blouse matching, and styling bookings",
+    metric: "First Site",
+    metricSub: "Animated luxury studio brand",
+    link: "https://getbutterflies.in/",
   },
 ];
 
