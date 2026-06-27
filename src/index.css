@@ -39,7 +39,7 @@
     --gold-soft: 46 65% 52%;
     --hairline: 12 15 20; /* used as rgb(var(--hairline) / 0.08) */
     --shadow-elegant: 0 30px 80px -20px hsl(218 25% 6% / 0.18);
-    --gradient-glow: radial-gradient(60% 60% at 50% 50%, hsl(46 65% 52% / 0.18), transparent 70%);
+    /* Glow/gradient tokens removed — palette stays flat. */
   }
 }
 
@@ -106,9 +106,8 @@
     transform: translateY(110%);
   }
 
-  .glow-bg {
-    background-image: var(--gradient-glow);
-  }
+  /* .glow-bg removed — no radial glow backgrounds. */
+  .glow-bg { background-image: none; }
 
   .num-display {
     font-family: 'Playfair Display', serif;
@@ -155,20 +154,15 @@
     animation: marquee 38s linear infinite;
     width: max-content;
   }
-  @keyframes shimmer-line {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
-  }
+  /* shimmer-underline gradient removed — flat solid underline only. */
   .shimmer-underline {
     position: relative;
-    overflow: hidden;
   }
   .shimmer-underline::after {
     content: "";
     position: absolute;
     inset: auto 0 0 0;
     height: 1px;
-    background: linear-gradient(90deg, transparent, hsl(var(--accent)), transparent);
-    animation: shimmer-line 3s ease-in-out infinite;
+    background: hsl(var(--accent));
   }
 }

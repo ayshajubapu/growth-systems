@@ -89,11 +89,7 @@ const About = () => {
         ref={ref}
         className="relative bg-surface py-24 sm:py-32 lg:py-40 px-5 sm:px-10 lg:px-24 border-y border-border overflow-hidden"
       >
-        {/* Glow Background */}
-        <div className="absolute inset-0 pointer-events-none opacity-20">
-          <div className="absolute top-20 left-20 w-72 h-72 bg-accent blur-[120px] rounded-full" />
-          <div className="absolute bottom-10 right-10 w-80 h-80 bg-accent blur-[140px] rounded-full" />
-        </div>
+        {/* Glow background removed */}
 
         <div className="relative max-w-[1500px] mx-auto grid lg:grid-cols-12 gap-14 lg:gap-20 items-start">
           {/* Left */}

@@ -32,9 +32,7 @@ const FinalCTA = () => {
       ref={ref}
       className="relative bg-background py-24 sm:py-36 lg:py-48 px-5 sm:px-10 lg:px-24 overflow-hidden"
     >
-      {/* Background Glow */}
-      <div className="absolute inset-0 glow-bg pointer-events-none" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vmin] h-[80vmin] rounded-full opacity-[0.05] bg-accent blur-3xl" />
+      {/* Background glow + accent blur removed */}
 
       <div className="relative max-w-[1500px] mx-auto">
         {/* Heading */}
