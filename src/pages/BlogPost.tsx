@@ -89,6 +89,90 @@ const posts: Post[] = [
       { p: "Force-account-creation kills conversion. Always offer guest checkout. Reduce form fields to the absolute minimum." },
     ],
   },
+
+  // ── SEO blog set with deep internal links to services + case studies ──
+  {
+    slug: "ecommerce-jewelry-storefront-chennai",
+    cat: "Ecommerce",
+    date: "Jun 2026",
+    datePublishedIso: "2026-06-10",
+    read: "9 min",
+    title: "Building an e-commerce jewelry storefront in Chennai that actually sells.",
+    excerpt: "What a Chennai jewellery brand needs from its first online catalogue — pricing logic, trust signals, and the search architecture that earns the click.",
+    speakable: ["h1", ".post-excerpt"],
+    body: [
+      { p: <>Jewellery is the hardest category to sell online — high ticket, high trust, high return risk. We've shipped catalogues for legacy Chennai brands like <Link to="/portfolio" className="text-accent underline">Manohar Jewellers</Link> and know exactly where the conversions leak.</> },
+      { h: "1. Lead with trust, not the catalogue" },
+      { p: <>Hallmark, BIS, return window and the founder's face in the first viewport. Without these, the price tag does the talking — and on a ₹85,000 necklace, that's a one-way ticket out.</> },
+      { h: "2. Price logic visible on every product" },
+      { p: <>Gold rate × weight + making charge + GST. Show the math. Chennai buyers cross-check; a calculator beats a static price field every time.</> },
+      { h: "3. Search built around occasions, not SKUs" },
+      { p: <>"Bridal haram", "daily wear chain", "baby anklet" — that's how customers search. Build the IA around occasion + metal + budget, not category trees.</> },
+      { h: "Where to go next" },
+      { p: <>If you're scoping a build, start with our <Link to="/ecommerce-website-chennai" className="text-accent underline">e-commerce website services in Chennai</Link> page, then read about <Link to="/seo-services-chennai" className="text-accent underline">SEO services for Chennai stores</Link> to make sure the catalogue gets found.</> },
+    ],
+  },
+  {
+    slug: "local-seo-architecture-t-nagar",
+    cat: "SEO",
+    date: "Jun 2026",
+    datePublishedIso: "2026-06-05",
+    read: "7 min",
+    title: "Local SEO architecture for a T Nagar business: the URL map Google actually rewards.",
+    excerpt: "Why a flat 'services' page can never outrank a per-area page, and the architecture we use for clients targeting T Nagar, Pondy Bazaar and surrounding pin codes.",
+    speakable: ["h1", ".post-excerpt"],
+    body: [
+      { p: <>If you serve a defined catchment in Chennai, a single homepage cannot rank for "service + locality" queries. You need a per-area URL with localised content, schema, and internal linking.</> },
+      { h: "The 3-tier URL map" },
+      { p: <>Tier 1 — service hub (e.g. <Link to="/services/web-design-chennai" className="text-accent underline">/services/web-design-chennai</Link>). Tier 2 — area page (<Link to="/web-design-t-nagar" className="text-accent underline">/web-design-t-nagar</Link>). Tier 3 — case study on the same locality. Each tier links down and up.</> },
+      { h: "LocalBusiness schema per area, not per site" },
+      { p: <>One global LocalBusiness JSON-LD is wasted on a multi-area brand. Inject a per-area block on each /web-design-&lt;area&gt; page with the right areaServed and landmark reference.</> },
+      { h: "Anchor text that compounds" },
+      { p: <>"Web design in T Nagar" beats "click here" every time. Use exact-match locally, partial-match elsewhere, and verify with the <Link to="/seo-checklist" className="text-accent underline">on-page SEO checklist</Link>.</> },
+      { h: "Adjacent reading" },
+      { p: <>See live examples on <Link to="/web-design-t-nagar" className="text-accent underline">T Nagar</Link>, <Link to="/web-design-nungambakkam" className="text-accent underline">Nungambakkam</Link> and <Link to="/web-design-saidapet" className="text-accent underline">Saidapet</Link>, or read our <Link to="/seo-services-chennai" className="text-accent underline">SEO services in Chennai</Link>.</> },
+    ],
+  },
+  {
+    slug: "spa-vs-ssr-chennai-startups",
+    cat: "Web Development",
+    date: "May 2026",
+    datePublishedIso: "2026-05-22",
+    read: "8 min",
+    title: "SPA vs SSR for Chennai startups: which one actually moves the SEO needle?",
+    excerpt: "A no-fluff comparison of single-page apps and server-rendered sites for early-stage Chennai startups — with the rule we follow before we write a line of code.",
+    speakable: ["h1", ".post-excerpt"],
+    body: [
+      { p: <>Most early-stage Chennai startups pick React without thinking about how Google will see the site on day one. Here's the rule we apply on every project.</> },
+      { h: "The rule" },
+      { p: <>If &gt;30% of expected traffic is organic, you need server-rendered HTML on the public pages. Period. A pure client-side SPA gets indexed eventually, but "eventually" kills the runway.</> },
+      { h: "Hybrid is the right default" },
+      { p: <>Marketing routes (/, /about, /services, /blog) get static prerendering. App routes behind login stay SPA. That's how we ship our own <Link to="/services/web-app-development" className="text-accent underline">web app development</Link> projects.</> },
+      { h: "What this looks like in production" },
+      { p: <>Check the rendered HTML of a competitor — view-source on their homepage. If the headline isn't in the first 50 lines, they're losing search to anyone who does it right.</> },
+      { h: "Related work" },
+      { p: <>Browse our <Link to="/portfolio" className="text-accent underline">case studies</Link> for live examples — including <Link to="/portfolio" className="text-accent underline">VJ Real Estate</Link> and <Link to="/portfolio" className="text-accent underline">Ayishro</Link>, both prerendered.</> },
+    ],
+  },
+  {
+    slug: "whatsapp-automation-react-applications",
+    cat: "WhatsApp Automation",
+    date: "May 2026",
+    datePublishedIso: "2026-05-15",
+    read: "6 min",
+    title: "WhatsApp automation inside a React app: the integration pattern that actually scales.",
+    excerpt: "How we wire WhatsApp Business API into React applications for Chennai service businesses — without turning the codebase into a chatbot graveyard.",
+    speakable: ["h1", ".post-excerpt"],
+    body: [
+      { p: <>Every Chennai service business eventually asks: "Can you put a WhatsApp bot on the site?" Yes — but the way it's wired decides whether it pays back or rots in six months.</> },
+      { h: "Three layers, never one" },
+      { p: <>Layer 1 — Cloud API token + webhook on the server. Layer 2 — a thin orchestration service holding the conversation graph. Layer 3 — React widgets that only deal in UI events. Never let the React component talk to Meta directly.</> },
+      { h: "Templates are a product surface, not a config" },
+      { p: <>Treat WhatsApp templates like landing pages: version them, A/B them, attribute conversions. We've seen template-level lift of 2–3× from a single copy rewrite.</> },
+      { h: "Where this fits" },
+      { p: <>Pair this with our <Link to="/whatsapp-automation-chennai" className="text-accent underline">WhatsApp automation services</Link> and our work on <Link to="/services/web-app-development" className="text-accent underline">React web apps</Link>. For a full marketing layer, see <Link to="/services/digital-marketing-chennai" className="text-accent underline">digital marketing in Chennai</Link>.</> },
+    ],
+  },
 ];
 
 const BlogPost = () => {
@@ -98,6 +182,79 @@ const BlogPost = () => {
 
   // Canonical: https + www host, no trailing slash, no fragment.
   const url = `https://www.smartpixel.in/blog/${post.slug.replace(/\/+$/, "")}`;
+  const ORIGIN = "https://www.smartpixel.in";
+  const speakableSelectors = post.speakable ?? ["h1", ".post-excerpt"];
+
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.excerpt,
+    author: { "@type": "Person", name: "Aysha", url: `${ORIGIN}/about` },
+    publisher: {
+      "@type": "Organization",
+      name: "SmartPixel",
+      url: ORIGIN,
+      logo: { "@type": "ImageObject", url: `${ORIGIN}/logo.png` },
+    },
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
+    datePublished: post.datePublishedIso ?? post.date,
+    dateModified: post.datePublishedIso ?? post.date,
+    inLanguage: "en-IN",
+  };
+
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "SmartPixel",
+    url: ORIGIN,
+    logo: `${ORIGIN}/logo.png`,
+    sameAs: [
+      "https://www.linkedin.com/company/smartpixel-in",
+      "https://www.instagram.com/smartpixel.in",
+    ],
+    contactPoint: [{
+      "@type": "ContactPoint",
+      telephone: "+91-9886069488",
+      contactType: "customer service",
+      areaServed: "IN",
+      availableLanguage: ["en", "ta"],
+    }],
+  };
+
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "SmartPixel",
+    url: ORIGIN,
+    publisher: { "@type": "Organization", name: "SmartPixel" },
+    potentialAction: {
+      "@type": "SearchAction",
+      target: `${ORIGIN}/blog?q={search_term_string}`,
+      "query-input": "required name=search_term_string",
+    },
+  };
+
+  const speakableSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: post.title,
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: speakableSelectors,
+    },
+    url,
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `${ORIGIN}/` },
+      { "@type": "ListItem", position: 2, name: "Blog", item: `${ORIGIN}/blog` },
+      { "@type": "ListItem", position: 3, name: post.title, item: url },
+    ],
+  };
 
   return (
     <main className="bg-background text-foreground">
@@ -109,20 +266,12 @@ const BlogPost = () => {
         <meta property="og:description" content={post.excerpt} />
         <meta property="og:url" content={url} />
         <meta property="og:type" content="article" />
-        <script type="application/ld+json">{JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Article",
-          headline: post.title,
-          description: post.excerpt,
-          author: { "@type": "Person", name: "Aysha" },
-          publisher: {
-            "@type": "Organization",
-            name: "SmartPixel",
-            logo: { "@type": "ImageObject", url: "https://www.smartpixel.in/logo.png" },
-          },
-          mainEntityOfPage: url,
-          datePublished: post.date,
-        })}</script>
+        <meta name="twitter:card" content="summary_large_image" />
+        <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(organizationSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(websiteSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(speakableSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
       </Helmet>
 
       <Nav />
