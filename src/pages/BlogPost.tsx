@@ -290,7 +290,7 @@ const BlogPost = () => {
           {post.date} · {post.read} · By Aysha
         </p>
 
-        <p className="text-lg text-muted-foreground leading-relaxed mb-10">{post.excerpt}</p>
+        <p className="post-excerpt text-lg text-muted-foreground leading-relaxed mb-10">{post.excerpt}</p>
 
         <div className="space-y-6">
           {post.body.map((b, i) =>
