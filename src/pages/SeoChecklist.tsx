@@ -32,6 +32,10 @@ const ROUTES: { path: string; label: string }[] = [
   { path: "/web-design-saidapet", label: "Web Design Saidapet" },
   { path: "/web-design-nungambakkam", label: "Web Design Nungambakkam" },
   { path: "/web-design-chitlapakkam", label: "Web Design Chitlapakkam" },
+  { path: "/blog/ecommerce-jewelry-storefront-chennai", label: "Blog: E-commerce Jewelry Storefront" },
+  { path: "/blog/local-seo-architecture-t-nagar", label: "Blog: T Nagar Web Architecture" },
+  { path: "/blog/spa-vs-ssr-chennai-startups", label: "Blog: SPA vs SSR Performance" },
+  { path: "/blog/whatsapp-automation-react-applications", label: "Blog: Web WhatsApp Automation" },
 ];
 
 type Status = "pending" | "ok" | "fail";
@@ -160,9 +164,12 @@ const SeoChecklist = () => {
     setSitemapUrls(urls);
 
     // Per-route checks (canonical via fetch then parse <head>)
+    // Canonical convention: ORIGIN + path, no trailing slash (root is the only "/").
+    const buildCanonical = (path: string) =>
+      path === "/" ? `${ORIGIN}/` : `${ORIGIN}${path.replace(/\/+$/, "")}`;
     const updated: RouteCheck[] = [];
     for (const r of ROUTES) {
-      const expectedCanonical = `${ORIGIN}${r.path === "/" ? "/" : r.path}`;
+      const expectedCanonical = buildCanonical(r.path);
       const sitemapKey = expectedCanonical.replace(/\/$/, "");
       const inSitemap: Status = urls.has(sitemapKey) || urls.has(`${sitemapKey}/`) ? "ok" : "fail";
 
