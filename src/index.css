@@ -9,44 +9,43 @@
 
 @layer base {
   :root {
-    /* Core palette — matte black */
-    --background: 0 0% 0%;          /* #000000 pure matte */
-    --surface: 0 0% 5%;             /* #0D0D0D */
-    --foreground: 0 0% 92%;         /* #EAEAEA */
-    --muted-foreground: 0 0% 54%;   /* #8A8A8A */
-    --accent: 39 41% 60%;           /* #C6A96B muted gold */
-    --accent-foreground: 0 0% 7%;
-    --border: 0 0% 100%;            /* used with /8 opacity */
+    /* Core palette — warm cream + gold luxury */
+    --background: 38 47% 91%;       /* #F3ECDF cream */
+    --surface: 38 35% 87%;          /* slightly deeper cream surface */
+    --foreground: 218 25% 6%;       /* #0C0F14 primary text */
+    --muted-foreground: 240 3% 20%; /* #323134 secondary text */
+    --accent: 46 65% 52%;           /* #D4AF37 gold */
+    --accent-foreground: 218 25% 6%;
+    --border: 218 25% 6%;           /* used with /8 opacity */
 
     /* Mapped shadcn tokens */
-    --card: 0 0% 5%;
-    --card-foreground: 0 0% 92%;
-    --popover: 0 0% 5%;
-    --popover-foreground: 0 0% 92%;
-    --primary: 39 41% 60%;
-    --primary-foreground: 0 0% 5%;
-    --secondary: 0 0% 7%;
-    --secondary-foreground: 0 0% 92%;
-    --muted: 0 0% 7%;
-    --accent-foreground: 0 0% 7%;
+    --card: 38 47% 94%;
+    --card-foreground: 218 25% 6%;
+    --popover: 38 47% 94%;
+    --popover-foreground: 218 25% 6%;
+    --primary: 46 65% 52%;
+    --primary-foreground: 218 25% 6%;
+    --secondary: 38 35% 87%;
+    --secondary-foreground: 218 25% 6%;
+    --muted: 38 35% 87%;
     --destructive: 0 62% 40%;
-    --destructive-foreground: 0 0% 92%;
-    --input: 0 0% 14%;
-    --ring: 39 41% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --input: 38 25% 80%;
+    --ring: 46 65% 52%;
     --radius: 0.25rem;
 
     /* Editorial tokens */
-    --gold: 39 41% 60%;
-    --gold-soft: 39 41% 60%;
-    --hairline: 255 255 255; /* used as rgb(var(--hairline) / 0.08) */
-    --shadow-elegant: 0 30px 80px -20px hsl(0 0% 0% / 0.6);
-    --gradient-glow: radial-gradient(60% 60% at 50% 50%, hsl(39 41% 60% / 0.12), transparent 70%);
+    --gold: 46 65% 52%;
+    --gold-soft: 46 65% 52%;
+    --hairline: 12 15 20; /* used as rgb(var(--hairline) / 0.08) */
+    --shadow-elegant: 0 30px 80px -20px hsl(218 25% 6% / 0.18);
+    --gradient-glow: radial-gradient(60% 60% at 50% 50%, hsl(46 65% 52% / 0.18), transparent 70%);
   }
 }
 
 @layer base {
   * {
-    border-color: rgb(255 255 255 / 0.08);
+    border-color: rgb(12 15 20 / 0.08);
   }
   html, body, #root {
     background-color: hsl(var(--background));

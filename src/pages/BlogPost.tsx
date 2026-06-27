@@ -92,7 +92,8 @@ const BlogPost = () => {
   const post = posts.find((p) => p.slug === slug);
   if (!post) return <Navigate to="/blog" replace />;
 
-  const url = `https://www.smartpixel.in/blog/${post.slug}`;
+  // Canonical: https + www host, no trailing slash, no fragment.
+  const url = `https://www.smartpixel.in/blog/${post.slug.replace(/\/+$/, "")}`;
 
   return (
     <main className="bg-background text-foreground">

@@ -23,9 +23,26 @@ type Props = {
   ctaText?: string;
 };
 
+// Normalize canonical URLs: force https + www.smartpixel.in host, strip trailing
+// slash from any non-root path so crawlers don't 301/302 between variants.
+const normalizeCanonical = (input: string): string => {
+  try {
+    const u = new URL(input, "https://www.smartpixel.in");
+    u.protocol = "https:";
+    u.host = "www.smartpixel.in";
+    u.hash = "";
+    let path = u.pathname.replace(/\/+$/, "");
+    if (path === "") path = "/";
+    return `https://www.smartpixel.in${path}${u.search}`;
+  } catch {
+    return input;
+  }
+};
+
 const SeoPageLayout = ({
   title, description, canonical, h1, intro, sections, faqs, breadcrumbs, schema = [], internalLinks = [], ctaText = "Get a free quote →",
 }: Props) => {
+  const canonicalUrl = normalizeCanonical(canonical);
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -47,10 +64,10 @@ const SeoPageLayout = ({
       <Helmet>
         <title>{title}</title>
         <meta name="description" content={description} />
-        <link rel="canonical" href={canonical} />
+        <link rel="canonical" href={canonicalUrl} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
-        <meta property="og:url" content={canonical} />
+        <meta property="og:url" content={canonicalUrl} />
         <meta property="og:type" content="website" />
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
         {faqSchema && <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>}
