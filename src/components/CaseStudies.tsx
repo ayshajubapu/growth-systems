@@ -289,7 +289,7 @@ const CaseStudies = ({ showAllByDefault = false }: { showAllByDefault?: boolean 
           </div>
 
           {/* Case rows */}
-          <div className="divide-y divide-white/10 border-y border-white/10">
+          <div className="divide-y divide-foreground/10 border-y border-foreground/10">
             {visibleCases.map((c, i) => (
               <a
                 key={c.client}
@@ -306,7 +306,7 @@ const CaseStudies = ({ showAllByDefault = false }: { showAllByDefault?: boolean 
                 </div>
 
                 {/* Client meta */}
-                <div className="md:col-span-3 md:pl-2 md:border-l md:border-white/10">
+                <div className="md:col-span-3 md:pl-2 md:border-l md:border-foreground/10">
                   <h3 className="font-display text-2xl md:text-[1.7rem] leading-tight group-hover:text-accent transition-colors">
                     {c.client}
                   </h3>
@@ -346,7 +346,7 @@ const CaseStudies = ({ showAllByDefault = false }: { showAllByDefault?: boolean 
                 </div>
 
                 {/* Outcome */}
-                <div className="md:col-span-2 md:pl-4 md:border-l md:border-white/10">
+                <div className="md:col-span-2 md:pl-4 md:border-l md:border-foreground/10">
                   <p className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-3">
                     Outcome
                   </p>

@@ -246,7 +246,7 @@ const SeoChecklist = () => {
         </p>
 
         {/* Summary */}
-        <section className="mb-10 grid grid-cols-3 gap-px bg-white/5 border-y border-white/10">
+        <section className="mb-10 grid grid-cols-3 gap-px bg-foreground/5 border-y border-foreground/10">
           <div className="bg-background px-5 py-5">
             <div className="num-display text-3xl text-emerald-400">{summary.ok}</div>
             <div className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground mt-2">Passed</div>
@@ -264,7 +264,7 @@ const SeoChecklist = () => {
         {/* Global checks */}
         <section className="mb-12">
           <h2 className="font-display text-2xl sm:text-3xl mb-4">Global checks</h2>
-          <div className="border border-white/10 rounded-md divide-y divide-white/5">
+          <div className="border border-foreground/10 rounded-md divide-y divide-foreground/5">
             {globals.map((g) => (
               <div key={g.label} className="flex items-center justify-between p-4">
                 <div>
@@ -288,7 +288,7 @@ const SeoChecklist = () => {
         {/* Per-page checks */}
         <section className="mb-12">
           <h2 className="font-display text-2xl sm:text-3xl mb-4">Per-page checks</h2>
-          <div className="overflow-x-auto border border-white/10 rounded-md">
+          <div className="overflow-x-auto border border-foreground/10 rounded-md">
             <table className="w-full text-sm">
               <thead className="bg-surface text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
                 <tr>
@@ -298,7 +298,7 @@ const SeoChecklist = () => {
                   <th className="text-left p-3 hidden md:table-cell">Notes</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-white/5">
+              <tbody className="divide-y divide-foreground/5">
                 {rows.map((r) => (
                   <tr key={r.path} className="hover:bg-surface/40">
                     <td className="p-3">

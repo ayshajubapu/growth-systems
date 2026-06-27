@@ -122,7 +122,7 @@ const Backlinks = () => {
         </p>
 
         {/* Tracker summary */}
-        <section className="mb-12 grid grid-cols-3 gap-px bg-white/5 border-y border-white/10">
+        <section className="mb-12 grid grid-cols-3 gap-px bg-foreground/5 border-y border-foreground/10">
           {(["todo", "in-progress", "done"] as Status[]).map((s) => (
             <div key={s} className="bg-background px-5 py-5">
               <div className="num-display text-3xl text-accent">{counts[s]}</div>
@@ -139,7 +139,7 @@ const Backlinks = () => {
               <Download size={16} /> Download .txt
             </button>
           </div>
-          <pre className="whitespace-pre-wrap text-sm bg-surface border border-white/10 rounded-md p-5 leading-relaxed text-muted-foreground">
+          <pre className="whitespace-pre-wrap text-sm bg-surface border border-foreground/10 rounded-md p-5 leading-relaxed text-muted-foreground">
 {emailTemplate}
           </pre>
           <p className="text-xs text-muted-foreground mt-3">
@@ -150,7 +150,7 @@ const Backlinks = () => {
         {/* Targets table + tracker */}
         <section className="mb-14">
           <h2 className="font-display text-2xl sm:text-3xl mb-4">Backlink targets</h2>
-          <div className="overflow-x-auto border border-white/10 rounded-md">
+          <div className="overflow-x-auto border border-foreground/10 rounded-md">
             <table className="w-full text-sm">
               <thead className="bg-surface text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
                 <tr>
@@ -161,7 +161,7 @@ const Backlinks = () => {
                   <th className="text-left p-3">Status</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-white/5">
+              <tbody className="divide-y divide-foreground/5">
                 {targets.map((t) => {
                   const status = (tracker[t.url] ?? "todo") as Status;
                   return (
@@ -179,7 +179,7 @@ const Backlinks = () => {
                         <select
                           value={status}
                           onChange={(e) => setStatus(t.url, e.target.value as Status)}
-                          className="bg-background border border-white/10 rounded px-2 py-1 text-xs"
+                          className="bg-background border border-foreground/10 rounded px-2 py-1 text-xs"
                           aria-label={`Status for ${t.name}`}
                         >
                           <option value="todo">To do</option>

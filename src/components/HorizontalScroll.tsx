@@ -228,7 +228,7 @@ const HorizontalScroll = () => {
           {/* TRUST STRIP */}
           <div
             data-reveal
-            className="relative mt-8 lg:mt-0 lg:absolute lg:bottom-6 lg:left-20 lg:right-20 border-t border-white/10 pt-6 lg:pt-5"
+            className="relative mt-8 lg:mt-0 lg:absolute lg:bottom-6 lg:left-20 lg:right-20 border-t border-foreground/10 pt-6 lg:pt-5"
           >
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {[
