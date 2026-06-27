@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { Link, useParams, Navigate } from "react-router-dom";
+import { ReactNode } from "react";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import FinalCTA from "@/components/FinalCTA";
@@ -9,10 +10,13 @@ type Post = {
   slug: string;
   cat: string;
   date: string;
+  datePublishedIso: string; // ISO for Article schema
   read: string;
   title: string;
   excerpt: string;
-  body: { h?: string; p?: string }[];
+  /** Optional speakable selectors for voice/AEO. Default: ["h1", ".post-excerpt"]. */
+  speakable?: string[];
+  body: { h?: string; p?: ReactNode }[];
 };
 
 const posts: Post[] = [
