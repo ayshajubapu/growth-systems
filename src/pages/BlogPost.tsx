@@ -10,7 +10,7 @@ type Post = {
   slug: string;
   cat: string;
   date: string;
-  datePublishedIso: string; // ISO for Article schema
+  datePublishedIso?: string; // ISO for Article schema (optional)
   read: string;
   title: string;
   excerpt: string;
