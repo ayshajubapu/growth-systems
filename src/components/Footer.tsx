@@ -109,7 +109,7 @@ const Footer = () => {
       ref={ref}
       className="relative bg-background border-t border-border overflow-hidden"
     >
-      <div className="absolute inset-0 glow-bg pointer-events-none opacity-60" />
+      {/* Glow background removed */}
 
       <div className="relative max-w-[1500px] mx-auto px-5 sm:px-10 lg:px-24 pt-20 sm:pt-28 lg:pt-36 pb-10">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">

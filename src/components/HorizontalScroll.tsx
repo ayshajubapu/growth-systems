@@ -141,9 +141,8 @@ const HorizontalScroll = () => {
             isDesktop ? "w-screen h-screen shrink-0" : "min-h-[100svh] w-full"
           } flex flex-col px-5 sm:px-10 lg:px-20 pt-28 pb-10 lg:py-0`}
         >
-          {/* Atmosphere */}
-          <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-[hsl(0_0%_2%)]" />
+          {/* Atmosphere — flat background, no gradients or glows */}
+          <div className="absolute inset-0 pointer-events-none bg-background">
             <div
               aria-hidden
               className="absolute inset-0 opacity-[0.05]"
@@ -152,7 +151,6 @@ const HorizontalScroll = () => {
                   "repeating-linear-gradient(to right, hsl(var(--accent)) 0 1px, transparent 1px 9%)",
               }}
             />
-            <div className="absolute top-1/2 right-[15%] -translate-y-1/2 w-[55vmin] h-[55vmin] rounded-full opacity-[0.18] bg-accent blur-[120px]" />
           </div>
 
           {/* Orb as ambient background, centered behind content */}
@@ -162,10 +160,8 @@ const HorizontalScroll = () => {
           >
             <div className="relative w-[min(90vw,820px)] aspect-square opacity-[0.55]">
               <Orb hue={210} hoverIntensity={0.4} rotateOnHover backgroundColor="#000000" />
-              <div className="absolute -inset-10 -z-10 bg-accent/20 blur-3xl rounded-full" />
             </div>
           </div>
-          <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/10 to-background/60 pointer-events-none" />
 
           {/* Centered content */}
           <div className="relative flex-1 flex items-center justify-center w-full">

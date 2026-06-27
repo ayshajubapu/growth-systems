@@ -213,12 +213,11 @@ const ServicesDeep = () => {
                   loading="lazy"
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-foreground/60" />
                 <div className="absolute bottom-3 left-3 right-3">
                   <p className="text-[10px] uppercase tracking-[0.3em] text-accent">{it.tag}</p>
                   <p className="font-display text-lg leading-tight mt-1">{it.title}</p>
                 </div>
-                <div className="absolute -inset-1 -z-10 bg-accent/20 blur-2xl rounded-full" />
               </div>
             </article>
           ))}
