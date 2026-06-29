@@ -1,43 +1,29 @@
 import { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import imgWeb from "@/assets/sp-web.jpg";
 import imgMobile from "@/assets/sp-mobile.jpg";
 import imgMarketing from "@/assets/sp-marketing.jpg";
 import imgDesign from "@/assets/sp-design.jpg";
 import imgEcom from "@/assets/sp-ecom.jpg";
 
-/*
-  SEO FIX 1: Removed <Helmet> entirely from ServicesDeep.
-
-  This component is used on the homepage AND potentially the /services
-  page. Having Helmet here causes:
-  - Title "Website Design, Ecommerce..." to overwrite the homepage title
-  - canonical "https://www.smartpixel.in/services" injected on the homepage
-    — Google sees your homepage as a duplicate of /services
-  - ProfessionalService schema duplicated (already in index.html)
-
-  Rule: Only PAGE-level components (Home.tsx, Services.tsx, Contact.tsx)
-  should contain <Helmet>. Shared/section components never should.
-
-  If you want a dedicated /services page with its own Helmet, create
-  a Services.tsx page component that imports ServicesDeep and adds
-  its own Helmet there.
-*/
-
 gsap.registerPlugin(ScrollTrigger);
 
-/*
-  SEO FIX 2: Each service now has a dedicated URL.
-  These are real pages Google can crawl and rank independently.
-  Add these routes to your React Router:
-    /services/web-design-chennai
-    /ecommerce-website-chennai
-    /services/web-app-development
-    /services/mobile-app-development
-    /seo-services-chennai
-*/
-const items = [
+type ServiceItem = {
+  n: string;
+  title: string;
+  tag: string;
+  body: string;
+  outcome: string;
+  points: string[];
+  badges?: string[];
+  image: string;
+  alt: string;
+  href: string;
+  lead?: boolean;
+};
+
+const items: ServiceItem[] = [
   {
     n: "01",
     title: "Web Design",
@@ -101,6 +87,7 @@ const ServicesDeep = () => {
           scrollTrigger: {
             trigger: row,
             start: "top 85%",
+            toggleActions: "play none none none",
           },
         });
       });
@@ -116,49 +103,42 @@ const ServicesDeep = () => {
       className="bg-background py-20 sm:py-32 lg:py-40 px-5 sm:px-10 lg:px-24"
     >
       <div className="max-w-[1500px] mx-auto">
+        {/* Header Block Section */}
         <div className="flex items-end justify-between mb-12 sm:mb-20 flex-wrap gap-6 sm:gap-8">
           <div>
-            <p className="eyebrow mb-4 sm:mb-6 opacity-60">
+            <p className="eyebrow mb-4 sm:mb-6 opacity-60 text-xs tracking-wider">
               — Website Development &amp; Digital Marketing Services in Chennai
             </p>
-            <h2 className="font-display text-4xl sm:text-5xl md:text-7xl leading-[1] max-w-3xl">
-              Not services.{" "}
-              <span className="italic text-accent">Systems.</span>
+            <h2 className="font-display text-4xl sm:text-5xl md:text-7xl font-bold leading-[1] max-w-3xl text-foreground">
+              Not services. <span className="italic text-accent font-normal">Systems.</span>
             </h2>
           </div>
 
           <p className="text-muted-foreground max-w-sm leading-relaxed text-sm sm:text-base">
-            Website design, ecommerce, apps and SEO — handled by one expert
-            team in <strong className="text-foreground/60">Chennai</strong>.
+            Website design, ecommerce, apps and SEO — handled by one expert team in{" "}
+            <strong className="text-foreground/80 font-semibold">Chennai</strong>.
           </p>
         </div>
 
+        {/* Dynamic Structural Grid Stack */}
         <div className="border-t border-border">
           {items.map((it) => (
-            /*
-              SEO FIX 7: Each article now wraps in an <a> link to its
-              dedicated service page. This makes every service row a
-              crawlable internal link — Google follows these and indexes
-              each service page with context from the anchor text.
-            */
             <article
               key={it.n}
               className={`deep-row group relative grid md:grid-cols-12 gap-4 md:gap-8 border-b border-border transition-colors duration-500 hover:bg-surface/40 ${
                 it.lead ? "py-12 sm:py-16 lg:py-24" : "py-6 sm:py-9 lg:py-12"
               }`}
             >
-              <div className="md:col-span-1 text-xs text-muted-foreground tracking-[0.3em]">
+              <div className="md:col-span-1 text-xs text-muted-foreground font-mono tracking-[0.3em]">
                 {it.n}
               </div>
 
               <div className="md:col-span-4">
-                <p className="text-xs uppercase tracking-[0.3em] text-accent mb-3">
+                <p className="text-xs uppercase tracking-[0.3em] text-accent font-semibold mb-3">
                   {it.tag}
                 </p>
 
-                <h3
-                  className="font-display leading-[1.05] tracking-tight text-balance transition-colors duration-500 group-hover:text-accent text-3xl sm:text-4xl md:text-5xl"
-                >
+                <h3 className="font-display font-bold leading-[1.05] tracking-tight text-balance transition-colors duration-500 group-hover:text-accent text-3xl sm:text-4xl md:text-5xl text-foreground">
                   {it.title}
                 </h3>
               </div>
@@ -168,16 +148,16 @@ const ServicesDeep = () => {
                   {it.body}
                 </p>
 
-                <ul className="flex flex-wrap gap-x-5 gap-y-2 text-xs sm:text-sm">
+                <ul className="flex flex-wrap gap-x-5 gap-y-2 text-xs sm:text-sm text-muted-foreground font-medium">
                   {it.points.map((p) => (
-                    <li key={p} className="flex gap-2">
-                      <span className="text-accent">◆</span>
+                    <li key={p} className="flex items-center gap-2">
+                      <span className="text-accent text-[10px] select-none">◆</span>
                       {p}
                     </li>
                   ))}
                 </ul>
 
-                <p className="text-xs sm:text-sm text-foreground/70 italic">
+                <p className="text-xs sm:text-sm text-foreground/70 italic font-medium">
                   {it.outcome}
                 </p>
 
@@ -186,7 +166,7 @@ const ServicesDeep = () => {
                     {it.badges.map((b) => (
                       <span
                         key={b}
-                        className="text-[10px] uppercase tracking-[0.25em] px-3 py-1 rounded-full border border-accent/40 text-accent/90 bg-accent/5"
+                        className="text-[10px] uppercase tracking-[0.25em] font-bold px-3 py-1 rounded-full border border-accent/40 text-accent/90 bg-accent/5 select-none"
                       >
                         + {b}
                       </span>
@@ -194,17 +174,20 @@ const ServicesDeep = () => {
                   </div>
                 )}
 
-                <a
-                  href={it.href}
-                  className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-accent hover:gap-4 transition-all duration-300"
-                >
-                  {it.title} Services →
-                </a>
+                <div className="pt-2">
+                  <Link
+                    to={it.href}
+                    aria-label={`Explore our ${it.title} specialized solutions`}
+                    className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.25em] text-accent hover:gap-4 transition-all duration-300"
+                  >
+                    {it.title} Services →
+                  </Link>
+                </div>
               </div>
 
-              {/* Floating image preview on hover (desktop only) */}
+              {/* Floating Desktop Asset Interactive Hover Cards */}
               <div
-                aria-hidden
+                aria-hidden="true"
                 className="pointer-events-none hidden lg:block absolute right-6 top-1/2 -translate-y-1/2 w-[280px] aspect-[4/3] rounded-xl overflow-hidden border border-accent/30 shadow-[0_30px_80px_-20px_hsl(0_0%_0%/0.9)] opacity-0 translate-x-6 scale-95 group-hover:opacity-100 group-hover:translate-x-0 group-hover:scale-100 transition-all duration-500 ease-out z-20"
               >
                 <img
@@ -213,10 +196,10 @@ const ServicesDeep = () => {
                   loading="lazy"
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-foreground/60" />
-                <div className="absolute bottom-3 left-3 right-3">
-                  <p className="text-[10px] uppercase tracking-[0.3em] text-accent">{it.tag}</p>
-                  <p className="font-display text-lg leading-tight mt-1">{it.title}</p>
+                <div className="absolute inset-0 bg-foreground/60 select-none pointer-events-none" />
+                <div className="absolute bottom-3 left-3 right-3 text-white">
+                  <p className="text-[10px] uppercase tracking-[0.3em] text-accent font-bold">{it.tag}</p>
+                  <p className="font-display text-lg font-bold leading-tight mt-1">{it.title}</p>
                 </div>
               </div>
             </article>

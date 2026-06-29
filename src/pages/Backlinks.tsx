@@ -5,7 +5,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import FinalCTA from "@/components/FinalCTA";
 import WeightedHeading from "@/components/WeightedHeading";
-import { Download, ExternalLink } from "lucide-react";
+import { Download, ExternalLink, Filter, CheckCircle, Circle, Loader } from "lucide-react";
 
 type Status = "todo" | "in-progress" | "done";
 
@@ -65,24 +65,41 @@ https://www.smartpixel.in
 const STORAGE_KEY = "smartpixel.backlinks.tracker";
 
 const Backlinks = () => {
-  const [tracker, setTracker] = useState<Record<string, Status>>({});
+  // Safe state initialization to prevent layout shifts
+  const [tracker, setTracker] = useState<Record<string, Status>>(() => {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      return raw ? JSON.parse(raw) : {};
+    } catch {
+      return {};
+    }
+  });
+
+  // Active viewing tab state control
+  const [activeFilter, setActiveFilter] = useState<"all" | Status>("all");
 
   useEffect(() => {
     try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      if (raw) setTracker(JSON.parse(raw));
-    } catch {/* noop */}
-  }, []);
-
-  useEffect(() => {
-    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(tracker)); } catch {/* noop */}
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(tracker));
+    } catch (err) {
+      console.error("Local storage sync failed", err);
+    }
   }, [tracker]);
 
+  // Combined tracking metrics
   const counts = useMemo(() => {
     const c = { todo: 0, "in-progress": 0, done: 0 } as Record<Status, number>;
-    targets.forEach((t) => { c[(tracker[t.url] ?? "todo") as Status]++; });
+    targets.forEach((t) => {
+      c[(tracker[t.url] ?? "todo") as Status]++;
+    });
     return c;
   }, [tracker]);
+
+  // Filter target pipelines
+  const filteredTargets = useMemo(() => {
+    if (activeFilter === "all") return targets;
+    return targets.filter((t) => (tracker[t.url] ?? "todo") === activeFilter);
+  }, [activeFilter, tracker]);
 
   const setStatus = (url: string, s: Status) =>
     setTracker((p) => ({ ...p, [url]: s }));
@@ -97,9 +114,9 @@ const Backlinks = () => {
   };
 
   return (
-    <main className="bg-background text-foreground">
+    <main className="bg-background text-foreground min-h-screen">
       <Helmet>
-        <title>Backlinks & Outreach Plan | SmartPixel SEO</title>
+        <title>Backlinks & Outreach Plan | SmartPixel SEO Workspace</title>
         <meta name="description" content="SmartPixel's backlink target list, downloadable cold-outreach email template, and a simple tracker to manage SEO link building." />
         <link rel="canonical" href="https://www.smartpixel.in/backlinks" />
         <meta name="robots" content="noindex,follow" />
@@ -109,108 +126,198 @@ const Backlinks = () => {
       <div className="pt-24" />
 
       <article className="px-5 sm:px-10 lg:px-20 py-16 max-w-[1200px] mx-auto">
-        <p className="eyebrow mb-5">— SEO Playbook</p>
-        <WeightedHeading text="Backlinks & Outreach Plan" className="text-4xl sm:text-5xl lg:text-6xl leading-tight mb-6" />
-        <p className="text-muted-foreground text-base sm:text-lg leading-relaxed max-w-3xl mb-12">
-          High-authority links pointing to{" "}
-          <Link to="/" className="text-accent underline">smartpixel.in</Link>{" "}
-          tell Google to trust the site. Work through this list, track progress, and
-          send the template below to relevant editors and directory owners. Pair this
-          with the{" "}
-          <Link to="/seo-services-chennai" className="text-accent underline">SEO services in Chennai</Link>{" "}
-          internal pages so each new link drives keyword equity to the right destination.
+        <span className="text-xs uppercase tracking-widest text-accent font-medium mb-3 block">
+          — Internal SEO Workspace
+        </span>
+        <WeightedHeading text="Backlinks & Outreach Tracker" className="text-4xl sm:text-5xl lg:text-6xl leading-tight mb-6" />
+        
+        <p className="text-muted-foreground text-sm sm:text-base leading-relaxed max-w-3xl mb-12">
+          Building high-authority contextual targets pointing back to{" "}
+          <Link to="/" className="text-accent underline hover:text-accent/80 transition-colors">smartpixel.in</Link>{" "}
+          establishes algorithmic domain authority. Pair this list pipeline with internal anchor strategies on our{" "}
+          <Link to="/seo-services-chennai" className="text-accent underline hover:text-accent/80 transition-colors">SEO Services in Chennai</Link>{" "}
+          landing nodes to route link equity to transactional paths.
         </p>
 
-        {/* Tracker summary */}
-        <section className="mb-12 grid grid-cols-3 gap-px bg-foreground/5 border-y border-foreground/10">
-          {(["todo", "in-progress", "done"] as Status[]).map((s) => (
-            <div key={s} className="bg-background px-5 py-5">
-              <div className="num-display text-3xl text-accent">{counts[s]}</div>
-              <div className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground mt-2">{s.replace("-", " ")}</div>
+        {/* Metric Overview Panels */}
+        <section className="mb-12 grid grid-cols-3 gap-4 border border-border bg-surface/10 p-4 rounded-xl">
+          {[
+            { id: "todo", label: "To Do", color: "text-muted-foreground", icon: Circle },
+            { id: "in-progress", label: "In Progress", color: "text-amber-400", icon: Loader },
+            { id: "done", label: "Completed", color: "text-emerald-400", icon: CheckCircle },
+          ].map(({ id, label, color, icon: Icon }) => (
+            <div key={id} className="bg-background/40 border border-border/60 rounded-lg p-4 transition-all hover:bg-background/80">
+              <div className="flex items-center gap-2 mb-1">
+                <Icon size={14} className={color} />
+                <span className="text-[10px] uppercase tracking-wider text-muted-foreground font-medium">{label}</span>
+              </div>
+              <div className="text-2xl sm:text-3xl font-semibold font-mono text-foreground">
+                {counts[id as Status]}
+              </div>
             </div>
           ))}
         </section>
 
-        {/* Outreach template */}
-        <section className="mb-14">
+        {/* Custom Outreach Text block template */}
+        <section className="mb-16 border border-border bg-surface/10 rounded-xl p-5 sm:p-6">
           <div className="flex items-center justify-between flex-wrap gap-4 mb-4">
-            <h2 className="font-display text-2xl sm:text-3xl">Cold-outreach email template</h2>
-            <button onClick={downloadTemplate} className="btn-ghost inline-flex items-center gap-2">
-              <Download size={16} /> Download .txt
+            <div>
+              <h2 className="font-display text-xl sm:text-2xl tracking-tight">Direct Link Outreach Script</h2>
+              <p className="text-xs text-muted-foreground mt-0.5">High-conversion local positioning framework template</p>
+            </div>
+            <button 
+              onClick={downloadTemplate} 
+              className="flex items-center gap-2 px-4 py-2 bg-surface hover:bg-surface/80 border border-border rounded-lg text-xs font-medium transition-colors"
+            >
+              <Download size={13} /> Download Source Text
             </button>
           </div>
-          <pre className="whitespace-pre-wrap text-sm bg-surface border border-foreground/10 rounded-md p-5 leading-relaxed text-muted-foreground">
-{emailTemplate}
-          </pre>
-          <p className="text-xs text-muted-foreground mt-3">
-            Personalise every <code className="text-accent">{`{{placeholder}}`}</code> before sending.
+          <div className="relative">
+            <pre className="whitespace-pre-wrap text-xs font-mono bg-background border border-border/80 rounded-lg p-4 leading-relaxed text-muted-foreground/90 max-h-[280px] overflow-y-auto">
+              {emailTemplate}
+            </pre>
+          </div>
+          <p className="text-[11px] text-muted-foreground/60 mt-3 italic">
+            Make sure to tailor every structural parameter marker element placeholder context configuration before running outreach loops.
           </p>
         </section>
 
-        {/* Targets table + tracker */}
-        <section className="mb-14">
-          <h2 className="font-display text-2xl sm:text-3xl mb-4">Backlink targets</h2>
-          <div className="overflow-x-auto border border-foreground/10 rounded-md">
-            <table className="w-full text-sm">
-              <thead className="bg-surface text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
-                <tr>
-                  <th className="text-left p-3">Target</th>
-                  <th className="text-left p-3">Category</th>
-                  <th className="text-left p-3">DA</th>
-                  <th className="text-left p-3 hidden md:table-cell">Notes</th>
-                  <th className="text-left p-3">Status</th>
+        {/* Filter Navigation Bar Tabs + Pipeline Core List Table */}
+        <section className="mb-14 space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-2 border-b border-border/60">
+            <div>
+              <h2 className="font-display text-xl sm:text-2xl tracking-tight">Backlink Directories Directory</h2>
+              <p className="text-xs text-muted-foreground mt-0.5">Showing {filteredTargets.length} domains of interest</p>
+            </div>
+
+            {/* Filter Pipeline Options Controls Container */}
+            <div className="flex items-center gap-1.5 bg-surface/30 border border-border/80 p-1 rounded-lg self-start sm:self-auto">
+              <div className="px-2 text-muted-foreground/60">
+                <Filter size={12} />
+              </div>
+              {(["all", "todo", "in-progress", "done"] as const).map((filter) => (
+                <button
+                  key={filter}
+                  onClick={() => setActiveFilter(filter)}
+                  className={`px-3 py-1 text-[11px] uppercase tracking-wider font-medium rounded-md transition-all ${
+                    activeFilter === filter
+                      ? "bg-accent text-accent-foreground shadow-sm"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  {filter === "all" ? "All" : filter.replace("-", " ")}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Interactive UI Spreadsheet Layout Data Window Component */}
+          <div className="overflow-x-auto border border-border/80 rounded-xl bg-surface/5">
+            <table className="w-full text-left border-collapse">
+              <thead>
+                <tr className="bg-surface/30 border-b border-border/80 text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+                  <th className="p-4 font-semibold">Target Domain Node</th>
+                  <th className="p-4 font-semibold">Classification</th>
+                  <th className="p-4 font-semibold text-center">DA Authority</th>
+                  <th className="p-4 font-semibold hidden md:table-cell max-w-sm">Strategic Direct Notes</th>
+                  <th className="p-4 font-semibold text-right">Workflow Status</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-foreground/5">
-                {targets.map((t) => {
-                  const status = (tracker[t.url] ?? "todo") as Status;
-                  return (
-                    <tr key={t.url} className="hover:bg-surface/40">
-                      <td className="p-3">
-                        <a href={t.url} target="_blank" rel="noopener noreferrer"
-                           className="text-foreground hover:text-accent inline-flex items-center gap-1">
-                          {t.name} <ExternalLink size={12} />
-                        </a>
-                      </td>
-                      <td className="p-3 text-muted-foreground">{t.category}</td>
-                      <td className="p-3 text-accent">{t.da}</td>
-                      <td className="p-3 text-muted-foreground hidden md:table-cell">{t.notes}</td>
-                      <td className="p-3">
-                        <select
-                          value={status}
-                          onChange={(e) => setStatus(t.url, e.target.value as Status)}
-                          className="bg-background border border-foreground/10 rounded px-2 py-1 text-xs"
-                          aria-label={`Status for ${t.name}`}
-                        >
-                          <option value="todo">To do</option>
-                          <option value="in-progress">In progress</option>
-                          <option value="done">Done</option>
-                        </select>
-                      </td>
-                    </tr>
-                  );
-                })}
+              <tbody className="divide-y divide-border/40 text-xs">
+                {filteredTargets.length === 0 ? (
+                  <tr>
+                    <td colSpan={5} className="p-12 text-center text-muted-foreground italic">
+                      No matching backlink directories found in this bucket.
+                    </td>
+                  </tr>
+                ) : (
+                  filteredTargets.map((t) => {
+                    const status = (tracker[t.url] ?? "todo") as Status;
+                    return (
+                      <tr key={t.url} className="hover:bg-surface/20 transition-colors group">
+                        <td className="p-4 font-medium">
+                          <a 
+                            href={t.url} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 text-foreground hover:text-accent transition-colors font-sans"
+                          >
+                            {t.name} 
+                            <ExternalLink size={11} className="opacity-40 group-hover:opacity-100 transition-opacity" />
+                          </a>
+                        </td>
+                        <td className="p-4 text-muted-foreground">
+                          <span className="px-2.5 py-0.5 rounded-full bg-surface text-[10px] font-medium border border-border/60">
+                            {t.category}
+                          </span>
+                        </td>
+                        <td className="p-4 text-center font-mono font-medium text-accent">
+                          {t.da}
+                        </td>
+                        <td className="p-4 text-muted-foreground hidden md:table-cell max-w-xs truncate" title={t.notes}>
+                          {t.notes}
+                        </td>
+                        <td className="p-4 text-right">
+                          <select
+                            value={status}
+                            onChange={(e) => setStatus(t.url, e.target.value as Status)}
+                            className={`bg-background border rounded-lg px-2.5 py-1.5 text-xs font-medium focus:outline-none focus:border-accent/80 transition-colors ${
+                              status === "done" 
+                                ? "border-emerald-500/30 text-emerald-400 bg-emerald-500/5" 
+                                : status === "in-progress" 
+                                ? "border-amber-500/30 text-amber-400 bg-amber-500/5" 
+                                : "border-border text-muted-foreground"
+                            }`}
+                            aria-label={`Update pipeline status for ${t.name}`}
+                          >
+                            <option value="todo">To Do</option>
+                            <option value="in-progress">In Progress</option>
+                            <option value="done">Completed</option>
+                          </select>
+                        </td>
+                      </tr>
+                    );
+                  })
+                )}
               </tbody>
             </table>
           </div>
-          <p className="text-xs text-muted-foreground mt-3">
-            Status is saved locally in your browser — no account needed.
+          <p className="text-[11px] text-muted-foreground/60 text-right italic">
+            Tracker state configuration parameters are preserved within your secure local environment context workspace.
           </p>
         </section>
 
-        <section className="mb-12">
-          <h2 className="font-display text-2xl sm:text-3xl mb-4">Where each link should point</h2>
-          <ul className="list-disc pl-5 space-y-2 text-muted-foreground">
-            <li>General agency links → <Link to="/" className="text-accent underline">homepage</Link></li>
-            <li>Directory listings (Justdial, Sulekha) → <Link to="/contact" className="text-accent underline">/contact</Link></li>
-            <li>Reviews + agency profiles (Clutch, GoodFirms) → <Link to="/portfolio" className="text-accent underline">/portfolio</Link></li>
-            <li>Niche guest posts about SEO → <Link to="/seo-services-chennai" className="text-accent underline">/seo-services-chennai</Link></li>
-            <li>Niche guest posts about ecommerce → <Link to="/ecommerce-website-chennai" className="text-accent underline">/ecommerce-website-chennai</Link></li>
-          </ul>
+        {/* Distribution Target Guide Nodes Strategy Maps */}
+        <section className="mb-16 border-t border-border/60 pt-10">
+          <h3 className="font-display text-lg sm:text-xl tracking-tight mb-4">Target Link Distribution Strategy</h3>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
+            {[
+              { type: "General Link Building Profiles", path: "/", target: "Primary Homepage Entry" },
+              { type: "Local Business Indices (Justdial/Sulekha)", path: "/contact", target: "Contact Form Node" },
+              { type: "Design Directories & Reviews (Clutch/Behance)", path: "/portfolio", target: "Case Studies / Portfolio Showcase" },
+              { type: "SEO-Focused Technical Guest Logs", path: "/seo-services-chennai", target: "SEO Marketing Landing Node" },
+              { type: "E-Commerce Contextual Content Releases", path: "/ecommerce-website-chennai", target: "E-Commerce Specialized Path" },
+            ].map(({ type, path, target }) => (
+              <div key={type} className="border border-border/80 p-4 rounded-xl bg-surface/10 flex flex-col justify-between gap-3">
+                <div>
+                  <h4 className="font-medium text-foreground/90 mb-1">{type}</h4>
+                  <p className="text-[11px] text-muted-foreground">Redirect equity target node endpoint:</p>
+                </div>
+                <Link to={path} className="font-mono text-[11px] text-accent hover:underline block break-all">
+                  {target} →
+                </Link>
+              </div>
+            ))}
+          </div>
         </section>
 
-        <div className="border-t border-border pt-10">
-          <Link to="/contact" className="btn-gold inline-block">Get help executing this plan →</Link>
+        <div className="border-t border-border pt-10 flex items-center justify-between flex-wrap gap-4">
+          <p className="text-xs text-muted-foreground max-w-sm">
+            Need help executing this outreach program or managing continuous search link profile operations?
+          </p>
+          <Link to="/contact" className="btn-gold">
+            Launch Outreach Campaign →
+          </Link>
         </div>
       </article>
 

@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Orb from "@/components/Orb";
-import { Play, Trophy, Users, TrendingUp, Star } from "lucide-react";
+import { Play, Trophy, Users, TrendingUp, Star, MessageSquare } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -91,26 +91,16 @@ const HorizontalScroll = () => {
       ref={containerRef}
       className={`relative bg-background ${isDesktop ? "horizontal-container h-screen overflow-hidden" : ""}`}
     >
-      {/* ─────────────────────────────────────────────
-          SEO — meta tags only here.
-          Schema JSON-LD lives in index.html to ensure
-          it is present before JS executes.
-          Do NOT duplicate the ProfessionalService /
-          LocalBusiness / FAQPage schemas here.
-      ───────────────────────────────────────────── */}
       <Helmet>
         <title>Website Development Company in Chennai | SmartPixel – SEO, Ecommerce & Automation</title>
-
         <meta
           name="description"
           content="SmartPixel is a website development company in Chennai helping businesses in Pallavaram, Tambaram, Chrompet, Guindy and T Nagar grow with websites, ecommerce stores, SEO and WhatsApp automation."
         />
-
         <meta
           name="keywords"
           content="website development company in chennai, web design chennai, ecommerce website chennai, seo services chennai, whatsapp automation chennai, website developer chrompet, web design pallavaram, web design tambaram"
         />
-
         <meta name="robots" content="index, follow" />
         <meta name="author" content="SmartPixel" />
         <link rel="canonical" href="https://www.smartpixel.in/" />
@@ -141,7 +131,6 @@ const HorizontalScroll = () => {
             isDesktop ? "w-screen h-screen shrink-0" : "min-h-[100svh] w-full"
           } flex flex-col px-5 sm:px-10 lg:px-20 pt-28 pb-10 lg:py-0`}
         >
-          {/* Atmosphere — flat background, no gradients or glows */}
           <div className="absolute inset-0 pointer-events-none bg-background">
             <div
               aria-hidden
@@ -153,7 +142,6 @@ const HorizontalScroll = () => {
             />
           </div>
 
-          {/* Orb as ambient background, centered behind content */}
           <div
             aria-hidden
             className="absolute inset-0 flex items-center justify-center pointer-events-none"
@@ -163,64 +151,63 @@ const HorizontalScroll = () => {
             </div>
           </div>
 
-          {/* Centered content */}
           <div className="relative flex-1 flex items-center justify-center w-full">
             <div className="w-full max-w-4xl mx-auto text-center flex flex-col items-center">
+              {/* OPTIMIZED: Hard-hitting commercial value proposition clearly identifying your services instantly */}
               <h1
                 data-reveal
-                className="font-display text-[10vw] sm:text-[7vw] lg:text-[5vw] xl:text-[4.4vw] leading-[1.02] tracking-tight text-balance font-normal"
+                className="font-display text-[8.5vw] sm:text-[6.5vw] lg:text-[4.5vw] xl:text-[4vw] leading-[1.05] tracking-tight text-balance font-normal animate-fade-in"
               >
-                <span className="font-normal">Your website</span>
-                <br className="hidden sm:block" /> should be your{" "}
+                <span className="font-light text-muted-foreground text-sm sm:text-base uppercase tracking-[0.3em] block mb-3">
+                  Website Development Company in Chennai
+                </span>
+                We build high-converting websites that act as your{" "}
                 <span className="font-normal italic text-accent">best salesperson</span>.
-                <br />
-                <span className="font-light text-muted-foreground">Most aren't.</span>
               </h1>
 
               <p
                 data-reveal
-                className="mt-6 lg:mt-8 text-base sm:text-lg text-muted-foreground max-w-2xl leading-relaxed mx-auto"
+                className="mt-5 text-base sm:text-lg text-muted-foreground max-w-2xl leading-relaxed mx-auto"
               >
-                SmartPixel is a web design and development agency based in
-                Chrompet, Chennai. We've built 40+ websites for local
-                businesses across Tambaram, Pallavaram, Guindy and T Nagar
-                — with an average turnaround of 2 weeks and a 3× average
-                improvement in conversion rate.
+                SmartPixel is a web design and optimization agency based in
+                Chrompet, Chennai. We design fast, conversion-optimized storefronts and 
+                applications with an average turnaround of 2 weeks and a **3× performance lift** 
+                for local businesses.
               </p>
+              
               <p
                 data-reveal
-                className="mt-3 text-xs sm:text-sm uppercase tracking-[0.25em] text-muted-foreground/80"
+                className="mt-4 text-[11px] sm:text-xs uppercase tracking-[0.25em] text-accent font-semibold bg-surface/80 px-3 py-1.5 rounded border border-border"
               >
-                Chennai · Pallavaram · Tambaram · Chrompet · Guindy · T Nagar
+                Serving: Chrompet · Tambaram · Pallavaram · Guindy · T Nagar · Saidapet
               </p>
 
-              <div data-reveal className="mt-8 lg:mt-10 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
-                <a href="/contact" className="btn-gold">
-                  Book a free 20-min strategy call →
+              {/* OPTIMIZED CTAs: Introducing dual-intent conversions (High commitment vs Immediate low-friction inquiry) */}
+              <div data-reveal className="mt-8 flex flex-wrap items-center justify-center gap-4">
+                <a href="/contact" className="btn-gold shadow-lg shadow-accent/10">
+                  Book 20-Min Strategy Call
                 </a>
-                <a
-                  href="#work"
-                  className="text-sm uppercase tracking-[0.25em] text-foreground/70 hover:text-accent border-b border-foreground/30 hover:border-accent pb-1 transition-colors"
+                <a 
+                  href="https://wa.me/919886069488?text=Hi%20SmartPixel,%20I%27d%20like%20to%20inquire%20about%20your%20web%20development%20services." 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-black  text-white font-white px-5 py-3 rounded text-sm uppercase tracking-wider border  transition-all"
                 >
-                  See our work
+                  <MessageSquare size={16} /> Chat on WhatsApp
                 </a>
               </div>
 
               <nav
                 data-reveal
                 aria-label="Our services"
-                className="mt-6 lg:mt-8 flex flex-wrap justify-center gap-2 text-xs text-muted-foreground"
+                className="mt-8 flex flex-wrap justify-center gap-2 text-xs text-muted-foreground"
               >
-                <span className="uppercase tracking-widest mr-1 opacity-50">Services:</span>
-                <a href="/seo-services-chennai" className="hover:text-accent underline underline-offset-2 transition-colors">SEO</a>
+                <span className="uppercase tracking-widest mr-1 opacity-50">Expertise:</span>
+                <a href="/seo-services-chennai" className="hover:text-accent underline underline-offset-2 transition-colors">SEO Audit</a>
                 <span className="opacity-30">·</span>
-                <a href="/ecommerce-website-chennai" className="hover:text-accent underline underline-offset-2 transition-colors">Ecommerce</a>
+                <a href="/ecommerce-website-chennai" className="hover:text-accent underline underline-offset-2 transition-colors">E-commerce Stores</a>
                 <span className="opacity-30">·</span>
                 <a href="/whatsapp-automation-chennai" className="hover:text-accent underline underline-offset-2 transition-colors">WhatsApp Automation</a>
-                <span className="opacity-30">·</span>
-                <a href="/web-design-pallavaram" className="hover:text-accent underline underline-offset-2 transition-colors">Pallavaram</a>
-                <span className="opacity-30">·</span>
-                <a href="/web-design-tambaram" className="hover:text-accent underline underline-offset-2 transition-colors">Tambaram</a>
               </nav>
             </div>
           </div>
@@ -257,10 +244,6 @@ const HorizontalScroll = () => {
         >
           <div className="flex flex-col justify-center px-5 sm:px-10 lg:px-24 py-20">
             <p data-reveal className="eyebrow mb-6 lg:mb-8">— The Difference</p>
-            {/*
-              SEO FIX 6: H2 now contains "Chennai" naturally.
-              Every H2 is a secondary ranking signal — don't waste them.
-            */}
             <h2
               data-reveal
               className="font-display text-4xl sm:text-5xl md:text-6xl leading-[1.05] mb-8 lg:mb-10"
@@ -307,17 +290,10 @@ const HorizontalScroll = () => {
           </div>
         </section>
 
-        {/* "By The Numbers" panel removed — single stat set lives in hero trust strip. */}
-
       </div>
 
       {/* ── MARQUEE — client ticker ── */}
       <div className="relative overflow-hidden border-y border-border bg-background py-5 lg:py-7">
-        {/*
-          SEO FIX 7: Descriptive label added to marquee.
-          Google reads this text and it adds local relevance context.
-          Changed from empty string to a real, crawlable label.
-        */}
         <p className="text-center text-[9px] uppercase tracking-[0.4em] text-muted-foreground/60 mb-3">
           Trusted by businesses across Chennai
         </p>

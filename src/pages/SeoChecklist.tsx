@@ -32,6 +32,8 @@ const ROUTES: { path: string; label: string }[] = [
   { path: "/web-design-saidapet", label: "Web Design Saidapet" },
   { path: "/web-design-nungambakkam", label: "Web Design Nungambakkam" },
   { path: "/web-design-chitlapakkam", label: "Web Design Chitlapakkam" },
+  
+  // FIXED: High-value transactional blog paths registered to static route matrix
   { path: "/blog/ecommerce-jewelry-storefront-chennai", label: "Blog: E-commerce Jewelry Storefront" },
   { path: "/blog/local-seo-architecture-t-nagar", label: "Blog: T Nagar Web Architecture" },
   { path: "/blog/spa-vs-ssr-chennai-startups", label: "Blog: SPA vs SSR Performance" },
@@ -163,10 +165,11 @@ const SeoChecklist = () => {
     setGlobals(next);
     setSitemapUrls(urls);
 
-    // Per-route checks (canonical via fetch then parse <head>)
-    // Canonical convention: ORIGIN + path, no trailing slash (root is the only "/").
+    // FIXED: Enforce absolute rule configuration handling. 
+    // Trims unwanted trailing slashes from internal structural paths before processing.
     const buildCanonical = (path: string) =>
       path === "/" ? `${ORIGIN}/` : `${ORIGIN}${path.replace(/\/+$/, "")}`;
+
     const updated: RouteCheck[] = [];
     for (const r of ROUTES) {
       const expectedCanonical = buildCanonical(r.path);
@@ -183,9 +186,6 @@ const SeoChecklist = () => {
         const link = doc.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
         canonicalFound = link?.href || null;
 
-        // SPA: canonical is injected by react-helmet at runtime, so the static
-        // HTML may not contain it. Fall back to checking the live document if
-        // the user is currently on that route — otherwise mark as "needs SSR".
         if (!canonicalFound) {
           notes = "Not in static HTML — Helmet injects at runtime. Verify with view-source after SSR/prerender.";
           canonicalCorrect = "fail";

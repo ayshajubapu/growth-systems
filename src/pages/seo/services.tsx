@@ -8,7 +8,11 @@ export const SeoServicesChennai = () => (
     title="SEO Services in Chennai | Rank #1 on Google | SmartPixel"
     description="Local SEO services in Chennai for small businesses. Rank on Google Maps and search results. Transparent reporting, real keyword rankings, lead-focused."
     h1="SEO Services in Chennai that Drive Real Leads"
-    intro={<>We help Chennai businesses rank for the keywords their customers actually search — from <strong>"web design chennai"</strong> to <strong>"website developer near me"</strong>. No fluff, just measurable rankings and traffic.</>}
+    intro={
+      <>
+        We help Chennai businesses rank for the keywords their customers actually search — from <strong>"web design chennai"</strong> to <strong>"website developer near me"</strong>. No fluff, just measurable rankings and traffic.
+      </>
+    }
     what={[
       "Local SEO and Google Business Profile optimization",
       "On-page SEO: titles, meta, schema, internal linking",
@@ -47,7 +51,11 @@ export const EcommerceChennai = () => (
     title="Ecommerce Website Development in Chennai | Shopify, WooCommerce | SmartPixel"
     description="Build an ecommerce website in Chennai with payment gateway, GST invoicing and inventory. Shopify and WooCommerce experts based in Chrompet."
     h1="Ecommerce Website Development in Chennai"
-    intro={<>From a 10-product boutique to a 10,000-SKU store — we build ecommerce websites in Chennai that load fast, convert visitors, and integrate with the tools you already use.</>}
+    intro={
+      <>
+        From a 10-product boutique to a 10,000-SKU store — we build ecommerce websites in Chennai that load fast, convert visitors, and integrate with the tools you already use.
+      </>
+    }
     what={[
       "Shopify store design and setup",
       "WooCommerce / WordPress ecommerce builds",
@@ -85,7 +93,11 @@ export const WhatsappAutomationChennai = () => (
     title="WhatsApp Automation in Chennai | Chatbots & Lead Capture | SmartPixel"
     description="WhatsApp automation for Chennai businesses — chatbots, auto-replies, booking flows and lead nurturing on the official WhatsApp Business API."
     h1="WhatsApp Automation for Chennai Businesses"
-    intro={<>Capture leads, qualify them, book appointments and send follow-ups — automatically — on the channel your customers actually use. Built on the official WhatsApp Business Cloud API.</>}
+    intro={
+      <>
+        Capture leads, qualify them, book appointments and send follow-ups — automatically — on the channel your customers actually use. Built on the official WhatsApp Business Cloud API.
+      </>
+    }
     what={[
       "WhatsApp Business API setup and verification",
       "Chatbot flows for FAQs, bookings and lead capture",
@@ -123,7 +135,11 @@ export const WebDesignChennai = () => (
     title="Web Design Company in Chennai | High-Converting Websites | SmartPixel"
     description="Web design company in Chennai building modern, mobile-first websites that convert. Fast delivery, SEO-ready, lead-focused. Based in Chrompet."
     h1="Web Design Company in Chennai"
-    intro={<>We design websites for Chennai businesses that don't just look beautiful — they generate enquiries, calls and bookings. Mobile-first, SEO-ready, and built to scale.</>}
+    intro={
+      <>
+        We design websites for Chennai businesses that don't just look beautiful — they generate enquiries, calls and bookings. Mobile-first, SEO-ready, and built to scale.
+      </>
+    }
     what={[
       "Custom UI/UX design tailored to your brand",
       "Mobile-first responsive layouts",
@@ -161,7 +177,11 @@ export const WebAppDevelopment = () => (
     title="Web App Development in Chennai | SaaS, Dashboards, Portals | SmartPixel"
     description="Custom web app development in Chennai — SaaS products, dashboards, internal tools and customer portals. React, Node, Postgres."
     h1="Web App Development in Chennai"
-    intro={<>From customer portals to internal dashboards and full SaaS products — we build secure, scalable web apps with modern stacks (React, Node, Postgres) and a UX your team will actually use.</>}
+    intro={
+      <>
+        From customer portals to internal dashboards and full SaaS products — we build secure, scalable web apps with modern stacks (React, Node, Postgres) and a UX your team will actually use.
+      </>
+    }
     what={[
       "MVP scoping and rapid prototyping",
       "Custom dashboards and admin panels",
@@ -199,7 +219,11 @@ export const MobileAppDevelopment = () => (
     title="Mobile App Development in Chennai | iOS & Android | SmartPixel"
     description="Mobile app development company in Chennai. Native iOS, Android and cross-platform React Native apps for startups and businesses."
     h1="Mobile App Development in Chennai"
-    intro={<>Native and cross-platform mobile apps for Chennai startups and businesses — built with React Native or Flutter, deployed to App Store and Play Store, and designed to delight.</>}
+    intro={
+      <>
+        Native and cross-platform mobile apps for Chennai startups and businesses — built with React Native or Flutter, deployed to App Store and Play Store, and designed to delight.
+      </>
+    }
     what={[
       "iOS and Android app development",
       "React Native and Flutter cross-platform apps",
@@ -237,7 +261,11 @@ export const DigitalMarketingChennai = () => (
     title="Digital Marketing Agency in Chennai | Ads, SEO, Social | SmartPixel"
     description="Digital marketing agency in Chennai offering Google Ads, Meta Ads, SEO and social media marketing. Lead-focused, ROI-driven."
     h1="Digital Marketing Agency in Chennai"
-    intro={<>We run digital marketing campaigns for Chennai businesses that are measured by one thing: leads in your inbox. Google Ads, Meta Ads, SEO and content — all tuned for ROI.</>}
+    intro={
+      <>
+        We run digital marketing campaigns for Chennai businesses that are measured by one thing: leads in your inbox. Google Ads, Meta Ads, SEO and content — all tuned for ROI.
+      </>
+    }
     what={[
       "Google Ads (Search, Display, YouTube)",
       "Meta Ads (Facebook, Instagram)",
