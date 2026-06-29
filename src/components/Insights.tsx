@@ -238,7 +238,7 @@ const Insights = () => {
           </div>
 
           {visible.length === 0 && (
-            <p className="mt-10 text-sm text-muted-foreground text-center">
+            <p className="mt-10 text-sm text-muted-foreground  text-center">
               No articles in this category yet.
             </p>
           )}
