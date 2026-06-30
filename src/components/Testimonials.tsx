@@ -1,4 +1,3 @@
-import { Helmet } from "react-helmet-async";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -112,102 +111,91 @@ const Testimonials = () => {
   }, []);
 
   return (
-    <>
-      <Helmet>
-        <title>Client Testimonials | SmartPixel Chennai</title>
-        <meta
-          name="description"
-          content="Real results from SmartPixel clients in travel, education, jewellery and more. Read what founders say about working with us."
-        />
-        <link rel="canonical" href="https://www.smartpixel.in/#testimonials" />
-      </Helmet>
-
-      <section
-        id="testimonials"
-        ref={ref}
-        className="relative bg-surface border-y border-border py-20 sm:py-28 lg:py-32 px-5 sm:px-10 lg:px-24"
-      >
-        <div className="t-reveal max-w-3xl mx-auto text-center mb-14 sm:mb-20">
-          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full glass text-xs uppercase tracking-[0.3em] text-foreground mb-6">
-            Testimonials
-          </div>
-          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl leading-[1.05] tracking-tight">
-            <span className="block text-foreground">Real founders.</span>
-            <span className="block text-muted-foreground italic">Real results.</span>
-          </h2>
-          <p className="mt-5 text-base text-muted-foreground max-w-xl mx-auto">
-            We let our clients do the talking. Here's what working with
-            SmartPixel actually looks like.
-          </p>
+    <section
+      id="testimonials"
+      ref={ref}
+      className="relative bg-surface border-y border-border py-20 sm:py-28 lg:py-32 px-5 sm:px-10 lg:px-24"
+    >
+      <div className="t-reveal max-w-3xl mx-auto text-center mb-14 sm:mb-20">
+        <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full glass text-xs uppercase tracking-[0.3em] text-foreground mb-6">
+          Testimonials
         </div>
+        <h2 className="font-display text-4xl sm:text-5xl md:text-6xl leading-[1.05] tracking-tight">
+          <span className="block text-foreground">Real founders.</span>
+          <span className="block text-muted-foreground italic">Real results.</span>
+        </h2>
+        <p className="mt-5 text-base text-muted-foreground max-w-xl mx-auto">
+          We let our clients do the talking. Here's what working with
+          SmartPixel actually looks like.
+        </p>
+      </div>
 
-        <div className="grid md:grid-cols-3 gap-5 sm:gap-6 max-w-[1200px] mx-auto">
-          {testimonials.map((t) => {
-            const isCTA = t.initials === "+";
-            const Wrapper = (t.link ? "a" : "div") as "a" | "div";
-            const wrapperProps = t.link
-              ? { href: t.link, target: "_blank", rel: "noopener noreferrer" }
-              : {};
-            return (
-              <Wrapper
-                key={t.name + t.company}
-                {...(wrapperProps as Record<string, string>)}
-                className={`t-card group relative flex flex-col p-7 sm:p-8 rounded-2xl border transition-all duration-500 ${
-                  isCTA
-                    ? "border-accent/40 bg-accent/5 hover:bg-accent/10"
-                    : "border-border bg-background hover:border-accent/30"
-                }`}
-              >
-                <div className="flex items-center gap-4 mb-6">
-                  <div
-                    className={`w-12 h-12 rounded-full flex items-center justify-center font-display text-base ${
-                      isCTA
-                        ? "bg-accent text-accent-foreground"
-                        : "bg-foreground/10 text-foreground"
-                    }`}
-                  >
-                    {t.initials}
-                  </div>
-                  <div>
-                    <p className="font-display text-lg leading-tight">{t.name}</p>
-                    <p className="text-xs text-muted-foreground tracking-wide mt-0.5">
-                      {t.company}
-                    </p>
-                  </div>
+      <div className="grid md:grid-cols-3 gap-5 sm:gap-6 max-w-[1200px] mx-auto">
+        {testimonials.map((t) => {
+          const isCTA = t.initials === "+";
+          const Wrapper = (t.link ? "a" : "div") as "a" | "div";
+          const wrapperProps = t.link
+            ? { href: t.link, target: "_blank", rel: "noopener noreferrer" }
+            : {};
+          return (
+            <Wrapper
+              key={t.name + t.company}
+              {...(wrapperProps as Record<string, string>)}
+              className={`t-card group relative flex flex-col p-7 sm:p-8 rounded-2xl border transition-all duration-500 ${
+                isCTA
+                  ? "border-accent/40 bg-accent/5 hover:bg-accent/10"
+                  : "border-border bg-background hover:border-accent/30"
+              }`}
+            >
+              <div className="flex items-center gap-4 mb-6">
+                <div
+                  className={`w-12 h-12 rounded-full flex items-center justify-center font-display text-base ${
+                    isCTA
+                      ? "bg-accent text-accent-foreground"
+                      : "bg-foreground/10 text-foreground"
+                  }`}
+                >
+                  {t.initials}
                 </div>
-
-                <p className="text-xs uppercase tracking-[0.25em] text-accent mb-3">
-                  {isCTA ? "Open slot" : "Result"}
-                </p>
-                <p className="font-display text-lg sm:text-xl leading-snug mb-5">
-                  {t.result}
-                </p>
-
-                <div className="relative mt-auto pt-5 border-t border-border">
-                  <Quote
-                    size={18}
-                    className="text-accent/60 mb-2"
-                    aria-hidden
-                  />
-                  <p className="text-sm text-muted-foreground leading-relaxed italic">
-                    "{t.quote}"
+                <div>
+                  <p className="font-display text-lg leading-tight">{t.name}</p>
+                  <p className="text-xs text-muted-foreground tracking-wide mt-0.5">
+                    {t.company}
                   </p>
                 </div>
+              </div>
 
-                {isCTA && (
-                  <a
-                    href="/contact"
-                    className="mt-6 inline-flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-accent hover:gap-4 transition-all"
-                  >
-                    Book a strategy call →
-                  </a>
-                )}
-              </Wrapper>
-            );
-          })}
-        </div>
-      </section>
-    </>
+              <p className="text-xs uppercase tracking-[0.25em] text-accent mb-3">
+                {isCTA ? "Open slot" : "Result"}
+              </p>
+              <p className="font-display text-lg sm:text-xl leading-snug mb-5">
+                {t.result}
+              </p>
+
+              <div className="relative mt-auto pt-5 border-t border-border">
+                <Quote
+                  size={18}
+                  className="text-accent/60 mb-2"
+                  aria-hidden
+                />
+                <p className="text-sm text-muted-foreground leading-relaxed italic">
+                  "{t.quote}"
+                </p>
+              </div>
+
+              {isCTA && (
+                <a
+                  href="/contact"
+                  className="mt-6 inline-flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-accent hover:gap-4 transition-all"
+                >
+                  Book a strategy call →
+                </a>
+              )}
+            </Wrapper>
+          );
+        })}
+      </div>
+    </section>
   );
 };
 

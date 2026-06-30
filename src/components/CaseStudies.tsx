@@ -1,4 +1,3 @@
-import { Helmet } from "react-helmet-async";
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -245,147 +244,139 @@ const CaseStudies = ({ showAllByDefault = false }: { showAllByDefault?: boolean 
   }, [showAll]);
 
   return (
-    <>
-      <Helmet>
-        <title>Our Work | SmartPixel Case Studies — Before & After Results</title>
-        <meta name="description" content="Real businesses, real results. Before and after web design case studies from SmartPixel — websites built to convert, designed to grow." />
-        <link rel="canonical" href="https://www.smartpixel.in/portfolio" />
-      </Helmet>
-
-      <section
-        id="work"
-        ref={ref}
-        className="relative bg-background py-20 sm:py-28 lg:py-36 px-5 sm:px-10 lg:px-20 overflow-hidden"
+    <section
+      id="work"
+      ref={ref}
+      className="relative bg-background py-20 sm:py-28 lg:py-36 px-5 sm:px-10 lg:px-20 overflow-hidden"
+    >
+      {/* Big watermark SP */}
+      <div
+        aria-hidden
+        className="absolute top-10 right-0 lg:right-10 font-display text-[28vw] lg:text-[18vw] leading-none text-foreground/[0.03] select-none pointer-events-none"
       >
-        {/* Big watermark SP */}
-        <div
-          aria-hidden
-          className="absolute top-10 right-0 lg:right-10 font-display text-[28vw] lg:text-[18vw] leading-none text-foreground/[0.03] select-none pointer-events-none"
-        >
-          SP
+        SP
+      </div>
+
+      <div className="max-w-[1500px] mx-auto relative">
+        {/* Header */}
+        <div className="cs-head mb-12 lg:mb-16">
+          <p className="eyebrow mb-5">— Our Work</p>
+          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1] max-w-3xl">
+            The results speak.
+            <br />
+            <span className="italic text-accent">We let clients say it.</span>
+          </h2>
+          <p className="mt-6 text-muted-foreground max-w-md">
+            Real businesses. Real results.
+            <br />
+            Websites built to convert, designed to grow.
+          </p>
+
         </div>
 
-        <div className="max-w-[1500px] mx-auto relative">
-          {/* Header */}
-          <div className="cs-head mb-12 lg:mb-16">
-            <p className="eyebrow mb-5">— Our Work</p>
-            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1] max-w-3xl">
-              The results speak.
-              <br />
-              <span className="italic text-accent">We let clients say it.</span>
-            </h2>
-            <p className="mt-6 text-muted-foreground max-w-md">
-              Real businesses. Real results.
-              <br />
-              Websites built to convert, designed to grow.
-            </p>
+        {/* Case rows */}
+        <div className="divide-y divide-foreground/10 border-y border-foreground/10">
+          {visibleCases.map((c, i) => (
+            <a
+              key={c.client}
+              href={c.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cs-row group grid md:grid-cols-12 gap-6 md:gap-6 py-8 lg:py-10 items-center hover:bg-surface/40 transition-colors duration-500"
+            >
+              {/* Number */}
+              <div className="md:col-span-1 flex md:block items-baseline gap-3">
+                <span className="num-display text-3xl md:text-4xl text-foreground/80">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+              </div>
 
-          </div>
+              {/* Client meta */}
+              <div className="md:col-span-3 md:pl-2 md:border-l md:border-foreground/10">
+                <h3 className="font-display text-2xl md:text-[1.7rem] leading-tight group-hover:text-accent transition-colors">
+                  {c.client}
+                </h3>
+                <p className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground mt-2">
+                  {c.industry}
+                </p>
+                <p className="mt-4 text-sm text-muted-foreground italic leading-relaxed">
+                  "{c.quote}"
+                </p>
+                <p className="mt-3 text-[10px] uppercase tracking-[0.3em] text-accent">
+                  — {c.person}
+                </p>
+              </div>
 
-          {/* Case rows */}
-          <div className="divide-y divide-foreground/10 border-y border-foreground/10">
-            {visibleCases.map((c, i) => (
-              <a
-                key={c.client}
-                href={c.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="cs-row group grid md:grid-cols-12 gap-6 md:gap-6 py-8 lg:py-10 items-center hover:bg-surface/40 transition-colors duration-500"
-              >
-                {/* Number */}
-                <div className="md:col-span-1 flex md:block items-baseline gap-3">
-                  <span className="num-display text-3xl md:text-4xl text-foreground/80">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
+              {/* Before */}
+              <div className="md:col-span-3">
+                <p className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-2">
+                  Before
+                </p>
+                <DesktopFrame
+                  src={c.before}
+                  alt={c.beforeAlt ?? `${c.client} website before SmartPixel redesign`}
+                  variant="before"
+                />
+              </div>
+
+              {/* After */}
+              <div className="md:col-span-3">
+                <p className="text-[10px] uppercase tracking-[0.3em] text-accent mb-2">
+                  After
+                </p>
+                <DesktopFrame
+                  src={c.after}
+                  alt={c.afterAlt ?? `${c.client} website after SmartPixel redesign`}
+                  variant="after"
+                />
+              </div>
+
+              {/* Outcome */}
+              <div className="md:col-span-2 md:pl-4 md:border-l md:border-foreground/10">
+                <p className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-3">
+                  Outcome
+                </p>
+                <div className="num-display text-2xl md:text-3xl text-accent leading-tight">
+                  {c.metric}
                 </div>
- 
-                {/* Client meta */}
-                <div className="md:col-span-3 md:pl-2 md:border-l md:border-foreground/10">
-                  <h3 className="font-display text-2xl md:text-[1.7rem] leading-tight group-hover:text-accent transition-colors">
-                    {c.client}
-                  </h3>
-                  <p className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground mt-2">
-                    {c.industry}
-                  </p>
-                  <p className="mt-4 text-sm text-muted-foreground italic leading-relaxed">
-                    "{c.quote}"
-                  </p>
-                  <p className="mt-3 text-[10px] uppercase tracking-[0.3em] text-accent">
-                    — {c.person}
-                  </p>
-                </div>
-
-                {/* Before */}
-                <div className="md:col-span-3">
-                  <p className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-2">
-                    Before
-                  </p>
-                  <DesktopFrame
-                    src={c.before}
-                    alt={c.beforeAlt ?? `${c.client} website before SmartPixel redesign`}
-                    variant="before"
-                  />
-                </div>
-
-                {/* After */}
-                <div className="md:col-span-3">
-                  <p className="text-[10px] uppercase tracking-[0.3em] text-accent mb-2">
-                    After
-                  </p>
-                  <DesktopFrame
-                    src={c.after}
-                    alt={c.afterAlt ?? `${c.client} website after SmartPixel redesign`}
-                    variant="after"
-                  />
-                </div>
-
-                {/* Outcome */}
-                <div className="md:col-span-2 md:pl-4 md:border-l md:border-foreground/10">
-                  <p className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-3">
-                    Outcome
-                  </p>
-                  <div className="num-display text-2xl md:text-3xl text-accent leading-tight">
-                    {c.metric}
-                  </div>
-                  <p className="text-xs text-muted-foreground mt-1">{c.metricSub}</p>
-                  <span className="mt-4 inline-flex w-9 h-9 rounded-full border border-accent/40 items-center justify-center text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-all">
-                    <TrendingUp size={14} />
-                  </span>
-                </div>
-              </a>
-            ))}
-          </div>
-
-          {/* More / Less toggle */}
-          {cases.length > INITIAL_VISIBLE && (
-            <div className="mt-10 flex justify-center">
-              <button
-                type="button"
-                onClick={() => setShowAll((v) => !v)}
-                className="btn-ghost"
-                aria-expanded={showAll}
-              >
-                {showAll ? "Show Less" : `View All Case Studies (${cases.length})`}
-              </button>
-            </div>
-          )}
-
-          <div className="mt-10 lg:mt-14 glass-gold rounded-md p-6 sm:p-7 flex flex-wrap items-center justify-between gap-4">
-            <div>
-              <p className="font-display text-xl sm:text-2xl">
-                Want results like these?
-              </p>
-              <p className="text-sm text-muted-foreground mt-1">
-                Let's build something unstoppable for your business.
-              </p>
-            </div>
-            <a href="#contact" className="btn-gold">
-              Let's Talk →
+                <p className="text-xs text-muted-foreground mt-1">{c.metricSub}</p>
+                <span className="mt-4 inline-flex w-9 h-9 rounded-full border border-accent/40 items-center justify-center text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-all">
+                  <TrendingUp size={14} />
+                </span>
+              </div>
             </a>
-          </div>
+          ))}
         </div>
-      </section>
-    </>
+
+        {/* More / Less toggle */}
+        {cases.length > INITIAL_VISIBLE && (
+          <div className="mt-10 flex justify-center">
+            <button
+              type="button"
+              onClick={() => setShowAll((v) => !v)}
+              className="btn-ghost"
+              aria-expanded={showAll}
+            >
+              {showAll ? "Show Less" : `View All Case Studies (${cases.length})`}
+            </button>
+          </div>
+        )}
+
+        <div className="mt-10 lg:mt-14 glass-gold rounded-md p-6 sm:p-7 flex flex-wrap items-center justify-between gap-4">
+          <div>
+            <p className="font-display text-xl sm:text-2xl">
+              Want results like these?
+            </p>
+            <p className="text-sm text-muted-foreground mt-1">
+              Let's build something unstoppable for your business.
+            </p>
+          </div>
+          <a href="#contact" className="btn-gold">
+            Let's Talk →
+          </a>
+        </div>
+      </div>
+    </section>
   );
 };
 
