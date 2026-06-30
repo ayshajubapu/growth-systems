@@ -9,38 +9,37 @@
 
 @layer base {
   :root {
-    /* Core palette — warm cream + gold luxury */
-    --background: 38 47% 91%;       /* #F3ECDF cream */
-    --surface: 38 35% 87%;          /* slightly deeper cream surface */
-    --foreground: 218 25% 6%;       /* #0C0F14 primary text */
-    --muted-foreground: 240 3% 20%; /* #323134 secondary text */
-    --accent: 46 65% 52%;           /* #D4AF37 gold */
-    --accent-foreground: 218 25% 6%;
-    --border: 218 25% 6%;           /* used with /8 opacity */
+  /* Core palette — Pure White Luxury */
+  --background: 0 0% 100%;      /* #FFFFFF */
+  --surface: 0 0% 98%;          /* #FAFAFA */
+  --foreground: 218 25% 6%;     /* #0C0F14 */
+  --muted-foreground: 240 3% 20%;
+  --accent: 46 65% 52%;         /* Gold */
+  --accent-foreground: 218 25% 6%;
+  --border: 218 25% 6%;
 
-    /* Mapped shadcn tokens */
-    --card: 38 47% 94%;
-    --card-foreground: 218 25% 6%;
-    --popover: 38 47% 94%;
-    --popover-foreground: 218 25% 6%;
-    --primary: 46 65% 52%;
-    --primary-foreground: 218 25% 6%;
-    --secondary: 38 35% 87%;
-    --secondary-foreground: 218 25% 6%;
-    --muted: 38 35% 87%;
-    --destructive: 0 62% 40%;
-    --destructive-foreground: 0 0% 98%;
-    --input: 38 25% 80%;
-    --ring: 46 65% 52%;
-    --radius: 0.25rem;
+  /* shadcn */
+  --card: 0 0% 100%;
+  --card-foreground: 218 25% 6%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 218 25% 6%;
+  --primary: 46 65% 52%;
+  --primary-foreground: 218 25% 6%;
+  --secondary: 0 0% 98%;
+  --secondary-foreground: 218 25% 6%;
+  --muted: 0 0% 98%;
+  --destructive: 0 62% 40%;
+  --destructive-foreground: 0 0% 98%;
+  --input: 0 0% 96%;
+  --ring: 46 65% 52%;
+  --radius: 0.25rem;
 
-    /* Editorial tokens */
-    --gold: 46 65% 52%;
-    --gold-soft: 46 65% 52%;
-    --hairline: 12 15 20; /* used as rgb(var(--hairline) / 0.08) */
-    --shadow-elegant: 0 30px 80px -20px hsl(218 25% 6% / 0.18);
-    /* Glow/gradient tokens removed — palette stays flat. */
-  }
+  /* Editorial tokens */
+  --gold: 46 65% 52%;
+  --gold-soft: 46 65% 52%;
+  --hairline: 12 15 20;
+  --shadow-elegant: 0 30px 80px -20px hsl(218 25% 6% / 0.12);
+}
 }
 
 @layer base {

@@ -26,12 +26,9 @@ import csAyishroAfter from "@/assets/cs-ayishro-after.png";
 import csManhaAfter from "@/assets/cs-manha-after.png";
 import csFlyingBirdAfter from "@/assets/cs-flyingbird-after.png";
 import csBlossomAfter from "@/assets/cs-blossombloom-after.png";
-import csVjBeforeAsset from "@/assets/cs-vjrealestate-before.png.asset.json";
-import csVjAfterAsset from "@/assets/cs-vjrealestate-after.png.asset.json";
-import csButterfliesAsset from "@/assets/cs-butterflies-after.png.asset.json";
-const csVjBefore = csVjBeforeAsset.url;
-const csVjAfter = csVjAfterAsset.url;
-const csButterfliesAfter = csButterfliesAsset.url;
+import csVjBefore from "@/assets/cs-vjrealestate-before.png";
+import csVjAfter from "@/assets/cs-vjrealestate-after.png";
+import csButterfliesAfter from "@/assets/cs-butterflies-after.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -67,8 +64,8 @@ const cases = [
     industry: "Luxury Real Estate",
     quote: "A luxury property discovery platform crafted to showcase premium Pune real estate while driving qualified buyer enquiries through dynamic SEO.",
     person: "Founder, VJ Real Estate",
-    before: csVjBeforeAsset,
-    after: csVjAfterAsset,
+    before: csVjBefore,
+    after: csVjAfter,
     beforeAlt: "Traditional real estate website before SmartPixel redesign",
     afterAlt: "Luxury real estate platform after SmartPixel redesign featuring dynamic listings, investment content, and advanced SEO architecture",
     metric: "Luxury SEO",
@@ -222,9 +219,6 @@ const cases = [
 
 const INITIAL_VISIBLE = 3;
 
-
-
-
 const CaseStudies = ({ showAllByDefault = false }: { showAllByDefault?: boolean }) => {
   const ref = useRef<HTMLDivElement>(null);
   const [showAll, setShowAll] = useState(showAllByDefault);
@@ -304,7 +298,7 @@ const CaseStudies = ({ showAllByDefault = false }: { showAllByDefault?: boolean 
                     {String(i + 1).padStart(2, "0")}
                   </span>
                 </div>
-
+ 
                 {/* Client meta */}
                 <div className="md:col-span-3 md:pl-2 md:border-l md:border-foreground/10">
                   <h3 className="font-display text-2xl md:text-[1.7rem] leading-tight group-hover:text-accent transition-colors">
