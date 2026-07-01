@@ -1,42 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <url><loc>https://www.smartpixel.in/</loc><lastmod>2026-06-30</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://www.smartpixel.in/services</loc><lastmod>2026-06-30</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.smartpixel.in/portfolio</loc><lastmod>2026-06-30</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.smartpixel.in/about</loc><lastmod>2026-06-30</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.smartpixel.in/blog</loc><lastmod>2026-06-30</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.smartpixel.in/blog/websites-that-collect-customers-not-compliments</loc><lastmod>2026-06-30</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.smartpixel.in/blog/apps-that-survive-the-first-week</loc><lastmod>2026-06-30</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.smartpixel.in/blog/marketing-math-that-actually-grows</loc><lastmod>2026-06-30</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.smartpixel.in/blog/ecommerce-funnel-leaks</loc><lastmod>2026-06-30</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.smartpixel.in/blog/ecommerce-jewelry-storefront-chennai</loc><lastmod>2026-06-30</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.smartpixel.in/blog/local-seo-architecture-t-nagar</loc><lastmod>2026-06-30</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.smartpixel.in/blog/spa-vs-ssr-chennai-startups</loc><lastmod>2026-06-30</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.smartpixel.in/blog/whatsapp-automation-react-applications</loc><lastmod>2026-06-30</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.smartpixel.in/contact</loc><lastmod>2026-06-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <!-- Core pages -->
+  <url><loc>https://www.smartpixel.in/</loc><lastmod>2026-07-01</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://www.smartpixel.in/services</loc><lastmod>2026-07-01</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.smartpixel.in/portfolio</loc><lastmod>2026-07-01</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.smartpixel.in/about</loc><lastmod>2026-07-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.smartpixel.in/blog</loc><lastmod>2026-07-01</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.smartpixel.in/contact</loc><lastmod>2026-07-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.smartpixel.in/seo-checklist</loc><lastmod>2026-07-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.smartpixel.in/backlinks</loc><lastmod>2026-07-01</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+
+  <!-- Blog posts — slugs match BlogPost.tsx posts array exactly -->
+  <url><loc>https://www.smartpixel.in/blog/why-high-google-impressions-fail-to-generate-enquiries</loc><lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.smartpixel.in/blog/chennai-jewelry-showroom-digital-trust-architecture</loc><lastmod>2026-06-29</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.smartpixel.in/blog/how-we-stopped-chennai-clinic-wasting-google-ads</loc><lastmod>2026-06-24</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.smartpixel.in/blog/3-friction-points-killing-chennai-d2c-checkout</loc><lastmod>2026-06-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
   <!-- Service pages -->
-  <url><loc>https://www.smartpixel.in/seo-services-chennai</loc><lastmod>2026-06-30</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.smartpixel.in/ecommerce-website-chennai</loc><lastmod>2026-06-30</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.smartpixel.in/whatsapp-automation-chennai</loc><lastmod>2026-06-30</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.smartpixel.in/services/web-design-chennai</loc><lastmod>2026-06-30</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.smartpixel.in/services/web-app-development</loc><lastmod>2026-06-30</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.smartpixel.in/services/mobile-app-development</loc><lastmod>2026-06-30</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.smartpixel.in/services/digital-marketing-chennai</loc><lastmod>2026-06-30</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.smartpixel.in/services/web-design-chennai</loc><lastmod>2026-07-01</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.smartpixel.in/services/web-app-development</loc><lastmod>2026-07-01</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.smartpixel.in/services/mobile-app-development</loc><lastmod>2026-07-01</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.smartpixel.in/services/digital-marketing-chennai</loc><lastmod>2026-07-01</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.smartpixel.in/seo-services-chennai</loc><lastmod>2026-07-01</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.smartpixel.in/ecommerce-website-chennai</loc><lastmod>2026-07-01</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.smartpixel.in/whatsapp-automation-chennai</loc><lastmod>2026-07-01</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
 
   <!-- Location pages -->
-  <url><loc>https://www.smartpixel.in/web-design-pallavaram</loc><lastmod>2026-06-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.smartpixel.in/web-design-tambaram</loc><lastmod>2026-06-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.smartpixel.in/web-design-chrompet</loc><lastmod>2026-06-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.smartpixel.in/web-design-guindy</loc><lastmod>2026-06-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.smartpixel.in/web-design-t-nagar</loc><lastmod>2026-06-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.smartpixel.in/web-design-saidapet</loc><lastmod>2026-06-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.smartpixel.in/web-design-nungambakkam</loc><lastmod>2026-06-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.smartpixel.in/web-design-chitlapakkam</loc><lastmod>2026-06-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.smartpixel.in/web-design-pallavaram</loc><lastmod>2026-07-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.smartpixel.in/web-design-tambaram</loc><lastmod>2026-07-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.smartpixel.in/web-design-chrompet</loc><lastmod>2026-07-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.smartpixel.in/web-design-guindy</loc><lastmod>2026-07-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.smartpixel.in/web-design-t-nagar</loc><lastmod>2026-07-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.smartpixel.in/web-design-saidapet</loc><lastmod>2026-07-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.smartpixel.in/web-design-nungambakkam</loc><lastmod>2026-07-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.smartpixel.in/web-design-chitlapakkam</loc><lastmod>2026-07-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
   <!-- Legal -->
-  <url><loc>https://www.smartpixel.in/privacy-policy</loc><lastmod>2026-06-30</lastmod><priority>0.3</priority></url>
-  <url><loc>https://www.smartpixel.in/terms</loc><lastmod>2026-06-30</lastmod><priority>0.3</priority></url>
+  <url><loc>https://www.smartpixel.in/privacy-policy</loc><lastmod>2026-07-01</lastmod><priority>0.3</priority></url>
+  <url><loc>https://www.smartpixel.in/terms</loc><lastmod>2026-07-01</lastmod><priority>0.3</priority></url>
 
 </urlset>

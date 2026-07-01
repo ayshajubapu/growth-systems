@@ -7,7 +7,6 @@ import Index from "./pages/Index.tsx";
 import Services from "./pages/Services.tsx";
 import Portfolio from "./pages/Portfolio.tsx";
 import AboutPage from "./pages/AboutPage.tsx";
-import Blog from "./pages/Blog.tsx";
 import Contact from "./pages/Contact.tsx";
 import BlogPost from "./pages/BlogPost.tsx";
 import NotFound from "./pages/NotFound.tsx";
@@ -25,7 +24,6 @@ import SeoChecklist from "./pages/SeoChecklist.tsx";
 import ScrollToTop from "./components/ScrollToTop.tsx";
 import CookieConsent from "./components/CookieConsent.tsx";
 
-
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -35,15 +33,19 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <ScrollToTop />
-        
+
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/services" element={<Services />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/our-work" element={<Navigate to="/portfolio" replace />} />
           <Route path="/about" element={<AboutPage />} />
-          <Route path="/blog" element={<Blog />} />
+
+          {/* Blog: both directory (/blog) and individual posts (/blog/:slug)
+              handled by BlogPost — it renders the grid when no slug is present */}
+          <Route path="/blog" element={<BlogPost />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
+
           <Route path="/contact" element={<Contact />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<Terms />} />
