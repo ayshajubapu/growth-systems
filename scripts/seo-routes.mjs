@@ -124,39 +124,18 @@ export const routes = [
   })),
 
   // ── Blog posts ──
-  {
-    path: "/blog/why-high-google-impressions-fail-to-generate-enquiries",
-    title: "Why High Google Impressions Fail to Generate Enquiries | SmartPixel",
-    description:
-      "High impressions, no leads? The 3 conversion gaps between ranking and enquiries — and how to close them.",
-    ogType: "article",
-  },
-  {
-    path: "/blog/chennai-jewelry-showroom-digital-trust-architecture",
-    title: "Chennai Jewelry Showroom Digital Trust Architecture | SmartPixel",
-    description:
-      "How Chennai jewelry brands build online trust: schema, hallmarks, video proof and localised SEO.",
-    ogType: "article",
-  },
-  {
-    path: "/blog/how-we-stopped-chennai-clinic-wasting-google-aids",
-    title: "How We Stopped a Chennai Clinic Wasting Google Ads | SmartPixel",
-    description:
-      "Case study: cutting Google Ads waste for a Chennai clinic through negative keywords, landing pages and CRO.",
-    ogType: "article",
-  },
-  {
-    path: "/blog/how-we-stopped-chennai-clinic-wasting-google-ads",
-    title: "How We Stopped a Chennai Clinic Wasting Google Ads | SmartPixel",
-    description:
-      "Case study: cutting Google Ads waste for a Chennai clinic through negative keywords, landing pages and CRO.",
-    ogType: "article",
-  },
-  {
-    path: "/blog/3-friction-points-killing-chennai-d2c-checkout",
-    title: "3 Friction Points Killing Chennai D2C Checkout | SmartPixel",
-    description:
-      "The three checkout frictions dropping D2C conversions in Chennai — and the exact UX fixes we ship.",
-    ogType: "article",
-  },
+  { path: "/blog/why-your-website-isnt-ranking-on-google", title: "Why Your Website Isn't Ranking on Google (2026 Fix) | SmartPixel", description: "6 real causes your website isn't ranking on Google — and the exact order we fix them for Chennai SMBs.", ogType: "article" },
+  { path: "/blog/local-seo-checklist-small-business-chennai", title: "Local SEO Checklist for Chennai Small Businesses | SmartPixel", description: "The full 34-point local SEO checklist we use for every Chennai client — Google Business Profile, reviews, citations, schema.", ogType: "article" },
+  { path: "/blog/seo-vs-google-ads-which-delivers-better-roi", title: "SEO vs Google Ads: Which ROI Wins for Indian SMBs? | SmartPixel", description: "Real Chennai CPL numbers, the J-curve trap, and the ads/SEO split we recommend at every business stage.", ogType: "article" },
+  { path: "/blog/how-much-does-seo-cost-in-india", title: "How Much Does SEO Cost in India in 2026? Honest Pricing | SmartPixel", description: "Every SEO pricing tier in India, what each delivers, and why ₹5,000 packages actively hurt your rankings.", ogType: "article" },
+  { path: "/blog/25-seo-mistakes-costing-you-customers", title: "25 SEO Mistakes Costing You Customers in 2026 | SmartPixel", description: "From canonicals to citations — the 25 SEO mistakes we find in 90% of Chennai SMB audits, each fixable in a day.", ogType: "article" },
+  { path: "/blog/15-signs-your-business-needs-a-new-website", title: "15 Signs Your Business Needs a New Website | SmartPixel", description: "Redesign or full rebuild? The 15 signs that separate a cosmetic refresh from a structural overhaul.", ogType: "article" },
+  { path: "/blog/why-most-business-websites-never-generate-leads", title: "Why Most Business Websites Never Generate Leads | SmartPixel", description: "The 7 structural fixes that turn brochure sites into lead machines — hero, CTAs, WhatsApp, forms, trust proof.", ogType: "article" },
+  { path: "/blog/website-speed-hidden-sales-killer", title: "Website Speed: The Hidden Sales Killer | SmartPixel", description: "Core Web Vitals, WebP, CDNs and the 8 speed fixes that produce the biggest revenue lifts for Indian SMBs.", ogType: "article" },
+  { path: "/blog/whatsapp-automation-save-20-hours-a-week", title: "WhatsApp Automation Saves 20+ Hours a Week | SmartPixel", description: "Three real Chennai teardowns — clinic, D2C, real estate — using WhatsApp Cloud API to automate first-reply, orders and reviews.", ogType: "article" },
+  { path: "/blog/custom-website-vs-wordpress-which-is-right", title: "Custom Website vs WordPress: Honest Framework | SmartPixel", description: "The 6-variable decision framework we use with founders — when WordPress wins, when custom wins, and the hybrid we usually recommend.", ogType: "article" },
+  { path: "/blog/why-high-google-impressions-fail-to-generate-enquiries", title: "Why High Google Impressions Fail to Generate Enquiries | SmartPixel", description: "High impressions, no leads? The 3 conversion gaps between ranking and enquiries — and how to close them.", ogType: "article" },
+  { path: "/blog/chennai-jewelry-showroom-digital-trust-architecture", title: "Chennai Jewelry Showroom Digital Trust Architecture | SmartPixel", description: "How Chennai jewelry brands build online trust: schema, hallmarks, video proof and localised SEO.", ogType: "article" },
+  { path: "/blog/how-we-stopped-chennai-clinic-wasting-google-ads", title: "How We Stopped a Chennai Clinic Wasting Google Ads | SmartPixel", description: "Case study: cutting Google Ads waste for a Chennai clinic through negative keywords, landing pages and CRO.", ogType: "article" },
+  { path: "/blog/3-friction-points-killing-chennai-d2c-checkout", title: "3 Friction Points Killing Chennai D2C Checkout | SmartPixel", description: "The three checkout frictions dropping D2C conversions in Chennai — and the exact UX fixes we ship.", ogType: "article" },
 ];
