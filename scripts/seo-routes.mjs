@@ -138,3 +138,4 @@ export const routes = [
   { path: "/blog/chennai-jewelry-showroom-digital-trust-architecture", title: "Chennai Jewelry Showroom Digital Trust Architecture | SmartPixel", description: "How Chennai jewelry brands build online trust: schema, hallmarks, video proof and localised SEO.", ogType: "article" },
   { path: "/blog/how-we-stopped-chennai-clinic-wasting-google-ads", title: "How We Stopped a Chennai Clinic Wasting Google Ads | SmartPixel", description: "Case study: cutting Google Ads waste for a Chennai clinic through negative keywords, landing pages and CRO.", ogType: "article" },
   { path: "/blog/3-friction-points-killing-chennai-d2c-checkout", title: "3 Friction Points Killing Chennai D2C Checkout | SmartPixel", description: "The three checkout frictions dropping D2C conversions in Chennai — and the exact UX fixes we ship.", ogType: "article" },
+];
