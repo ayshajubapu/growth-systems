@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-export const ORIGIN = "https://www.smartpixel.in";
+export const ORIGIN = "https://smartpixel.in";
 
 // ── Body block schema ──
 export type BodyBlock =

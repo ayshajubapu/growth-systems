@@ -20,13 +20,13 @@ const Index = () => {
           name="description"
           content="SmartPixel builds conversion-focused websites, mobile apps, and e-commerce stores. Web development, app development, and digital marketing from Chrompet, Chennai. Call +91 98860 69488."
         />
-        <link rel="canonical" href="https://www.smartpixel.in/" />
+        <link rel="canonical" href="https://smartpixel.in/" />
         <meta property="og:title" content="SmartPixel — Conversion-focused Websites, Apps & Growth Systems" />
         <meta
           property="og:description"
           content="Websites, apps, and e-commerce stores designed to convert visitors into paying customers."
         />
-        <meta property="og:url" content="https://www.smartpixel.in/" />
+        <meta property="og:url" content="https://smartpixel.in/" />
         <meta property="og:type" content="website" />
       </Helmet>
 

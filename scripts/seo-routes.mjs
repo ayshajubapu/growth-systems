@@ -2,7 +2,7 @@
 // unique <title>/<meta description>/<link rel=canonical>/<og:*> into static HTML
 // for every route at build time. Update this when you add/rename a route.
 
-export const SITE = "https://www.smartpixel.in";
+export const SITE = "https://smartpixel.in";
 
 /** @type {Array<{path:string,title:string,description:string,ogType?:string}>} */
 export const routes = [

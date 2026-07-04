@@ -51,11 +51,11 @@ const Footer = () => {
       "@graph": [
         {
           "@type": "LocalBusiness",
-          "@id": "https://www.smartpixel.in/#business",
+          "@id": "https://smartpixel.in/#business",
           "name": "SmartPixel",
-          "image": "https://www.smartpixel.in/og-banner.jpg",
-          "logo": "https://www.smartpixel.in/logo.png",
-          "url": "https://www.smartpixel.in/",
+          "image": "https://smartpixel.in/og-banner.jpg",
+          "logo": "https://smartpixel.in/logo.png",
+          "url": "https://smartpixel.in/",
           "telephone": ["+91-9886069488", "+91-9164975073"],
           "email": "workwithsmartpixel@gmail.com",
           "description": "SmartPixel is a web design and development agency in Chrompet, Chennai. We build conversion-focused websites, ecommerce stores and mobile apps for small and mid-size businesses across Chennai.",
@@ -108,7 +108,7 @@ const Footer = () => {
         {
           "@type": "Service",
           "serviceType": "Web Design & Development",
-          "provider": { "@id": "https://www.smartpixel.in/#business" },
+          "provider": { "@id": "https://smartpixel.in/#business" },
           "areaServed": { "@type": "City", "name": "Chennai" },
           "description": "Conversion-focused website design and development for small and mid-size businesses in Chennai.",
           "offers": {
@@ -126,7 +126,7 @@ const Footer = () => {
         {
           "@type": "Service",
           "serviceType": "Ecommerce Website Development",
-          "provider": { "@id": "https://www.smartpixel.in/#business" },
+          "provider": { "@id": "https://smartpixel.in/#business" },
           "areaServed": { "@type": "City", "name": "Chennai" },
           "description": "Custom ecommerce stores with payment integration, product catalogues and conversion optimisation.",
           "offers": {
@@ -144,7 +144,7 @@ const Footer = () => {
         {
           "@type": "Service",
           "serviceType": "Mobile App Development",
-          "provider": { "@id": "https://www.smartpixel.in/#business" },
+          "provider": { "@id": "https://smartpixel.in/#business" },
           "areaServed": { "@type": "City", "name": "Chennai" },
           "description": "iOS and Android mobile app development for service businesses and startups.",
           "offers": {
@@ -162,7 +162,7 @@ const Footer = () => {
         {
           "@type": "Service",
           "serviceType": "SEO Services",
-          "provider": { "@id": "https://www.smartpixel.in/#business" },
+          "provider": { "@id": "https://smartpixel.in/#business" },
           "areaServed": { "@type": "City", "name": "Chennai" },
           "description": "On-page, technical and local SEO to help Chennai businesses rank for high-intent searches.",
           "offers": {
@@ -189,11 +189,11 @@ const Footer = () => {
         },
         {
           "@type": "Organization",
-          "@id": "https://www.smartpixel.in/#organization",
+          "@id": "https://smartpixel.in/#organization",
           "name": "SmartPixel",
           "alternateName": "SmartPixel Web Agency",
-          "url": "https://www.smartpixel.in/",
-          "logo": "https://www.smartpixel.in/logo.png",
+          "url": "https://smartpixel.in/",
+          "logo": "https://smartpixel.in/logo.png",
           "description": "SmartPixel is a Chennai-based web design and development agency building conversion-focused websites, ecommerce stores, mobile apps and WhatsApp automation for small and mid-size businesses.",
           "foundingDate": "2023",
           "founder": {
@@ -214,23 +214,23 @@ const Footer = () => {
         },
         {
           "@type": "WebSite",
-          "@id": "https://www.smartpixel.in/#website",
-          "url": "https://www.smartpixel.in/",
+          "@id": "https://smartpixel.in/#website",
+          "url": "https://smartpixel.in/",
           "name": "SmartPixel",
-          "publisher": { "@id": "https://www.smartpixel.in/#organization" },
+          "publisher": { "@id": "https://smartpixel.in/#organization" },
           "inLanguage": "en-IN",
           "potentialAction": {
             "@type": "SearchAction",
             "target": {
               "@type":"EntryPoint",
-              "urlTemplate":"https://www.smartpixel.in/blog?q={search_term_string}"
+              "urlTemplate":"https://smartpixel.in/blog?q={search_term_string}"
             },
             "query-input": "required name=search_term_string"
           }
         },
         {
           "@type": "WebPage",
-          "url": "https://www.smartpixel.in/",
+          "url": "https://smartpixel.in/",
           "speakable": {
             "@type":"SpeakableSpecification",
             "cssSelector":["h1","h2",".speakable","[data-speakable]"]
