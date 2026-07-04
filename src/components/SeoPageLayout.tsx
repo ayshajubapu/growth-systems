@@ -28,13 +28,13 @@ type Props = {
 const normalizeCanonical = (input: string): string => {
   try {
     const trimmedInput = input.trim();
-    const u = new URL(trimmedInput, "https://www.smartpixel.in");
+    const u = new URL(trimmedInput, "https://smartpixel.in");
     u.protocol = "https:";
     u.host = "www.smartpixel.in";
     u.hash = "";
     let path = u.pathname.replace(/\/+$/, "");
     if (path === "") path = "/";
-    return `https://www.smartpixel.in${path}${u.search}`;
+    return `https://smartpixel.in${path}${u.search}`;
   } catch {
     return input;
   }
@@ -110,7 +110,7 @@ const SeoPageLayout = ({
                   <span className="text-foreground/70 font-medium">{b.name}</span>
                 ) : (
                   <Link 
-                    to={cleanUrl.replace("https://www.smartpixel.in", "") || "/"} 
+                    to={cleanUrl.replace("https://smartpixel.in", "") || "/"} 
                     className="hover:text-accent font-semibold transition-colors"
                   >
                     {b.name}

@@ -58,7 +58,7 @@ Either way, all the best with {{Their Site}}.
 
 — Aravind
 SmartPixel — Web design & SEO, Chennai
-https://www.smartpixel.in
+https://smartpixel.in
 +91-9886069488
 `;
 
@@ -118,7 +118,7 @@ const Backlinks = () => {
       <Helmet>
         <title>Backlinks & Outreach Plan | SmartPixel SEO Workspace</title>
         <meta name="description" content="SmartPixel's backlink target list, downloadable cold-outreach email template, and a simple tracker to manage SEO link building." />
-        <link rel="canonical" href="https://www.smartpixel.in/backlinks" />
+        <link rel="canonical" href="https://smartpixel.in/backlinks" />
         <meta name="robots" content="noindex,follow" />
       </Helmet>
 

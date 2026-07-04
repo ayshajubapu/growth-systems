@@ -14,9 +14,9 @@ const Services = () => (
         name="description"
         content="Overview of SmartPixel's digital services in Chennai — web design, web apps, mobile apps, e-commerce, SEO, WhatsApp automation & digital marketing. Compare and choose the right service."
       />
-      <link rel="canonical" href="https://www.smartpixel.in/services" />
+      <link rel="canonical" href="https://smartpixel.in/services" />
       <meta property="og:title" content="Services Overview — SmartPixel Chennai" />
-      <meta property="og:url" content="https://www.smartpixel.in/services" />
+      <meta property="og:url" content="https://smartpixel.in/services" />
       <meta property="og:type" content="website" />
     </Helmet>
 

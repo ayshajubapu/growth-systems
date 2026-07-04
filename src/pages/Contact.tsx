@@ -37,10 +37,10 @@ const Contact = () => {
           name="description"
           content="Get in touch with SmartPixel — a premium website development company in Chennai. Call +91 98860 69488, chat via WhatsApp, or submit an inquiry instantly. Serving Chrompet, Pallavaram, Tambaram, and Guindy."
         />
-        <link rel="canonical" href="https://www.smartpixel.in/contact" />
+        <link rel="canonical" href="https://smartpixel.in/contact" />
         <meta property="og:title" content="Contact SmartPixel | Website Development Chennai" />
         <meta property="og:description" content="Talk to SmartPixel about your website, ecommerce or SEO project. Based in Chrompet, Chennai." />
-        <meta property="og:url" content="https://www.smartpixel.in/contact" />
+        <meta property="og:url" content="https://smartpixel.in/contact" />
         <meta property="og:type" content="website" />
 
         {/* BreadcrumbList schema */}
@@ -49,8 +49,8 @@ const Contact = () => {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.smartpixel.in/" },
-              { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://www.smartpixel.in/contact" }
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://smartpixel.in/" },
+              { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://smartpixel.in/contact" }
             ]
           })}
         </script>
@@ -61,7 +61,7 @@ const Contact = () => {
             "@context": "https://schema.org",
             "@type": "ContactPage",
             "name": "Contact SmartPixel",
-            "url": "https://www.smartpixel.in/contact",
+            "url": "https://smartpixel.in/contact",
             "description": "Contact SmartPixel, a website development company in Chennai, for websites, ecommerce, SEO and WhatsApp automation services.",
             "mainEntity": {
               "@type": "LocalBusiness",
