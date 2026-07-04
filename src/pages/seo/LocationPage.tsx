@@ -20,7 +20,7 @@ const nearbyDefault = [
 ];
 
 const LocationPage = ({ area, slug, nearby, landmark }: Props) => {
-  const url = `https://www.smartpixel.in/web-design-${slug}`;
+  const url = `https://smartpixel.in/web-design-${slug}`;
   const adjacents = (nearby ?? nearbyDefault).filter((n) => n.slug !== slug).slice(0, 4);
 
   // OPTIMIZED: Enhanced structured data layout footprint for superior local indexing
@@ -28,7 +28,7 @@ const LocationPage = ({ area, slug, nearby, landmark }: Props) => {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "SmartPixel",
-    "image": "https://www.smartpixel.in/logo.png",
+    "image": "https://smartpixel.in/logo.png",
     "url": url,
     "telephone": "+91-9886069488",
     "email": "workwithsmartpixel@gmail.com",
@@ -86,7 +86,7 @@ const LocationPage = ({ area, slug, nearby, landmark }: Props) => {
       canonical={url}
       h1={`Website Development in ${area}, Chennai`}
       breadcrumbs={[
-        { name: "Home", url: "https://www.smartpixel.in/" },
+        { name: "Home", url: "https://smartpixel.in/" },
         { name: `Web Design ${area}`, url },
       ]}
       schema={[localBusiness, faqSchema]}

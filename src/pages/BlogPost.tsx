@@ -18,7 +18,7 @@ import {
   Layers 
 } from "lucide-react";
 
-const ORIGIN = "https://www.smartpixel.in";
+const ORIGIN = "https://smartpixel.in";
 
 // ── TYPES & SCHEMAS DEFINITIONS ──
 type BodyItem = 

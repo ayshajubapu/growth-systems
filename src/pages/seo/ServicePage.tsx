@@ -19,7 +19,7 @@ export type ServiceProps = {
 const ServicePage = (p: ServiceProps) => {
   // Normalize path string generation trailing safety checks
   const cleanSlug = p.slug.startsWith("/") ? p.slug.slice(1) : p.slug;
-  const url = `https://www.smartpixel.in/${cleanSlug}`;
+  const url = `https://smartpixel.in/${cleanSlug}`;
 
   // Automatically calculate contextual neighborhood anchor points
   const localizedLinks = useMemo(() => {
@@ -70,8 +70,8 @@ const ServicePage = (p: ServiceProps) => {
       canonical={url}
       h1={p.h1}
       breadcrumbs={[
-        { name: "Home", url: "https://www.smartpixel.in/" },
-        { name: "Services", url: "https://www.smartpixel.in/services" },
+        { name: "Home", url: "https://smartpixel.in/" },
+        { name: "Services", url: "https://smartpixel.in/services" },
         { name: p.crumbName, url },
       ]}
       schema={[serviceSchema]}

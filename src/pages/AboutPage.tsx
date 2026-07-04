@@ -18,21 +18,21 @@ const AboutPage = () => (
         name="keywords"
         content="about SmartPixel, Chennai web company, website developer Chennai, ecommerce company Chennai, app development Chennai"
       />
-      <link rel="canonical" href="https://www.smartpixel.in/about" />
+      <link rel="canonical" href="https://smartpixel.in/about" />
       <meta property="og:title" content="About SmartPixel | Premium Digital Agency Chennai" />
       <meta
         property="og:description"
         content="Industry-grade tools. Clean code. Smart systems. Learn how SmartPixel helps businesses grow online."
       />
-      <meta property="og:url" content="https://www.smartpixel.in/about" />
+      <meta property="og:url" content="https://smartpixel.in/about" />
       <meta property="og:type" content="website" />
       <script type="application/ld+json">
         {JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Organization",
           name: "SmartPixel",
-          url: "https://www.smartpixel.in",
-          logo: "https://www.smartpixel.in/logo.png",
+          url: "https://smartpixel.in",
+          logo: "https://smartpixel.in/logo.png",
           sameAs: [
             "https://www.instagram.com/smartpiixel/",
             "https://www.threads.net/@smartpiixel",

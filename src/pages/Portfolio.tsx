@@ -13,7 +13,7 @@ const Portfolio = () => (
         name="description"
         content="Real businesses, real results. Before and after web design case studies from SmartPixel — websites built to convert, designed to grow."
       />
-      <link rel="canonical" href="https://www.smartpixel.in/portfolio" />
+      <link rel="canonical" href="https://smartpixel.in/portfolio" />
     </Helmet>
     <Nav />
     <div className="pt-24" />
