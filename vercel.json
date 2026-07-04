@@ -1,12 +1,4 @@
 {
-  "redirects": [
-    {
-      "source": "/:path*",
-      "has": [{ "type": "host", "value": "smartpixel.in" }],
-      "destination": "https://smartpixel.in/:path*",
-      "permanent": true
-    }
-  ],
   "rewrites": [
     {
       "source": "/((?!sitemap\\.xml|robots\\.txt|favicon\\.ico|logo\\.png|og-banner\\.jpg|llms\\.txt|assets/).*)",
@@ -23,7 +15,7 @@
     {
       "source": "/assets/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        { "key": "Cache-Control", "value": "public,max-age=31536000, immutable" }
       ]
     }
   ]
