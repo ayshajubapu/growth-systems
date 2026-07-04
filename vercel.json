@@ -2,7 +2,7 @@
   "redirects": [
     {
       "source": "/:path*",
-      "has": [{ "type": "host", "value": "smartpixel.in" }],
+      "has": [{ "type": "host", "value": "www.smartpixel.in" }],
       "destination": "https://smartpixel.in/:path*",
       "permanent": true
     }
