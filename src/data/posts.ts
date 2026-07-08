@@ -420,7 +420,7 @@ export const posts: Post[] = [
       h3("1. No target keyword per page"),
       p("Every commercial page should be built around one primary keyword with real search volume. If you cannot state the target keyword for your homepage in one sentence, the page is not optimised."),
       h3("2. Title tag that reads like a slogan"),
-      p("'Excellence Delivered' is not a title tag. 'Web Design Company in Chennai | 12+ Years Experience' is. Titles are your first impression in the search results — they need to include the keyword, the location if relevant, and a differentiator."),
+      p("'Excellence Delivered' is not a title tag. 'Web Design Company in Chennai | 4+ Years Experience' is. Titles are your first impression in the search results — they need to include the keyword, the location if relevant, and a differentiator."),
       h3("3. Meta descriptions left blank"),
       p("Google may write its own snippet when you skip this, but a written meta description consistently improves click-through-rate by 15–30% because you control the message."),
       h3("4. Multiple H1s on one page"),

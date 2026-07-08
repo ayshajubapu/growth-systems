@@ -10,7 +10,7 @@ import { posts, getPost, getRelated, type Block, type Post } from "@/data/posts"
 
 const ORIGIN = "https://smartpixel.in";
 const AUTHOR_NAME = "Aysha";
-const AUTHOR_TITLE = "Founder, SmartPixel — 12+ years shipping SEO & web systems for Indian SMBs";
+const AUTHOR_TITLE = "Founder, SmartPixel — 4+ years shipping SEO & web systems for Indian SMBs";
 
 // ─────────────────────────────────────────────────────────────────────────
 // Shared JSON-LD
@@ -324,7 +324,7 @@ function AuthorBox() {
   return (
     <aside className="mt-12 pt-8 border-t border-border flex flex-col sm:flex-row gap-5 items-start">
       <div className="w-16 h-16 rounded-full bg-gradient-to-br from-accent to-accent/40 flex items-center justify-center text-2xl font-bold text-accent-foreground shrink-0">
-        KR
+        A
       </div>
       <div className="space-y-1">
         <p className="font-semibold text-foreground">{AUTHOR_NAME}</p>
