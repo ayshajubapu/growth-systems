@@ -9,7 +9,7 @@ import { ArrowRight, ChevronRight, Home, List, Zap, CheckCircle, MessageCircle, 
 import { posts, getPost, getRelated, type Block, type Post } from "@/data/posts";
 
 const ORIGIN = "https://smartpixel.in";
-const AUTHOR_NAME = "Karthik R";
+const AUTHOR_NAME = "Aysha";
 const AUTHOR_TITLE = "Founder, SmartPixel — 12+ years shipping SEO & web systems for Indian SMBs";
 
 // ─────────────────────────────────────────────────────────────────────────

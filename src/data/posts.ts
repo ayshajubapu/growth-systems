@@ -29,7 +29,7 @@ export type Post = {
   body: Block[];
 };
 
-const AUTHOR = "Karthik R, Founder — SmartPixel";
+const AUTHOR = "Aysha, Founder — SmartPixel";
 
 // ─────────────────────────────────────────────────────────────────────────
 // helper builders (reduce boilerplate in the huge post bodies below)
