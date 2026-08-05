@@ -6,6 +6,7 @@ type Props = {
   slug: string; // e.g., "pallavaram"
   nearby?: { name: string; slug: string }[];
   landmark?: string;
+  localNote?: string;
 };
 
 const nearbyDefault = [
@@ -19,7 +20,7 @@ const nearbyDefault = [
   { name: "Chitlapakkam", slug: "chitlapakkam" },
 ];
 
-const LocationPage = ({ area, slug, nearby, landmark }: Props) => {
+const LocationPage = ({ area, slug, nearby, landmark, localNote }: Props) => {
   const url = `https://smartpixel.in/web-design-${slug}`;
   const adjacents = (nearby ?? nearbyDefault).filter((n) => n.slug !== slug).slice(0, 4);
 
@@ -81,10 +82,10 @@ const LocationPage = ({ area, slug, nearby, landmark }: Props) => {
 
   return (
     <SeoPageLayout
-      title={`Website Development Company in ${area}, Chennai | SmartPixel`}
+      title={`Web Design Company in ${area}, Chennai | SmartPixel`}
       description={`Looking for an expert website development company in ${area}, Chennai? SmartPixel delivers high-performance e-commerce setups, SEO tuning, and web designs for local businesses.`}
       canonical={url}
-      h1={`Website Development in ${area}, Chennai`}
+      h1={`Web Design Company in ${area}, Chennai`}
       breadcrumbs={[
         { name: "Home", url: "https://smartpixel.in/" },
         { name: `Web Design ${area}`, url },
@@ -145,15 +146,20 @@ const LocationPage = ({ area, slug, nearby, landmark }: Props) => {
         {
           h2: `Why Local Businesses in ${area} Work With Us`,
           body: (
-            <p className="leading-relaxed text-muted-foreground">
-              We operate from nearby Chrompet, meaning we are close enough to sync face-to-face 
-              while understanding the local commercial trends across the {area} market
-              {landmark ? `, including high-activity hubs near ${landmark}` : ""}. Every single landing 
-              page or product site we build features zero technical overhead, premium performance metrics, and responsive scaling 
-              so local buyers find your company first. Review our{" "}
-              <Link to="/portfolio" className="text-accent underline hover:text-accent/80 transition-colors">portfolio of local case studies</Link>{" "}
-              or message us to lock in a consultation.
-            </p>
+            <>
+              <p className="leading-relaxed text-muted-foreground">
+                We operate from nearby Chrompet, meaning we are close enough to sync face-to-face 
+                while understanding the local commercial trends across the {area} market
+                {landmark ? `, including high-activity hubs near ${landmark}` : ""}. Every single landing 
+                page or product site we build features zero technical overhead, premium performance metrics, and responsive scaling 
+                so local buyers find your company first. Review our{" "}
+                <Link to="/portfolio" className="text-accent underline hover:text-accent/80 transition-colors">portfolio of local case studies</Link>{" "}
+                or message us to lock in a consultation.
+              </p>
+              {localNote && (
+                <p className="leading-relaxed text-muted-foreground">{localNote}</p>
+              )}
+            </>
           ),
         },
         {
