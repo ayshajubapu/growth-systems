@@ -370,6 +370,105 @@ function RelatedPosts({ slug }: { slug: string }) {
   );
 }
 
+// Context-driven links from an article to the location pages it is actually
+// relevant to (per-slug first, category fallback). Strengthens topical authority
+// between the blog and the area pages instead of linking everything to everything.
+const LOCATION_LINKS_BY_SLUG: Record<string, { label: string; href: string }[]> = {
+  "local-seo-checklist-for-small-businesses": [
+    { label: "Local SEO & web design in Chitlapakkam", href: "/web-design-chitlapakkam" },
+    { label: "Web design in Pallavaram", href: "/web-design-pallavaram" },
+    { label: "Web design in Tambaram", href: "/web-design-tambaram" },
+  ],
+  "why-your-website-isnt-ranking-on-google": [
+    { label: "Long-tail local SEO in Tambaram", href: "/web-design-tambaram" },
+    { label: "Web design in Chrompet", href: "/web-design-chrompet" },
+  ],
+  "why-high-google-impressions-fail-to-generate-enquiries": [
+    { label: "Long-tail local SEO in Tambaram", href: "/web-design-tambaram" },
+    { label: "Retail web design in T Nagar", href: "/web-design-t-nagar" },
+  ],
+  "website-speed-hidden-sales-killer": [
+    { label: "Mobile-speed builds in Pallavaram", href: "/web-design-pallavaram" },
+    { label: "Retail web design in T Nagar", href: "/web-design-t-nagar" },
+  ],
+  "3-friction-points-killing-chennai-d2c-checkout": [
+    { label: "Retail & checkout builds in T Nagar", href: "/web-design-t-nagar" },
+    { label: "Mobile-speed builds in Pallavaram", href: "/web-design-pallavaram" },
+  ],
+  "chennai-jewelry-showroom-digital-trust-architecture": [
+    { label: "Premium web design in Nungambakkam", href: "/web-design-nungambakkam" },
+    { label: "Showroom web design in T Nagar", href: "/web-design-t-nagar" },
+  ],
+  "how-we-stopped-chennai-clinic-wasting-google-ads": [
+    { label: "Clinic web design in Tambaram", href: "/web-design-tambaram" },
+    { label: "Clinic & services web design in Chitlapakkam", href: "/web-design-chitlapakkam" },
+  ],
+  "whatsapp-automation-save-20-hours-per-week": [
+    { label: "Professional services in Saidapet", href: "/web-design-saidapet" },
+    { label: "Web design in Chrompet", href: "/web-design-chrompet" },
+  ],
+  "10-ways-to-automate-customer-communication": [
+    { label: "Professional services in Saidapet", href: "/web-design-saidapet" },
+    { label: "Neighbourhood businesses in Chitlapakkam", href: "/web-design-chitlapakkam" },
+  ],
+  "custom-website-vs-wordpress": [
+    { label: "B2B web design in Guindy", href: "/web-design-guindy" },
+    { label: "Premium web design in Nungambakkam", href: "/web-design-nungambakkam" },
+  ],
+  "15-signs-your-business-needs-a-new-website": [
+    { label: "B2B web design in Guindy", href: "/web-design-guindy" },
+    { label: "Web design in Chrompet", href: "/web-design-chrompet" },
+  ],
+};
+
+const LOCATION_LINKS_BY_CATEGORY: Record<string, { label: string; href: string }[]> = {
+  SEO: [
+    { label: "Local SEO in Chitlapakkam", href: "/web-design-chitlapakkam" },
+    { label: "Local SEO in Tambaram", href: "/web-design-tambaram" },
+    { label: "Local SEO in Chrompet", href: "/web-design-chrompet" },
+  ],
+  "Web Development": [
+    { label: "Web design in Chrompet", href: "/web-design-chrompet" },
+    { label: "Web design in Guindy", href: "/web-design-guindy" },
+    { label: "Web design in Pallavaram", href: "/web-design-pallavaram" },
+  ],
+  "WhatsApp Automation": [
+    { label: "Saidapet professional services", href: "/web-design-saidapet" },
+    { label: "Tambaram clinics & retail", href: "/web-design-tambaram" },
+  ],
+  "AI & Automation": [
+    { label: "Guindy B2B & industrial", href: "/web-design-guindy" },
+    { label: "Chrompet businesses", href: "/web-design-chrompet" },
+  ],
+};
+
+function RelatedLocations({ slug, category }: { slug: string; category: string }) {
+  const links =
+    LOCATION_LINKS_BY_SLUG[slug] ||
+    LOCATION_LINKS_BY_CATEGORY[category] || [
+      { label: "Web design in Chrompet", href: "/web-design-chrompet" },
+      { label: "Web design in T Nagar", href: "/web-design-t-nagar" },
+    ];
+  return (
+    <section className="mt-6 p-6 rounded-xl border border-border bg-surface/10">
+      <p className="text-[10px] uppercase tracking-widest font-bold text-accent mb-3">
+        Where we do this in Chennai
+      </p>
+      <div className="flex flex-wrap gap-2">
+        {links.map((s) => (
+          <Link
+            key={s.href}
+            to={s.href}
+            className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full border border-border bg-background/50 text-xs text-foreground hover:border-accent/40 hover:text-accent transition-colors"
+          >
+            {s.label} <ArrowRight size={11} />
+          </Link>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function RelatedServices({ category }: { category: string }) {
   const map: Record<string, { label: string; href: string }[]> = {
     SEO: [
