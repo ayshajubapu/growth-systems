@@ -749,6 +749,7 @@ export default function BlogPost() {
 
           <AuthorBox />
           <RelatedServices category={post.category} />
+          <RelatedLocations slug={post.slug} category={post.category} />
           <RelatedPosts slug={post.slug} />
           <ClosingCta />
 
