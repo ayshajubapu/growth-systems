@@ -45,201 +45,91 @@ const Footer = () => {
   const ref = useRef<HTMLElement>(null);
 
   // Master Relational SEO Schema Graph - Synced directly from your raw HTML head settings
-  const masterGraphSchema = useMemo(() => {
-    return {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "LocalBusiness",
-          "@id": "https://smartpixel.in/#business",
-          "name": "SmartPixel",
-          "image": "https://smartpixel.in/og-banner.jpg",
-          "logo": "https://smartpixel.in/logo.png",
-          "url": "https://smartpixel.in/",
-          "telephone": ["+91-9886069488", "+91-9164975073"],
+ const masterGraphSchema = useMemo(() => {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "LocalBusiness",
+        "@id": "https://smartpixel.in/#business",
+        "name": "SmartPixel",
+        "image": "https://smartpixel.in/og-banner.jpg",
+        "logo": "https://smartpixel.in/logo.png",
+        "url": "https://smartpixel.in/",
+        "telephone": ["+91-9886069488", "+91-9164975073"],
+        "email": "workwithsmartpixel@gmail.com",
+        "description": "SmartPixel is a web design and development agency in Chrompet, Chennai. We build conversion-focused websites, ecommerce stores and mobile apps for small and mid-size businesses across Chennai.",
+        "foundingDate": "2023",
+        "founder": { "@type": "Person", "name": "Aysha" },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Chrompet",
+          "addressLocality": "Chennai",
+          "addressRegion": "Tamil Nadu",
+          "postalCode": "600044",
+          "addressCountry": "IN"
+        },
+        "geo": { "@type": "GeoCoordinates", "latitude": "12.9516", "longitude": "80.2012" },
+        "openingHoursSpecification": [{
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        }],
+        "priceRange": "INR",
+        "areaServed": [
+          {"@type": "AdministrativeArea", "name": "Chrompet, Chennai"},
+          {"@type": "AdministrativeArea", "name": "Tambaram, Chennai"},
+          {"@type": "AdministrativeArea", "name": "Pallavaram, Chennai"},
+          {"@type": "AdministrativeArea", "name": "Guindy, Chennai"},
+          {"@type": "AdministrativeArea", "name": "T Nagar, Chennai"},
+          {"@type": "AdministrativeArea", "name": "Saidapet, Chennai"},
+          {"@type": "AdministrativeArea", "name": "Nungambakkam, Chennai"},
+          {"@type": "AdministrativeArea", "name": "Chitlapakkam, Chennai"}
+        ],
+        "sameAs": ["https://www.instagram.com/smartpiixel/", "https://www.threads.net/@smartpiixel"],
+        "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "40", "bestRating": "5" }
+      },
+      // ── REMOVED: the four generic Service entries (web design, ecommerce, mobile app, SEO) ──
+      // ── REMOVED: the generic FAQPage block ──
+      {
+        "@type": "Organization",
+        "@id": "https://smartpixel.in/#organization",
+        "name": "SmartPixel",
+        "alternateName": "SmartPixel Web Agency",
+        "url": "https://smartpixel.in/",
+        "logo": "https://smartpixel.in/logo.png",
+        "description": "SmartPixel is a Chennai-based web design and development agency building conversion-focused websites, ecommerce stores, mobile apps and WhatsApp automation for small and mid-size businesses.",
+        "foundingDate": "2023",
+        "founder": { "@type": "Person", "name": "Aysha", "jobTitle": "Founder" },
+        "knowsAbout": ["Website Development","Web Design","Ecommerce Development","SEO Services","WhatsApp Automation","Mobile App Development","Digital Marketing","Conversion Rate Optimization"],
+        "contactPoint": [{
+          "@type": "ContactPoint",
+          "telephone": "+91-9886069488",
+          "contactType": "customer service",
           "email": "workwithsmartpixel@gmail.com",
-          "description": "SmartPixel is a web design and development agency in Chrompet, Chennai. We build conversion-focused websites, ecommerce stores and mobile apps for small and mid-size businesses across Chennai.",
-          "foundingDate": "2023",
-          "founder": {
-            "@type": "Person",
-            "name": "Aysha"
-          },
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Chrompet",
-            "addressLocality": "Chennai",
-            "addressRegion": "Tamil Nadu",
-            "postalCode": "600044",
-            "addressCountry": "IN"
-          },
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": "12.9516",
-            "longitude": "80.2012"
-          },
-          "openingHoursSpecification": [{
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
-            "opens": "09:00",
-            "closes": "18:00"
-          }],
-          "priceRange": "INR",
-          "areaServed": [
-            {"@type": "AdministrativeArea", "name": "Chrompet, Chennai"},
-            {"@type": "AdministrativeArea", "name": "Tambaram, Chennai"},
-            {"@type": "AdministrativeArea", "name": "Pallavaram, Chennai"},
-            {"@type": "AdministrativeArea", "name": "Guindy, Chennai"},
-            {"@type": "AdministrativeArea", "name": "T Nagar, Chennai"},
-            {"@type": "AdministrativeArea", "name": "Saidapet, Chennai"},
-            {"@type": "AdministrativeArea", "name": "Nungambakkam, Chennai"},
-            {"@type": "AdministrativeArea", "name": "Chitlapakkam, Chennai"}
-          ],
-          "sameAs": [
-            "https://www.instagram.com/smartpiixel/",
-            "https://www.threads.net/@smartpiixel"
-          ],
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "reviewCount": "40",
-            "bestRating": "5"
-          }
-        },
-        {
-          "@type": "Service",
-          "serviceType": "Web Design & Development",
-          "provider": { "@id": "https://smartpixel.in/#business" },
-          "areaServed": { "@type": "City", "name": "Chennai" },
-          "description": "Conversion-focused website design and development for small and mid-size businesses in Chennai.",
-          "offers": {
-            "@type": "Offer",
-            "priceCurrency": "INR",
-            "price": "25000",
-            "priceSpecification": {
-              "@type": "PriceSpecification",
-              "minPrice": "25000",
-              "maxPrice": "150000",
-              "priceCurrency": "INR"
-            }
-          }
-        },
-        {
-          "@type": "Service",
-          "serviceType": "Ecommerce Website Development",
-          "provider": { "@id": "https://smartpixel.in/#business" },
-          "areaServed": { "@type": "City", "name": "Chennai" },
-          "description": "Custom ecommerce stores with payment integration, product catalogues and conversion optimisation.",
-          "offers": {
-            "@type": "Offer",
-            "priceCurrency": "INR",
-            "price": "50000",
-            "priceSpecification": {
-              "@type": "PriceSpecification",
-              "minPrice": "50000",
-              "maxPrice": "200000",
-              "priceCurrency": "INR"
-            }
-          }
-        },
-        {
-          "@type": "Service",
-          "serviceType": "Mobile App Development",
-          "provider": { "@id": "https://smartpixel.in/#business" },
-          "areaServed": { "@type": "City", "name": "Chennai" },
-          "description": "iOS and Android mobile app development for service businesses and startups.",
-          "offers": {
-            "@type": "Offer",
-            "priceCurrency": "INR",
-            "price": "150000",
-            "priceSpecification": {
-              "@type": "PriceSpecification",
-              "minPrice": "150000",
-              "maxPrice": "600000",
-              "priceCurrency": "INR"
-            }
-          }
-        },
-        {
-          "@type": "Service",
-          "serviceType": "SEO Services",
-          "provider": { "@id": "https://smartpixel.in/#business" },
-          "areaServed": { "@type": "City", "name": "Chennai" },
-          "description": "On-page, technical and local SEO to help Chennai businesses rank for high-intent searches.",
-          "offers": {
-            "@type": "Offer",
-            "priceCurrency": "INR",
-            "price": "15000",
-            "priceSpecification": {
-              "@type": "PriceSpecification",
-              "minPrice": "15000",
-              "maxPrice": "60000",
-              "priceCurrency": "INR"
-            }
-          }
-        },
-        {
-          "@type": "FAQPage",
-          "mainEntity": [
-            {"@type":"Question","name":"How much does SmartPixel charge for a website?","acceptedAnswer":{"@type":"Answer","text":"Our projects start from ₹15,000 for business sites and go up to ₹1,50,000+ for custom ecommerce or web app builds. Every project includes a free strategy call before we quote."}},
-            {"@type":"Question","name":"How long does a website build take?","acceptedAnswer":{"@type":"Answer","text":"Our average is 2 weeks from brief to launch. Ecommerce stores typically take 2–3 weeks. Mobile apps start from 6 weeks."}},
-            {"@type":"Question","name":"Does SmartPixel work with businesses outside Chennai?","acceptedAnswer":{"@type":"Answer","text":"Yes. We're based in Chrompet but work with clients across India remotely. Most of our team communication is async."}},
-            {"@type":"Question","name":"What makes SmartPixel different from other Chennai agencies?","acceptedAnswer":{"@type":"Answer","text":"One team owns your project start to finish — no account managers, no handoffs. You talk directly to the people doing the work."}},
-            {"@type":"Question","name":"Do you offer ongoing support after launch?","acceptedAnswer":{"@type":"Answer","text":"Yes. All projects include a support period post-launch. We offer ongoing retainers for maintenance and growth."}}
-          ]
-        },
-        {
-          "@type": "Organization",
-          "@id": "https://smartpixel.in/#organization",
-          "name": "SmartPixel",
-          "alternateName": "SmartPixel Web Agency",
-          "url": "https://smartpixel.in/",
-          "logo": "https://smartpixel.in/logo.png",
-          "description": "SmartPixel is a Chennai-based web design and development agency building conversion-focused websites, ecommerce stores, mobile apps and WhatsApp automation for small and mid-size businesses.",
-          "foundingDate": "2023",
-          "founder": {
-            "@type": "Person",
-            "name": "Aysha",
-            "jobTitle": "Founder"
-          },
-          "knowsAbout": ["Website Development","Web Design","Ecommerce Development","SEO Services","WhatsApp Automation","Mobile App Development","Digital Marketing","Conversion Rate Optimization"],
-          "contactPoint": [{
-            "@type":"ContactPoint",
-            "telephone":"+91-9886069488",
-            "contactType":"customer service",
-            "email":"workwithsmartpixel@gmail.com",
-            "areaServed":"IN",
-            "availableLanguage":["English","Tamil","Hindi"]
-          }],
-          "sameAs": ["https://www.instagram.com/smartpiixel/","https://www.threads.net/@smartpiixel"]
-        },
-        {
-          "@type": "WebSite",
-          "@id": "https://smartpixel.in/#website",
-          "url": "https://smartpixel.in/",
-          "name": "SmartPixel",
-          "publisher": { "@id": "https://smartpixel.in/#organization" },
-          "inLanguage": "en-IN",
-          "potentialAction": {
-            "@type": "SearchAction",
-            "target": {
-              "@type":"EntryPoint",
-              "urlTemplate":"https://smartpixel.in/blog?q={search_term_string}"
-            },
-            "query-input": "required name=search_term_string"
-          }
-        },
-        {
-          "@type": "WebPage",
-          "url": "https://smartpixel.in/",
-          "speakable": {
-            "@type":"SpeakableSpecification",
-            "cssSelector":["h1","h2",".speakable","[data-speakable]"]
-          }
+          "areaServed": "IN",
+          "availableLanguage": ["English","Tamil","Hindi"]
+        }],
+        "sameAs": ["https://www.instagram.com/smartpiixel/", "https://www.threads.net/@smartpiixel"]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://smartpixel.in/#website",
+        "url": "https://smartpixel.in/",
+        "name": "SmartPixel",
+        "publisher": { "@id": "https://smartpixel.in/#organization" },
+        "inLanguage": "en-IN",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": { "@type": "EntryPoint", "urlTemplate": "https://smartpixel.in/blog?q={search_term_string}" },
+          "query-input": "required name=search_term_string"
         }
-      ]
-    };
-  }, []);
-
+      }
+      // ── REMOVED: generic WebPage with url hardcoded to "/" — was wrong on every non-home route anyway ──
+    ]
+  };
+}, []);
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.from(".foot-mark", {
