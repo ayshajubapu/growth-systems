@@ -6,6 +6,7 @@ type Props = {
   slug: string; // e.g., "pallavaram"
   nearby?: { name: string; slug: string }[];
   landmark?: string;
+  localNote?: string;
 };
 
 const nearbyDefault = [
