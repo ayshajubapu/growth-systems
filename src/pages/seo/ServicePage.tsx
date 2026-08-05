@@ -117,17 +117,27 @@ const ServicePage = (p: ServiceProps) => {
           h2: `Areas in Chennai we serve`,
           body: (
             <p className="text-muted-foreground/90 leading-relaxed">
-              We deliver this service across Chennai — including{" "}
+              We deliver this service across Chennai. Mobile-speed-critical builds in{" "}
               <Link to={localizedLinks.pallavaram} className="text-accent underline font-medium hover:text-accent/80 transition-colors">Pallavaram</Link>,{" "}
+              long-tail local search for retail and clinics in{" "}
               <Link to={localizedLinks.tambaram} className="text-accent underline font-medium hover:text-accent/80 transition-colors">Tambaram</Link>,{" "}
+              in-person work from our studio in{" "}
               <Link to={localizedLinks.chrompet} className="text-accent underline font-medium hover:text-accent/80 transition-colors">Chrompet</Link>,{" "}
-              <Link to={localizedLinks.guindy} className="text-accent underline font-medium hover:text-accent/80 transition-colors">Guindy</Link> and{" "}
-              <Link to={localizedLinks.tnagar} className="text-accent underline font-medium hover:text-accent/80 transition-colors">T Nagar</Link>.{" "}
+              credibility-led B2B sites in{" "}
+              <Link to={localizedLinks.guindy} className="text-accent underline font-medium hover:text-accent/80 transition-colors">Guindy</Link>,{" "}
+              showroom and boutique retail in{" "}
+              <Link to={localizedLinks.tnagar} className="text-accent underline font-medium hover:text-accent/80 transition-colors">T Nagar</Link>,{" "}
+              urgent-intent professional services in{" "}
+              <Link to="/web-design-saidapet" className="text-accent underline font-medium hover:text-accent/80 transition-colors">Saidapet</Link>,{" "}
+              premium brands on{" "}
+              <Link to="/web-design-nungambakkam" className="text-accent underline font-medium hover:text-accent/80 transition-colors">Nungambakkam</Link>{" "}
+              High Road, and hyper-local businesses in{" "}
+              <Link to="/web-design-chitlapakkam" className="text-accent underline font-medium hover:text-accent/80 transition-colors">Chitlapakkam</Link>.{" "}
               Pair it with our{" "}
               <Link to="/seo-services-chennai" className="text-accent underline font-medium hover:text-accent/80 transition-colors">SEO services in Chennai</Link>{" "}
               or <Link to="/ecommerce-website-chennai" className="text-accent underline font-medium hover:text-accent/80 transition-colors">ecommerce website development in Chennai</Link>{" "}
-              for a full growth stack — or{" "}
-              <Link to="/contact" className="text-accent underline font-medium hover:text-accent/80 transition-colors">get a free quote from SmartPixel Chennai</Link>.
+              — or{" "}
+              <Link to="/contact" className="text-accent underline font-medium hover:text-accent/80 transition-colors">get a free quote</Link>.
             </p>
           ),
         },
