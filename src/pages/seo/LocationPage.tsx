@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import SeoPageLayout from "@/components/SeoPageLayout";
+import SeoPageLayout, { FaqItem } from "@/components/SeoPageLayout";
 
 type Props = {
   area: string;
@@ -7,6 +7,12 @@ type Props = {
   nearby?: { name: string; slug: string }[];
   landmark?: string;
   localNote?: string;
+  /** Unique meta description for this area — avoids duplicate-description reports in Search Console. */
+  metaDescription?: string;
+  /** Unique H1 override where the area has a distinct search phrasing. */
+  headline?: string;
+  /** Area-specific FAQs. Rendered on-page and emitted as FAQPage schema by the layout. */
+  faqs?: FaqItem[];
 };
 
 const nearbyDefault = [
@@ -20,11 +26,19 @@ const nearbyDefault = [
   { name: "Chitlapakkam", slug: "chitlapakkam" },
 ];
 
-const LocationPage = ({ area, slug, nearby, landmark, localNote }: Props) => {
+const LocationPage = ({
+  area,
+  slug,
+  nearby,
+  landmark,
+  localNote,
+  metaDescription,
+  headline,
+  faqs,
+}: Props) => {
   const url = `https://smartpixel.in/web-design-${slug}`;
   const adjacents = (nearby ?? nearbyDefault).filter((n) => n.slug !== slug).slice(0, 4);
 
-  // OPTIMIZED: Enhanced structured data layout footprint for superior local indexing
   const localBusiness = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
@@ -36,7 +50,7 @@ const LocationPage = ({ area, slug, nearby, landmark, localNote }: Props) => {
     "priceRange": "₹₹",
     "areaServed": {
       "@type": "AdministrativeArea",
-      "name": `${area}, Chennai`
+      "name": `${area}, Chennai`,
     },
     "address": {
       "@type": "PostalAddress",
@@ -44,53 +58,40 @@ const LocationPage = ({ area, slug, nearby, landmark, localNote }: Props) => {
       "addressLocality": "Chennai",
       "addressRegion": "Tamil Nadu",
       "postalCode": "600044",
-      "addressCountry": "IN"
-    }
+      "addressCountry": "IN",
+    },
   };
 
-  // OPTIMIZED: Dynamic structured FAQ markup injected straight into schema pipeline
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": `How much does a website cost in ${area}, Chennai?`,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": `Websites for ${area} businesses start from ₹10,000 for a basic 5-page site. Ecommerce and custom builds start from ₹40,000.`
-        }
-      },
-      {
-        "@type": "Question",
-        "name": `How long does it take to build a website in ${area}?`,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": `Most websites are delivered in 5–10 working days. Larger ecommerce or custom app projects take 3–6 weeks.`
-        }
-      },
-      {
-        "@type": "Question",
-        "name": `Do you visit clients in ${area} in person?`,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": `Yes. We're based in Chrompet and happy to meet clients in ${area} for kickoff or strategy sessions.`
-        }
-      }
-    ]
-  };
+  // Fallback FAQs only used if an area hasn't supplied its own set.
+  const fallbackFaqs: FaqItem[] = [
+    {
+      q: `How much does a website cost in ${area}, Chennai?`,
+      a: `A 5-page business site for a ${area} business starts at ₹10,000. Ecommerce and custom builds start at ₹25,000, quoted after we see your product count and payment/logistics requirements.`,
+    },
+    {
+      q: `How long does it take to build a website in ${area}?`,
+      a: `Most brochure sites go live in 5–10 working days once content and images are with us. Ecommerce and custom app projects take 3–6 weeks.`,
+    },
+    {
+      q: `Do you meet clients in ${area} in person?`,
+      a: `Yes. Our studio is in Chrompet, so ${area} kickoffs, photo shoots and review meetings can happen face to face rather than only over calls.`,
+    },
+  ];
 
   return (
     <SeoPageLayout
       title={`Web Design Company in ${area}, Chennai | SmartPixel`}
-      description={`Looking for an expert website development company in ${area}, Chennai? SmartPixel delivers high-performance e-commerce setups, SEO tuning, and web designs for local businesses.`}
+      description={
+        metaDescription ??
+        `SmartPixel is a web design company working with ${area}, Chennai businesses — fast websites, ecommerce stores, local SEO and WhatsApp automation, built from our Chrompet studio.`
+      }
       canonical={url}
-      h1={`Web Design Company in ${area}, Chennai`}
+      h1={headline ?? `Web Design Company in ${area}, Chennai`}
       breadcrumbs={[
         { name: "Home", url: "https://smartpixel.in/" },
         { name: `Web Design ${area}`, url },
       ]}
-      schema={[localBusiness, faqSchema]}
+      schema={[localBusiness]}
       ctaText={`Get a Free Quote for Your ${area} Business →`}
       intro={
         <>
@@ -98,75 +99,70 @@ const LocationPage = ({ area, slug, nearby, landmark, localNote }: Props) => {
           <Link to="/services/web-design-chennai" className="text-accent underline hover:text-accent/80 transition-colors">website development</Link>,{" "}
           <Link to="/seo-services-chennai" className="text-accent underline hover:text-accent/80 transition-colors">SEO services</Link> and{" "}
           <Link to="/whatsapp-automation-chennai" className="text-accent underline hover:text-accent/80 transition-colors">WhatsApp automation</Link>{" "}
-          to corporate brands and businesses in <strong className="text-foreground/70">{area}, Chennai</strong>.
-          Whether you run an agency, service store, or retail business in {area}
-          {landmark ? ` near ${landmark}` : ""}, we build fast, conversion-optimized storefronts 
-          designed to convert traffic into real sales leads. Ready to scale?{" "}
-          <Link to="/contact" className="text-accent underline hover:text-accent/80 transition-colors">Get an instant project estimate from SmartPixel Chennai</Link>.
+          to businesses in <strong className="text-foreground/70">{area}, Chennai</strong>
+          {landmark ? ` — including the stretch around ${landmark}` : ""}. We build fast,
+          conversion-focused sites and measure them on enquiries, not page views.{" "}
+          <Link to="/contact" className="text-accent underline hover:text-accent/80 transition-colors">Get a project estimate</Link>.
         </>
       }
       sections={[
         {
-          h2: `Digital Growth Solutions for ${area} Brands`,
+          h2: `Why Local Businesses in ${area} Work With Us`,
+          body: (
+            <>
+              {localNote && <p className="leading-relaxed text-muted-foreground">{localNote}</p>}
+              <p className="leading-relaxed text-muted-foreground">
+                We work out of Chrompet, so {area} projects get in-person kickoffs and same-week
+                reviews instead of month-long email threads. Every build ships with clean
+                on-page SEO, Core Web Vitals headroom and a Google Business Profile that
+                matches the site. See{" "}
+                <Link to="/portfolio" className="text-accent underline hover:text-accent/80 transition-colors">real before/after case studies</Link>{" "}
+                before you commit to anything.
+              </p>
+            </>
+          ),
+        },
+        {
+          h2: `What We Build for ${area} Businesses`,
           body: (
             <ul className="list-disc pl-5 space-y-2.5 text-muted-foreground">
               <li>
                 <Link to="/services/web-design-chennai" className="text-accent underline hover:text-accent/80 transition-colors">
-                  Web Design & Development in {area}
+                  Web design &amp; development
                 </Link>{" "}
-                — High-end UI explicitly optimized for inbound sales inquiries.
+                — mobile-first layouts built around the enquiry, not the slideshow.
               </li>
               <li>
                 <Link to="/ecommerce-website-chennai" className="text-accent underline hover:text-accent/80 transition-colors">
-                  E-commerce Store Engineering
+                  Ecommerce stores
                 </Link>{" "}
-                — Fast product layouts equipped with secure payment gateways.
+                — payment gateway, GST invoicing, inventory and a checkout that survives mobile data.
               </li>
               <li>
                 <Link to="/seo-services-chennai" className="text-accent underline hover:text-accent/80 transition-colors">
-                  Local Search Engine Optimization (SEO)
+                  Local SEO
                 </Link>{" "}
-                — Outrank local competition for queries containing "{area.toLowerCase()}".
+                — Google Business Profile, area landing pages and reviews aimed at "{area.toLowerCase()}" searches.
               </li>
               <li>
                 <Link to="/whatsapp-automation-chennai" className="text-accent underline hover:text-accent/80 transition-colors">
-                  WhatsApp API Automation
+                  WhatsApp automation
                 </Link>{" "}
-                — Instantly capture, track, and route leads into automated conversations.
+                — enquiries answered instantly and logged instead of lost in a personal inbox.
               </li>
               <li>
                 <Link to="/services/mobile-app-development" className="text-accent underline hover:text-accent/80 transition-colors">
-                  Custom Mobile & Cloud Applications
+                  Mobile &amp; web applications
                 </Link>{" "}
-                — Scalable software systems structured for business efficiency.
+                — booking, ordering and internal tools when a website isn't enough.
               </li>
             </ul>
           ),
         },
         {
-          h2: `Why Local Businesses in ${area} Work With Us`,
-          body: (
-            <>
-              <p className="leading-relaxed text-muted-foreground">
-                We operate from nearby Chrompet, meaning we are close enough to sync face-to-face 
-                while understanding the local commercial trends across the {area} market
-                {landmark ? `, including high-activity hubs near ${landmark}` : ""}. Every single landing 
-                page or product site we build features zero technical overhead, premium performance metrics, and responsive scaling 
-                so local buyers find your company first. Review our{" "}
-                <Link to="/portfolio" className="text-accent underline hover:text-accent/80 transition-colors">portfolio of local case studies</Link>{" "}
-                or message us to lock in a consultation.
-              </p>
-              {localNote && (
-                <p className="leading-relaxed text-muted-foreground">{localNote}</p>
-              )}
-            </>
-          ),
-        },
-        {
-          h2: `Nearby Regions We Serve Around ${area}`,
+          h2: `Nearby Areas We Serve Around ${area}`,
           body: (
             <div className="flex flex-wrap gap-2.5">
-              {/* FIXED: Changed standard html anchor links to React Router Link components to preserve SPA state */}
               {adjacents.map((a) => (
                 <Link
                   key={a.slug}
@@ -186,20 +182,7 @@ const LocationPage = ({ area, slug, nearby, landmark, localNote }: Props) => {
         { label: "WhatsApp Automation", href: "/whatsapp-automation-chennai" },
         { label: "Portfolio", href: "/portfolio" },
       ]}
-      faqs={[
-        {
-          q: `How much does a website cost in ${area}, Chennai?`,
-          a: `Websites for ${area} businesses start from ₹10,000 for a basic 5-page site. Ecommerce and custom builds start from ₹25,000.`,
-        },
-        {
-          q: `How long does it take to build a website in ${area}?`,
-          a: `Most websites are delivered in 5–10 working days. Larger ecommerce or custom app projects take 3–6 weeks.`,
-        },
-        {
-          q: `Do you visit clients in ${area} in person?`,
-          a: `Yes. We're based in Chrompet and happy to meet clients in ${area} for kickoff or strategy sessions.`,
-        },
-      ]}
+      faqs={faqs && faqs.length ? faqs : fallbackFaqs}
     />
   );
 };

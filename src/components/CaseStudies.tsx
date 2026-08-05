@@ -247,7 +247,7 @@ const CaseStudies = ({ showAllByDefault = false }: { showAllByDefault?: boolean 
     <section
       id="work"
       ref={ref}
-      className="relative bg-background py-20 sm:py-28 lg:py-36 px-5 sm:px-10 lg:px-20 overflow-hidden"
+      className="relative bg-background py-12 sm:py-16 lg:py-20 px-5 sm:px-10 lg:px-20 overflow-hidden"
     >
       {/* Big watermark SP */}
       <div

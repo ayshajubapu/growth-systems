@@ -88,6 +88,12 @@ const SeoPageLayout = ({
         <meta property="og:description" content={description} />
         <meta property="og:url" content={canonicalUrl} />
         <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="SmartPixel" />
+        <meta property="og:locale" content="en_IN" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:url" content={canonicalUrl} />
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
         {faqSchema && <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>}
         {schema.map((s, i) => (

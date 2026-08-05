@@ -53,7 +53,7 @@ const FinalCTA = () => {
     <section
       id="contact"
       ref={ref}
-      className="relative bg-background py-24 sm:py-32 lg:py-40 px-5 sm:px-10 lg:px-24 border-t border-border/60 overflow-hidden"
+      className="relative bg-background py-14 sm:py-16 lg:py-24 px-5 sm:px-10 lg:px-24 border-t border-border/60 overflow-hidden"
     >
       <div className="relative max-w-[1400px] mx-auto">
         

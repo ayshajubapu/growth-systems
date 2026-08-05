@@ -67,7 +67,7 @@ const Faq = () => {
 
       <section
         id="faq"
-        className="relative bg-background border-t border-border py-20 sm:py-28 lg:py-32 px-5 sm:px-10 lg:px-24"
+        className="relative bg-background border-t border-border py-12 sm:py-16 lg:py-20 px-5 sm:px-10 lg:px-24"
         aria-labelledby="faq-section-title"
       >
         <div className="max-w-[1100px] mx-auto">
