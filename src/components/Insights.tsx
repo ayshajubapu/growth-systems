@@ -89,7 +89,7 @@ const Insights = () => {
     <section
       id="insights"
       ref={ref}
-      className="bg-background py-16 sm:py-24 lg:py-32 px-6 sm:px-10 lg:px-24"
+      className="bg-background py-12 sm:py-16 lg:py-20 px-6 sm:px-10 lg:px-24"
       aria-labelledby="insights-heading"
     >
       <div className="max-w-[1500px] mx-auto">

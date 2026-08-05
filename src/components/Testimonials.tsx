@@ -114,7 +114,7 @@ const Testimonials = () => {
     <section
       id="testimonials"
       ref={ref}
-      className="relative bg-surface border-y border-border py-20 sm:py-28 lg:py-32 px-5 sm:px-10 lg:px-24"
+      className="relative bg-surface border-y border-border py-12 sm:py-16 lg:py-20 px-5 sm:px-10 lg:px-24"
     >
       <div className="t-reveal max-w-3xl mx-auto text-center mb-14 sm:mb-20">
         <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full glass text-xs uppercase tracking-[0.3em] text-foreground mb-6">

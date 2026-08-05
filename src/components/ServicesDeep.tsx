@@ -100,7 +100,7 @@ const ServicesDeep = () => {
     <section
       id="systems"
       ref={ref}
-      className="bg-background py-20 sm:py-32 lg:py-40 px-5 sm:px-10 lg:px-24"
+      className="bg-background py-12 sm:py-16 lg:py-20 px-5 sm:px-10 lg:px-24"
     >
       <div className="max-w-[1500px] mx-auto">
         {/* Header Block Section */}

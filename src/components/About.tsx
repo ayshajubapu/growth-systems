@@ -29,7 +29,7 @@ const About = () => {
     <section
       id="studio"
       ref={ref}
-      className="relative bg-surface py-24 sm:py-32 lg:py-40 px-5 sm:px-10 lg:px-24 border-y border-border overflow-hidden"
+      className="relative bg-surface py-14 sm:py-16 lg:py-24 px-5 sm:px-10 lg:px-24 border-y border-border overflow-hidden"
     >
       {/* Glow background removed */}
 
