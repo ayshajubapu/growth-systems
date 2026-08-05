@@ -20,7 +20,7 @@ const nearbyDefault = [
   { name: "Chitlapakkam", slug: "chitlapakkam" },
 ];
 
-const LocationPage = ({ area, slug, nearby, landmark }: Props) => {
+const LocationPage = ({ area, slug, nearby, landmark, localNote }: Props) => {
   const url = `https://smartpixel.in/web-design-${slug}`;
   const adjacents = (nearby ?? nearbyDefault).filter((n) => n.slug !== slug).slice(0, 4);
 
