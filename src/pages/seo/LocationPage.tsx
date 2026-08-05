@@ -82,10 +82,10 @@ const LocationPage = ({ area, slug, nearby, landmark, localNote }: Props) => {
 
   return (
     <SeoPageLayout
-      title={`Website Development Company in ${area}, Chennai | SmartPixel`}
+      title={`Web Design Company in ${area}, Chennai | SmartPixel`}
       description={`Looking for an expert website development company in ${area}, Chennai? SmartPixel delivers high-performance e-commerce setups, SEO tuning, and web designs for local businesses.`}
       canonical={url}
-      h1={`Website Development in ${area}, Chennai`}
+      h1={`Web Design Company in ${area}, Chennai`}
       breadcrumbs={[
         { name: "Home", url: "https://smartpixel.in/" },
         { name: `Web Design ${area}`, url },
