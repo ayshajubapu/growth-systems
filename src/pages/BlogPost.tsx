@@ -630,6 +630,7 @@ function BlogDirectory() {
         </div>
 
         {/* Grid */}
+        <h2 className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-foreground">Latest articles</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {filtered.map((item) => (
             <article
