@@ -169,7 +169,7 @@ const Footer = () => {
         {JSON.stringify(masterGraphSchema)}
       </script>
 
-      <div className="relative max-w-[1500px] mx-auto px-5 sm:px-10 lg:px-24 pt-20 sm:pt-28 lg:pt-36 pb-10">
+      <div className="relative w-full px-5 sm:px-10 lg:px-24 pt-20 sm:pt-28 lg:pt-36 pb-10">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
 
           {/* ── LEFT — CTA + contact cards ── */}

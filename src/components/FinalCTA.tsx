@@ -55,7 +55,7 @@ const FinalCTA = () => {
       ref={ref}
       className="relative bg-background py-14 sm:py-16 lg:py-24 px-5 sm:px-10 lg:px-24 border-t border-border/60 overflow-hidden"
     >
-      <div className="relative max-w-[1400px] mx-auto">
+      <div className="relative w-full">
         
         {/* Heading Stack */}
         <div className="text-center mb-14 sm:mb-20">

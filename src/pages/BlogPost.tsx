@@ -592,7 +592,7 @@ function BlogDirectory() {
       <Nav />
       <div className="pt-24" />
 
-      <section className="px-5 sm:px-10 lg:px-24 py-16 max-w-[1200px] mx-auto space-y-10">
+      <section className="px-5 sm:px-10 lg:px-24 py-16 w-full space-y-10">
         <div className="space-y-4 max-w-2xl border-b border-border/60 pb-8">
           <span className="text-xs uppercase tracking-widest text-accent font-bold bg-accent/10 px-3 py-1 rounded-full inline-block">
             SmartPixel Insights
@@ -719,7 +719,7 @@ export default function BlogPost() {
       <Nav />
       <div className="pt-24" />
 
-      <div className="px-5 sm:px-10 lg:px-24 py-12 max-w-[1200px] mx-auto flex gap-10">
+      <div className="px-5 sm:px-10 lg:px-24 py-12 w-full flex gap-10">
         <TableOfContents headings={headings} />
 
         <article className="min-w-0 flex-1 max-w-[780px]">

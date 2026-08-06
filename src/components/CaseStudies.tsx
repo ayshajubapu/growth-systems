@@ -257,7 +257,7 @@ const CaseStudies = ({ showAllByDefault = false }: { showAllByDefault?: boolean 
         SP
       </div>
 
-      <div className="max-w-[1500px] mx-auto relative">
+      <div className="w-full relative">
         {/* Header */}
         <div className="cs-head mb-12 lg:mb-16">
           <p className="eyebrow mb-5">— Our Work</p>

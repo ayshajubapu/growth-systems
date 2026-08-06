@@ -125,7 +125,7 @@ const Backlinks = () => {
       <Nav />
       <div className="pt-24" />
 
-      <article className="px-5 sm:px-10 lg:px-20 py-16 max-w-[1200px] mx-auto">
+      <article className="px-5 sm:px-10 lg:px-20 py-16 w-full">
         <span className="text-xs uppercase tracking-widest text-accent font-medium mb-3 block">
           — Internal SEO Workspace
         </span>

@@ -70,7 +70,7 @@ const Faq = () => {
         className="relative bg-background border-t border-border py-12 sm:py-16 lg:py-20 px-5 sm:px-10 lg:px-24"
         aria-labelledby="faq-section-title"
       >
-        <div className="max-w-[1100px] mx-auto">
+        <div className="w-full">
           <div className="text-center mb-12 sm:mb-16">
             <p className="eyebrow mb-5 text-xs uppercase tracking-widest text-muted-foreground font-semibold">
               — Questions, Answered
