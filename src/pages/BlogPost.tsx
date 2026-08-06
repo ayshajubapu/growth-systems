@@ -15,17 +15,6 @@ const AUTHOR_TITLE = "Founder, SmartPixel — 4+ years shipping SEO & web system
 // ─────────────────────────────────────────────────────────────────────────
 // Shared JSON-LD
 // ─────────────────────────────────────────────────────────────────────────
-const organizationSchema = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "SmartPixel",
-  url: ORIGIN,
-  logo: `${ORIGIN}/logo.png`,
-  contactPoint: [
-    { "@type": "ContactPoint", telephone: "+91-9886069488", contactType: "customer service", areaServed: "IN", availableLanguage: ["en", "ta"] },
-  ],
-};
-
 function buildArticleSchema(post: Post) {
   const canonical = `${ORIGIN}/blog/${post.slug}`;
   return {
