@@ -69,9 +69,9 @@ function buildBreadcrumbSchema(post: Post) {
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: `${ORIGIN}/` },
       { "@type": "ListItem", position: 2, name: "Blog", item: `${ORIGIN}/blog` },
-      { "@type": "ListItem", position: 3, name: post.category, item: `${ORIGIN}/blog?category=${encodeURIComponent(post.category)}` },
-      { "@type": "ListItem", position: 4, name: post.title, item: `${ORIGIN}/blog/${post.slug}` },
+      { "@type": "ListItem", position: 3, name: post.title, item: `${ORIGIN}/blog/${post.slug}` },
     ],
+
   };
 }
 
