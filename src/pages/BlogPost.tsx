@@ -586,7 +586,6 @@ function BlogDirectory() {
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json">{JSON.stringify(blogSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(organizationSchema)}</script>
       </Helmet>
 
       <Nav />
@@ -712,7 +711,6 @@ export default function BlogPost() {
         <script type="application/ld+json">{JSON.stringify(buildArticleSchema(post))}</script>
         <script type="application/ld+json">{JSON.stringify(buildBreadcrumbSchema(post))}</script>
         {faqSchema && <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>}
-        <script type="application/ld+json">{JSON.stringify(organizationSchema)}</script>
       </Helmet>
 
       <ReadingProgress />
