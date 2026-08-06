@@ -23,14 +23,14 @@ type Props = {
   ctaText?: string;
 };
 
-// Normalize canonical URLs: force https + www.smartpixel.in host, strip trailing
-// slash from any non-root path so crawlers don't 301/302 between variants.
+// Normalize canonical URLs: force https + the non-www smartpixel.in host, strip
+// trailing slash from any non-root path so crawlers don't 301/302 between variants.
 const normalizeCanonical = (input: string): string => {
   try {
     const trimmedInput = input.trim();
     const u = new URL(trimmedInput, "https://smartpixel.in");
     u.protocol = "https:";
-    u.host = "www.smartpixel.in";
+    u.host = "smartpixel.in";
     u.hash = "";
     let path = u.pathname.replace(/\/+$/, "");
     if (path === "") path = "/";
@@ -39,6 +39,7 @@ const normalizeCanonical = (input: string): string => {
     return input;
   }
 };
+
 
 const SeoPageLayout = ({
   title,

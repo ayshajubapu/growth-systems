@@ -15,11 +15,12 @@ const Index = () => {
   return (
     <main className="bg-background text-foreground">
       <Helmet>
-        <title>SmartPixel — Web, App & E-commerce Development Agency in Chennai</title>
+        <title>Web Design & App Development Agency Chennai | SmartPixel</title>
         <meta
           name="description"
-          content="SmartPixel builds conversion-focused websites, mobile apps, and e-commerce stores. Web development, app development, and digital marketing from Chrompet, Chennai. Call +91 98860 69488."
+          content="SmartPixel builds conversion-focused websites, apps and e-commerce stores for Chennai businesses. Based in Chrompet. Call +91 98860 69488."
         />
+
         <link rel="canonical" href="https://smartpixel.in/" />
         <meta property="og:title" content="SmartPixel — Conversion-focused Websites, Apps & Growth Systems" />
         <meta
