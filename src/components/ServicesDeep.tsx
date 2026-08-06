@@ -102,7 +102,7 @@ const ServicesDeep = () => {
       ref={ref}
       className="bg-background py-12 sm:py-16 lg:py-20 px-5 sm:px-10 lg:px-24"
     >
-      <div className="max-w-[1500px] mx-auto">
+      <div className="w-full">
         {/* Header Block Section */}
         <div className="flex items-end justify-between mb-12 sm:mb-20 flex-wrap gap-6 sm:gap-8">
           <div>

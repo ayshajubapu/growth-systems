@@ -33,7 +33,7 @@ const Nav = () => {
           scrolled || open ? "py-3 glass-nav" : "py-4 md:py-6"
         }`}
       >
-        <div className="max-w-[1600px] mx-auto px-5 sm:px-8 lg:px-14 flex items-center justify-between gap-4">
+        <div className="w-full px-5 sm:px-8 lg:px-14 flex items-center justify-between gap-4">
       <Link
   to="/"
   onClick={() => setOpen(false)}

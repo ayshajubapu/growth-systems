@@ -24,7 +24,7 @@ const Services = () => (
     <div className="pt-24" />
 
     {/* Unique overview intro — differentiates this hub page from individual service pages */}
-    <header className="px-5 sm:px-10 lg:px-20 pt-12 max-w-[1200px] mx-auto">
+    <header className="px-5 sm:px-10 lg:px-20 pt-12 w-full">
       <WeightedHeading
         text="SmartPixel Services — Web Design, App Development, E-commerce & SEO in Chennai"
         className="text-4xl sm:text-5xl lg:text-6xl leading-tight"

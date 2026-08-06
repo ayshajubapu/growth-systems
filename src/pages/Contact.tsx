@@ -85,7 +85,7 @@ const Contact = () => {
       <Nav />
       <div className="pt-24" />
 
-      <section className="px-5 sm:px-10 lg:px-20 py-16 max-w-[1200px] mx-auto">
+      <section className="px-5 sm:px-10 lg:px-20 py-16 w-full">
         <WeightedHeading
           text="Talk to a website expert in Chennai"
           className="text-4xl sm:text-5xl lg:text-6xl leading-tight mb-4"

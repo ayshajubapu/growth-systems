@@ -105,7 +105,7 @@ const SeoPageLayout = ({
       <Nav />
       <div className="pt-24" />
 
-      <article className="px-5 sm:px-10 lg:px-20 py-16 max-w-[1100px] mx-auto">
+      <article className="px-5 sm:px-10 lg:px-20 py-16 w-full">
         {/* Breadcrumbs */}
         <nav aria-label="Breadcrumb" className="text-xs uppercase tracking-[0.25em] text-muted-foreground mb-8 select-none">
           {breadcrumbs.map((b, i) => {

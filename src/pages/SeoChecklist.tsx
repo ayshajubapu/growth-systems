@@ -224,7 +224,7 @@ const SeoChecklist = () => {
       <Nav />
       <div className="pt-24" />
 
-      <article className="px-5 sm:px-10 lg:px-20 py-16 max-w-[1200px] mx-auto">
+      <article className="px-5 sm:px-10 lg:px-20 py-16 w-full">
         <p className="eyebrow mb-5">— SEO Audit</p>
         <div className="flex items-start justify-between gap-6 flex-wrap mb-6">
           <WeightedHeading text="On-page SEO Checklist" className="text-4xl sm:text-5xl lg:text-6xl leading-tight" />

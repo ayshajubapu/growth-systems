@@ -92,7 +92,7 @@ const Insights = () => {
       className="bg-background py-12 sm:py-16 lg:py-20 px-6 sm:px-10 lg:px-24"
       aria-labelledby="insights-heading"
     >
-      <div className="max-w-[1500px] mx-auto">
+      <div className="w-full">
         {/* Header Area */}
         <div className="flex items-end justify-between mb-12 sm:mb-16 flex-wrap gap-6 sm:gap-8">
           <div>

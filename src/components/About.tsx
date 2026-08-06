@@ -33,7 +33,7 @@ const About = () => {
     >
       {/* Glow background removed */}
 
-      <div className="relative max-w-[1500px] mx-auto grid lg:grid-cols-12 gap-14 lg:gap-20 items-start">
+      <div className="relative w-full grid lg:grid-cols-12 gap-14 lg:gap-20 items-start">
         {/* Left */}
         <div className="lg:col-span-4">
           <p className="about-line eyebrow mb-4 sm:mb-6">

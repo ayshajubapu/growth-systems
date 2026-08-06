@@ -130,7 +130,7 @@ const Testimonials = () => {
         </p>
       </div>
 
-      <div className="grid md:grid-cols-3 gap-5 sm:gap-6 max-w-[1200px] mx-auto">
+      <div className="grid md:grid-cols-3 gap-5 sm:gap-6 w-full">
         {testimonials.map((t) => {
           const isCTA = t.initials === "+";
           const Wrapper = (t.link ? "a" : "div") as "a" | "div";

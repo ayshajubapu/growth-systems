@@ -15,17 +15,6 @@ const AUTHOR_TITLE = "Founder, SmartPixel — 4+ years shipping SEO & web system
 // ─────────────────────────────────────────────────────────────────────────
 // Shared JSON-LD
 // ─────────────────────────────────────────────────────────────────────────
-const organizationSchema = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "SmartPixel",
-  url: ORIGIN,
-  logo: `${ORIGIN}/logo.png`,
-  contactPoint: [
-    { "@type": "ContactPoint", telephone: "+91-9886069488", contactType: "customer service", areaServed: "IN", availableLanguage: ["en", "ta"] },
-  ],
-};
-
 function buildArticleSchema(post: Post) {
   const canonical = `${ORIGIN}/blog/${post.slug}`;
   return {
@@ -69,9 +58,9 @@ function buildBreadcrumbSchema(post: Post) {
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: `${ORIGIN}/` },
       { "@type": "ListItem", position: 2, name: "Blog", item: `${ORIGIN}/blog` },
-      { "@type": "ListItem", position: 3, name: post.category, item: `${ORIGIN}/blog?category=${encodeURIComponent(post.category)}` },
-      { "@type": "ListItem", position: 4, name: post.title, item: `${ORIGIN}/blog/${post.slug}` },
+      { "@type": "ListItem", position: 3, name: post.title, item: `${ORIGIN}/blog/${post.slug}` },
     ],
+
   };
 }
 
@@ -586,13 +575,12 @@ function BlogDirectory() {
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json">{JSON.stringify(blogSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(organizationSchema)}</script>
       </Helmet>
 
       <Nav />
       <div className="pt-24" />
 
-      <section className="px-5 sm:px-10 lg:px-24 py-16 max-w-[1200px] mx-auto space-y-10">
+      <section className="px-5 sm:px-10 lg:px-24 py-16 w-full space-y-10">
         <div className="space-y-4 max-w-2xl border-b border-border/60 pb-8">
           <span className="text-xs uppercase tracking-widest text-accent font-bold bg-accent/10 px-3 py-1 rounded-full inline-block">
             SmartPixel Insights
@@ -712,17 +700,16 @@ export default function BlogPost() {
         <script type="application/ld+json">{JSON.stringify(buildArticleSchema(post))}</script>
         <script type="application/ld+json">{JSON.stringify(buildBreadcrumbSchema(post))}</script>
         {faqSchema && <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>}
-        <script type="application/ld+json">{JSON.stringify(organizationSchema)}</script>
       </Helmet>
 
       <ReadingProgress />
       <Nav />
       <div className="pt-24" />
 
-      <div className="px-5 sm:px-10 lg:px-24 py-12 max-w-[1200px] mx-auto flex gap-10">
+      <div className="px-5 sm:px-10 lg:px-24 py-12 w-full flex gap-10">
         <TableOfContents headings={headings} />
 
-        <article className="min-w-0 flex-1 max-w-[780px]">
+        <article className="min-w-0 flex-1 max-w-none">
           <Breadcrumbs post={post} />
 
           <header className="space-y-4 mb-10 border-b border-border pb-8">

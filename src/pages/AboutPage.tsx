@@ -49,7 +49,7 @@ const AboutPage = () => (
 
     <Nav />
     <div className="pt-24" />
-    <header className="px-5 sm:px-10 lg:px-20 pt-12 max-w-[1200px] mx-auto">
+    <header className="px-5 sm:px-10 lg:px-20 pt-12 w-full">
       <WeightedHeading text="About SmartPixel — Chennai's Conversion-focused Web & App Studio" className="text-4xl sm:text-5xl lg:text-6xl leading-tight" />
     </header>
     <About />
