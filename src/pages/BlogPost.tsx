@@ -722,7 +722,7 @@ export default function BlogPost() {
       <div className="px-5 sm:px-10 lg:px-24 py-12 w-full flex gap-10">
         <TableOfContents headings={headings} />
 
-        <article className="min-w-0 flex-1 max-w-[780px]">
+        <article className="min-w-0 flex-1 max-w-none">
           <Breadcrumbs post={post} />
 
           <header className="space-y-4 mb-10 border-b border-border pb-8">
