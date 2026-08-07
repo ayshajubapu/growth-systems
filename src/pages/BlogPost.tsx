@@ -564,7 +564,7 @@ function BlogDirectory() {
   };
 
   return (
-    <main className="bg-background text-foreground min-h-screen selection:bg-accent selection:text-white antialiased">
+    <main className="bg-background text-foreground min-h-screen selection:bg-gold-bright/30 selection:text-foreground antialiased">
       <Helmet>
         <title>Blog — SEO, Web, WhatsApp & AI Insights for Indian SMBs | SmartPixel</title>
         <meta name="description" content="Practical, consultant-grade playbooks on SEO, web design, WhatsApp automation and AI adoption — written for Indian small businesses." />
@@ -682,7 +682,7 @@ export default function BlogPost() {
   const faqSchema = buildFaqSchema(post);
 
   return (
-    <main className="bg-background text-foreground min-h-screen selection:bg-accent selection:text-white antialiased">
+    <main className="bg-background text-foreground min-h-screen selection:bg-gold-bright/30 selection:text-foreground antialiased">
       <Helmet>
         <title>{`${post.title} | SmartPixel`}</title>
         <meta name="description" content={post.excerpt} />

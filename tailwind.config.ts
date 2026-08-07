@@ -16,13 +16,18 @@ export default {
         sans: ['Inter', 'Satoshi', 'system-ui', 'sans-serif'],
       },
       colors: {
-        border: "rgb(255 255 255 / 0.08)",
+        border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        body: "hsl(var(--body))",
         surface: "hsl(var(--surface))",
-        gold: "hsl(var(--gold))",
+        gold: {
+          DEFAULT: "hsl(var(--gold))",
+          bright: "hsl(var(--gold-bright))",
+        },
+
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
