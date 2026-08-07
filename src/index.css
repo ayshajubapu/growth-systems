@@ -47,11 +47,11 @@
 
 @layer base {
   * {
-    border-color: rgb(12 15 20 / 0.08);
+    border-color: hsl(var(--border));
   }
   html, body, #root {
     background-color: hsl(var(--background));
-    color: hsl(var(--foreground));
+    color: hsl(var(--body));
     font-family: 'Inter', 'Satoshi', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
   }
@@ -59,8 +59,11 @@
     overflow-x: hidden;
     font-family: 'Inter', 'Satoshi', system-ui, sans-serif;
   }
+  h1, h2, h3, h4, h5, h6 {
+    color: hsl(var(--foreground));
+  }
   ::selection {
-    background: hsl(var(--accent) / 0.3);
+    background: hsl(var(--gold-bright) / 0.3);
     color: hsl(var(--foreground));
   }
 }
@@ -72,7 +75,7 @@
     font-weight: 400;
   }
   .hairline {
-    background: rgb(255 255 255 / 0.08);
+    background: hsl(var(--border));
   }
   .text-balance { text-wrap: balance; }
 
@@ -91,13 +94,14 @@
   }
   .btn-ghost {
     @apply inline-flex items-center gap-3 px-7 py-4 text-sm uppercase tracking-[0.2em] transition-all duration-500;
-    border: 1px solid rgb(255 255 255 / 0.15);
+    border: 1px solid hsl(var(--border));
     color: hsl(var(--foreground));
   }
   .btn-ghost:hover {
     border-color: hsl(var(--accent));
     color: hsl(var(--accent));
   }
+
 
   .reveal-mask {
     overflow: hidden;
