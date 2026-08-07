@@ -121,35 +121,36 @@
     letter-spacing: -0.04em;
   }
 
-  /* Glassmorphism — premium frosted layer */
+  /* Frosted layers — tuned for light editorial background */
   .glass {
-    background: linear-gradient(135deg, hsl(0 0% 100% / 0.06), hsl(0 0% 100% / 0.02));
+    background: hsl(var(--surface) / 0.7);
     backdrop-filter: blur(18px) saturate(140%);
     -webkit-backdrop-filter: blur(18px) saturate(140%);
-    border: 1px solid hsl(0 0% 100% / 0.08);
-    box-shadow: inset 0 1px 0 hsl(0 0% 100% / 0.06), 0 20px 50px -20px hsl(0 0% 0% / 0.6);
+    border: 1px solid hsl(var(--border));
+    box-shadow: 0 12px 30px -20px hsl(0 0% 7% / 0.18);
   }
   .glass-strong {
-    background: linear-gradient(135deg, hsl(0 0% 100% / 0.10), hsl(0 0% 100% / 0.04));
+    background: hsl(0 0% 100% / 0.85);
     backdrop-filter: blur(28px) saturate(160%);
     -webkit-backdrop-filter: blur(28px) saturate(160%);
-    border: 1px solid hsl(0 0% 100% / 0.12);
-    box-shadow: inset 0 1px 0 hsl(0 0% 100% / 0.08), 0 30px 70px -30px hsl(0 0% 0% / 0.7);
+    border: 1px solid hsl(var(--border));
+    box-shadow: 0 20px 50px -25px hsl(0 0% 7% / 0.22);
   }
   .glass-gold {
-    background: linear-gradient(135deg, hsl(var(--accent) / 0.14), hsl(var(--accent) / 0.04));
+    background: hsl(var(--gold-bright) / 0.10);
     backdrop-filter: blur(20px) saturate(150%);
     -webkit-backdrop-filter: blur(20px) saturate(150%);
-    border: 1px solid hsl(var(--accent) / 0.25);
-    box-shadow: 0 20px 60px -20px hsl(var(--accent) / 0.25);
+    border: 1px solid hsl(var(--accent) / 0.35);
+    box-shadow: 0 16px 40px -24px hsl(var(--accent) / 0.35);
   }
   .glass-nav {
-    background: hsl(var(--background) / 0.55);
+    background: hsl(var(--background) / 0.8);
     backdrop-filter: blur(22px) saturate(160%);
     -webkit-backdrop-filter: blur(22px) saturate(160%);
-    border-bottom: 1px solid hsl(0 0% 100% / 0.08);
+    border-bottom: 1px solid hsl(var(--border));
   }
 }
+
 
 @layer utilities {
   @keyframes marquee {
