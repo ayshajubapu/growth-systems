@@ -117,7 +117,7 @@ const ServicePage = (p: ServiceProps) => {
           h2: `Areas in Chennai we serve`,
           body: (
             <p className="text-muted-foreground/90 leading-relaxed">
-              We deliver this service across Chennai. Mobile-speed-critical builds in{" "}
+              We deliver this service across World. Mobile-speed-critical builds in{" "}
               <Link to={localizedLinks.pallavaram} className="text-accent underline font-medium hover:text-accent/80 transition-colors">Pallavaram</Link>,{" "}
               long-tail local search for retail and clinics in{" "}
               <Link to={localizedLinks.tambaram} className="text-accent underline font-medium hover:text-accent/80 transition-colors">Tambaram</Link>,{" "}

@@ -2,7 +2,6 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Orb from "@/components/Orb";
-import TextLoop from "@/components/TextLoop";
 import { Users, Star, TrendingUp, Trophy, MessageSquare } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 
@@ -198,28 +197,23 @@ const HorizontalScroll = () => {
         </div>
       </section>
 
-      {/* ── TEXT LOOP MARQUEE ── */}
-      <div className="relative overflow-hidden border-y border-border bg-surface py-6 sm:py-8">
-        <p className="text-center text-[9px] uppercase tracking-[0.4em] text-muted-foreground/60 mb-1">
-          Trusted by businesses across Chennai
+      {/* ── MARQUEE ── */}
+      <div className="relative overflow-hidden border-y border-border bg-background py-5">
+        <p className="text-center text-[9px] uppercase tracking-[0.4em] text-muted-foreground/60 mb-3">
+          Trusted by businesses across World
         </p>
-        <TextLoop
-          text={clients.join(" ✦ ")}
-          shape="wave"
-          speed={90}
-          direction="forward"
-          separator="✦"
-          curviness={40}
-          fontSize={40}
-          fontWeight={600}
-          letterSpacing={2}
-          uppercase
-          color="hsl(var(--accent))"
-          pauseOnHover
-        />
+        <div className="flex whitespace-nowrap animate-marquee gap-12 text-muted-foreground mt-1">
+          {Array.from({ length: 2 }).map((_, k) => (
+            <div key={k} className="flex items-center gap-12 shrink-0">
+              {clients.map((w) => (
+                <span key={w} className="font-display text-2xl sm:text-3xl italic">
+                  {w} <span className="text-accent not-italic ml-12">·</span>
+                </span>
+              ))}
+            </div>
+          ))}
+        </div>
       </div>
-
-
     </section>
   );
 };

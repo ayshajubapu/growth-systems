@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, Phone } from "lucide-react";
-import FallingText from "@/components/FallingText";
+
 
 const links = [
   { href: "/", label: "Home" },
@@ -120,21 +120,7 @@ const Nav = () => {
           </Link>
 
           {/* Playful physics text — drops in when the menu opens */}
-          {open && (
-            <div className="mt-8 h-40 w-full">
-              <FallingText
-                text="Websites Ecommerce SEO Apps WhatsApp Automation Built in Chennai"
-                highlightWords={["Websites", "Ecommerce", "SEO", "Apps", "Chennai"]}
-                highlightClass="text-accent font-semibold"
-                trigger="auto"
-                backgroundColor="transparent"
-                wireframes={false}
-                gravity={0.56}
-                fontSize="1.35rem"
-                mouseConstraintStiffness={0.9}
-              />
-            </div>
-          )}
+       
         </nav>
 
       </div>
