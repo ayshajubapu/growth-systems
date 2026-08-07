@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Orb from "@/components/Orb";
-import CurvedLoop from "@/components/CurvedLoop";
+import TextLoop from "@/components/TextLoop";
 import { Users, Star, TrendingUp, Trophy, MessageSquare } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 
@@ -198,20 +198,27 @@ const HorizontalScroll = () => {
         </div>
       </section>
 
-      {/* ── CURVED MARQUEE ── */}
-      <div className="relative overflow-hidden border-y border-border bg-surface py-8 sm:py-10">
+      {/* ── TEXT LOOP MARQUEE ── */}
+      <div className="relative overflow-hidden border-y border-border bg-surface py-6 sm:py-8">
         <p className="text-center text-[9px] uppercase tracking-[0.4em] text-muted-foreground/60 mb-1">
           Trusted by businesses across Chennai
         </p>
-        <CurvedLoop
-          marqueeText={clients.join(" ✦ ") + " ✦"}
-          speed={1.5}
-          curveAmount={120}
-          direction="left"
-          interactive
-          className="fill-accent font-display italic text-[3.2rem] sm:text-[4.5rem] tracking-normal normal-case"
+        <TextLoop
+          text={clients.join(" ✦ ")}
+          shape="wave"
+          speed={90}
+          direction="forward"
+          separator="✦"
+          curviness={40}
+          fontSize={40}
+          fontWeight={600}
+          letterSpacing={2}
+          uppercase
+          color="hsl(var(--accent))"
+          pauseOnHover
         />
       </div>
+
 
     </section>
   );
