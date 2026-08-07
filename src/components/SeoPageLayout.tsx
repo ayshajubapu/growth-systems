@@ -80,7 +80,7 @@ const SeoPageLayout = ({
     : null;
 
   return (
-    <main className="bg-background text-foreground min-h-screen selection:bg-accent selection:text-white antialiased">
+    <main className="bg-background text-foreground min-h-screen selection:bg-gold-bright/30 selection:text-foreground antialiased">
       <Helmet>
         <title>{title}</title>
         <meta name="description" content={description} />
