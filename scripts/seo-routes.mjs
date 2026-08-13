@@ -2,10 +2,43 @@
 // unique <title>/<meta description>/<link rel=canonical>/<og:*> into static HTML
 // for every route at build time. Update this when you add/rename a route.
 
+import { readFileSync } from "node:fs";
+import { dirname, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
+
 export const SITE = "https://smartpixel.in";
+
+// Blog metadata lives in src/data/posts.ts (TypeScript, so it can't be imported
+// from a plain node script). We read the slug/title/excerpt triples out of the
+// source instead of maintaining a second hand-written list that goes stale.
+function blogRoutes() {
+  const file = resolve(dirname(fileURLToPath(import.meta.url)), "..", "src", "data", "posts.ts");
+  const src = readFileSync(file, "utf8");
+  const re = /slug:\s*"([^"]+)",[\s\S]{0,200}?title:\s*"((?:[^"\\]|\\.)*)",[\s\S]{0,200}?excerpt:\s*\n?\s*"((?:[^"\\]|\\.)*)"/g;
+  const out = [];
+  const seen = new Set();
+  let m;
+  while ((m = re.exec(src))) {
+    const [, slug, rawTitle, rawExcerpt] = m;
+    if (seen.has(slug)) continue;
+    seen.add(slug);
+    const unescape = (s) => s.replace(/\\"/g, '"').replace(/\\\\/g, "\\");
+    const title = unescape(rawTitle);
+    const excerpt = unescape(rawExcerpt).replace(/\s+/g, " ").trim();
+    out.push({
+      path: `/blog/${slug}`,
+      title: `${title} | SmartPixel`.slice(0, 90),
+      description: excerpt.length > 158 ? `${excerpt.slice(0, 155).trimEnd()}…` : excerpt,
+      ogType: "article",
+    });
+  }
+  if (!out.length) throw new Error("[seo-routes] no blog posts parsed from src/data/posts.ts");
+  return out;
+}
 
 /** @type {Array<{path:string,title:string,description:string,ogType?:string}>} */
 export const routes = [
+
   {
     path: "/",
     title: "Web Design & Development Agency in Chennai | SmartPixel",
