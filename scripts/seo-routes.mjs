@@ -36,7 +36,28 @@ function blogRoutes() {
   return out;
 }
 
-/** @type {Array<{path:string,title:string,description:string,ogType?:string}>} */
+// Case studies live in src/data/caseStudies.ts — parsed the same way as posts
+// so new studies are prerendered automatically.
+function caseStudyRoutes() {
+  const file = resolve(dirname(fileURLToPath(import.meta.url)), "..", "src", "data", "caseStudies.ts");
+  const src = readFileSync(file, "utf8");
+  const re = /slug:\s*"([^"]+)",[\s\S]{0,400}?metaTitle:\s*\n?\s*"((?:[^"\\]|\\.)*)",[\s\S]{0,400}?metaDescription:\s*\n?\s*"((?:[^"\\]|\\.)*)"/g;
+  const out = [];
+  let m;
+  while ((m = re.exec(src))) {
+    const unescape = (x) => x.replace(/\\"/g, '"').replace(/\\\\/g, "\\");
+    out.push({
+      path: `/case-studies/${m[1]}`,
+      title: unescape(m[2]),
+      description: unescape(m[3]).replace(/\s+/g, " ").trim(),
+      ogType: "article",
+    });
+  }
+  if (!out.length) throw new Error("[seo-routes] no case studies parsed from src/data/caseStudies.ts");
+  return out;
+}
+
+/** @type {Array<{path:string,title:string,description:string,ogType?:string,robots?:string}>} */
 export const routes = [
 
   {
@@ -97,6 +118,14 @@ export const routes = [
     description: "Automated on-page SEO auditor — verifies robots, sitemap and canonicals per route.",
     robots: "noindex,follow",
   },
+
+  {
+    path: "/case-studies",
+    title: "Case Studies — Real Client Projects | SmartPixel",
+    description:
+      "Detailed write-ups of websites SmartPixel has designed, built and optimised — the brief, the architecture, the SEO work and what actually changed.",
+  },
+  ...caseStudyRoutes(),
 
   // ── Service pages ──
   {
