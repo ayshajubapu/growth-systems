@@ -220,9 +220,9 @@ export const WebDesignChennai = () => (
     slug="services/web-design-chennai"
     crumbName="Web Design Chennai"
     serviceName="Web Design"
-    title="Web Design Company in Chennai | High-Converting Websites | SmartPixel"
-    description="Web design company in Chennai building modern, mobile-first websites that convert. Fast delivery, SEO-ready, lead-focused. Based in Chrompet."
-    h1="Web Design Company in Chennai"
+    title="Web Design & Development Company in Chennai | SmartPixel"
+    description="Web design and development company in Chennai building mobile-first business, custom and e-commerce websites — SEO-ready at launch. Based in Chrompet."
+    h1="Web Design & Development Company in Chennai"
     intro={
       <>
         We design websites for Chennai businesses that don't just look beautiful — they generate enquiries, calls and bookings. Mobile-first, SEO-ready, and built to scale.
@@ -253,6 +253,74 @@ export const WebDesignChennai = () => (
       { q: "How much does web design cost in Chennai?", a: "Custom websites start from ₹25,000 for a 5-page site. Larger projects from ₹60,000." },
       { q: "How long will it take?", a: "Most websites launch in 3–4 weeks." },
       { q: "Do you work with WordPress?", a: "Yes — WordPress, Webflow, Shopify or custom React, depending on what fits best." },
+    ]}
+    extraSections={[
+      {
+        h2: "Website services we offer",
+        body: (
+          <Bullets
+            items={[
+              ["Business websites", <>Five to fifteen page sites for service businesses — clear positioning, credibility content and a single obvious enquiry path.</>],
+              ["Custom web development", <>Anything that isn't a template: booking flows, calculators, dashboards and portals. See <A to="/services/web-app-development">web app development</A>.</>],
+              ["E-commerce websites", <>Product catalogues, payments and order flows — covered in detail on our <A to="/ecommerce-website-chennai">ecommerce page</A>.</>],
+              ["React and modern web builds", <>Fast, component-based front ends with per-route metadata so pages can actually be indexed.</>],
+              ["Website redesign", <>Rebuilding an existing site without losing the URLs and rankings you already have — redirects mapped before launch.</>],
+              ["SEO-ready structure", <>Clean URLs, heading hierarchy, metadata, sitemap and structured data set up at build time, not bolted on later. Pair with <A to="/seo-services-chennai">ongoing search work</A>.</>],
+            ]}
+          />
+        ),
+      },
+      {
+        h2: "How a build runs",
+        body: (
+          <ol className="list-decimal pl-5 space-y-2 text-muted-foreground/90">
+            <li>Discovery — what the business sells, who buys it, and what the site has to make happen.</li>
+            <li>Planning — sitemap, page-by-page intent and the content each page needs.</li>
+            <li>UI/UX — layout and design, reviewed on mobile first.</li>
+            <li>Development — build in React with reusable components.</li>
+            <li>SEO setup — metadata, headings, schema, sitemap, robots and redirects.</li>
+            <li>Testing — devices, browsers, forms, speed and accessibility basics.</li>
+            <li>Deployment — launch, analytics and Search Console connected.</li>
+            <li>Maintenance — updates, fixes and iteration after launch.</li>
+          </ol>
+        ),
+      },
+      {
+        h2: "What affects the cost of a website",
+        body: (
+          <>
+            <p className="leading-relaxed">Rather than a single headline price, cost tracks scope:</p>
+            <ul className="list-disc pl-5 space-y-2 text-muted-foreground/90">
+              <li>Number of pages and how much of the content we write.</li>
+              <li>Design complexity — template-led versus fully custom.</li>
+              <li>Custom functionality such as bookings, logins or calculators.</li>
+              <li>Third-party integrations: payments, CRM, WhatsApp, analytics.</li>
+              <li>Whether you need a CMS to edit content yourself.</li>
+              <li>E-commerce: catalogue size, variants, shipping and tax rules.</li>
+              <li>Depth of SEO work included at launch.</li>
+              <li>Ongoing maintenance and support.</li>
+            </ul>
+          </>
+        ),
+      },
+      {
+        h2: "Work we've shipped",
+        body: (
+          <p className="leading-relaxed">
+            Before/after snapshots across jewellery, travel, education, D2C and real estate live in the{" "}
+            <A to="/portfolio">portfolio</A>. For a full write-up of architecture and search work, read the{" "}
+            <A to="/case-studies/vj-real-estate">VJ Real Estate case study</A>, or browse all{" "}
+            <A to="/case-studies">case studies</A>. Useful reading before you brief us:{" "}
+            <A to="/blog/custom-website-vs-wordpress">custom build versus WordPress</A> and{" "}
+            <A to="/blog/why-most-business-websites-never-generate-leads">why most business websites never generate leads</A>.
+          </p>
+        ),
+      },
+    ]}
+    extraLinks={[
+      { label: "VJ Real Estate case study", href: "/case-studies/vj-real-estate" },
+      { label: "All case studies", href: "/case-studies" },
+      { label: "Signs you need a new website", href: "/blog/15-signs-your-business-needs-a-new-website" },
     ]}
   />
 );

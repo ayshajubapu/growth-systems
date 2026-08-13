@@ -130,9 +130,9 @@ export const routes = [
   // ── Service pages ──
   {
     path: "/seo-services-chennai",
-    title: "SEO Services in Chennai | Rank #1 on Google | SmartPixel",
+    title: "SEO Services in Chennai — Local, Technical & Content SEO | SmartPixel",
     description:
-      "Local SEO services in Chennai for small businesses. Rank on Google Maps and search results. Transparent reporting, real keyword rankings, lead-focused.",
+      "SEO services in Chennai covering local SEO, technical fixes, on-page work, content and Google Business Profile. Clear process, honest reporting, no ranking guarantees.",
   },
   {
     path: "/ecommerce-website-chennai",
@@ -148,9 +148,9 @@ export const routes = [
   },
   {
     path: "/services/web-design-chennai",
-    title: "Web Design Company in Chennai | High-Converting Websites | SmartPixel",
+    title: "Web Design & Development Company in Chennai | SmartPixel",
     description:
-      "Web design company in Chennai building modern, mobile-first websites that convert. Fast delivery, SEO-ready, lead-focused. Based in Chrompet.",
+      "Web design and development company in Chennai building mobile-first business, custom and e-commerce websites — SEO-ready at launch. Based in Chrompet.",
   },
   {
     path: "/services/web-app-development",
