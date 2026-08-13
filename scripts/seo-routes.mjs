@@ -89,11 +89,13 @@ export const routes = [
     path: "/backlinks",
     title: "Backlink Outreach Targets & Tracker | SmartPixel",
     description: "Internal outreach dashboard — target list, email template and status tracker.",
+    robots: "noindex,follow",
   },
   {
     path: "/seo-checklist",
     title: "SEO Checklist Auditor | SmartPixel",
     description: "Automated on-page SEO auditor — verifies robots, sitemap and canonicals per route.",
+    robots: "noindex,follow",
   },
 
   // ── Service pages ──
