@@ -1,10 +1,19 @@
 {
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.smartpixel.in" }],
+      "destination": "https://smartpixel.in/:path*",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/((?!sitemap\\.xml|robots\\.txt|favicon\\.ico|logo\\.png|og-banner\\.jpg|llms\\.txt|assets/).*)",
       "destination": "/index.html"
     }
   ],
+
   "headers": [
     {
       "source": "/(.*)",
