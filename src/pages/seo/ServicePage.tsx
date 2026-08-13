@@ -14,6 +14,10 @@ export type ServiceProps = {
   process: string[];
   faqs: FaqItem[];
   crumbName: string;
+  /** Optional deep-dive sections rendered between "Our process" and the local-areas block. */
+  extraSections?: { h2: string; body: ReactNode }[];
+  /** Extra contextual links appended to the "Explore More" block. */
+  extraLinks?: { label: string; href: string }[];
 };
 
 const ServicePage = (p: ServiceProps) => {
@@ -113,6 +117,7 @@ const ServicePage = (p: ServiceProps) => {
             </ol>
           ),
         },
+        ...(p.extraSections ?? []),
         {
           h2: `Areas in Chennai we serve`,
           body: (
@@ -149,6 +154,7 @@ const ServicePage = (p: ServiceProps) => {
         { label: "WhatsApp automation in Chennai", href: "/whatsapp-automation-chennai" },
         { label: "Portfolio of Chennai case studies", href: "/portfolio" },
         { label: "Get a free quote from SmartPixel Chennai", href: "/contact" },
+        ...(p.extraLinks ?? []),
       ]}
       faqs={p.faqs}
     />

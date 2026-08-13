@@ -19,6 +19,7 @@ import {
 import {
   Pallavaram, Tambaram, Chrompet, Guindy, TNagar, Saidapet, Nungambakkam, Chitlapakkam,
 } from "./pages/seo/locations.tsx";
+import CaseStudyRoute from "./pages/CaseStudy.tsx";
 import Backlinks from "./pages/Backlinks.tsx";
 import SeoChecklist from "./pages/SeoChecklist.tsx";
 import ScrollToTop from "./components/ScrollToTop.tsx";
@@ -45,6 +46,9 @@ const App = () => (
               handled by BlogPost — it renders the grid when no slug is present */}
           <Route path="/blog" element={<BlogPost />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
+
+          <Route path="/case-studies" element={<CaseStudyRoute />} />
+          <Route path="/case-studies/:slug" element={<CaseStudyRoute />} />
 
           <Route path="/contact" element={<Contact />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />

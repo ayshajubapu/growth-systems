@@ -28,7 +28,7 @@ if (!existsSync(TEMPLATE_PATH)) {
 const template = readFileSync(TEMPLATE_PATH, "utf8");
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
-function bakeHtml({ path, title, description, ogType = "website" }) {
+function bakeHtml({ path, title, description, ogType = "website", robots }) {
   const canonical = `${SITE}${path === "/" ? "/" : path.replace(/\/+$/, "")}`;
   let html = template;
 
@@ -46,6 +46,11 @@ function bakeHtml({ path, title, description, ogType = "website" }) {
     /<link\s+rel="canonical"[^>]*>/i,
     `<link rel="canonical" href="${canonical}" />`
   );
+
+  // Per-route robots directive (internal tools ship noindex,follow)
+  if (robots) {
+    html = html.replace(/<meta\s+name="robots"[^>]*>/i, `<meta name="robots" content="${esc(robots)}" />`);
+  }
 
   // og:url / og:title / og:description / og:type
   html = html.replace(/<meta\s+property="og:url"[^>]*>/i, `<meta property="og:url" content="${canonical}" />`);

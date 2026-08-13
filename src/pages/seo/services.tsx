@@ -1,13 +1,28 @@
+import { Link } from "react-router-dom";
 import ServicePage from "./ServicePage";
+
+const A = ({ to, children }: { to: string; children: React.ReactNode }) => (
+  <Link to={to} className="text-accent underline font-medium hover:text-accent/80 transition-colors">{children}</Link>
+);
+
+const Bullets = ({ items }: { items: [string, React.ReactNode][] }) => (
+  <ul className="space-y-3 text-muted-foreground/90">
+    {items.map(([h, body]) => (
+      <li key={h} className="leading-relaxed">
+        <strong className="text-foreground">{h}</strong> — {body}
+      </li>
+    ))}
+  </ul>
+);
 
 export const SeoServicesChennai = () => (
   <ServicePage
     slug="seo-services-chennai"
     crumbName="SEO Services Chennai"
     serviceName="SEO Services"
-    title="SEO Services in Chennai | Rank #1 on Google | SmartPixel"
-    description="Local SEO services in Chennai for small businesses. Rank on Google Maps and search results. Transparent reporting, real keyword rankings, lead-focused."
-    h1="SEO Services in Chennai that Drive Real Leads"
+    title="SEO Services in Chennai — Local, Technical & Content SEO | SmartPixel"
+    description="SEO services in Chennai covering local SEO, technical fixes, on-page work, content and Google Business Profile. Clear process, honest reporting, no ranking guarantees."
+    h1="SEO Services in Chennai"
     intro={
       <>
         We help Chennai businesses rank for the keywords their customers actually search — from <strong>"web design chennai"</strong> to <strong>"website developer near me"</strong>. No fluff, just measurable rankings and traffic.
@@ -38,7 +53,80 @@ export const SeoServicesChennai = () => (
     faqs={[
       { q: "How long does SEO take to show results in Chennai?", a: "Local SEO often shows movement in 4–8 weeks. Competitive keywords take 3–6 months." },
       { q: "Do you guarantee #1 rankings?", a: "No ethical SEO does. We guarantee transparent work and measurable ranking improvements." },
-      { q: "How much does SEO cost in Chennai?", a: "Plans start from ₹6,000/month for local SEO and scale based on competition." },
+      { q: "How much does SEO cost in Chennai?", a: "Plans start from ₹6,000/month for local SEO. Beyond that, cost tracks the amount of work: how many pages need fixing, how competitive the keywords are, and how much content is published each month." },
+      { q: "Do I need SEO if I already run Google Ads?", a: "They answer different problems. Ads stop the day you stop paying; SEO compounds but takes months. Most Chennai businesses we work with run ads for immediate enquiries while SEO builds underneath." },
+      { q: "Can you work on a site you didn't build?", a: "Yes. Most SEO engagements start on an existing website — WordPress, Shopify, Wix or custom. We audit first and tell you honestly if the platform is the bottleneck." },
+      { q: "What do I actually receive each month?", a: "A record of what changed on the site, the keywords and pages that moved, Search Console impressions and clicks, and what is queued next. No vanity dashboards." },
+    ]}
+    extraSections={[
+      {
+        h2: "What we work on",
+        body: (
+          <Bullets
+            items={[
+              ["Local SEO", <>Getting you found for searches in your own area — service pages per locality, consistent business details across directories, and the on-page signals that support Map Pack visibility. See how we approach <A to="/web-design-chrompet">Chrompet</A> or <A to="/web-design-t-nagar">T Nagar</A>.</>],
+              ["Technical SEO", <>Crawlability, indexation, canonical tags, redirects, sitemaps, structured data and Core Web Vitals. This is usually where the fastest wins are on an older site.</>],
+              ["On-page SEO", <>Titles, meta descriptions, heading structure and page copy rewritten around what the searcher is actually trying to do.</>],
+              ["Content SEO", <>Articles that answer real buying questions rather than keyword filler — the approach we use on our own <A to="/blog">blog</A>.</>],
+              ["E-commerce SEO", <>Category and product page structure, faceted-navigation control, and product schema. Pairs with <A to="/ecommerce-website-chennai">ecommerce builds</A>.</>],
+              ["Google Business Profile", <>Categories, services, photos, posts and review handling — the profile does most of the heavy lifting for near-me searches.</>],
+              ["Answer engine optimisation", <>Clear question-and-answer structure, FAQ and entity markup, and factual on-page statements so AI answer engines can quote you correctly.</>],
+            ]}
+          />
+        ),
+      },
+      {
+        h2: "Who we help",
+        body: (
+          <p className="leading-relaxed">
+            The businesses we work with in Chennai are mostly owner-run: retail and jewellery showrooms, clinics and
+            practices, education and training providers, travel and services firms, D2C and ecommerce brands, and
+            B2B suppliers. You can see the kind of work this produces in our <A to="/portfolio">portfolio</A> and in
+            our longer <A to="/case-studies">case studies</A>.
+          </p>
+        ),
+      },
+      {
+        h2: "What affects the cost of SEO",
+        body: (
+          <>
+            <p className="leading-relaxed">
+              We publish a starting point rather than a fixed price list, because SEO cost is driven by scope, not by
+              a package name. The factors that move it:
+            </p>
+            <ul className="list-disc pl-5 space-y-2 text-muted-foreground/90">
+              <li>How many pages exist, and how many need rewriting or restructuring.</li>
+              <li>How competitive your keywords are — city-wide terms take far more work than neighbourhood ones.</li>
+              <li>Whether the current platform can be fixed or needs rebuilding first.</li>
+              <li>How much new content is published each month.</li>
+              <li>Whether local SEO and Google Business Profile work is included.</li>
+              <li>Whether you need ecommerce or multi-location coverage.</li>
+            </ul>
+            <p className="leading-relaxed">
+              If a site needs structural work first, we say so before quoting monthly SEO — see{" "}
+              <A to="/services/web-design-chennai">our web design and development work</A>.
+            </p>
+          </>
+        ),
+      },
+      {
+        h2: "Proof, not promises",
+        body: (
+          <p className="leading-relaxed">
+            We don't guarantee positions, and we don't publish numbers we can't source. What we can show is how the
+            work is structured: read the{" "}
+            <A to="/case-studies/vj-real-estate">VJ Real Estate case study</A> for an SEO-first architecture built
+            from scratch, or{" "}
+            <A to="/blog/why-high-google-impressions-fail-to-generate-enquiries">why impressions don't become enquiries</A>{" "}
+            and <A to="/blog/why-your-website-isnt-ranking-on-google">why a site isn't ranking</A> for how we diagnose.
+          </p>
+        ),
+      },
+    ]}
+    extraLinks={[
+      { label: "VJ Real Estate — SEO-first build", href: "/case-studies/vj-real-estate" },
+      { label: "Local SEO checklist", href: "/blog/local-seo-checklist-for-small-businesses" },
+      { label: "What SEO costs in India", href: "/blog/how-much-does-seo-cost-in-india" },
     ]}
   />
 );
@@ -132,9 +220,9 @@ export const WebDesignChennai = () => (
     slug="services/web-design-chennai"
     crumbName="Web Design Chennai"
     serviceName="Web Design"
-    title="Web Design Company in Chennai | High-Converting Websites | SmartPixel"
-    description="Web design company in Chennai building modern, mobile-first websites that convert. Fast delivery, SEO-ready, lead-focused. Based in Chrompet."
-    h1="Web Design Company in Chennai"
+    title="Web Design & Development Company in Chennai | SmartPixel"
+    description="Web design and development company in Chennai building mobile-first business, custom and e-commerce websites — SEO-ready at launch. Based in Chrompet."
+    h1="Web Design & Development Company in Chennai"
     intro={
       <>
         We design websites for Chennai businesses that don't just look beautiful — they generate enquiries, calls and bookings. Mobile-first, SEO-ready, and built to scale.
@@ -165,6 +253,74 @@ export const WebDesignChennai = () => (
       { q: "How much does web design cost in Chennai?", a: "Custom websites start from ₹25,000 for a 5-page site. Larger projects from ₹60,000." },
       { q: "How long will it take?", a: "Most websites launch in 3–4 weeks." },
       { q: "Do you work with WordPress?", a: "Yes — WordPress, Webflow, Shopify or custom React, depending on what fits best." },
+    ]}
+    extraSections={[
+      {
+        h2: "Website services we offer",
+        body: (
+          <Bullets
+            items={[
+              ["Business websites", <>Five to fifteen page sites for service businesses — clear positioning, credibility content and a single obvious enquiry path.</>],
+              ["Custom web development", <>Anything that isn't a template: booking flows, calculators, dashboards and portals. See <A to="/services/web-app-development">web app development</A>.</>],
+              ["E-commerce websites", <>Product catalogues, payments and order flows — covered in detail on our <A to="/ecommerce-website-chennai">ecommerce page</A>.</>],
+              ["React and modern web builds", <>Fast, component-based front ends with per-route metadata so pages can actually be indexed.</>],
+              ["Website redesign", <>Rebuilding an existing site without losing the URLs and rankings you already have — redirects mapped before launch.</>],
+              ["SEO-ready structure", <>Clean URLs, heading hierarchy, metadata, sitemap and structured data set up at build time, not bolted on later. Pair with <A to="/seo-services-chennai">ongoing search work</A>.</>],
+            ]}
+          />
+        ),
+      },
+      {
+        h2: "How a build runs",
+        body: (
+          <ol className="list-decimal pl-5 space-y-2 text-muted-foreground/90">
+            <li>Discovery — what the business sells, who buys it, and what the site has to make happen.</li>
+            <li>Planning — sitemap, page-by-page intent and the content each page needs.</li>
+            <li>UI/UX — layout and design, reviewed on mobile first.</li>
+            <li>Development — build in React with reusable components.</li>
+            <li>SEO setup — metadata, headings, schema, sitemap, robots and redirects.</li>
+            <li>Testing — devices, browsers, forms, speed and accessibility basics.</li>
+            <li>Deployment — launch, analytics and Search Console connected.</li>
+            <li>Maintenance — updates, fixes and iteration after launch.</li>
+          </ol>
+        ),
+      },
+      {
+        h2: "What affects the cost of a website",
+        body: (
+          <>
+            <p className="leading-relaxed">Rather than a single headline price, cost tracks scope:</p>
+            <ul className="list-disc pl-5 space-y-2 text-muted-foreground/90">
+              <li>Number of pages and how much of the content we write.</li>
+              <li>Design complexity — template-led versus fully custom.</li>
+              <li>Custom functionality such as bookings, logins or calculators.</li>
+              <li>Third-party integrations: payments, CRM, WhatsApp, analytics.</li>
+              <li>Whether you need a CMS to edit content yourself.</li>
+              <li>E-commerce: catalogue size, variants, shipping and tax rules.</li>
+              <li>Depth of SEO work included at launch.</li>
+              <li>Ongoing maintenance and support.</li>
+            </ul>
+          </>
+        ),
+      },
+      {
+        h2: "Work we've shipped",
+        body: (
+          <p className="leading-relaxed">
+            Before/after snapshots across jewellery, travel, education, D2C and real estate live in the{" "}
+            <A to="/portfolio">portfolio</A>. For a full write-up of architecture and search work, read the{" "}
+            <A to="/case-studies/vj-real-estate">VJ Real Estate case study</A>, or browse all{" "}
+            <A to="/case-studies">case studies</A>. Useful reading before you brief us:{" "}
+            <A to="/blog/custom-website-vs-wordpress">custom build versus WordPress</A> and{" "}
+            <A to="/blog/why-most-business-websites-never-generate-leads">why most business websites never generate leads</A>.
+          </p>
+        ),
+      },
+    ]}
+    extraLinks={[
+      { label: "VJ Real Estate case study", href: "/case-studies/vj-real-estate" },
+      { label: "All case studies", href: "/case-studies" },
+      { label: "Signs you need a new website", href: "/blog/15-signs-your-business-needs-a-new-website" },
     ]}
   />
 );
