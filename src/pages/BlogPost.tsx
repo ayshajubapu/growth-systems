@@ -31,7 +31,7 @@ function buildArticleSchema(post: Post) {
       logo: { "@type": "ImageObject", url: `${ORIGIN}/logo.png` },
     },
     mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
-    image: post.image ? `${ORIGIN}${post.image}` : `${ORIGIN}/og-banner.png`,
+    image: post.image ? `${ORIGIN}${post.image}` : `${ORIGIN}/og-banner.jpg`,
     articleSection: post.category,
     keywords: post.category,
   };

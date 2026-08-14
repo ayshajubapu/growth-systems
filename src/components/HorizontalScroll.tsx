@@ -1,9 +1,12 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState, lazy, Suspense } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Orb from "@/components/Orb";
 import { Users, Star, TrendingUp, Trophy, MessageSquare } from "lucide-react";
 import { Helmet } from "react-helmet-async";
+
+// The WebGL orb is a large, purely decorative dependency: keep it out of the
+// initial bundle and skip it entirely for reduced-motion users.
+const Orb = lazy(() => import("@/components/Orb"));
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,8 +18,15 @@ const clients = [
 
 const HorizontalScroll = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [showOrb, setShowOrb] = useState(false);
 
   useEffect(() => {
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) return;
+
+    // Defer the WebGL chunk until after first paint so it never blocks LCP.
+    const id = window.setTimeout(() => setShowOrb(true), 300);
+
     const ctx = gsap.context(() => {
       gsap.utils.toArray<HTMLElement>("[data-reveal]").forEach((el) => {
         gsap.from(el, {
@@ -28,7 +38,10 @@ const HorizontalScroll = () => {
         });
       });
     }, containerRef);
-    return () => ctx.revert();
+    return () => {
+      window.clearTimeout(id);
+      ctx.revert();
+    };
   }, []);
 
   return (
@@ -52,13 +65,13 @@ const HorizontalScroll = () => {
         <meta property="og:description" content="We build websites, ecommerce stores and automation systems that generate leads and grow your business across Chennai." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://smartpixel.in/" />
-        <meta property="og:image" content="https://smartpixel.in/logo.png" />
+        <meta property="og:image" content="https://smartpixel.in/og-banner.jpg" />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Website Development Company in Chennai | SmartPixel" />
         <meta name="twitter:description" content="High-converting websites, SEO and automation systems for Chennai businesses." />
-        <meta name="twitter:image" content="https://smartpixel.in/logo.png" />
+        <meta name="twitter:image" content="https://smartpixel.in/og-banner.jpg" />
       </Helmet>
 
       {/* ── HERO ── */}
@@ -74,11 +87,15 @@ const HorizontalScroll = () => {
           />
         </div>
 
-        <div aria-hidden className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className="relative w-[min(90vw,760px)] aspect-square opacity-[0.55]">
-            <Orb hue={210} hoverIntensity={0.4} rotateOnHover backgroundColor="#000000" />
+        {showOrb && (
+          <div aria-hidden className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div className="relative w-[min(90vw,760px)] aspect-square opacity-[0.55]">
+              <Suspense fallback={null}>
+                <Orb hue={210} hoverIntensity={0.4} rotateOnHover backgroundColor="#000000" />
+              </Suspense>
+            </div>
           </div>
-        </div>
+        )}
 
         <div className="relative flex items-center justify-center w-full">
           <div className="w-full max-w-4xl mx-auto text-center flex flex-col items-center">
