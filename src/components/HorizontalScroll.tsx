@@ -1,9 +1,12 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState, lazy, Suspense } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Orb from "@/components/Orb";
 import { Users, Star, TrendingUp, Trophy, MessageSquare } from "lucide-react";
 import { Helmet } from "react-helmet-async";
+
+// The WebGL orb is a large, purely decorative dependency: keep it out of the
+// initial bundle and skip it entirely for reduced-motion users.
+const Orb = lazy(() => import("@/components/Orb"));
 
 gsap.registerPlugin(ScrollTrigger);
 
