@@ -65,13 +65,13 @@ const HorizontalScroll = () => {
         <meta property="og:description" content="We build websites, ecommerce stores and automation systems that generate leads and grow your business across Chennai." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://smartpixel.in/" />
-        <meta property="og:image" content="https://smartpixel.in/logo.png" />
+        <meta property="og:image" content="https://smartpixel.in/og-banner.jpg" />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Website Development Company in Chennai | SmartPixel" />
         <meta name="twitter:description" content="High-converting websites, SEO and automation systems for Chennai businesses." />
-        <meta name="twitter:image" content="https://smartpixel.in/logo.png" />
+        <meta name="twitter:image" content="https://smartpixel.in/og-banner.jpg" />
       </Helmet>
 
       {/* ── HERO ── */}
@@ -87,11 +87,15 @@ const HorizontalScroll = () => {
           />
         </div>
 
-        <div aria-hidden className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className="relative w-[min(90vw,760px)] aspect-square opacity-[0.55]">
-            <Orb hue={210} hoverIntensity={0.4} rotateOnHover backgroundColor="#000000" />
+        {showOrb && (
+          <div aria-hidden className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div className="relative w-[min(90vw,760px)] aspect-square opacity-[0.55]">
+              <Suspense fallback={null}>
+                <Orb hue={210} hoverIntensity={0.4} rotateOnHover backgroundColor="#000000" />
+              </Suspense>
+            </div>
           </div>
-        </div>
+        )}
 
         <div className="relative flex items-center justify-center w-full">
           <div className="w-full max-w-4xl mx-auto text-center flex flex-col items-center">
