@@ -18,8 +18,15 @@ const clients = [
 
 const HorizontalScroll = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [showOrb, setShowOrb] = useState(false);
 
   useEffect(() => {
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) return;
+
+    // Defer the WebGL chunk until after first paint so it never blocks LCP.
+    const id = window.setTimeout(() => setShowOrb(true), 300);
+
     const ctx = gsap.context(() => {
       gsap.utils.toArray<HTMLElement>("[data-reveal]").forEach((el) => {
         gsap.from(el, {
@@ -31,7 +38,10 @@ const HorizontalScroll = () => {
         });
       });
     }, containerRef);
-    return () => ctx.revert();
+    return () => {
+      window.clearTimeout(id);
+      ctx.revert();
+    };
   }, []);
 
   return (
