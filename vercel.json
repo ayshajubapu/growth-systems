@@ -9,7 +9,7 @@
   ],
   "rewrites": [
     {
-      "source": "/((?!sitemap\\.xml|robots\\.txt|favicon\\.ico|logo\\.png|og-banner\\.jpg|llms\\.txt|assets/).*)",
+      "source": "/((?!sitemap\\.xml|robots\\.txt|favicon\\.ico|favicon-48\\.png|favicon-192\\.png|apple-touch-icon\\.png|logo\\.png|og-banner\\.jpg|llms\\.txt|assets/).*)",
       "destination": "/index.html"
     }
   ],
