@@ -28,6 +28,8 @@ import csBlossomAfter from "@/assets/cs-blossombloom-after.png";
 import csVjBefore from "@/assets/cs-vjrealestate-before.png";
 import csVjAfter from "@/assets/cs-vjrealestate-after.png";
 import csButterfliesAfter from "@/assets/cs-butterflies-after.png";
+import csSivakasiAfter from "@/assets/cs-madeinsivakasi-after.png";
+import csRajmahalAfter from "@/assets/cs-rajmahal-after.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -213,6 +215,36 @@ const cases = [
     metric: "First Site",
     metricSub: "Animated luxury studio brand",
     link: "https://getbutterflies.in/",
+  },
+  {
+    client: "Made In Sivakasi",
+    industry: "E-commerce · Fireworks",
+    quote:
+      "A large-catalogue fireworks marketplace built with dynamic SEO and AEO — every category, brand and product page generates its own metadata and schema to rank for high-intent Sivakasi crackers searches.",
+    person: "Client",
+    before: csSivakasiAfter,
+    after: csSivakasiAfter,
+    beforeAlt: "Made In Sivakasi fireworks store before SmartPixel's dynamic SEO ecommerce build",
+    afterAlt:
+      "Made In Sivakasi ecommerce website by SmartPixel — 216-product crackers catalogue with category sidebar, gift box listings and add-to-cart flow",
+    metric: "Dynamic SEO",
+    metricSub: "216 products · auto meta + schema",
+    link: "https://madeinsivakasi.com/",
+  },
+  {
+    client: "Rajmahal Indian Kitchen",
+    industry: "Restaurant & Hospitality",
+    quote:
+      "An aesthetic, premium restaurant website with cinematic motion — editorial typography, smooth scroll animations and a frictionless table-booking flow.",
+    person: "Client",
+    before: csRajmahalAfter,
+    after: csRajmahalAfter,
+    beforeAlt: "Rajmahal Indian Kitchen restaurant site before SmartPixel's premium redesign",
+    afterAlt:
+      "Rajmahal Indian Kitchen website by SmartPixel — editorial serif hero, dish photography grid and Book a Table call to action",
+    metric: "Premium Motion",
+    metricSub: "Animated dining experience site",
+    link: "https://rajindiankc.com/",
   },
 ];
 
