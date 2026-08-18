@@ -28,6 +28,8 @@ import csBlossomAfter from "@/assets/cs-blossombloom-after.png";
 import csVjBefore from "@/assets/cs-vjrealestate-before.png";
 import csVjAfter from "@/assets/cs-vjrealestate-after.png";
 import csButterfliesAfter from "@/assets/cs-butterflies-after.png";
+import csSivakasiAfter from "@/assets/cs-madeinsivakasi-after.png";
+import csRajmahalAfter from "@/assets/cs-rajmahal-after.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
