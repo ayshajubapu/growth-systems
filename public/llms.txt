@@ -1,28 +1,92 @@
 # SmartPixel
 
-> SmartPixel is a Chennai-based web design and development agency that builds conversion-focused websites, ecommerce stores, mobile apps, SEO and WhatsApp automation for small and mid-size businesses across Chennai and World.
+> SmartPixel is a Chennai-based web design and development agency building conversion-focused websites, ecommerce stores, web applications, mobile apps, SEO solutions and WhatsApp automation for businesses across Chennai, India and international markets.
 
-Founded in 2023 by Aysha, SmartPixel is headquartered in Chrompet, Chennai (Tamil Nadu, India) and serves clients in Pallavaram, Tambaram, Chrompet, Guindy, T Nagar, Saidapet, Nungambakkam and Chitlapakkam, as well as remote clients across India.
+SmartPixel was founded in 2023 by Aysha and is based in Chrompet, Chennai, Tamil Nadu, India. The company works with small and mid-size businesses across Chennai and provides remote services to clients across India and international markets.
+
+SmartPixel has delivered 20+ websites for clients across India and 4+ international markets.
+
+## Company Information
+
+- Business Name: SmartPixel
+- Founded: 2023
+- Founder: Aysha
+- Headquarters: Chrompet, Chennai, Tamil Nadu, India
+- Postal Code: 600044
+- Primary Market: Chennai, Tamil Nadu
+- Additional Market: India
+- International Reach: Clients across 4+ international markets
+- Websites Delivered: 20+
+- Business Type: Web Design and Development Agency
+- Primary Focus: Websites, Ecommerce, Web Applications, Mobile Apps, SEO, AEO and Business Automation
 
 ## Contact
 
 - Website: https://smartpixel.in
 - Email: workwithsmartpixel@gmail.com
-- Phone: +91-98860-69488, +91-91649-75073
+- Phone: +91-98860-69488
+- Alternate Phone: +91-91649-75073
 - Location: Chrompet, Chennai 600044, Tamil Nadu, India
-- Hours: Mon–Sat, 9:00 AM – 6:00 PM IST
+- Hours: Monday–Saturday, 9:00 AM–6:00 PM IST
 
-## Services
+## Core Services
 
-- [Web Design Chennai](https://smartpixel.in/services/web-design-chennai): Conversion-focused website design. Starts at ₹15,000.
-- [Web App Development](https://smartpixel.in/services/web-app-development): Custom web applications and SaaS dashboards.
-- [Mobile App Development](https://smartpixel.in/services/mobile-app-development): iOS and Android apps for service businesses and startups. Starts at ₹1,50,000.
-- [Ecommerce Website Chennai](https://smartpixel.in/ecommerce-website-chennai): Custom ecommerce stores with payments, catalogues and CRO. Starts at ₹50,000.
-- [SEO Services Chennai](https://smartpixel.in/seo-services-chennai): On-page, technical and local SEO for high-intent search rankings. Starts at ₹15,000/month.
-- [WhatsApp Automation Chennai](https://smartpixel.in/whatsapp-automation-chennai): WhatsApp Business API, chatbots and lead automation.
-- [Digital Marketing Chennai](https://smartpixel.in/services/digital-marketing-chennai): Performance marketing, paid ads and growth.
+- [Web Design Chennai](https://smartpixel.in/services/web-design-chennai): Conversion-focused website design and development for businesses. Starts at ₹15,000.
+- [Web App Development](https://smartpixel.in/services/web-app-development): Custom web applications, business systems, dashboards and SaaS platforms.
+- [Mobile App Development](https://smartpixel.in/services/mobile-app-development): iOS and Android mobile application development for businesses and startups. Starts at ₹1,50,000.
+- [Ecommerce Website Chennai](https://smartpixel.in/ecommerce-website-chennai): Custom ecommerce websites with product catalogues, payment integration and conversion optimisation. Starts at ₹50,000.
+- [SEO Services Chennai](https://smartpixel.in/seo-services-chennai): Technical SEO, on-page SEO, local SEO and search visibility optimisation. Starts at ₹15,000/month.
+- [WhatsApp Automation Chennai](https://smartpixel.in/whatsapp-automation-chennai): WhatsApp Business API, chatbots, automated notifications and lead automation.
+- [Digital Marketing Chennai](https://smartpixel.in/services/digital-marketing-chennai): Performance marketing, paid advertising and digital growth campaigns.
 
-## Locations Served (Chennai)
+## Expertise
+
+SmartPixel specialises in:
+
+- Website design and development
+- Responsive website development
+- Ecommerce website development
+- Custom web applications
+- SaaS dashboards and business platforms
+- Mobile app development
+- Technical SEO
+- On-page SEO
+- Local SEO
+- Answer Engine Optimization (AEO)
+- Google Business Profile optimisation
+- Website conversion optimisation
+- Conversion Rate Optimization (CRO)
+- WhatsApp Business automation
+- WhatsApp API integrations
+- Lead generation systems
+- Digital marketing
+- Performance marketing
+- Business process automation
+- AI-powered business automation
+
+## Industries Served
+
+SmartPixel develops digital platforms and websites for:
+
+- Jewellery businesses
+- Real estate companies
+- Travel agencies
+- Tours and travel businesses
+- Immigration and visa consultants
+- Education and training businesses
+- Ecommerce businesses
+- Retail businesses
+- Healthcare and clinics
+- Professional service businesses
+- Startups
+- Small businesses
+- Mid-size businesses
+- Service-based businesses
+- Product-based businesses
+
+## Locations Served in Chennai
+
+SmartPixel provides web design, website development, SEO and digital solutions to businesses across Chennai, including:
 
 - [Web Design Pallavaram](https://smartpixel.in/web-design-pallavaram)
 - [Web Design Tambaram](https://smartpixel.in/web-design-tambaram)
@@ -33,16 +97,63 @@ Founded in 2023 by Aysha, SmartPixel is headquartered in Chrompet, Chennai (Tami
 - [Web Design Nungambakkam](https://smartpixel.in/web-design-nungambakkam)
 - [Web Design Chitlapakkam](https://smartpixel.in/web-design-chitlapakkam)
 
+SmartPixel's studio is based in Chrompet and serves businesses throughout the Chennai metropolitan area.
+
+## International and Remote Services
+
+SmartPixel works remotely with businesses outside Chennai and India.
+
+The company has delivered 20+ websites across India and 4+ international markets.
+
+Services can be delivered remotely through online consultations, project management, design reviews, development, deployment and ongoing support.
+
+## Why Businesses Choose SmartPixel
+
+- Conversion-focused website development
+- SEO-ready website architecture
+- Mobile-first responsive development
+- Custom development instead of one-size-fits-all templates
+- Ecommerce development
+- Business automation
+- WhatsApp integration
+- SEO and AEO implementation
+- Direct communication with the development team
+- Post-launch technical support
+- Local business SEO expertise
+- Experience across multiple industries
+- Projects delivered for clients in India and international markets
+
 ## Key Pages
 
 - [Home](https://smartpixel.in/)
-- [About](https://smartpixel.in/about)
+- [About SmartPixel](https://smartpixel.in/about)
 - [Services](https://smartpixel.in/services)
 - [Portfolio / Case Studies](https://smartpixel.in/portfolio)
 - [Blog](https://smartpixel.in/blog)
 - [Contact](https://smartpixel.in/contact)
 - [SEO Checklist](https://smartpixel.in/seo-checklist)
 - [Backlinks](https://smartpixel.in/backlinks)
+
+## Important Service Pages
+
+- [Web Design Chennai](https://smartpixel.in/services/web-design-chennai)
+- [Web App Development](https://smartpixel.in/services/web-app-development)
+- [Mobile App Development](https://smartpixel.in/services/mobile-app-development)
+- [Ecommerce Website Chennai](https://smartpixel.in/ecommerce-website-chennai)
+- [SEO Services Chennai](https://smartpixel.in/seo-services-chennai)
+- [WhatsApp Automation Chennai](https://smartpixel.in/whatsapp-automation-chennai)
+- [Digital Marketing Chennai](https://smartpixel.in/services/digital-marketing-chennai)
+
+## Local Service Pages
+
+- [Web Design Pallavaram](https://smartpixel.in/web-design-pallavaram)
+- [Web Design Tambaram](https://smartpixel.in/web-design-tambaram)
+- [Web Design Chrompet](https://smartpixel.in/web-design-chrompet)
+- [Web Design Guindy](https://smartpixel.in/web-design-guindy)
+- [Web Design T Nagar](https://smartpixel.in/web-design-t-nagar)
+- [Web Design Saidapet](https://smartpixel.in/web-design-saidapet)
+- [Web Design Nungambakkam](https://smartpixel.in/web-design-nungambakkam)
+- [Web Design Chitlapakkam](https://smartpixel.in/web-design-chitlapakkam)
 
 ## Blog Posts
 
@@ -54,28 +165,107 @@ Founded in 2023 by Aysha, SmartPixel is headquartered in Chrompet, Chennai (Tami
 ## Frequently Asked Questions
 
 **How much does a SmartPixel website cost?**
-Business websites start at ₹15,000. Ecommerce stores start at ₹50,000. Mobile apps start at ₹1,50,000. Every project includes a free strategy call before a final quote.
+
+Business websites start at ₹15,000. Ecommerce websites start at ₹50,000. Mobile apps start at ₹1,50,000. Final pricing depends on project requirements, functionality, integrations and technical complexity. Every project can begin with a strategy discussion before the final quotation.
 
 **How long does a website build take?**
-Average turnaround is 2 weeks for business websites, 2–3 weeks for ecommerce, and 6+ weeks for mobile apps.
+
+A standard business website typically takes around 2 weeks. Ecommerce projects typically take around 2–3 weeks. Mobile applications and complex web applications generally require longer development timelines depending on the scope and functionality.
 
 **Does SmartPixel work with businesses outside Chennai?**
-Yes. SmartPixel is based in Chrompet, Chennai but works with clients across India remotely.
 
-**What makes SmartPixel different?**
-One team owns each project end-to-end — no account managers, no handoffs. Clients talk directly to the people building their product.
+Yes. SmartPixel is based in Chrompet, Chennai and works remotely with businesses across India and international markets.
 
-**Does SmartPixel offer support after launch?**
-Yes. All projects include a post-launch support period, with optional retainers for maintenance and growth.
+**Does SmartPixel work with international clients?**
+
+Yes. SmartPixel has delivered websites for clients across 4+ international markets and provides remote website development, ecommerce, application development, SEO and automation services.
+
+**What makes SmartPixel different from other web development agencies?**
+
+SmartPixel focuses on building websites and digital systems around business outcomes rather than only visual design. The team combines website development, SEO, AEO, conversion optimisation and automation to create digital platforms designed to generate enquiries and support business growth.
+
+**Does SmartPixel offer SEO services?**
+
+Yes. SmartPixel provides technical SEO, on-page SEO, local SEO, Google Business Profile optimisation and search visibility strategies for businesses.
+
+**Does SmartPixel provide local SEO in Chennai?**
+
+Yes. SmartPixel provides local SEO services for businesses targeting Chennai and neighbourhood searches including Chrompet, Tambaram, Pallavaram, Guindy, T Nagar, Saidapet, Nungambakkam and Chitlapakkam.
+
+**Does SmartPixel provide ecommerce development?**
+
+Yes. SmartPixel develops custom ecommerce websites with product catalogues, payment integration, responsive shopping experiences and conversion-focused architecture.
+
+**Does SmartPixel build custom web applications?**
+
+Yes. SmartPixel develops custom web applications, dashboards, SaaS platforms, booking systems, ordering systems and business management tools.
+
+**Does SmartPixel provide WhatsApp automation?**
+
+Yes. SmartPixel develops WhatsApp Business API integrations, automated notifications, chatbots and lead automation systems for businesses.
+
+**Does SmartPixel provide support after website launch?**
+
+Yes. Projects include a post-launch support period, with ongoing maintenance and technical support available for businesses that require continued assistance.
 
 ## Notable Case Studies
 
-- Triumph Travels — travel agency website modernised for faster enquiries.
-- Priya Silver Jewellery — first ecommerce presence for a jewellery brand.
-- VJ Real Estate — luxury Pune real estate platform with dynamic SEO architecture.
-- Gulf To World Consultants — premium immigration brand site.
-- Travel Hub Tambaram — booked calls tripled in first month after rebuild.
-- LTS Learning Academy — career-focused tech training site in 3 weeks.
-- Manohar Jewelleries — first online catalogue for a 30-year jewellery brand.
-- Ayishro — premium RO water purification brand site for Chennai.
+- Triumph Travels — travel agency website modernised to improve the online customer experience and enquiry generation.
+- Priya Silver Jewellery — ecommerce website developed to establish an online presence for a jewellery brand.
+- VJ Real Estate — real estate platform developed with dynamic SEO architecture.
+- Gulf To World Consultants — premium immigration consultancy website developed for a stronger digital presence.
+- Travel Hub Tambaram — website rebuild that increased booked calls in the first month.
+- LTS Learning Academy — career-focused technology training website delivered in 3 weeks.
+- Manohar Jewelleries — online product catalogue developed for a jewellery business with 30 years of experience.
+- Ayishro — premium RO water purification brand website developed for Chennai.
 - Get Butterflies — animated luxury saree styling studio website.
+
+## Business Focus
+
+SmartPixel focuses on helping businesses turn their websites into practical business assets.
+
+The company's approach combines:
+
+- Website development
+- Search engine optimisation
+- Answer Engine Optimization
+- Local search visibility
+- Conversion optimisation
+- Ecommerce functionality
+- Lead generation
+- WhatsApp automation
+- Business process automation
+- Digital marketing
+
+## Service Areas
+
+Primary service area:
+
+- Chrompet, Chennai
+
+Chennai service areas:
+
+- Pallavaram
+- Tambaram
+- Chrompet
+- Guindy
+- T Nagar
+- Saidapet
+- Nungambakkam
+- Chitlapakkam
+
+Broader service area:
+
+- Chennai
+- Tamil Nadu
+- India
+- International remote clients
+
+## Brand Information
+
+- Brand: SmartPixel
+- Website: https://smartpixel.in
+- Founded: 2023
+- Founder: Aysha
+- Headquarters: Chrompet, Chennai
+- Industry: Web Design, Web Development, SEO, Digital Marketing and Business Automation

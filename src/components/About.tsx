@@ -31,69 +31,144 @@ const About = () => {
       ref={ref}
       className="relative bg-surface py-14 sm:py-16 lg:py-24 px-5 sm:px-10 lg:px-24 border-y border-border overflow-hidden"
     >
-      {/* Glow background removed */}
-
       <div className="relative w-full grid lg:grid-cols-12 gap-14 lg:gap-20 items-start">
-        {/* Left */}
+        {/* =====================================================
+            LEFT
+        ====================================================== */}
         <div className="lg:col-span-4">
           <p className="about-line eyebrow mb-4 sm:mb-6">
-            — Built On What Works
+            — About SmartPixel
           </p>
 
           <h2 className="about-line font-display text-4xl sm:text-5xl md:text-6xl leading-[1.05] tracking-tight">
-            Industry-grade tools.
+            Built for{" "}
+            <span className="italic text-accent">
+              businesses
+            </span>
+            .
             <br />
-            No unnecessary{" "}
-            <span className="italic text-accent">complexity</span>.
+            Designed to grow.
           </h2>
 
           <p className="about-line mt-6 text-sm sm:text-base text-muted-foreground leading-relaxed max-w-md">
-            Smart systems. Clean code. Fast performance. Built to grow with your business.
+            SmartPixel builds websites, ecommerce platforms and
+            digital systems that combine clean design, strong
+            performance and practical business outcomes.
           </p>
         </div>
 
-        {/* Right */}
+        {/* =====================================================
+            RIGHT
+        ====================================================== */}
         <div className="lg:col-span-7 lg:col-start-6 space-y-8 sm:space-y-10">
+          {/* Main About Copy */}
           <p className="about-line text-lg sm:text-xl leading-[1.8] text-foreground/90 max-w-3xl">
-            SmartPixel was founded in Chennai, Tamil Nadu in 2023 by Aysha.
-            We specialise in conversion-focused websites, ecommerce stores,
-            and mobile apps for small and mid-size businesses. Our clients
-            include travel agencies, jewellery brands, education institutes,
-            and B2B manufacturers — primarily across South Chennai.
+            SmartPixel is a web design and development company
+            founded in Chennai in 2023. We work with small and
+            mid-size businesses to build conversion-focused
+            websites, ecommerce stores, web applications,
+            mobile apps and digital growth systems.
           </p>
 
-          <p className="about-line text-sm text-muted-foreground max-w-2xl leading-relaxed">
-            In plain English: the same tools used by Swiggy, Razorpay and
-            Zomato — built to handle your traffic and grow with your business.
+          <p className="about-line text-sm sm:text-base text-muted-foreground max-w-2xl leading-relaxed">
+            From our base in Chrompet, Chennai, we work with
+            businesses across South Chennai and clients in
+            multiple locations internationally. Our work covers
+            industries including travel, jewellery, education,
+            real estate, healthcare, retail and B2B businesses.
           </p>
 
-          {/* Tech Grid */}
-          <div className="about-line grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+          {/* =================================================
+              EXPERIENCE / REACH
+          ================================================== */}
+          <div className="about-line grid grid-cols-2 sm:grid-cols-4 gap-px bg-border rounded-2xl overflow-hidden">
             {[
-              "React", "Next.js", "Node.js", "TypeScript",
-              "Tailwind", "MongoDB", "PostgreSQL", "GraphQL",
-              "AWS", "Stripe", "Figma", "GSAP",
-            ].map((t) => (
+              ["20+", "Websites Built"],
+              ["4+", "Countries Served"],
+              ["2023", "Founded"],
+              ["Chennai", "Based"],
+            ].map(([value, label]) => (
               <div
-                key={t}
-                className="glass px-4 py-4 text-center text-xs sm:text-sm font-display tracking-tight hover:text-accent hover:scale-[1.03] transition-all duration-300"
+                key={label}
+                className="bg-background p-5 sm:p-6"
               >
-                {t}
+                <div className="num-display text-2xl sm:text-4xl text-accent mb-2 sm:mb-3">
+                  {value}
+                </div>
+
+                <div className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                  {label}
+                </div>
               </div>
             ))}
           </div>
 
-          {/* Stats — unified set */}
-          <div className="about-line grid grid-cols-2 sm:grid-cols-4 gap-px bg-border mt-8 sm:mt-10 rounded-2xl overflow-hidden">
+          {/* =================================================
+              TECHNOLOGY
+          ================================================== */}
+          <div className="about-line">
+            <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-4">
+              — Technology We Work With
+            </p>
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+              {[
+                "React",
+                "Next.js",
+                "Node.js",
+                "TypeScript",
+                "Tailwind CSS",
+                "MongoDB",
+                "PostgreSQL",
+                "Supabase",
+                "AWS",
+                "Razorpay",
+                "Figma",
+                "GSAP",
+              ].map((technology) => (
+                <div
+                  key={technology}
+                  className="glass px-4 py-4 text-center text-xs sm:text-sm font-display tracking-tight hover:text-accent hover:scale-[1.03] transition-all duration-300"
+                >
+                  {technology}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* =================================================
+              FINAL POSITIONING
+          ================================================== */}
+          <div className="about-line border-l-2 border-accent pl-5 sm:pl-6">
+            <p className="text-sm sm:text-base text-foreground/90 leading-relaxed">
+              We keep the process simple: understand the
+              business, build the right digital product, optimise
+              it for search and conversions, and keep improving
+              it after launch.
+            </p>
+          </div>
+
+          {/* =================================================
+              PERFORMANCE STATS
+          ================================================== */}
+          <div className="about-line grid grid-cols-2 sm:grid-cols-4 gap-px bg-border rounded-2xl overflow-hidden">
             {[
-              ["40+", "Clients"],
+              ["20+", "Websites"],
+              ["4+", "Countries"],
               ["98%", "Satisfaction"],
-              ["3×", "Avg conversion lift"],
-              ["2 wk", "Avg turnaround"],
-            ].map(([v, l]) => (
-              <div key={l} className="bg-background p-5 sm:p-6">
-                <div className="num-display text-2xl sm:text-4xl text-accent mb-2 sm:mb-3">{v}</div>
-                <div className="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-muted-foreground">{l}</div>
+              ["2 wk", "Avg Turnaround"],
+            ].map(([value, label]) => (
+              <div
+                key={label}
+                className="bg-background p-5 sm:p-6"
+              >
+                <div className="num-display text-2xl sm:text-4xl text-accent mb-2 sm:mb-3">
+                  {value}
+                </div>
+
+                <div className="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-muted-foreground">
+                  {label}
+                </div>
               </div>
             ))}
           </div>

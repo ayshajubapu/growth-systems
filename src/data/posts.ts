@@ -15,6 +15,8 @@ export type Block =
   | { type: "faq"; items: { q: string; a: string }[] }
   | { type: "cta"; variant: "audit" | "contact" | "whatsapp"; text?: string };
 
+export type SearchIntent = "informational" | "commercial" | "transactional" | "navigational";
+
 export type Post = {
   slug: string;
   category: "SEO" | "Web Development" | "WhatsApp Automation" | "AI & Automation" | "Search Analytics" | "Luxury Retail" | "Local Lead Gen" | "Ecommerce Optimization";
@@ -26,6 +28,13 @@ export type Post = {
   author?: string;
   image?: string;           // absolute or /public path (webp preferred)
   imageAlt?: string;
+  // ── SEO / AEO / keyword-mapping metadata ──────────────────────────────
+  primaryKeyword: string;        // the single query this article is built to satisfy
+  secondaryKeywords: string[];   // natural semantic variations, not stuffed into copy
+  searchIntent: SearchIntent;    // informational | commercial | transactional | navigational
+  targetLocation: string;        // "Chennai", a specific neighbourhood, or "India" for non-local topics
+  relatedService: string;        // the SmartPixel service this article should funnel toward
+  internalLinkTargets: string[]; // existing site routes relevant to this article
   body: Block[];
 };
 
@@ -48,8 +57,13 @@ const faq = (items: { q: string; a: string }[]): Block => ({ type: "faq", items 
 const cta = (variant: "audit" | "contact" | "whatsapp", text?: string): Block => ({ type: "cta", variant, text });
 
 // ─────────────────────────────────────────────────────────────────────────
-// POSTS — 15 new long-form posts across SEO / Web / WhatsApp / AI
-// Plus the 4 legacy posts retained at the bottom.
+// POSTS
+// Organised by topical cluster: SEO, Web Development, Ecommerce,
+// WhatsApp Automation, AI & Automation, plus location/vertical case posts.
+// Every post carries primaryKeyword / secondaryKeywords / searchIntent /
+// targetLocation / relatedService / internalLinkTargets so the app can
+// drive schema, related-post logic and contextual internal linking without
+// any change to the Block/body architecture.
 // ─────────────────────────────────────────────────────────────────────────
 
 export const posts: Post[] = [
@@ -65,6 +79,17 @@ export const posts: Post[] = [
     read: "12 min",
     author: AUTHOR,
     imageAlt: "Google Search Console impressions chart showing a flatline for an unindexed website",
+    primaryKeyword: "why is my website not ranking on Google",
+    secondaryKeywords: [
+      "website not ranking on Google",
+      "why is my site not showing on Google",
+      "Google ranking factors for small business",
+      "SEO issues new website",
+    ],
+    searchIntent: "informational",
+    targetLocation: "India",
+    relatedService: "SEO",
+    internalLinkTargets: ["/seo-services-chennai", "/contact"],
     body: [
       p("Every week a founder sends me the same message: 'Our website has been live for eight months. We have not received a single enquiry from Google. What is wrong?' The website is usually fine to look at. The problem is that ranking on Google is not a passive outcome of publishing a website — it is the outcome of dozens of small technical, content and authority decisions, most of which were never made."),
       p("This piece walks through the actual reasons a website fails to rank, in the order they typically bite. If your site is under a year old and you are seeing very little organic traffic, at least four of these will apply to you."),
@@ -87,7 +112,7 @@ export const posts: Post[] = [
       p("A 250-word services page competing against a 3,000-word competitor guide is not a fair fight. Google's helpful content system explicitly rewards pages that answer the query completely and demote pages that hedge, repeat themselves, or copy competitors. If your six service pages share the same three paragraphs with the city name swapped, that is duplicate content and it triggers demotion."),
       p("Unique, useful, structured content is the single biggest lever most Indian SMBs are not pulling. Not because they cannot write — because they were told SEO was about backlinks and forgot the page itself has to earn the click."),
       h2("Your site is too slow on mobile"),
-      p("Around 78% of Indian search traffic is mobile, and Google uses mobile-first indexing, which means it grades your site by what it looks like on a mid-range Android over a 4G connection, not on your MacBook. If Largest Contentful Paint is above four seconds, your Core Web Vitals report is red, and pages that could have ranked simply cannot."),
+      p("A large share of Indian search traffic is mobile, and Google uses mobile-first indexing, which means it grades your site by what it looks like on a mid-range Android over a 4G connection, not on your MacBook. If Largest Contentful Paint is above four seconds, your Core Web Vitals report is red, and pages that could have ranked simply cannot."),
       p("Speed problems usually come from one of four sources: uncompressed hero images, an image-heavy homepage carousel, third-party scripts (chat widgets, analytics, heatmaps, Facebook Pixel duplication), and unoptimised shared hosting. All of these are fixable in a week."),
       cta("audit"),
       h2("You have no internal links and no backlinks"),
@@ -99,7 +124,7 @@ export const posts: Post[] = [
       h2("Your site has technical SEO errors"),
       p("Missing or duplicate title tags, missing meta descriptions, multiple H1s per page, missing canonical tags, mixed http/https content, a 404 sitemap, or an image alt attribute set to the file name — each of these is a small demotion signal on its own, but they compound. A site with 40 technical warnings in Search Console can be doing everything else right and still not rank."),
       h2("You have no local business signals"),
-      p("For any query with local intent — and around 46% of all Google searches have local intent — the Map Pack (the three-business box at the top of results) dominates the page. If you are not verified on Google Business Profile, do not have consistent Name-Address-Phone (NAP) citations across directories, and have no reviews under two years old, you are locked out of that box entirely."),
+      p("For any query with local intent, the Map Pack (the three-business box at the top of results) dominates the page. If you are not verified on Google Business Profile, do not have consistent Name-Address-Phone (NAP) citations across directories, and have no reviews under two years old, you are locked out of that box entirely."),
       ul([
         "Claim and verify your Google Business Profile.",
         "Add high-quality photos of your office, team and completed work.",
@@ -107,7 +132,7 @@ export const posts: Post[] = [
         "Ask every happy client for a written Google review; respond to each one within 24 hours.",
       ]),
       h2("Your website is brand-new and you have not been patient"),
-      p("Even when everything above is right, Google does not trust a new domain. There is a well-documented 'sandbox' behaviour where new sites rank poorly for the first four to six months regardless of quality. The mistake is not the wait — it is not doing the work during the wait. Every week you delay publishing content, cleaning up technical issues and earning backlinks is a week your rankings stay static."),
+      p("Even when everything above is right, Google does not trust a new domain overnight. There is a well-documented 'sandbox' effect where new sites rank poorly for the first few months regardless of quality. The mistake is not the wait — it is not doing the work during the wait. Every week you delay publishing content, cleaning up technical issues and earning backlinks is a week your rankings stay static."),
       cta("contact", "Want a technical + content audit that tells you exactly which of these applies to your site?"),
       h2("A prioritised order of operations"),
       p("If you do only the following, in this order, you will see movement within 90 days:"),
@@ -138,7 +163,7 @@ export const posts: Post[] = [
         },
         {
           q: "Is SEO better than running Google Ads?",
-          a: "They serve different windows. Ads give you traffic today at ₹15–₹120 per click and stop the moment you turn off the budget. SEO takes 3–6 months to gain momentum but the traffic compounds and does not disappear when you pause spend. Most healthy businesses run both.",
+          a: "They serve different windows. Ads give you traffic today at a per-click cost and stop the moment you turn off the budget. SEO takes 3–6 months to gain momentum but the traffic compounds and does not disappear when you pause spend. Most healthy businesses run both.",
         },
       ]),
     ],
@@ -155,10 +180,21 @@ export const posts: Post[] = [
     read: "14 min",
     author: AUTHOR,
     imageAlt: "Local SEO map pack showing three ranking businesses in Chennai",
+    primaryKeyword: "local SEO checklist for small businesses",
+    secondaryKeywords: [
+      "local SEO checklist Chennai",
+      "Google Business Profile optimization",
+      "local SEO for small business India",
+      "how to rank in Google Maps",
+    ],
+    searchIntent: "informational",
+    targetLocation: "Chennai",
+    relatedService: "Local SEO",
+    internalLinkTargets: ["/seo-services-chennai", "/contact"],
     body: [
       p("Local SEO is the difference between a plumber whose phone rings all afternoon and one who still buys leads from Sulekha. It is the same skill set as SEO — content, technical, authority — but pointed at a radius rather than a topic. Below is the exact checklist we work through with every local client, in order of impact. Nothing here is optional if you plan to rank inside the Map Pack for your city."),
       h2("1. Google Business Profile fundamentals"),
-      p("Your GBP listing is the single highest-leverage asset in local search. It is also free, and roughly 60% of the businesses we audit have it either unclaimed, half-filled, or actively hurting them with inconsistent information."),
+      p("Your GBP listing is the single highest-leverage asset in local search. It is also free, and a large share of the businesses we audit have it either unclaimed, half-filled, or actively hurting them with inconsistent information."),
       ul([
         "Claim and verify the listing (postcard, phone, video — whichever Google offers you).",
         "Set the exact same business name that appears on your signboard. No keyword stuffing like 'ABC Dental — Best Dentist in Chennai' — that is a policy violation and can get you suspended.",
@@ -168,7 +204,7 @@ export const posts: Post[] = [
         "Add all business hours including special hours for Pongal, Diwali, Christmas and Eid.",
       ]),
       h2("2. Photos, videos and the trust signal loop"),
-      p("Businesses with more than 100 photos on their GBP get 520% more calls than businesses with fewer than 10. That is not a marketing statistic — that is Google's own data. Photos signal legitimacy, freshness and location accuracy in one go."),
+      p("Listings with substantially more photos consistently get more calls than sparsely populated ones — this is Google's own guidance, not a marketing claim. Photos signal legitimacy, freshness and location accuracy in one go."),
       ul([
         "Upload storefront exterior shots that clearly show your signboard and street context.",
         "Interior photos — reception, working areas, waiting area.",
@@ -178,10 +214,10 @@ export const posts: Post[] = [
         "Refresh photos every 30 days — Google explicitly rewards recency.",
       ]),
       h2("3. Reviews — the quiet ranking factor"),
-      p("Review count, review velocity (how frequently new reviews arrive) and keyword usage inside reviews all directly influence Map Pack ranking. In a competitive Chennai neighbourhood, the businesses in the top three of the pack typically have 4× to 10× more reviews than businesses on page two."),
+      p("Review count, review velocity (how frequently new reviews arrive) and keyword usage inside reviews all directly influence Map Pack ranking. In a competitive Chennai neighbourhood, the businesses in the top three of the pack typically have several times more reviews than businesses on page two."),
       ol([
         "Build a QR code that opens your Google review link and print it on your invoice, business card and reception counter.",
-        "Ask every satisfied client on the day of delivery — the conversion rate on same-day asks is three times higher than delayed asks.",
+        "Ask every satisfied client on the day of delivery — the conversion rate on same-day asks is meaningfully higher than delayed asks.",
         "Reply to every single review within 24 hours. Reply to negative reviews with grace and specifics, not a template.",
         "Never buy reviews. Google's review-quality models are extremely good at detecting purchased velocity and the penalty is a filtered listing.",
       ]),
@@ -206,8 +242,8 @@ export const posts: Post[] = [
         "Embed a Google Map of your actual location, not a decorative placeholder.",
       ]),
       h2("6. Location and neighbourhood pages"),
-      p("If you serve five neighbourhoods, you need five landing pages — but not doorway pages. Each page needs at least 700 words of genuinely useful, location-specific content: landmarks, directions from major roads, examples of local clients, common issues specific to that area, opening hours if they differ."),
-      p("The mistake to avoid: creating 15 identical pages with only the neighbourhood name swapped. That is duplicate content and Google will either fail to index them or actively demote your whole domain."),
+      p("If you serve five neighbourhoods, you need five landing pages — but not doorway pages. Each page needs genuinely useful, location-specific content: landmarks, directions from major roads, examples of local clients, common issues specific to that area, opening hours if they differ."),
+      p("The mistake to avoid: creating fifteen identical pages with only the neighbourhood name swapped. That is duplicate content and Google will either fail to index them or actively demote your whole domain."),
       h2("7. Hyperlocal content strategy"),
       p("Beyond service pages, publish content that only makes sense to your neighbourhood. 'What Chennai restaurant owners need to know about the 2026 FSSAI norms.' 'Rainy-season plumbing issues common in Velachery basements.' This is the content that earns links from local blogs, gets shared on WhatsApp community groups, and quietly builds your authority for the whole geographic cluster."),
       h2("8. Backlinks from local sources"),
@@ -220,7 +256,7 @@ export const posts: Post[] = [
         "Being the featured client in your suppliers' case studies.",
       ]),
       h2("9. Mobile speed and the Map Pack"),
-      p("Google's local ranking algorithm quietly deprioritises businesses whose websites fail Core Web Vitals on mobile. Because a Map Pack click is a mobile click 84% of the time, if your site takes six seconds to load on a Redmi over 4G, Google reduces how often you appear even if everything else is perfect."),
+      p("Google's local ranking algorithm quietly deprioritises businesses whose websites fail Core Web Vitals on mobile. Because a Map Pack click is overwhelmingly a mobile click, if your site takes six seconds to load on a Redmi over 4G, Google reduces how often you appear even if everything else is perfect."),
       cta("audit"),
       h2("10. Track what actually matters"),
       p("Stop tracking rank alone. For local SEO the numbers that actually correlate with revenue are:"),
@@ -232,8 +268,8 @@ export const posts: Post[] = [
         "Review count and average rating month-over-month.",
       ]),
       faq([
-        { q: "How long does local SEO take to work?", a: "For a business in a mid-competition category in Chennai, the first Map Pack appearances usually come in 60–90 days once GBP is fully optimised and 15+ reviews are in place. Full page-one Map Pack ranking for competitive queries typically takes four to seven months." },
-        { q: "How many Google reviews do I need to rank in the Map Pack?", a: "There is no absolute number, but as a working benchmark: match the average review count of the current top three businesses in the pack for your query, then add 20%. In competitive Chennai neighbourhoods this usually means 40–80 reviews." },
+        { q: "How long does local SEO take to work?", a: "For a business in a mid-competition category in Chennai, the first Map Pack appearances usually come in 60–90 days once GBP is fully optimised and reviews are consistently coming in. Full page-one Map Pack ranking for competitive queries typically takes four to seven months." },
+        { q: "How many Google reviews do I need to rank in the Map Pack?", a: "There is no absolute number, but as a working benchmark: match the average review count of the current top three businesses in the pack for your query, then add roughly 20%." },
         { q: "Can I rank in the Map Pack without a physical office?", a: "Only if you are a service-area business (plumber, tutor, photographer) and you configure your GBP as service-area rather than storefront. Businesses with no verifiable address in the target area will not rank there." },
         { q: "Do local SEO citations still matter in 2026?", a: "Yes, but their weight has fallen sharply. Focus on 10–15 high-authority Indian directories (Justdial, IndiaMART, Sulekha, LinkedIn, Facebook, Google, Bing, Apple, chamber sites) rather than blasting hundreds of low-quality listings." },
       ]),
@@ -251,6 +287,17 @@ export const posts: Post[] = [
     datePublishedIso: "2026-07-03",
     read: "11 min",
     author: AUTHOR,
+    primaryKeyword: "SEO vs Google Ads ROI",
+    secondaryKeywords: [
+      "SEO or Google Ads for small business",
+      "SEO vs PPC India",
+      "is SEO better than Google Ads",
+      "digital marketing budget split",
+    ],
+    searchIntent: "commercial",
+    targetLocation: "India",
+    relatedService: "Digital Marketing",
+    internalLinkTargets: ["/services/digital-marketing-chennai", "/seo-services-chennai", "/contact"],
     body: [
       p("Every founder asks this question in month one. The wrong answer costs six months of runway. The right answer is not 'SEO' or 'Google Ads' — it is 'depending on your product, margins, timeline and risk tolerance, here is the blend that will compound.' Let us walk through the actual math."),
       h2("The core structural difference"),
@@ -260,13 +307,13 @@ export const posts: Post[] = [
       ul([
         "You just launched and need proof-of-concept traffic to validate whether people even want your offer.",
         "Your product has a short buying window — flood insurance, event photography, tax filing services.",
-        "You have very high customer lifetime value (₹50,000+) and can absorb ₹500–₹2,000 per lead.",
+        "You have very high customer lifetime value and can absorb a higher cost per lead.",
         "You are testing three offers in three months and need volume data fast.",
         "You are competing against Amazon, Flipkart or Myntra in ecommerce — organic will take years.",
       ]),
       h2("When SEO is objectively the better first move"),
       ul([
-        "Your margin per customer is thin (under ₹1,500) — paid clicks will destroy your unit economics.",
+        "Your margin per customer is thin — paid clicks will destroy your unit economics.",
         "You have a 6–18 month runway and want assets that keep working after you stop paying.",
         "Your category has clear informational search behaviour ('how much does X cost', 'best X near me').",
         "You have subject-matter expertise you can turn into content — genuine expertise, not paraphrased blogs.",
@@ -277,7 +324,7 @@ export const posts: Post[] = [
       h3("Google Ads path"),
       p("Cost per click for 'dentist Anna Nagar' averages ₹65. Landing page conversion rate 6%. Cost per lead: ₹1,080. Lead-to-booking conversion 40%. Cost per new patient: ₹2,700. Fifteen patients per month = ₹40,500 per month, ongoing, forever, adjusted upward as competitors bid more."),
       h3("SEO path"),
-      p("Retainer of ₹35,000 per month for six months = ₹2,10,000 invested. By month five they rank on page one for 'dentist Anna Nagar' and eight surrounding queries. Organic traffic delivers 22 patients per month by month seven. Month seven onward the retainer drops to ₹15,000 maintenance. Twelve-month total: ₹2,85,000 for approximately 130 patients arriving in months five through twelve. Cost per acquired patient ≈ ₹2,200, and month thirteen onward the acquisition cost per patient falls below ₹700 as the content keeps working."),
+      p("Retainer of ₹35,000 per month for six months = ₹2,10,000 invested. By month five they rank on page one for 'dentist Anna Nagar' and eight surrounding queries. Organic traffic delivers 22 patients per month by month seven. Month seven onward the retainer drops to ₹15,000 maintenance. Twelve-month total: ₹2,85,000 for approximately 130 patients arriving in months five through twelve. Cost per acquired patient ≈ ₹2,200, and month thirteen onward the acquisition cost per patient falls well below that as the content keeps working."),
       callout("SEO's true edge shows up in year two — when the cost per acquisition of the same customer keeps falling while paid CPAs keep rising.", "The compounding effect"),
       h2("Why 'better ROI' is the wrong single question"),
       p("Return on investment collapses two variables into one: absolute return, and the time it took to earn it. A rupee earned in month two is not the same as a rupee earned in month twelve. The correct framework:"),
@@ -311,9 +358,9 @@ export const posts: Post[] = [
         "Cancelling the retainer in month four because 'results are slow' — you invested the money, quit before the payoff, and now have to start over.",
       ]),
       faq([
-        { q: "Which is cheaper — SEO or Google Ads?", a: "Over a 24-month horizon, SEO is roughly 3–5× cheaper per acquired customer for most Indian SMBs. In the first three months, Google Ads is dramatically cheaper because SEO has not yet produced traffic. The correct comparison is always lifetime cost per customer, not monthly spend." },
+        { q: "Which is cheaper — SEO or Google Ads?", a: "Over a 24-month horizon, SEO is typically several times cheaper per acquired customer for most Indian SMBs. In the first three months, Google Ads is dramatically cheaper because SEO has not yet produced traffic. The correct comparison is always lifetime cost per customer, not monthly spend." },
         { q: "Do I need both SEO and Google Ads?", a: "For most businesses growing past ₹1 crore annual revenue, yes. Ads give you demand-capture in the short term; SEO builds a compounding asset for the long term. Running only ads leaves you exposed to CPC inflation. Running only SEO leaves you starving for six months." },
-        { q: "How do I decide my split between SEO and paid ads?", a: "A rough working rule: if your customer LTV is under 3× your gross monthly ad budget, prioritise SEO. If runway is under six months and you need revenue this quarter, prioritise Ads. Then rebalance every quarter based on which channel is producing lower cost-per-customer." },
+        { q: "How do I decide my split between SEO and paid ads?", a: "A rough working rule: if your customer LTV is high relative to your monthly ad budget, prioritise SEO. If runway is under six months and you need revenue this quarter, prioritise Ads. Then rebalance every quarter based on which channel is producing lower cost-per-customer." },
         { q: "Will Google Ads help my SEO rankings?", a: "No — the ad auction and the organic algorithm are separated by design. But ads do give you traffic and conversion data that makes your SEO work smarter (which keywords convert, which landing pages retain, which offers people respond to)." },
       ]),
       cta("audit"),
@@ -330,6 +377,17 @@ export const posts: Post[] = [
     datePublishedIso: "2026-07-02",
     read: "10 min",
     author: AUTHOR,
+    primaryKeyword: "SEO cost in India",
+    secondaryKeywords: [
+      "SEO pricing India 2026",
+      "SEO agency pricing India",
+      "monthly SEO retainer cost",
+      "how much does SEO cost per month",
+    ],
+    searchIntent: "commercial",
+    targetLocation: "India",
+    relatedService: "SEO",
+    internalLinkTargets: ["/seo-services-chennai", "/contact"],
     body: [
       p("SEO pricing in India spans two orders of magnitude — from ₹3,000 per month on Fiverr to ₹5 lakh per month at top-tier agencies working with listed companies. The reason nobody publishes their price is that 'SEO' means twelve different things depending on who is selling it. Here is what each tier actually delivers and where the honest fit lies for a growing Indian SMB."),
       h2("Tier 1: ₹3,000 – ₹8,000/month — Freelance and template packages"),
@@ -337,7 +395,7 @@ export const posts: Post[] = [
       ul([
         "Basic Google Business Profile optimisation.",
         "5–10 low-quality directory submissions per month.",
-        "Occasional 500-word blog post written by a junior or generated by GPT-3-era tools.",
+        "Occasional 500-word blog post written by a junior or a generic AI tool with no editing.",
         "A monthly 'ranking report' pulled from free tools showing ten cherry-picked keywords.",
       ]),
       p("When this makes sense: a hyperlocal single-service business (barber, tuition centre, one-man plumbing service) that just needs Map Pack presence. When it does not: any business trying to grow past ₹50 lakh annual revenue — this tier cannot move the needle for you."),
@@ -364,9 +422,8 @@ export const posts: Post[] = [
       ]),
       p("This tier is appropriate for businesses with ₹5–₹50 crore revenue, competitive verticals (real estate, hospitality, ecommerce, education) or multi-city footprints."),
       h2("Tier 4: ₹1 lakh – ₹5 lakh+/month — Enterprise SEO"),
-      p("Only relevant if you are running a large ecommerce catalogue, a job board, a marketplace or a multi-brand publisher. The work becomes engineering-heavy: sitemap architecture for 100,000+ URLs, faceted navigation control, international hreflang, content programmes with 10+ writers, technical SEO integrated with dev sprints. Not appropriate for 95% of SMBs."),
-      callout("Anyone who quotes 'guaranteed #1 rankings in 30 days' at any price is selling one of two things: black-hat tactics that will get your domain penalised, or lies. Walk away.", "Red flag")
-      ,
+      p("Only relevant if you are running a large ecommerce catalogue, a job board, a marketplace or a multi-brand publisher. The work becomes engineering-heavy: sitemap architecture for 100,000+ URLs, faceted navigation control, international hreflang, content programmes with 10+ writers, technical SEO integrated with dev sprints. Not appropriate for the vast majority of SMBs."),
+      callout("Anyone who quotes 'guaranteed #1 rankings in 30 days' at any price is selling one of two things: black-hat tactics that will get your domain penalised, or lies. Walk away.", "Red flag"),
       h2("What actually drives the price"),
       p("Ignore the round numbers. The actual cost drivers are:"),
       ol([
@@ -395,7 +452,7 @@ export const posts: Post[] = [
         "Enterprise (₹50 crore+): ₹1.5 lakh+/month or in-house team.",
       ]),
       faq([
-        { q: "Can I do SEO for free?", a: "Yes for the basics — Google Business Profile, on-page optimisation, publishing content. But your time is not free. A founder spending 10 hours a week on SEO is spending ₹40,000–₹1,00,000 of their own opportunity cost. At some point it becomes cheaper to outsource." },
+        { q: "Can I do SEO for free?", a: "Yes for the basics — Google Business Profile, on-page optimisation, publishing content. But your time is not free. A founder spending 10 hours a week on SEO is spending real opportunity cost. At some point it becomes cheaper to outsource." },
         { q: "Why do SEO prices vary so much in India?", a: "Because 'SEO' means everything from directory submission (₹3,000/month) to full technical + content + outreach programmes (₹1.5 lakh/month). Compare deliverables, not price tags." },
         { q: "Is monthly retainer or project-based SEO better?", a: "For 90% of businesses, monthly retainers. SEO is a compounding, continuous discipline — content plus links plus technical hygiene plus adaptation to algorithm updates. Project-based SEO makes sense only for one-off audits or a website migration." },
         { q: "How long should I commit to an SEO retainer?", a: "Minimum 6 months to see whether momentum is building. Realistic evaluation window is 9–12 months. Cancelling at month 3 because 'nothing has happened' is the single most common — and expensive — mistake." },
@@ -414,6 +471,17 @@ export const posts: Post[] = [
     datePublishedIso: "2026-06-30",
     read: "13 min",
     author: AUTHOR,
+    primaryKeyword: "common SEO mistakes",
+    secondaryKeywords: [
+      "SEO mistakes small business",
+      "on-page SEO mistakes",
+      "technical SEO mistakes",
+      "local SEO mistakes to avoid",
+    ],
+    searchIntent: "informational",
+    targetLocation: "India",
+    relatedService: "SEO",
+    internalLinkTargets: ["/seo-services-chennai", "/contact"],
     body: [
       p("Every website we audit has at least twelve of the twenty-five mistakes below. Most have twenty. Each of them is individually small; together they are the reason your site ranks on page four instead of page one. Work through them top to bottom."),
       h2("On-page and content mistakes"),
@@ -422,7 +490,7 @@ export const posts: Post[] = [
       h3("2. Title tag that reads like a slogan"),
       p("'Excellence Delivered' is not a title tag. 'Web Design Company in Chennai | 4+ Years Experience' is. Titles are your first impression in the search results — they need to include the keyword, the location if relevant, and a differentiator."),
       h3("3. Meta descriptions left blank"),
-      p("Google may write its own snippet when you skip this, but a written meta description consistently improves click-through-rate by 15–30% because you control the message."),
+      p("Google may write its own snippet when you skip this, but a written meta description consistently improves click-through-rate because you control the message."),
       h3("4. Multiple H1s on one page"),
       p("An H1 is a headline. A page has one. Multiple H1s confuse both users and the algorithm about what the page is actually about."),
       h3("5. Thin content on service pages"),
@@ -453,7 +521,7 @@ export const posts: Post[] = [
       cta("audit"),
       h2("Off-page and local mistakes"),
       h3("17. No Google Business Profile"),
-      p("Or a claimed but half-empty one. Roughly a third of your possible local ranking signal comes from GBP alone."),
+      p("Or a claimed but half-empty one. A meaningful share of your possible local ranking signal comes from GBP alone."),
       h3("18. Inconsistent NAP across the web"),
       p("Different phone numbers on your website, Justdial and Facebook confuses Google about which is real."),
       h3("19. No local backlinks"),
@@ -474,7 +542,7 @@ export const posts: Post[] = [
       faq([
         { q: "What is the single biggest SEO mistake?", a: "Publishing pages that do not target a specific search query. Without a target keyword tied to real search volume, no amount of technical work or backlinks will make the page rank." },
         { q: "How many SEO mistakes can a site have and still rank?", a: "Sites with 3–5 minor mistakes can rank in low-competition niches. In competitive verticals (healthcare, real estate, ecommerce) even 6–8 accumulated mistakes push you off page one." },
-        { q: "How do I audit my own site for SEO mistakes?", a: "Run Google Search Console (free) + a Screaming Frog crawl (free up to 500 URLs) + a PageSpeed Insights test on your top five pages. This surfaces 80% of the technical and on-page issues in under an hour." },
+        { q: "How do I audit my own site for SEO mistakes?", a: "Run Google Search Console (free) + a Screaming Frog crawl (free up to 500 URLs) + a PageSpeed Insights test on your top five pages. This surfaces most of the technical and on-page issues in under an hour." },
         { q: "Are these mistakes worse for local or ecommerce SEO?", a: "The technical ones (speed, indexing, schema) are equally damaging for both. The content ones (thin pages, duplicate location pages) hit local businesses hardest. The backlink and authority ones hit ecommerce hardest because ecommerce SERPs are dominated by high-authority marketplaces." },
       ]),
       cta("contact"),
@@ -482,6 +550,122 @@ export const posts: Post[] = [
   },
 
   // ═══════════════════════════════════════════ WEB DEVELOPMENT
+  {
+    slug: "how-much-does-a-website-cost-in-chennai",
+    category: "Web Development",
+    title: "How Much Does a Business Website Cost in Chennai in 2026?",
+    excerpt:
+      "A straight answer, not a 'it depends' brush-off: real 2026 pricing bands for brochure sites, CMS-driven business sites and ecommerce builds in Chennai, and exactly what changes the number.",
+    date: "Aug 2026",
+    datePublishedIso: "2026-08-05",
+    read: "9 min",
+    author: AUTHOR,
+    imageAlt: "Chennai small business owner reviewing a website design proposal on a laptop",
+    primaryKeyword: "website development cost in Chennai",
+    secondaryKeywords: [
+      "website cost Chennai",
+      "web development cost Chennai",
+      "website design cost Chennai",
+      "business website cost Chennai",
+    ],
+    searchIntent: "commercial",
+    targetLocation: "Chennai",
+    relatedService: "Web Design",
+    internalLinkTargets: ["/services/web-design-chennai", "/ecommerce-website-chennai", "/portfolio", "/contact"],
+    body: [
+  p("The cost of a business website in Chennai depends less on the number of pages and more on what the website needs to achieve. A simple business presence, an ecommerce store, a lead-generation website and a custom web application all require different levels of design, development and integration. The right budget therefore depends on your business goals, functionality and expected growth."),
+
+  h2("Quick answer"),
+
+  p("There is no single website cost that fits every Chennai business. A basic business website requires a very different level of work from an ecommerce store or a custom web application. Before comparing quotes, look at what is included: design, development, mobile optimisation, SEO foundation, content management, integrations, security, hosting and post-launch support."),
+
+  h2("What determines the cost of a business website?"),
+
+  p("The biggest factor is what you expect the website to do. A company website designed to generate enquiries may need service pages, forms, WhatsApp integration, conversion-focused landing sections and local SEO. An ecommerce business may additionally need product management, payments, shipping, inventory and customer accounts. A custom application can require authentication, dashboards, APIs, databases and third-party integrations."),
+
+  h2("Custom design vs template website"),
+
+  p("Template-based websites can be faster to launch, but they often come with limitations when you need a distinctive brand experience or additional functionality. Custom website development gives you greater control over the layout, user journey, performance, SEO structure and future development of the platform."),
+
+  h2("What should a professional website include?"),
+
+  ol([
+    "Responsive design that works properly across phones, tablets and desktops.",
+
+    "A clear information architecture so visitors can quickly understand your services and take action.",
+
+    "Fast-loading pages with performance optimisation and a strong technical foundation.",
+
+    "SEO-ready page structure including clean URLs, metadata, internal linking and structured data where appropriate.",
+
+    "Easy content management when your business needs to regularly update services, products or articles.",
+
+    "Conversion features such as enquiry forms, click-to-call buttons and WhatsApp integration where relevant.",
+
+    "Analytics and search performance tracking so you can understand how visitors discover and use the website.",
+
+    "Security, backups and appropriate post-launch support.",
+  ]),
+
+  cta("audit"),
+
+  h2("What makes ecommerce websites more complex?"),
+
+  p("An ecommerce website is more than a collection of product pages. It may need product variants, categories, search, filters, customer accounts, payment gateways, shipping calculations, inventory management, order notifications, GST requirements and integrations with other business systems. The larger the catalogue and the more connected the workflow, the more development and testing is required."),
+
+  h2("Why cheap website quotes can be misleading"),
+
+  p("Two agencies can quote completely different amounts for what appears to be the same website. One quote may include custom design, SEO preparation, content support, responsive development, testing and post-launch assistance, while another may only cover installing a template and adding content. Always compare the scope rather than comparing the headline number."),
+
+  callout(
+    "Before accepting a website quote, ask exactly what happens when you need to add a new service, landing page, product category, integration or feature six months after launch.",
+    "Before you commit"
+  ),
+
+  h2("Website development for Chennai businesses"),
+
+  p("Chennai businesses have different digital requirements depending on their industry and customer journey. A local clinic may prioritise appointment enquiries, a jewellery business may need ecommerce and catalogue functionality, a real estate company may require property listings, while a B2B manufacturer may need detailed product and enquiry pages. Your website should be designed around that actual customer journey rather than a generic template."),
+
+  h2("How SmartPixel approaches website projects"),
+
+  p("SmartPixel starts by understanding the business, target customers and purpose of the website before deciding on the technology and structure. The focus is on building a website that can support enquiries, search visibility and future growth rather than simply delivering a collection of attractive pages."),
+
+  faq([
+    {
+      q: "How much does a website cost in Chennai?",
+      a: "Website development costs vary depending on the number of pages, design requirements, functionality, integrations, ecommerce requirements and ongoing support. SmartPixel provides project-specific estimates after understanding the business requirements."
+    },
+
+    {
+      q: "What is included in professional website development?",
+      a: "Depending on the project, professional development can include custom UI design, responsive development, SEO-ready structure, forms, WhatsApp integration, CMS functionality, analytics, performance optimisation and post-launch support."
+    },
+
+    {
+      q: "How long does it take to build a business website?",
+      a: "The timeline depends on the scope of the project, content availability, number of pages, design iterations and integrations. A straightforward business website can be completed much faster than an ecommerce platform or custom web application."
+    },
+
+    {
+      q: "Does website development include SEO?",
+      a: "A professional website should be built with a solid SEO foundation, including crawlable page structure, clean URLs, metadata, internal linking, responsive design, sitemap configuration and appropriate structured data. Ongoing SEO is a separate growth activity."
+    },
+
+    {
+      q: "Can SmartPixel redesign an existing website?",
+      a: "Yes. A redesign can address outdated design, poor mobile experience, slow performance, weak conversion paths and SEO issues while preserving valuable existing pages and search visibility where appropriate."
+    },
+
+    {
+      q: "Does SmartPixel work with businesses outside Chennai?",
+      a: "Yes. SmartPixel is based in Chrompet, Chennai and works with businesses across Chennai and remotely with clients in other parts of India."
+    },
+  ]),
+
+  cta("contact"),
+],
+  },
+
   {
     slug: "15-signs-your-business-needs-a-new-website",
     category: "Web Development",
@@ -492,12 +676,23 @@ export const posts: Post[] = [
     datePublishedIso: "2026-06-28",
     read: "11 min",
     author: AUTHOR,
+    primaryKeyword: "signs you need a new website",
+    secondaryKeywords: [
+      "website redesign vs rebuild",
+      "when to redesign business website",
+      "outdated website signs",
+      "should I rebuild my website",
+    ],
+    searchIntent: "informational",
+    targetLocation: "India",
+    relatedService: "Web Design",
+    internalLinkTargets: ["/services/web-design-chennai", "/portfolio", "/contact"],
     body: [
       p("Every founder resists a rebuild. It is expensive, it is disruptive, and the current site 'still works'. But there is a point where continuing to patch a decaying website costs more than replacing it — and that point usually arrived twelve months before you notice. Here are the fifteen signals that mean the answer is not another redesign, it is a fresh build on the right foundation."),
       h2("1. Your bounce rate on mobile is above 70%"),
       p("Anything above 60% mobile bounce rate is a diagnosis, not a metric. It means users are landing, taking one look, and leaving inside three seconds. This is almost always caused by slow mobile load, unreadable typography, or a layout that was designed for desktop and squeezed onto phone."),
       h2("2. Your page speed score is below 50 on mobile"),
-      p("Google's PageSpeed Insights below 50 on mobile means your site is materially slower than 80% of the web. That translates directly to lost rankings, lost ad quality score and lost conversions."),
+      p("Google's PageSpeed Insights below 50 on mobile means your site is materially slower than most of the web. That translates directly to lost rankings, lost ad quality score and lost conversions."),
       h2("3. You cannot edit content without calling a developer"),
       p("If changing a phone number, adding a service or updating a price requires a developer round-trip, your CMS is broken. You will avoid updates that matter, the site will drift out of date, and its usefulness decays."),
       h2("4. Your site is not on HTTPS"),
@@ -505,7 +700,7 @@ export const posts: Post[] = [
       h2("5. The design is more than five years old"),
       p("Design trust is measured in seconds. A site whose colour scheme, typography and layout patterns were current in 2019 signals to visitors that the business itself may be outdated, absent or failing."),
       h2("6. You have no lead capture beyond a contact form"),
-      p("A contact form buried on /contact captures the 2% of visitors ready to buy today. The other 98% leave without a trace. A modern site has inline CTAs, exit-intent lead magnets, WhatsApp click-to-chat and phone-tap CTAs."),
+      p("A contact form buried on /contact captures only the small fraction of visitors ready to buy today. The rest leave without a trace. A modern site has inline CTAs, exit-intent lead magnets, WhatsApp click-to-chat and phone-tap CTAs."),
       h2("7. Your CMS is unmaintained WordPress with 40 plugins"),
       p("WordPress can be excellent — but a site with plugins that have not been updated in three years is a security incident waiting to be reported. Compromised WordPress sites get blacklisted by Google within 48 hours of infection."),
       h2("8. You cannot integrate anything"),
@@ -516,7 +711,7 @@ export const posts: Post[] = [
       h2("10. Your competitors have overtaken you on Google"),
       p("Rankings are relative. If competitors who launched after you now outrank you, they have a better technical foundation and better content. Retrofitting yours may cost more than starting clean."),
       h2("11. You cannot serve content in multiple languages"),
-      p("If you sell to Chennai but half your customers prefer Tamil, and your CMS makes bilingual publishing impossible, you are leaving revenue on the table."),
+      p("If you sell to Chennai but a meaningful share of your customers prefer Tamil, and your CMS makes bilingual publishing impossible, you are leaving revenue on the table."),
       h2("12. Your site is not accessible"),
       p("No alt text, poor colour contrast, keyboard-inaccessible menus. Accessibility is now both a legal exposure and an SEO ranking factor."),
       h2("13. Your images are 4MB each"),
@@ -529,7 +724,7 @@ export const posts: Post[] = [
       p("A redesign is appropriate when the foundation is sound (fast, secure, editable, well-structured) and only the visuals feel dated. A rebuild is necessary when three or more of the fifteen items above apply — you are stacking new paint on rotten wood."),
       faq([
         { q: "How often should a business rebuild its website?", a: "Every 4–6 years for SMBs, every 3 years for ecommerce, every 2 years for high-growth SaaS. In between, expect one significant redesign at the midpoint." },
-        { q: "How much does a new business website cost in India?", a: "Realistic 2026 pricing: ₹40,000–₹90,000 for a small brochure site done well, ₹1,00,000–₹3,00,000 for a mid-size business site with CMS and integrations, ₹3,00,000–₹15,00,000 for an ecommerce or complex platform build." },
+        { q: "How much does a new business website cost in India?", a: "See our detailed Chennai pricing guide, but as a summary: ₹40,000–₹90,000 for a small brochure site done well, ₹90,000–₹2,00,000 for a growth-stage business site with CMS and integrations, ₹2,50,000+ for ecommerce or complex platform builds." },
         { q: "Will a new website hurt my Google rankings?", a: "Only if the migration is done poorly. Preserved URL structure, 301 redirects from every old URL, retained content hierarchy and a submitted new sitemap keep rankings stable or improve them in most cases." },
         { q: "Can I keep my existing content on a new site?", a: "Yes — content migration is standard. Text, images, blog posts, testimonials and pages should all carry over. In fact, we typically rewrite the top 20% of pages during rebuild to fix on-page SEO gaps." },
       ]),
@@ -547,6 +742,17 @@ export const posts: Post[] = [
     datePublishedIso: "2026-06-26",
     read: "10 min",
     author: AUTHOR,
+    primaryKeyword: "why website is not generating leads",
+    secondaryKeywords: [
+      "website not converting visitors",
+      "increase website leads",
+      "website conversion rate optimization",
+      "traffic but no enquiries",
+    ],
+    searchIntent: "informational",
+    targetLocation: "India",
+    relatedService: "Web Design",
+    internalLinkTargets: ["/services/web-design-chennai", "/whatsapp-automation-chennai", "/contact"],
     body: [
       p("Traffic without leads is the most demoralising outcome in digital marketing. You paid for the site, you paid for the SEO, the visitor counter is going up, and the phone is silent. Nine times out of ten, the problem is not the traffic — it is the eleven small conversion decisions the website silently gets wrong. Let us unpack the chain."),
       h2("The visitor arrives and cannot identify what you do inside three seconds"),
@@ -556,9 +762,9 @@ export const posts: Post[] = [
       h2("You have no clear primary action per page"),
       p("A page that offers 'Contact us', 'Read more', 'Learn about our approach', 'Download brochure', 'Book a demo', 'Chat with us' — offers nothing. Every page needs one primary action and no more than one secondary action."),
       h2("Your CTA is 'Submit' or 'Send'"),
-      p("Nobody feels good about clicking 'Submit'. 'Get my free audit', 'Book my strategy call', 'Send my enquiry to WhatsApp' — action-oriented, benefit-loaded language raises conversion rate by 20–70%."),
+      p("Nobody feels good about clicking 'Submit'. 'Get my free audit', 'Book my strategy call', 'Send my enquiry to WhatsApp' — action-oriented, benefit-loaded language raises conversion rate meaningfully."),
       h2("Your contact form asks for eight fields"),
-      p("Every field beyond three drops conversion rate by roughly 5%. Ask for name, phone or WhatsApp, and the shortest possible problem statement. Everything else can be asked in the first reply."),
+      p("Every field beyond three drops conversion rate noticeably. Ask for name, phone or WhatsApp, and the shortest possible problem statement. Everything else can be asked in the first reply."),
       cta("audit"),
       h2("You do not offer a low-friction alternative"),
       p("Some visitors will never fill a form. They want to WhatsApp, they want to call, they want to book a slot. If your only entry point is a form, you are filtering out the fastest-moving, highest-intent buyers."),
@@ -569,17 +775,17 @@ export const posts: Post[] = [
       h2("Your site looks broken on mobile"),
       p("Buttons too small to tap, text that overflows, forms that do not autofocus, phone numbers that are not click-to-call — every one of these adds friction. Test on a real mid-range Android, not just Chrome DevTools."),
       h2("You have no trust signals near the CTA"),
-      p("A phone number next to the submit button. A 'Reply within 2 hours' promise. A GDPR/privacy assurance. A logo strip of clients. Trust signals belong exactly where a visitor is deciding whether to act."),
+      p("A phone number next to the submit button. A 'Reply within 2 hours' promise. A privacy assurance. A logo strip of clients. Trust signals belong exactly where a visitor is deciding whether to act."),
       h2("You are not retargeting"),
-      p("Ninety-eight percent of visitors leave without converting. A basic Facebook Pixel + Google Ads remarketing setup lets you reach them again for weeks afterward at a fraction of the cost of a new visitor."),
+      p("The large majority of visitors leave without converting on the first visit. A basic Facebook Pixel + Google Ads remarketing setup lets you reach them again for weeks afterward at a fraction of the cost of a new visitor."),
       h2("The invisible last mile — response speed"),
-      p("Even a perfectly optimised website loses leads if the reply to the enquiry takes eleven hours. Response inside five minutes converts at roughly 8× the rate of response inside sixty minutes. Automate the acknowledgement; human-reply within an hour."),
+      p("Even a perfectly optimised website loses leads if the reply to the enquiry takes eleven hours. Fast response converts at a dramatically higher rate than slow response. Automate the acknowledgement; human-reply within an hour."),
       cta("whatsapp"),
       faq([
         { q: "What is a good conversion rate for a business website?", a: "Industry averages: 1–2% for B2B service sites, 2–5% for local service businesses, 1.5–3% for ecommerce. Best-in-class optimised sites reach 5–10% by fixing the eleven issues covered above." },
         { q: "Why does my website have traffic but no leads?", a: "Most commonly: the traffic is not commercial-intent, the pages do not have clear CTAs, forms are too long, and there is no alternative to the form for high-intent visitors. Fix in that order." },
         { q: "How can I increase leads from my existing website?", a: "In order of impact: rewrite the homepage headline for clarity, add WhatsApp click-to-chat, shorten forms to three fields, add above-fold CTAs on every service page, install retargeting pixels. This typically doubles enquiry volume without any new traffic." },
-        { q: "Do landing pages convert better than homepages?", a: "For paid traffic yes — 2–5× better. A landing page has one goal, one CTA, no distractions. Homepages are correctly optimised for organic and returning visitors, not paid campaigns." },
+        { q: "Do landing pages convert better than homepages?", a: "For paid traffic yes — meaningfully better. A landing page has one goal, one CTA, no distractions. Homepages are correctly optimised for organic and returning visitors, not paid campaigns." },
       ]),
       cta("contact"),
     ],
@@ -590,47 +796,58 @@ export const posts: Post[] = [
     category: "Web Development",
     title: "Website Speed: The Hidden Sales Killer Nobody Talks About",
     excerpt:
-      "A one-second delay in mobile load time cuts conversions by 20%. The full anatomy of a slow website, what actually causes it, and the specific fixes in priority order.",
+      "A one-second delay in mobile load time cuts conversions noticeably. The full anatomy of a slow website, what actually causes it, and the specific fixes in priority order.",
     date: "Jun 2026",
     datePublishedIso: "2026-06-24",
     read: "11 min",
     author: AUTHOR,
+    primaryKeyword: "website speed and conversion rate",
+    secondaryKeywords: [
+      "why is my website slow",
+      "Core Web Vitals explained",
+      "mobile page speed India",
+      "website loading speed fix",
+    ],
+    searchIntent: "informational",
+    targetLocation: "India",
+    relatedService: "Web Design",
+    internalLinkTargets: ["/services/web-design-chennai", "/contact"],
     body: [
-      p("Speed is not a technical vanity metric — it is a direct revenue variable. Google's own study of 900,000 mobile pages found that the probability of bounce increases 32% as page load moves from 1 to 3 seconds, 90% from 1 to 5 seconds, and 123% from 1 to 10 seconds. If your site takes 6 seconds to load on a Redmi over 4G, more than half of your paid and organic traffic never sees your value proposition."),
+      p("Speed is not a technical vanity metric — it is a direct revenue variable. Google's own research into mobile page performance found bounce probability rises sharply as load time increases from one second toward three, five and ten seconds. If your site takes 6 seconds to load on a Redmi over 4G, more than half of your paid and organic traffic never sees your value proposition."),
       h2("The three numbers that matter — Core Web Vitals"),
       h3("Largest Contentful Paint (LCP)"),
       p("How quickly the largest visible element (usually the hero image or headline) renders. Target: under 2.5 seconds. Poor: above 4 seconds. Most Indian SMB sites we audit sit at 4–7 seconds LCP on mobile."),
       h3("Interaction to Next Paint (INP)"),
-      p("How quickly the site responds when a user taps or scrolls. Target: under 200 ms. This replaced First Input Delay in March 2024 and is now the responsiveness signal Google measures."),
+      p("How quickly the site responds when a user taps or scrolls. Target: under 200 ms. This replaced First Input Delay as Google's responsiveness signal in 2024."),
       h3("Cumulative Layout Shift (CLS)"),
       p("How much the page jumps around while loading (image loads late, ad injects, font swaps). Target: below 0.1. High CLS causes miss-taps and rage-quits."),
       h2("What actually makes a site slow"),
       h3("Uncompressed images"),
       p("Single biggest cause on Indian SMB sites. A hero image saved as 3.2 MB PNG that should be 180 KB WebP. A homepage carousel of six such images is 20 MB of data. Fix: convert every image to WebP or AVIF, resize to the actual display dimensions, lazy-load images below the fold."),
       h3("Render-blocking scripts and CSS"),
-      p("Every <script> tag in the head that is not marked async or defer blocks the browser from rendering. Google Fonts loaded synchronously blocks the paint by 300–800 ms. Fix: defer non-critical JS, inline critical CSS, use font-display: swap."),
+      p("Every <script> tag in the head that is not marked async or defer blocks the browser from rendering. Google Fonts loaded synchronously blocks the paint noticeably. Fix: defer non-critical JS, inline critical CSS, use font-display: swap."),
       h3("Third-party scripts"),
-      p("Facebook Pixel, Google Ads tag, Hotjar, Intercom widget, LiveChat, Google Analytics 4, TagManager loading a dozen more scripts. Each one adds 50–400 ms to load. Fix: audit every third-party script, remove what does not have a clear business case, and load the survivors via GTM with a delay after page interactive."),
+      p("Facebook Pixel, Google Ads tag, Hotjar, Intercom widget, LiveChat, Google Analytics 4, TagManager loading a dozen more scripts. Each one adds measurable load time. Fix: audit every third-party script, remove what does not have a clear business case, and load the survivors via GTM with a delay after page interactive."),
       h3("Cheap hosting"),
-      p("₹99/month shared hosting on an oversold server delivers a Time to First Byte of 800–1500 ms — before the browser can even start rendering. Fix: move to a decent SSD VPS or a modern platform (Vercel, Netlify, Cloudflare Pages, or DigitalOcean App Platform). Typical TTFB drops to 100–300 ms."),
+      p("₹99/month shared hosting on an oversold server delivers a slow Time to First Byte — before the browser can even start rendering. Fix: move to a decent SSD VPS or a modern platform (Vercel, Netlify, Cloudflare Pages, or DigitalOcean App Platform)."),
       h3("Unoptimised WordPress themes"),
-      p("A bloated theme loading jQuery, five sliders, four page builders and eleven Google Fonts is 4–8 MB of JavaScript before your first paragraph renders. Fix: use a lean theme (GeneratePress, Kadence) or move to a modern static-site stack for content-only sites."),
+      p("A bloated theme loading jQuery, five sliders, four page builders and eleven Google Fonts is several megabytes of JavaScript before your first paragraph renders. Fix: use a lean theme (GeneratePress, Kadence) or move to a modern static-site stack for content-only sites."),
       cta("audit"),
       h2("The fix order that actually moves the score"),
       ol([
-        "Compress and format images to WebP (impact: 30–60% LCP improvement).",
-        "Enable Brotli or gzip compression on the server (impact: 20–40% total transfer reduction).",
-        "Add cache headers so returning visitors do not re-download static assets (impact: near-instant repeat views).",
-        "Defer or async every non-critical script (impact: 200–800 ms LCP).",
-        "Move to modern hosting with a CDN (impact: 300–800 ms TTFB globally).",
-        "Preload critical fonts and hero images (impact: 100–300 ms LCP).",
-        "Remove unused CSS and JavaScript (impact: 20–40% bundle reduction).",
+        "Compress and format images to WebP (largest single LCP improvement).",
+        "Enable Brotli or gzip compression on the server.",
+        "Add cache headers so returning visitors do not re-download static assets.",
+        "Defer or async every non-critical script.",
+        "Move to modern hosting with a CDN.",
+        "Preload critical fonts and hero images.",
+        "Remove unused CSS and JavaScript.",
         "Fix layout shift with explicit width/height on images and reserved space for late-loading ads.",
       ]),
       h2("Speed is also an SEO signal"),
-      p("Core Web Vitals became a confirmed ranking signal in June 2021 and their weight has grown at every core update since. Two sites with equal content and links will separate on speed alone — sometimes by three or four positions in a competitive SERP."),
+      p("Core Web Vitals became a confirmed ranking signal in 2021 and their weight has grown at subsequent updates. Two sites with equal content and links will separate on speed alone — sometimes by several positions in a competitive SERP."),
       h2("Speed is also an ad-quality signal"),
-      p("Google Ads quality score has a landing page experience component driven largely by speed. A slow landing page raises your effective CPC by 20–50% because Google rewards fast sites with cheaper clicks. On a ₹50,000 monthly ad budget, that is ₹10,000–₹25,000 wasted every month before you have won a single lead."),
+      p("Google Ads quality score has a landing page experience component driven largely by speed. A slow landing page raises your effective CPC because Google rewards fast sites with cheaper clicks. On a meaningful monthly ad budget, that difference adds up quickly before you have won a single lead."),
       h2("How to measure without guessing"),
       ul([
         "PageSpeed Insights (free) — Google's own tool, uses real Chrome user data.",
@@ -643,7 +860,7 @@ export const posts: Post[] = [
         { q: "What is a good website speed score?", a: "PageSpeed Insights above 85 on mobile is excellent for a business site. Above 95 is exceptional. Below 50 needs immediate attention. Note: the number is a summary of Core Web Vitals — the underlying LCP, INP and CLS matter more than the score itself." },
         { q: "How fast should my website load?", a: "Ideally under 2.5 seconds for the largest visible element on mobile 4G. Absolute worst acceptable case: 4 seconds. Anything above that costs you both rankings and conversions." },
         { q: "Does website speed affect Google ranking?", a: "Yes — directly and materially. Core Web Vitals are a confirmed ranking signal, and mobile speed factors into mobile-first indexing. In competitive SERPs speed can be the deciding factor between position 3 and position 8." },
-        { q: "How do I speed up my WordPress site?", a: "In priority order: compress images to WebP with a plugin like ShortPixel, install a caching plugin (WP Rocket, LiteSpeed Cache), move to a lean theme, disable unused plugins, upgrade from shared hosting to a managed WordPress host. This alone typically moves Indian WordPress sites from 30 to 80+ on PageSpeed." },
+        { q: "How do I speed up my WordPress site?", a: "In priority order: compress images to WebP with a plugin like ShortPixel, install a caching plugin (WP Rocket, LiteSpeed Cache), move to a lean theme, disable unused plugins, upgrade from shared hosting to a managed WordPress host. This alone typically produces a large jump on PageSpeed for Indian WordPress sites." },
       ]),
       cta("contact"),
     ],
@@ -659,6 +876,17 @@ export const posts: Post[] = [
     datePublishedIso: "2026-06-22",
     read: "10 min",
     author: AUTHOR,
+    primaryKeyword: "custom website vs WordPress",
+    secondaryKeywords: [
+      "WordPress vs custom development",
+      "which is better WordPress or custom website",
+      "headless CMS vs WordPress",
+      "should I use WordPress for my business",
+    ],
+    searchIntent: "commercial",
+    targetLocation: "India",
+    relatedService: "Web Design",
+    internalLinkTargets: ["/services/web-design-chennai", "/services/web-app-development", "/contact"],
     body: [
       p("Roughly 43% of the web runs on WordPress. That is because it is genuinely excellent for a specific slice of use cases — and mediocre or actively wrong for the rest. Custom builds (React/Next.js/similar) are the opposite: overpowered for a five-page brochure site, exactly right for anything with real product logic. Here is the decision framework we walk every client through."),
       h2("What WordPress is genuinely good at"),
@@ -675,7 +903,7 @@ export const posts: Post[] = [
         "Security surface — every plugin is an attack vector; unpatched plugins are the #1 cause of website hacks in India.",
         "Design constraints — themes lock you into layouts and dev velocity slows the moment you need custom UI.",
         "Complex business logic — booking systems, multi-step forms, calculators, dashboards. WordPress can do them, but with plugin-stacked fragility.",
-        "Scalability — a WordPress site handling 500 concurrent users on shared hosting will fall over; scaling requires enterprise-grade WP hosting (Kinsta, WP Engine) at ₹15,000+ per month.",
+        "Scalability — a WordPress site handling heavy concurrent traffic on shared hosting will fall over; scaling requires enterprise-grade WP hosting (Kinsta, WP Engine) at meaningful monthly cost.",
       ]),
       h2("What custom (React/Next.js/similar) is good at"),
       ul([
@@ -688,13 +916,13 @@ export const posts: Post[] = [
       ]),
       h2("Where custom costs you"),
       ul([
-        "Higher upfront investment — ₹1,20,000–₹5,00,000+ vs ₹40,000–₹1,50,000 for WordPress.",
+        "Higher upfront investment than WordPress.",
         "Content editing usually needs a lightweight admin panel — not as universally familiar as WordPress admin.",
         "You are more dependent on the development partner for structural changes.",
         "Longer initial build time — 6–10 weeks vs 3–4 for WordPress.",
       ]),
       h2("The middle ground — headless CMS + modern frontend"),
-      p("The pattern most sophisticated SMB builds now use: a modern frontend (Next.js, Astro, or similar) plus a headless CMS (Sanity, Contentful, Strapi, WordPress-as-headless). You get performance and design freedom of custom builds plus editable content like WordPress. Setup cost is close to custom but ongoing content editing is as easy as WordPress. This is the right answer for roughly 40% of the projects we quote."),
+      p("The pattern most sophisticated SMB builds now use: a modern frontend (Next.js, Astro, or similar) plus a headless CMS (Sanity, Contentful, Strapi, WordPress-as-headless). You get performance and design freedom of custom builds plus editable content like WordPress. Setup cost is close to custom but ongoing content editing is as easy as WordPress. This is the right answer for a meaningful share of the projects we quote."),
       cta("audit"),
       h2("The decision framework in one page"),
       h3("Pick WordPress if"),
@@ -723,7 +951,7 @@ export const posts: Post[] = [
       p("For content publishers or B2B lead-gen sites with heavy publishing: WordPress-as-headless with a Next.js frontend on Vercel. Best of both worlds, slightly higher setup cost."),
       faq([
         { q: "Is WordPress good for SEO?", a: "Yes when configured well — with Yoast/RankMath, a lean theme, WP Rocket, and disciplined plugin use. Poor when overloaded with page builders and 40 plugins. WordPress's SEO ceiling is high but its default performance ceiling is lower than a modern custom stack." },
-        { q: "Can I switch from WordPress to a custom site later?", a: "Yes — content migration is standard. The bigger challenge is preserving URLs and redirect chains so you do not lose SEO. A competent migration retains rankings; a rushed one can drop them 20–40% for months." },
+        { q: "Can I switch from WordPress to a custom site later?", a: "Yes — content migration is standard. The bigger challenge is preserving URLs and redirect chains so you do not lose SEO. A competent migration retains rankings; a rushed one can drop them for months." },
         { q: "How much cheaper is WordPress than a custom website?", a: "Typically 40–70% cheaper for the initial build. Over a five-year total-cost-of-ownership, the gap narrows because WordPress requires ongoing plugin licences, security maintenance and hosting upgrades." },
         { q: "Is Wix or Squarespace a better alternative?", a: "For under-10-page brochure sites for solopreneurs, yes. For any business planning to grow, integrate systems or invest in SEO, no — you eventually hit ceilings on customisation and portability, and migration is painful." },
       ]),
@@ -742,34 +970,45 @@ export const posts: Post[] = [
     datePublishedIso: "2026-06-20",
     read: "12 min",
     author: AUTHOR,
+    primaryKeyword: "WhatsApp automation for small business",
+    secondaryKeywords: [
+      "WhatsApp business automation India",
+      "automate WhatsApp messages",
+      "WhatsApp API for business",
+      "how to automate WhatsApp for business",
+    ],
+    searchIntent: "commercial",
+    targetLocation: "India",
+    relatedService: "WhatsApp Automation",
+    internalLinkTargets: ["/whatsapp-automation-chennai", "/contact"],
     body: [
-      p("WhatsApp is not a marketing channel in India — it is the operating system of small business. 92% of Indian smartphone owners use it daily. When a lead comes in through your website, they expect a WhatsApp reply within minutes, not a call-back tomorrow. The founders who figured this out five years ago now run WhatsApp-first businesses; the ones who did not are still hand-typing the same eight replies fifty times a day."),
+      p("WhatsApp is not a marketing channel in India — it is the operating system of small business. A large majority of Indian smartphone owners use it daily. When a lead comes in through your website, they expect a WhatsApp reply within minutes, not a call-back tomorrow. The founders who figured this out five years ago now run WhatsApp-first businesses; the ones who did not are still hand-typing the same eight replies fifty times a day."),
       p("Below is the exact stack of automations we build for clients, plus honest measurement of how much manual work each one removes."),
       h2("Automation 1: Instant lead acknowledgement"),
       p("Every website enquiry auto-triggers a WhatsApp reply within 30 seconds: 'Hi [Name], we received your message about [Service]. A senior consultant will call you within 2 hours. In the meantime, you can send any documents or questions right here on WhatsApp.'"),
-      p("Time saved: roughly 3 minutes per lead, but the real gain is lead retention — response inside 5 minutes converts at 8× the rate of response inside 1 hour. On 100 leads/month, this alone typically recovers ₹1–3 lakh of otherwise-lost revenue."),
+      p("Time saved: a few minutes per lead, but the real gain is lead retention — fast response converts at a dramatically higher rate than slow response. Across a typical monthly lead volume, this alone often recovers otherwise-lost revenue."),
       h2("Automation 2: Lead qualification flow"),
       p("After the acknowledgement, a chatbot asks 3–5 qualifying questions: budget range, timeline, city/pincode, specific need. By the time a human picks up the conversation, the lead is pre-sorted into hot/warm/cold buckets and routed to the right salesperson."),
-      p("Time saved: 8–12 minutes per lead of initial discovery. On 100 leads, 15–20 hours a month recovered."),
+      p("Time saved: significant per-lead discovery time recovered across the team every month."),
       h2("Automation 3: Appointment booking and reminders"),
-      p("Users pick a slot inside WhatsApp using a booking button. The system auto-creates the calendar entry and sends reminders 24 hours and 1 hour before. No-shows drop by 30–60% in every clinic, salon and consultant we have deployed this for."),
+      p("Users pick a slot inside WhatsApp using a booking button. The system auto-creates the calendar entry and sends reminders 24 hours and 1 hour before. No-shows drop meaningfully in every clinic, salon and consultant we have deployed this for."),
       h2("Automation 4: Order status and shipping updates"),
-      p("For ecommerce and D2C: order confirmed → payment received → shipped with tracking → out for delivery → delivered → review request. Every step auto-fires from the ecommerce platform. Customer support 'where is my order' calls drop by 70–85%."),
+      p("For ecommerce and D2C: order confirmed → payment received → shipped with tracking → out for delivery → delivered → review request. Every step auto-fires from the ecommerce platform. Customer support 'where is my order' calls drop sharply."),
       cta("whatsapp"),
       h2("Automation 5: Abandoned cart recovery"),
-      p("A customer adds items to cart on your Shopify store but does not check out. One hour later, a WhatsApp message with the cart contents and a discount code recovers 20–35% of otherwise-lost carts. This single automation typically pays for the entire WhatsApp API setup within a month."),
+      p("A customer adds items to cart on your Shopify store but does not check out. One hour later, a WhatsApp message with the cart contents and a discount code recovers a meaningful share of otherwise-lost carts. This single automation often pays for the entire WhatsApp API setup within a month."),
       h2("Automation 6: Payment reminders"),
-      p("For service businesses invoicing net-30 or net-15: automated polite reminder 3 days before due, on due date, and 3 days after if unpaid. Cash collection cycles shorten by an average of 11 days across our client base."),
+      p("For service businesses invoicing net-30 or net-15: automated polite reminder 3 days before due, on due date, and 3 days after if unpaid. Cash collection cycles shorten noticeably across our client base."),
       h2("Automation 7: Broadcast campaigns to opted-in customers"),
-      p("Festival offers, new arrivals, restock alerts — sent to segmented lists (not blasted to everyone). Open rates of 85–95% versus 15–25% for email. Costs ₹0.35–₹0.85 per message on the WhatsApp Cloud API. The unit economics are unmatched by any other channel."),
+      p("Festival offers, new arrivals, restock alerts — sent to segmented lists (not blasted to everyone). Open rates run far higher than email. Costs a fraction of a rupee per message on the WhatsApp Cloud API. The unit economics are unmatched by any other channel."),
       h2("Automation 8: Review and feedback collection"),
-      p("Two days after order delivery or service completion: 'How was your experience? Reply with a rating from 1 to 5.' Ratings of 4 or 5 auto-trigger a follow-up with your Google review link. Ratings of 1–3 route to a human for recovery. Google review count grows 3–5× faster."),
+      p("Two days after order delivery or service completion: 'How was your experience? Reply with a rating from 1 to 5.' Ratings of 4 or 5 auto-trigger a follow-up with your Google review link. Ratings of 1–3 route to a human for recovery. Google review count grows substantially faster."),
       h2("Automation 9: FAQ deflection"),
-      p("The top 15–20 repetitive questions (opening hours, address, price ranges, service list, delivery timelines) answered instantly by a bot. Frees your team from typing the same replies fifty times a day. Deflection rates of 40–65% are typical."),
+      p("The top 15–20 repetitive questions (opening hours, address, price ranges, service list, delivery timelines) answered instantly by a bot. Frees your team from typing the same replies fifty times a day."),
       h2("Automation 10: CRM sync"),
       p("Every WhatsApp conversation, order, enquiry and payment auto-logged into your CRM (Zoho, HubSpot, Salesforce, or a custom database). No more copy-pasting from WhatsApp Web into a spreadsheet."),
       h2("The honest math on time saved"),
-      p("Aggregated across the ten automations above, a typical Indian SMB with 100–200 monthly leads and 50–100 monthly orders saves 20–35 hours a week of manual work. In staff cost terms that is ₹40,000–₹80,000 per month freed up — and the freed time goes toward higher-value work, not just cost reduction."),
+      p("Aggregated across the ten automations above, a typical Indian SMB with 100–200 monthly leads and 50–100 monthly orders saves 20–35 hours a week of manual work — time that goes toward higher-value work, not just cost reduction."),
       cta("whatsapp", "Want us to map exactly which of these ten would save you the most time? Send a WhatsApp with 'audit' and we'll reply with a plan."),
       h2("What you need to run this properly"),
       ul([
@@ -780,7 +1019,7 @@ export const posts: Post[] = [
       ]),
       faq([
         { q: "Is WhatsApp automation legal in India?", a: "Yes, when done through the official Meta WhatsApp Business Cloud API with proper opt-in. Sending automated messages via WhatsApp Web using unofficial tools violates Meta's terms and results in permanent number bans." },
-        { q: "How much does WhatsApp automation cost?", a: "Setup: ₹15,000–₹80,000 depending on complexity. Ongoing: ₹1,500–₹5,000/month platform fee plus ₹0.35–₹1.10 per conversation charged by Meta. For an SMB with 500 monthly conversations, total run cost is typically ₹3,500–₹8,000/month." },
+        { q: "How much does WhatsApp automation cost?", a: "Setup: ₹15,000–₹80,000 depending on complexity. Ongoing: ₹1,500–₹5,000/month platform fee plus per-conversation charges from Meta. For an SMB with a few hundred monthly conversations, total run cost is typically ₹3,500–₹8,000/month." },
         { q: "Will WhatsApp automation replace my human team?", a: "No — it removes the repetitive 60% (acknowledgements, FAQs, reminders) so your team can focus on the high-value 40% (actual sales conversations, complex support, closing deals). Every deployment we have done has increased conversion, not reduced headcount." },
         { q: "Can I automate WhatsApp without the official API?", a: "Only through unofficial tools that violate Meta's terms and risk permanent number bans. For any business that depends on WhatsApp for revenue, the official Cloud API is the only responsible choice." },
       ]),
@@ -798,6 +1037,17 @@ export const posts: Post[] = [
     datePublishedIso: "2026-06-18",
     read: "9 min",
     author: AUTHOR,
+    primaryKeyword: "WhatsApp Business API vs Cloud API",
+    secondaryKeywords: [
+      "WhatsApp Business app vs API",
+      "WhatsApp Cloud API pricing India",
+      "when to upgrade to WhatsApp API",
+      "WhatsApp Business app limitations",
+    ],
+    searchIntent: "commercial",
+    targetLocation: "India",
+    relatedService: "WhatsApp Automation",
+    internalLinkTargets: ["/whatsapp-automation-chennai", "/contact"],
     body: [
       p("There are three WhatsApp products for business use, and half the founders we speak to are using the wrong one for their stage. Let us untangle them."),
       h2("Product 1: WhatsApp Business app (free)"),
@@ -839,11 +1089,11 @@ export const posts: Post[] = [
       h2("The pricing conversation"),
       p("Meta charges the Cloud API on a conversation basis, not per message. A 'conversation' is a 24-hour window opened by either party."),
       ul([
-        "User-initiated conversation (customer messages you first): ₹0.35 (marketing) / ₹0.115 (utility) — India rates, subject to change.",
-        "Business-initiated conversation (you message them first, using a template): ₹0.72 (marketing) / ₹0.115 (utility).",
-        "Service conversations (customer support inside 24h window): free up to 1,000 per month.",
+        "User-initiated conversation (customer messages you first): lower per-conversation rate for utility messages than marketing.",
+        "Business-initiated conversation (you message them first, using a template): a higher rate for marketing templates than utility.",
+        "Service conversations (customer support inside 24h window): free up to a monthly allowance.",
       ]),
-      p("For an SMB doing 500 conversations a month, Meta's own cost is typically ₹250–₹600. On top, most BSPs charge ₹1,500–₹5,000/month for the dashboard, chatbot builder and support."),
+      p("For an SMB doing a few hundred conversations a month, Meta's own cost is typically a few hundred rupees. On top, most BSPs charge ₹1,500–₹5,000/month for the dashboard, chatbot builder and support."),
       h2("When to upgrade from Business app to Cloud API"),
       ul([
         "You are typing the same reply more than 10 times a day.",
@@ -858,7 +1108,7 @@ export const posts: Post[] = [
       cta("whatsapp"),
       faq([
         { q: "Is WhatsApp Business app enough for a small business?", a: "For solo founders and single-person businesses handling under 30 conversations a day, yes. Beyond that, the lack of multi-user support and automation becomes the bottleneck." },
-        { q: "How much does WhatsApp Cloud API cost per month?", a: "Meta charges per conversation (₹0.10–₹0.75 depending on type and region). A BSP platform on top charges ₹1,500–₹5,000/month. Realistic total for a 500-conversation SMB: ₹3,500–₹8,000/month all-in." },
+        { q: "How much does WhatsApp Cloud API cost per month?", a: "Meta charges per conversation, which varies by type and region. A BSP platform on top charges ₹1,500–₹5,000/month. Realistic total for a several-hundred-conversation SMB: ₹3,500–₹8,000/month all-in." },
         { q: "Can I use my existing WhatsApp Business app number on the Cloud API?", a: "Yes, but the migration is one-way — you cannot go back to the app afterwards. Chat history does not transfer. Plan the migration for a quiet business day." },
         { q: "What is a Business Solution Provider (BSP)?", a: "A Meta-authorised partner that provides the dashboard, chatbot builder, analytics and integrations layered on top of the Cloud API. Well-known BSPs in India include Wati, Interakt, AiSensy, Gupshup and Doubletick. Pricing and features vary — evaluate 2–3 before committing." },
       ]),
@@ -876,6 +1126,17 @@ export const posts: Post[] = [
     datePublishedIso: "2026-06-16",
     read: "11 min",
     author: AUTHOR,
+    primaryKeyword: "automate customer communication",
+    secondaryKeywords: [
+      "customer communication automation",
+      "WhatsApp email automation business",
+      "automated customer messages",
+      "how to automate customer follow-up",
+    ],
+    searchIntent: "informational",
+    targetLocation: "India",
+    relatedService: "WhatsApp Automation",
+    internalLinkTargets: ["/whatsapp-automation-chennai", "/contact"],
     body: [
       p("Automated communication done badly is worse than no communication at all — customers can smell a template from a mile away, and generic bulk messages destroy trust faster than they save time. Done well, automation is invisible: the customer thinks they were personally noticed, when in reality a workflow executed 400 milliseconds after their action. The trick is designing automations that feel like remembered attention, not batch processing."),
       h2("1. New-enquiry acknowledgement (WhatsApp)"),
@@ -884,20 +1145,20 @@ export const posts: Post[] = [
       h2("2. Booking confirmation with add-to-calendar (Email + WhatsApp)"),
       p("After booking, both channels fire: email with .ics calendar attachment, WhatsApp with a shorter version and a 'What to bring' checklist. Two-channel confirmation cuts no-shows meaningfully."),
       h2("3. 24-hour reminder before appointment"),
-      p("'Hi [Name], reminder that your [service] is booked for tomorrow at 3:30 PM. Address: [address with Google Maps link]. Reply RESCHEDULE if the timing does not work.' Reduces no-shows by 30–60% depending on industry."),
+      p("'Hi [Name], reminder that your [service] is booked for tomorrow at 3:30 PM. Address: [address with Google Maps link]. Reply RESCHEDULE if the timing does not work.' Reduces no-shows significantly depending on industry."),
       cta("whatsapp"),
       h2("4. Post-service follow-up and review request"),
-      p("Two days after service delivery: 'How did we do? Reply 1–5. If we earned a 5, we would love it if you shared your experience on Google — here is the direct link: [link].' Ratings of 4–5 flow to Google review ask; 1–3 route to a human for recovery. This alone typically grows Google review count 3–5× within six months."),
+      p("Two days after service delivery: 'How did we do? Reply 1–5. If we earned a 5, we would love it if you shared your experience on Google — here is the direct link: [link].' Ratings of 4–5 flow to Google review ask; 1–3 route to a human for recovery. This alone typically grows Google review count substantially within six months."),
       h2("5. Cart abandonment recovery (WhatsApp for ecommerce)"),
-      p("One hour after cart abandonment: 'Hi [Name], noticed you left [product] in your cart. Here is a 5% code if you'd like to complete the order today: SAVE5. Any questions I can help with?' Recovers 20–35% of abandoned carts on Indian D2C stores."),
+      p("One hour after cart abandonment: 'Hi [Name], noticed you left [product] in your cart. Here is a 5% code if you'd like to complete the order today: SAVE5. Any questions I can help with?' Recovers a meaningful share of abandoned carts on Indian D2C stores."),
       h2("6. Payment reminders (WhatsApp for B2B)"),
-      p("Three days before invoice due: gentle reminder with invoice PDF. On due date: 'Invoice #X is due today.' Three days overdue: escalated but polite. Ten days overdue: personal call from account manager. Cash collection cycles shorten by 8–14 days in every services business we deploy this for."),
+      p("Three days before invoice due: gentle reminder with invoice PDF. On due date: 'Invoice #X is due today.' Three days overdue: escalated but polite. Ten days overdue: personal call from account manager. Cash collection cycles shorten noticeably in every services business we deploy this for."),
       h2("7. Order status updates (WhatsApp for ecommerce)"),
-      p("Order placed → payment received → shipped with courier tracking → out for delivery → delivered. Each event auto-fires. Customer support 'where is my order' volume drops by 70–85%."),
+      p("Order placed → payment received → shipped with courier tracking → out for delivery → delivered. Each event auto-fires. Customer support 'where is my order' volume drops sharply."),
       h2("8. Birthday and anniversary touchpoints"),
-      p("A single message on the customer's birthday with a small gift (5% off, free add-on, unlock a service tier). Response rates are 4–8× higher than any regular campaign because the trigger is genuinely personal to the recipient."),
+      p("A single message on the customer's birthday with a small gift (5% off, free add-on, unlock a service tier). Response rates run several times higher than any regular campaign because the trigger is genuinely personal to the recipient."),
       h2("9. Re-engagement of inactive customers (Email + WhatsApp)"),
-      p("Customers inactive for 90–180 days get a soft check-in: 'We miss you. Is there anything we could have done better?' Recovers 8–15% of otherwise-lost customers. The ones who reply with feedback also give you free product-improvement insight."),
+      p("Customers inactive for 90–180 days get a soft check-in: 'We miss you. Is there anything we could have done better?' Recovers a portion of otherwise-lost customers. The ones who reply with feedback also give you free product-improvement insight."),
       h2("10. Internal team notifications (Slack + WhatsApp)"),
       p("Every new enquiry, every large order, every negative review — auto-notifies the right person on the team inside 30 seconds. Nothing sits in an inbox unopened for the weekend."),
       h2("How to make automation not feel like automation"),
@@ -920,8 +1181,8 @@ export const posts: Post[] = [
         "Razorpay/Stripe webhooks for payment-triggered messages.",
       ]),
       faq([
-        { q: "How do I make automated messages not sound robotic?", a: "First names used sparingly, references to the specific action the customer just took, signed by a real human name, and sentence rhythm varied to sound written rather than templated. Combine those four and 90% of customers will not realise they're inside an automation." },
-        { q: "Which channel is best for customer communication in India?", a: "WhatsApp for anything requiring quick response (enquiries, reminders, order updates, support) — open rates of 85–95%. Email for anything long-form, formal or archived (invoices, contracts, newsletters). SMS as a fallback for OTPs and transactional." },
+        { q: "How do I make automated messages not sound robotic?", a: "First names used sparingly, references to the specific action the customer just took, signed by a real human name, and sentence rhythm varied to sound written rather than templated. Combine those four and most customers will not realise they're inside an automation." },
+        { q: "Which channel is best for customer communication in India?", a: "WhatsApp for anything requiring quick response (enquiries, reminders, order updates, support) — very high open rates. Email for anything long-form, formal or archived (invoices, contracts, newsletters). SMS as a fallback for OTPs and transactional." },
         { q: "How much does customer communication automation cost?", a: "For an SMB with 200–500 monthly interactions: ₹4,000–₹10,000/month total (WhatsApp API + BSP platform + Zapier + CRM). Setup: ₹20,000–₹80,000. Typical payback: 2–4 months from time saved plus recovered leads." },
         { q: "Can I automate WhatsApp broadcasts to my customer list?", a: "Yes, through the official Cloud API, using opt-in customer lists and Meta-approved message templates. Blast messaging via unofficial tools violates Meta's terms and results in permanent number bans." },
       ]),
@@ -935,35 +1196,46 @@ export const posts: Post[] = [
     category: "AI & Automation",
     title: "How AI Is Quietly Transforming Small Businesses in India (Beyond the Hype)",
     excerpt:
-      "The real, working AI use cases already deployed inside Indian SMBs — not ChatGPT wrappers, actual operational wins with numbers. What is working, what is not, and where to start.",
+      "The real, working AI use cases already deployed inside Indian SMBs — not ChatGPT wrappers, actual operational wins. What is working, what is not, and where to start.",
     date: "Jun 2026",
     datePublishedIso: "2026-06-14",
     read: "12 min",
     author: AUTHOR,
+    primaryKeyword: "AI for small business India",
+    secondaryKeywords: [
+      "AI automation for SMB",
+      "how small businesses use AI",
+      "AI use cases for business",
+      "practical AI tools for business",
+    ],
+    searchIntent: "informational",
+    targetLocation: "India",
+    relatedService: "AI Automation",
+    internalLinkTargets: ["/whatsapp-automation-chennai", "/contact"],
     body: [
       p("Set aside the noise. Set aside the LinkedIn thought leaders. What is actually happening inside real Indian small businesses when they deploy AI is quieter, more specific and more valuable than the discourse suggests. It looks less like 'AI transformation' and more like: a receptionist who suddenly has time for actual guests because the appointment system handles routine calls, or a bookkeeper who now closes month-end in two days instead of nine because the invoice extraction is automated."),
       p("Here are the AI use cases already delivering measurable value inside SMBs we work with, honestly assessed."),
       h2("1. Customer support triage and first-response"),
       p("AI chatbots (built on GPT-4o, Claude, or fine-tuned open-source models) handle the first pass of every incoming customer message — answering FAQ questions, extracting the customer's real question, routing complex cases to the right human, and drafting suggested replies for humans to review and send. Support team headcount stays flat; volume handled doubles or triples."),
       h2("2. Sales lead qualification"),
-      p("Every website enquiry flows through an AI qualifier that reads the message plus the customer's page-visit history and scores the lead 1–5. Hot leads (4–5) route to the closer immediately with a suggested opening line; cold leads get a nurture sequence. Salespeople spend 70% of their time on genuinely warm leads instead of triaging."),
+      p("Every website enquiry flows through an AI qualifier that reads the message plus the customer's page-visit history and scores the lead 1–5. Hot leads route to the closer immediately with a suggested opening line; cold leads get a nurture sequence. Salespeople spend far more of their time on genuinely warm leads instead of triaging."),
       h2("3. Invoice and receipt extraction"),
-      p("Photograph a supplier invoice, receipt or PO with your phone; AI extracts vendor, GSTIN, line items, taxes and totals into your accounting software. Accountants we work with are closing month-end 60–75% faster."),
+      p("Photograph a supplier invoice, receipt or PO with your phone; AI extracts vendor, GSTIN, line items, taxes and totals into your accounting software. Accountants we work with are closing month-end substantially faster."),
       h2("4. Content and copy generation (with strong review)"),
-      p("Not for publishing raw AI output — for accelerating the first draft. Product descriptions, ad copy variants, email sequences, translation into Tamil/Hindi/Telugu. A copywriter's throughput doubles; the human still owns quality and voice."),
+      p("Not for publishing raw AI output — for accelerating the first draft. Product descriptions, ad copy variants, email sequences, translation into Tamil/Hindi/Telugu. A copywriter's throughput increases meaningfully; the human still owns quality and voice."),
       cta("audit"),
       h2("5. Meeting notes and follow-up drafting"),
-      p("Fireflies, Otter or built-in Zoom AI records the call, generates the summary, extracts action items and drafts the follow-up email. What used to take 30 minutes after every sales call now takes 3 minutes of review."),
+      p("Fireflies, Otter or built-in Zoom AI records the call, generates the summary, extracts action items and drafts the follow-up email. What used to take thirty minutes after every sales call now takes a few minutes of review."),
       h2("6. Inventory and demand forecasting"),
       p("For product businesses: historical sales + local weather + festival calendars + promotional plans + supplier lead times feed into a forecast model that recommends stock levels for the next 30–90 days. Overstock down, stockouts down, working capital freed."),
       h2("7. Image and video generation for marketing"),
-      p("Product photography variants, festival campaign creatives, social media reel drafts. A boutique in T Nagar we work with now ships 40 creative variants per month with a two-person team; a year ago they shipped 6."),
+      p("Product photography variants, festival campaign creatives, social media reel drafts. Small marketing teams can now ship far more creative variants per month than a couple of years ago."),
       h2("8. Voice AI for outbound reminders and inbound calls"),
-      p("An AI voice agent that sounds convincingly human, calling to remind patients of appointments, confirm deliveries, collect basic feedback. In inbound: routing calls, taking basic bookings, capturing details before a human picks up. Handles 60–80% of routine calls without a human touching the phone."),
+      p("An AI voice agent that sounds convincingly human, calling to remind patients of appointments, confirm deliveries, collect basic feedback. In inbound: routing calls, taking basic bookings, capturing details before a human picks up. Handles the majority of routine calls without a human touching the phone."),
       h2("9. Local-language translation and content adaptation"),
       p("Products/services described in English, automatically produced in Tamil, Telugu, Kannada, Hindi and Malayalam at close-to-human quality. Suddenly you sell in six languages instead of one, and the SEO reach compounds."),
       h2("10. Fraud and anomaly detection"),
-      p("For ecommerce, D2C and financial services: AI flags unusual order patterns, likely COD frauds, chargeback risks. Chargeback losses drop 30–60% at deployed clients."),
+      p("For ecommerce, D2C and financial services: AI flags unusual order patterns, likely COD frauds, chargeback risks — a meaningful reduction in chargeback losses at deployed clients."),
       h2("What does not yet work reliably for SMBs"),
       ul([
         "Fully autonomous customer support without any human review — hallucinations still occur; a wrong price or wrong policy statement costs more than the automation saves.",
@@ -982,8 +1254,8 @@ export const posts: Post[] = [
       cta("audit"),
       faq([
         { q: "Is AI actually useful for small businesses in India?", a: "Yes, in specific narrow use cases — support triage, invoice extraction, sales qualification, content acceleration, meeting notes. Broadly 'AI-transform your business' pitches usually underdeliver; targeted deployments of one or two processes at a time consistently produce measurable ROI." },
-        { q: "How much does AI implementation cost for an SMB?", a: "Off-the-shelf AI tools (ChatGPT Team, Otter, Fireflies) start at ₹800–₹2,500 per user per month. Custom chatbot or automation builds: ₹40,000–₹3,00,000 depending on scope. Enterprise-scale AI: ₹5 lakh+. For most SMBs, off-the-shelf tools + light custom integration is the right starting point." },
-        { q: "Will AI replace jobs in my business?", a: "In our client portfolio: no. AI removes repetitive work, so headcount typically stays flat while volume handled grows 2–3×. The businesses that grew fastest hired more people alongside AI, not fewer, because their throughput ceiling rose." },
+        { q: "How much does AI implementation cost for an SMB?", a: "Off-the-shelf AI tools (ChatGPT Team, Otter, Fireflies) start at ₹800–₹2,500 per user per month. Custom chatbot or automation builds: ₹40,000–₹3,00,000 depending on scope. For most SMBs, off-the-shelf tools plus light custom integration is the right starting point." },
+        { q: "Will AI replace jobs in my business?", a: "In our client portfolio: no. AI removes repetitive work, so headcount typically stays flat while volume handled grows. The businesses that grew fastest hired more people alongside AI, not fewer, because their throughput ceiling rose." },
         { q: "How do I know if AI is right for my business?", a: "Look for high-volume, high-repetition, low-judgement tasks (invoice entry, support FAQs, meeting notes). If a task takes 5+ hours per week and follows a predictable pattern, it is a candidate. If it requires nuanced human judgement or high-stakes accuracy without human review, wait." },
       ]),
       cta("contact"),
@@ -1000,27 +1272,38 @@ export const posts: Post[] = [
     datePublishedIso: "2026-06-12",
     read: "10 min",
     author: AUTHOR,
+    primaryKeyword: "business process automation for small business",
+    secondaryKeywords: [
+      "what to automate in a small business",
+      "business automation India",
+      "process automation ROI",
+      "automate lead follow-up",
+    ],
+    searchIntent: "commercial",
+    targetLocation: "India",
+    relatedService: "AI Automation",
+    internalLinkTargets: ["/whatsapp-automation-chennai", "/contact"],
     body: [
       p("Automation is a game of picking the right seven battles, not the right seventy. Here are the processes with the highest, fastest and most predictable ROI for Indian SMBs — ranked in the order most businesses should actually deploy them."),
       h2("1. Lead capture → CRM → follow-up sequence"),
-      p("Every enquiry (website form, WhatsApp click, Facebook lead ad, Google ad, phone missed call) auto-lands in your CRM, triggers an instant WhatsApp acknowledgement, and starts a follow-up sequence if no reply within 24 hours. Time saved: 10–15 minutes per lead. Revenue recovered: 15–30% more leads converted because none go cold."),
+      p("Every enquiry (website form, WhatsApp click, Facebook lead ad, Google ad, phone missed call) auto-lands in your CRM, triggers an instant WhatsApp acknowledgement, and starts a follow-up sequence if no reply within 24 hours. Time saved: 10–15 minutes per lead. Revenue recovered: a meaningfully higher share of leads converted because none go cold."),
       p("Stack: form/WhatsApp/Facebook → Zapier → HubSpot Free/Zoho → WhatsApp API. Setup cost: ₹20,000–₹60,000. Payback: 1–3 months."),
       h2("2. Invoice generation and payment collection"),
       p("Deal closes → invoice auto-generated with correct GST → sent to customer → payment link included → payment received event → auto-thank-you and receipt. If unpaid: reminder day 3, day 7, day 14 automated."),
-      p("Stack: Razorpay/Stripe + Zoho Invoice or QuickBooks + WhatsApp. Setup: ₹15,000–₹40,000. Cash collection cycle typically shortens 8–14 days."),
+      p("Stack: Razorpay/Stripe + Zoho Invoice or QuickBooks + WhatsApp. Setup: ₹15,000–₹40,000. Cash collection cycle typically shortens by more than a week."),
       h2("3. Appointment booking and reminders"),
       p("Customer picks a slot from your website or WhatsApp; system creates calendar entry, sends confirmation, sends 24h and 1h reminders, handles reschedules through natural language. Applicable to any clinic, salon, consultancy, tutor, service business."),
-      p("Stack: Cal.com or Calendly + Google Calendar + WhatsApp API. Setup: ₹10,000–₹30,000. No-shows drop 30–60%."),
+      p("Stack: Cal.com or Calendly + Google Calendar + WhatsApp API. Setup: ₹10,000–₹30,000. No-shows drop substantially."),
       cta("audit"),
       h2("4. Customer support FAQ deflection"),
-      p("An AI chatbot on your website and WhatsApp handles the top 20 recurring questions (opening hours, pricing, service list, delivery timelines, return policy). Human takes over for anything beyond FAQ. Support team handles 2–3× more conversations without adding headcount."),
+      p("An AI chatbot on your website and WhatsApp handles the top 20 recurring questions (opening hours, pricing, service list, delivery timelines, return policy). Human takes over for anything beyond FAQ. Support team handles far more conversations without adding headcount."),
       p("Stack: WhatsApp Cloud API + BotPress/Voiceflow or a custom GPT-based agent. Setup: ₹40,000–₹1,20,000. Response time drops from hours to seconds."),
       h2("5. Order fulfilment and shipping updates"),
       p("For ecommerce and D2C: order placed → warehouse picking list → shipping label auto-generated → tracking number back → WhatsApp updates at each courier milestone → auto-review request after delivery."),
-      p("Stack: Shopify/WooCommerce + Shiprocket/Delhivery + WhatsApp API. Setup: ₹25,000–₹80,000. 'Where is my order' support tickets drop 70–85%."),
+      p("Stack: Shopify/WooCommerce + Shiprocket/Delhivery + WhatsApp API. Setup: ₹25,000–₹80,000. 'Where is my order' support tickets drop sharply."),
       h2("6. Bookkeeping and expense entry"),
-      p("Photograph a receipt or supplier invoice; AI extracts vendor, GSTIN, amount, category into your accounting software. Bank statements auto-imported and categorised. Month-end close in 2 days instead of 8–10."),
-      p("Stack: Zoho Books + Docsumo/Vic.ai for extraction + bank feed integration. Setup: ₹15,000–₹50,000. Bookkeeper time saved: 30–50 hours per month."),
+      p("Photograph a receipt or supplier invoice; AI extracts vendor, GSTIN, amount, category into your accounting software. Bank statements auto-imported and categorised. Month-end close in a fraction of the previous time."),
+      p("Stack: Zoho Books + Docsumo/Vic.ai for extraction + bank feed integration. Setup: ₹15,000–₹50,000. Bookkeeper time saved: meaningful hours per month."),
       h2("7. Weekly performance reporting"),
       p("Every Monday morning, a single dashboard email that shows: revenue by channel, top-selling products/services, cost per lead by source, conversion rate, cash position, ageing receivables. No more asking your team for 'the numbers'."),
       p("Stack: Google Data Studio (Looker Studio) + integrations to your accounting, CRM and ad platforms. Setup: ₹20,000–₹80,000 for the initial dashboard. Zero ongoing time cost. Decision-making speed compounds."),
@@ -1040,7 +1323,7 @@ export const posts: Post[] = [
         { q: "What business processes are easiest to automate first?", a: "Lead acknowledgement, appointment reminders, invoice generation and shipping updates — all high-volume, low-judgement, well-defined workflows with mature tooling. Start with any of these; expand once one is stable." },
         { q: "How much does business process automation cost for a small business?", a: "Realistic range: ₹40,000–₹2,50,000 total setup across the seven automations above, plus ₹5,000–₹15,000/month in ongoing tool costs. Typical payback: 2–5 months in time and revenue recovered." },
         { q: "Do I need a developer to automate my business?", a: "For 60–70% of SMB automations, no — Zapier, Make.com and native integrations cover them. For custom logic, CRM integrations, or WhatsApp Cloud API setup, a developer or agency is usually necessary and worth the cost." },
-        { q: "What is the ROI of business automation?", a: "For the seven automations above, typical Indian SMB ROI is 4–10× over the first 12 months, split between (a) hours of manual work removed, (b) leads recovered from faster follow-up, and (c) revenue recovered from cart abandonment, reminders and payment collection." },
+        { q: "What is the ROI of business automation?", a: "For the seven automations above, typical Indian SMB ROI is strongly positive over the first 12 months, split between (a) hours of manual work removed, (b) leads recovered from faster follow-up, and (c) revenue recovered from cart abandonment, reminders and payment collection." },
       ]),
       cta("contact"),
     ],
@@ -1056,17 +1339,28 @@ export const posts: Post[] = [
     datePublishedIso: "2026-06-10",
     read: "10 min",
     author: AUTHOR,
+    primaryKeyword: "AI chatbot vs human support",
+    secondaryKeywords: [
+      "AI customer support",
+      "chatbot vs live agent",
+      "hybrid customer support model",
+      "when to use AI chatbot",
+    ],
+    searchIntent: "informational",
+    targetLocation: "India",
+    relatedService: "AI Automation",
+    internalLinkTargets: ["/whatsapp-automation-chennai", "/contact"],
     body: [
       p("The framing of 'AI chatbots versus human support' misses the point. In every mature customer support operation we have designed, the winning answer is not 'AI' or 'human' — it is a specific division of labour where AI handles the 60–70% of predictable interactions and humans own the 30–40% that require judgement, empathy or high-stakes decisions. Here is how the division should look."),
       h2("Where AI wins clearly"),
       h3("FAQ and information retrieval"),
-      p("'What are your opening hours?', 'Do you deliver to Coimbatore?', 'What is your return policy?', 'How much does X cost?' — the answers are static, the queries are high-volume, humans typing them repeatedly is a waste. AI delivers a correct answer in 800 milliseconds; a human takes 45 seconds. This alone handles 40–55% of typical SMB support volume."),
+      p("'What are your opening hours?', 'Do you deliver to Coimbatore?', 'What is your return policy?', 'How much does X cost?' — the answers are static, the queries are high-volume, humans typing them repeatedly is a waste. AI delivers a correct answer almost instantly; a human takes far longer. This alone handles a large share of typical SMB support volume."),
       h3("Order and account status queries"),
       p("'Where is my order?', 'What was my last invoice amount?', 'When does my subscription renew?' — the answer is a database lookup formatted for the customer. AI does it perfectly and instantly."),
       h3("Simple triage and routing"),
-      p("'I have a billing question' → route to accounts. 'Something is broken' → open a support ticket with structured info. 'I want to buy X' → route to sales. AI classifies inbound intent with 85–95% accuracy and gets the right human involved without a human doing the sorting."),
+      p("'I have a billing question' → route to accounts. 'Something is broken' → open a support ticket with structured info. 'I want to buy X' → route to sales. AI classifies inbound intent accurately and gets the right human involved without a human doing the sorting."),
       h3("After-hours coverage"),
-      p("Customers who message at 11:30 PM should not have to wait until 10 AM the next day for a response. AI acknowledges instantly, captures details, and either resolves the query or promises a human callback at a specific time. Perceived responsiveness stays high; team does not burn out on 24/7 shifts."),
+      p("Customers who message late at night should not have to wait until the next business day for a response. AI acknowledges instantly, captures details, and either resolves the query or promises a human callback at a specific time. Perceived responsiveness stays high; team does not burn out on 24/7 shifts."),
       h2("Where humans win clearly"),
       h3("Complaints and emotional situations"),
       p("A frustrated customer who paid for a product that broke does not want a chatbot's 'I understand your frustration' template. They want a human who owns the problem and can offer resolution. AI trying to handle this generates worse outcomes than no automation at all."),
@@ -1079,7 +1373,7 @@ export const posts: Post[] = [
       cta("audit"),
       h2("The hybrid model that works"),
       ol([
-        "AI answers the first message inside 2 seconds — acknowledges, restates the query in its own words to confirm understanding.",
+        "AI answers the first message almost instantly — acknowledges, restates the query in its own words to confirm understanding.",
         "If the query matches an FAQ or database lookup, AI resolves it and asks 'Did that answer your question?'.",
         "If unresolved after 2 exchanges or if AI detects emotional language / complaint / complex request, hand off to a human silently — human sees the full transcript and picks up as if they were in the conversation all along.",
         "Human replies with 'Hi, I'm Priya from the team, taking over from here' — customer feels seen, not shuffled.",
@@ -1095,9 +1389,9 @@ export const posts: Post[] = [
       ]),
       h2("The metrics to actually track"),
       ul([
-        "First response time (should be <10 seconds with AI, <2 minutes for human handoffs).",
+        "First response time (should be near-instant with AI, quick for human handoffs).",
         "AI resolution rate — target 40–60%.",
-        "CSAT split by resolution path (AI-resolved vs AI-then-human vs human-only). If AI-only CSAT is above 4.2/5, expand its scope. If below 3.8/5, narrow it.",
+        "CSAT split by resolution path (AI-resolved vs AI-then-human vs human-only). If AI-only CSAT is strong, expand its scope. If weak, narrow it.",
         "Escalation quality — of the cases AI escalated, did the human agree it needed a human? Track weekly.",
       ]),
       cta("audit"),
@@ -1110,15 +1404,15 @@ export const posts: Post[] = [
       ]),
       faq([
         { q: "Should I use AI or human support for my small business?", a: "Both, in a hybrid model. AI handles the predictable 40–60% (FAQ, order status, basic triage) and humans handle everything requiring judgement or empathy. Neither pure AI nor pure human is the right answer for most SMBs." },
-        { q: "How accurate are AI chatbots for customer support?", a: "For narrow, well-defined domains (your own FAQ + product catalogue) with good grounding, accuracy is typically 90–96%. For general open-ended queries, accuracy drops to 70–85% and the 15–30% error rate becomes expensive. Always constrain the AI to your data, never let it improvise." },
-        { q: "Will AI chatbots replace human support agents?", a: "Not in our client portfolio. AI removes the repetitive lower-value 40–60% of tickets, freeing humans to handle more complex cases per hour. Headcount typically stays flat while ticket volume handled grows 2–3×." },
+        { q: "How accurate are AI chatbots for customer support?", a: "For narrow, well-defined domains (your own FAQ + product catalogue) with good grounding, accuracy is typically high. For general open-ended queries, accuracy drops and the error rate becomes expensive. Always constrain the AI to your data, never let it improvise." },
+        { q: "Will AI chatbots replace human support agents?", a: "Not in our client portfolio. AI removes the repetitive lower-value share of tickets, freeing humans to handle more complex cases per hour. Headcount typically stays flat while ticket volume handled grows." },
         { q: "How much does an AI chatbot cost for a small business?", a: "Off-the-shelf platforms with FAQ handling: ₹1,500–₹5,000/month plus per-conversation costs. Custom GPT-powered agents integrated with your CRM and knowledge base: ₹80,000–₹3,00,000 setup plus ₹5,000–₹15,000/month in AI usage and platform fees." },
       ]),
       cta("contact"),
     ],
   },
 
-  // ═══════════════════════════════════════════ LEGACY POSTS (from earlier BlogPost.tsx)
+  // ═══════════════════════════════════════════ CASE-BACKED / VERTICAL POSTS
   {
     slug: "why-high-google-impressions-fail-to-generate-enquiries",
     category: "Search Analytics",
@@ -1129,12 +1423,22 @@ export const posts: Post[] = [
     datePublishedIso: "2026-07-02",
     read: "8 min",
     author: AUTHOR,
+    primaryKeyword: "high impressions no clicks Google",
+    secondaryKeywords: [
+      "Google Search Console impressions no enquiries",
+      "ranking on Google but no leads",
+      "website traffic no conversions",
+    ],
+    searchIntent: "informational",
+    targetLocation: "India",
+    relatedService: "SEO",
+    internalLinkTargets: ["/seo-services-chennai", "/contact"],
     body: [
       p("You open Google Search Console and see the impressions graph climbing steadily. Thousands of daily impressions, healthy positions, and yet — your inbox is silent. This is one of the most common patterns we diagnose, and the cause is almost never traffic. It is what happens to the visitor after they arrive."),
       h2("Informational intent vs commercial action"),
       p("Most SMB pages make the same strategic error: they answer an informational question well, then offer no clear next step. If a user lands to grab a quick tip and hits a 10-field form to request a brochure, they bounce. You solved their question but failed to catch their commercial momentum."),
       h2("The three-lever fix"),
-      p("Shorten forms to three fields. Add WhatsApp click-to-chat as an alternative. Rewrite CTAs from 'Submit' to something that describes the outcome. Every optimised client we deploy this on sees enquiry volume double or triple within 30 days — no new traffic required."),
+      p("Shorten forms to three fields. Add WhatsApp click-to-chat as an alternative. Rewrite CTAs from 'Submit' to something that describes the outcome. Every optimised client we deploy this on sees enquiry volume rise noticeably within 30 days — no new traffic required."),
       cta("audit"),
       faq([
         { q: "Why does my website rank on Google but get no enquiries?", a: "The most common cause is a broken conversion path — long forms, unclear CTAs, no low-friction alternative to a form. Traffic is fine; the last mile of the funnel is failing." },
@@ -1152,10 +1456,20 @@ export const posts: Post[] = [
     datePublishedIso: "2026-06-29",
     read: "9 min",
     author: AUTHOR,
+    primaryKeyword: "jewellery website design Chennai",
+    secondaryKeywords: [
+      "jewellery ecommerce Chennai",
+      "luxury retail website India",
+      "online jewellery store trust signals",
+    ],
+    searchIntent: "commercial",
+    targetLocation: "Chennai",
+    relatedService: "Ecommerce Website Development",
+    internalLinkTargets: ["/ecommerce-website-chennai", "/case-studies", "/contact"],
     body: [
-      p("Walk into any flagship showroom on Cathedral Road or T Nagar and the client journey is flawless. Personalised curation, elegant staging, real design mastery. Yet when these brands go online, they deploy generic store catalogues that could belong to any retailer. That mismatch is why their online conversion sits at 0.3% while their in-store conversion is 30%."),
+      p("Walk into any flagship showroom on Cathedral Road or T Nagar and the client journey is flawless. Personalised curation, elegant staging, real design mastery. Yet when these brands go online, they deploy generic store catalogues that could belong to any retailer. That mismatch is a large part of why online conversion lags so far behind in-store conversion for jewellery brands."),
       h2("The high-value transaction barrier"),
-      p("Nobody picks a ₹4-lakh diamond choker online the way they buy fast fashion. High-ticket conversions require the total elimination of institutional doubt: BIS hallmarking, live gold rate, virtual consultation with a named advisor, video walkthroughs of real pieces, and a physical presence anchor with an integrated showroom booking flow."),
+      p("Nobody picks a lakhs-worth diamond choker online the way they buy fast fashion. High-ticket conversions require the total elimination of institutional doubt: BIS hallmarking, live gold rate, virtual consultation with a named advisor, video walkthroughs of real pieces, and a physical presence anchor with an integrated showroom booking flow."),
       cta("contact"),
       faq([
         { q: "How do jewelry brands sell online in India?", a: "Through a combination of BIS-hallmarked product certification, live rate transparency, video consultation with named advisors, and integrated showroom booking — never through catalogue-only ecommerce." },
@@ -1172,10 +1486,20 @@ export const posts: Post[] = [
     datePublishedIso: "2026-06-24",
     read: "7 min",
     author: AUTHOR,
+    primaryKeyword: "Google Ads for clinics Chennai",
+    secondaryKeywords: [
+      "reduce Google Ads cost clinic",
+      "local Google Ads targeting Chennai",
+      "cost per appointment Google Ads",
+    ],
+    searchIntent: "commercial",
+    targetLocation: "Chennai",
+    relatedService: "Digital Marketing",
+    internalLinkTargets: ["/services/digital-marketing-chennai", "/case-studies", "/contact"],
     body: [
       p("A multi-branch paediatric clinic in Chennai was burning roughly ₹40,000 a month on 'best pediatrician in Chennai' broad-match. Clicks were plentiful, appointments were rare, and half the enquiring parents lived 25 km from the nearest branch."),
       h2("The keyword location leak"),
-      p("Parents seeking paediatric care search within a small geographic radius. Shifting targeting from 'pediatrician Chennai' to 'paediatrician near Adyar', 'clinic in Tambaram', 'child doctor Velachery' — combined with negative keywords for districts they do not serve — cut irrelevant clicks by 62%."),
+      p("Parents seeking paediatric care search within a small geographic radius. Shifting targeting from 'pediatrician Chennai' to 'paediatrician near Adyar', 'clinic in Tambaram', 'child doctor Velachery' — combined with negative keywords for districts they do not serve — cut irrelevant clicks noticeably."),
       h2("Landing pages vs the homepage"),
       p("Sending ad traffic to the homepage forced parents to navigate to find the nearest branch address. Dropping ads onto branch-specific landers with LocalBusiness schema, embedded map, phone-tap CTA and single-field WhatsApp booking cut cost-per-appointment by 58% within six weeks."),
       cta("audit"),
@@ -1194,10 +1518,20 @@ export const posts: Post[] = [
     datePublishedIso: "2026-06-15",
     read: "8 min",
     author: AUTHOR,
+    primaryKeyword: "ecommerce checkout abandonment reasons",
+    secondaryKeywords: [
+      "checkout optimization India",
+      "cart abandonment D2C Chennai",
+      "ecommerce checkout conversion",
+    ],
+    searchIntent: "informational",
+    targetLocation: "Chennai",
+    relatedService: "Ecommerce Website Development",
+    internalLinkTargets: ["/ecommerce-website-chennai", "/contact"],
     body: [
       p("The majority of emerging Indian D2C stores lose their customer at the payment gateway. Branding is clean, traffic from Instagram is stable, and analytics shows the cliff drop right at checkout. Three specific friction points cause 70% of it."),
       h2("1. Mobile latency on real 4G"),
-      p("Your checkout scripts test cleanly on office fibre. On a Redmi over patchy 4G near Pallavaram, they take six seconds to render. Every second past two seconds cuts conversion by roughly 15%. Compress images to WebP, defer non-critical JS, move to modern hosting."),
+      p("Your checkout scripts test cleanly on office fibre. On a Redmi over patchy 4G near Pallavaram, they take six seconds to render. Every second past two seconds cuts conversion noticeably. Compress images to WebP, defer non-critical JS, move to modern hosting."),
       h2("2. Final-stage pricing surprises"),
       p("Hiding shipping, COD surcharges and taxes until the last checkout screen breaks trust the moment it costs money. Show total landed cost from the product page onward."),
       h2("3. Mandatory account creation"),
