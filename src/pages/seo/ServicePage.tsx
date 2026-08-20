@@ -3,7 +3,7 @@ import SeoPageLayout, { FaqItem } from "@/components/SeoPageLayout";
 import { ReactNode, useMemo } from "react";
 
 export type ServiceProps = {
-  slug: string; // full path e.g. "seo-services-chennai" or "services/web-design-chennai"
+  slug: string;
   title: string;
   description: string;
   h1: string;
@@ -14,25 +14,58 @@ export type ServiceProps = {
   process: string[];
   faqs: FaqItem[];
   crumbName: string;
-  /** Optional deep-dive sections rendered between "Our process" and the local-areas block. */
-  extraSections?: { h2: string; body: ReactNode }[];
-  /** Extra contextual links appended to the "Explore More" block. */
-  extraLinks?: { label: string; href: string }[];
+
+  extraSections?: {
+    h2: string;
+    body: ReactNode;
+  }[];
+
+  extraLinks?: {
+    label: string;
+    href: string;
+  }[];
 };
 
 const ServicePage = (p: ServiceProps) => {
-  // Normalize path string generation trailing safety checks
-  const cleanSlug = p.slug.startsWith("/") ? p.slug.slice(1) : p.slug;
+  const cleanSlug = p.slug.startsWith("/")
+    ? p.slug.slice(1)
+    : p.slug;
+
   const url = `https://smartpixel.in/${cleanSlug}`;
 
-  // Automatically calculate contextual neighborhood anchor points
+  /*
+   * Local service URL detection
+   *
+   * SEO:
+   * /seo-services-pallavaram
+   * /seo-services-tambaram
+   *
+   * AEO:
+   * /aeo-services-pallavaram
+   * /aeo-services-tambaram
+   *
+   * Web design:
+   * /web-design-pallavaram
+   *
+   * Ecommerce:
+   * /ecommerce-website-pallavaram
+   */
   const localizedLinks = useMemo(() => {
     const defaultPrefix = "web-design";
+
     let activePrefix = defaultPrefix;
 
-    if (cleanSlug.includes("seo")) {
+    if (
+      cleanSlug.includes("aeo") ||
+      cleanSlug.includes("answer-engine")
+    ) {
+      activePrefix = "aeo-services";
+    } else if (cleanSlug.includes("seo")) {
       activePrefix = "seo-services";
-    } else if (cleanSlug.includes("ecommerce") || cleanSlug.includes("e-commerce")) {
+    } else if (
+      cleanSlug.includes("ecommerce") ||
+      cleanSlug.includes("e-commerce")
+    ) {
       activePrefix = "ecommerce-website";
     } else if (cleanSlug.includes("whatsapp")) {
       activePrefix = "whatsapp-automation";
@@ -50,21 +83,28 @@ const ServicePage = (p: ServiceProps) => {
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "serviceType": p.serviceName,
-    "provider": {
+    serviceType: p.serviceName,
+
+    provider: {
       "@type": "LocalBusiness",
-      "name": "SmartPixel",
-      "telephone": "+91-9886069488",
-      "address": {
+      name: "SmartPixel",
+      telephone: "+91-9886069488",
+
+      address: {
         "@type": "PostalAddress",
-        "addressLocality": "Chennai",
-        "addressRegion": "Tamil Nadu",
-        "addressCountry": "IN",
+        addressLocality: "Chennai",
+        addressRegion: "Tamil Nadu",
+        addressCountry: "IN",
       },
     },
-    "areaServed": { "@type": "City", "name": "Chennai" },
-    "url": url,
-    "description": p.description,
+
+    areaServed: {
+      "@type": "City",
+      name: "Chennai",
+    },
+
+    url,
+    description: p.description,
   };
 
   return (
@@ -74,9 +114,18 @@ const ServicePage = (p: ServiceProps) => {
       canonical={url}
       h1={p.h1}
       breadcrumbs={[
-        { name: "Home", url: "https://smartpixel.in/" },
-        { name: "Services", url: "https://smartpixel.in/services" },
-        { name: p.crumbName, url },
+        {
+          name: "Home",
+          url: "https://smartpixel.in/",
+        },
+        {
+          name: "Services",
+          url: "https://smartpixel.in/services",
+        },
+        {
+          name: p.crumbName,
+          url,
+        },
       ]}
       schema={[serviceSchema]}
       intro={p.intro}
@@ -86,74 +135,196 @@ const ServicePage = (p: ServiceProps) => {
           body: (
             <ul className="list-disc pl-5 space-y-2 text-muted-foreground/90">
               {p.what.map((w) => (
-                <li key={w} className="leading-relaxed">
+                <li
+                  key={w}
+                  className="leading-relaxed"
+                >
                   {w}
                 </li>
               ))}
             </ul>
           ),
         },
+
         {
           h2: `Why Chennai businesses choose this service`,
           body: (
             <ul className="list-disc pl-5 space-y-2 text-muted-foreground/90">
               {p.benefits.map((w) => (
-                <li key={w} className="leading-relaxed">
+                <li
+                  key={w}
+                  className="leading-relaxed"
+                >
                   {w}
                 </li>
               ))}
             </ul>
           ),
         },
+
         {
-          h2: `Our process`,
+          h2: "Our process",
           body: (
             <ol className="list-decimal pl-5 space-y-2 text-muted-foreground/90">
               {p.process.map((w) => (
-                <li key={w} className="leading-relaxed">
+                <li
+                  key={w}
+                  className="leading-relaxed"
+                >
                   {w}
                 </li>
               ))}
             </ol>
           ),
         },
+
         ...(p.extraSections ?? []),
+
         {
-          h2: `Areas in Chennai we serve`,
+          h2: "Areas in Chennai we serve",
           body: (
             <p className="text-muted-foreground/90 leading-relaxed">
-              We deliver this service across World. Mobile-speed-critical builds in{" "}
-              <Link to={localizedLinks.pallavaram} className="text-accent underline font-medium hover:text-accent/80 transition-colors">Pallavaram</Link>,{" "}
-              long-tail local search for retail and clinics in{" "}
-              <Link to={localizedLinks.tambaram} className="text-accent underline font-medium hover:text-accent/80 transition-colors">Tambaram</Link>,{" "}
-              in-person work from our studio in{" "}
-              <Link to={localizedLinks.chrompet} className="text-accent underline font-medium hover:text-accent/80 transition-colors">Chrompet</Link>,{" "}
-              credibility-led B2B sites in{" "}
-              <Link to={localizedLinks.guindy} className="text-accent underline font-medium hover:text-accent/80 transition-colors">Guindy</Link>,{" "}
-              showroom and boutique retail in{" "}
-              <Link to={localizedLinks.tnagar} className="text-accent underline font-medium hover:text-accent/80 transition-colors">T Nagar</Link>,{" "}
-              urgent-intent professional services in{" "}
-              <Link to="/web-design-saidapet" className="text-accent underline font-medium hover:text-accent/80 transition-colors">Saidapet</Link>,{" "}
-              premium brands on{" "}
-              <Link to="/web-design-nungambakkam" className="text-accent underline font-medium hover:text-accent/80 transition-colors">Nungambakkam</Link>{" "}
-              High Road, and hyper-local businesses in{" "}
-              <Link to="/web-design-chitlapakkam" className="text-accent underline font-medium hover:text-accent/80 transition-colors">Chitlapakkam</Link>.{" "}
-              Pair it with our{" "}
-              <Link to="/seo-services-chennai" className="text-accent underline font-medium hover:text-accent/80 transition-colors">SEO services in Chennai</Link>{" "}
-              or <Link to="/ecommerce-website-chennai" className="text-accent underline font-medium hover:text-accent/80 transition-colors">ecommerce website development in Chennai</Link>{" "}
-              — or{" "}
-              <Link to="/contact" className="text-accent underline font-medium hover:text-accent/80 transition-colors">get a free quote</Link>.
+              We work with businesses across Chennai and surrounding
+              areas. Our local service pages cover{" "}
+
+              <Link
+                to={localizedLinks.pallavaram}
+                className="text-accent underline font-medium hover:text-accent/80 transition-colors"
+              >
+                Pallavaram
+              </Link>
+              ,{" "}
+
+              <Link
+                to={localizedLinks.tambaram}
+                className="text-accent underline font-medium hover:text-accent/80 transition-colors"
+              >
+                Tambaram
+              </Link>
+              ,{" "}
+
+              <Link
+                to={localizedLinks.chrompet}
+                className="text-accent underline font-medium hover:text-accent/80 transition-colors"
+              >
+                Chrompet
+              </Link>
+              ,{" "}
+
+              <Link
+                to={localizedLinks.guindy}
+                className="text-accent underline font-medium hover:text-accent/80 transition-colors"
+              >
+                Guindy
+              </Link>
+              {" "}and{" "}
+
+              <Link
+                to={localizedLinks.tnagar}
+                className="text-accent underline font-medium hover:text-accent/80 transition-colors"
+              >
+                T Nagar
+              </Link>
+              .
+
+              {" "}
+
+              We also serve businesses in{" "}
+
+              <Link
+                to="/web-design-saidapet"
+                className="text-accent underline font-medium hover:text-accent/80 transition-colors"
+              >
+                Saidapet
+              </Link>
+              ,{" "}
+
+              <Link
+                to="/web-design-nungambakkam"
+                className="text-accent underline font-medium hover:text-accent/80 transition-colors"
+              >
+                Nungambakkam
+              </Link>
+              {" "}and{" "}
+
+              <Link
+                to="/web-design-chitlapakkam"
+                className="text-accent underline font-medium hover:text-accent/80 transition-colors"
+              >
+                Chitlapakkam
+              </Link>
+              .
+
+              {" "}
+
+              For search visibility, see our{" "}
+
+              <Link
+                to="/seo-services-chennai"
+                className="text-accent underline font-medium hover:text-accent/80 transition-colors"
+              >
+                SEO services in Chennai
+              </Link>
+              
+
+           
+              .
+
+              {" "}
+
+              For ecommerce projects, explore our{" "}
+
+              <Link
+                to="/ecommerce-website-chennai"
+                className="text-accent underline font-medium hover:text-accent/80 transition-colors"
+              >
+                ecommerce website development
+              </Link>
+              {" "}or{" "}
+
+              <Link
+                to="/contact"
+                className="text-accent underline font-medium hover:text-accent/80 transition-colors"
+              >
+                contact SmartPixel
+              </Link>
+              .
             </p>
           ),
         },
       ]}
       internalLinks={[
-        { label: "Web design services for Chennai businesses", href: "/services/web-design-chennai" },
-        { label: "SEO services in Chennai", href: "/seo-services-chennai" },
-        { label: "Ecommerce website development Chennai", href: "/ecommerce-website-chennai" },
-        { label: "WhatsApp automation in Chennai", href: "/whatsapp-automation-chennai" },
-        { label: "Portfolio of Chennai case studies", href: "/portfolio" },
-        { label: "Get a free quote from SmartPixel Chennai", href: "/contact" },
+        {
+          label: "Web design services for Chennai businesses",
+          href: "/services/web-design-chennai",
+        },
+
+        {
+          label: "SEO services in Chennai",
+          href: "/seo-services-chennai",
+        },
+
+       
+        {
+          label: "Ecommerce website development Chennai",
+          href: "/ecommerce-website-chennai",
+        },
+
+        {
+          label: "WhatsApp automation in Chennai",
+          href: "/whatsapp-automation-chennai",
+        },
+
+        {
+          label: "Portfolio of Chennai case studies",
+          href: "/portfolio",
+        },
+
+        {
+          label: "Get a free quote from SmartPixel Chennai",
+          href: "/contact",
+        },
+
         ...(p.extraLinks ?? []),
       ]}
       faqs={p.faqs}

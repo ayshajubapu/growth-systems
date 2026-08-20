@@ -48,36 +48,48 @@ const areaContent: Record<
   }
 > = {
   pallavaram: {
-    landmark: "Pallavaram GST Road and surrounding business areas",
+  landmark: "Pallavaram GST Road and surrounding business areas",
 
-    localNote:
-      "Businesses in Pallavaram serve customers from both the local neighbourhood and nearby parts of Chennai. For that reason, a good website needs to make the service, location, contact options and next step clear quickly. We build Pallavaram business websites with mobile-friendly layouts, clear enquiry paths and SEO-ready page structures.",
+  localNote:
+    "SmartPixel serves businesses in Pallavaram and nearby South Chennai areas from our Chrompet studio. Pallavaram businesses often serve customers locally as well as across Chennai, so we focus on websites that make the business, services, location, contact options and next step clear from the first visit. Our websites are mobile-friendly, fast, SEO-ready and structured around enquiries and conversions.",
 
-    metaDescription:
-      "SmartPixel is a web design company serving businesses in Pallavaram, Chennai. We build business websites, ecommerce stores, web apps and SEO-ready websites from our Chrompet studio.",
+  metaDescription:
+    "SmartPixel provides web design and website development for businesses in Pallavaram, Chennai. We build business websites, ecommerce stores and web applications with SEO-ready structures.",
 
-    headline: "Web Design Company in Pallavaram, Chennai",
+  headline: "Web Design Company in Pallavaram, Chennai",
 
-    faqs: [
-      {
-        q: "Do you provide website design services in Pallavaram?",
-        a: "Yes. SmartPixel works with businesses in Pallavaram on company websites, ecommerce websites, landing pages, web applications and SEO-ready websites. We are based in Chrompet and can handle projects locally or remotely.",
-      },
-      {
-        q: "How much does a website cost in Pallavaram?",
-        a: "The cost depends on the type of website, number of pages, features and integrations. Business websites can start from ₹15,000, while ecommerce and custom web applications are quoted according to the project requirements.",
-      },
-      {
-        q: "Can you build an ecommerce website for a Pallavaram business?",
-        a: "Yes. We build ecommerce websites with product catalogues, payment gateways, enquiry or checkout flows, inventory features and mobile-friendly layouts.",
-      },
-      {
-        q: "Do you provide SEO with website development in Pallavaram?",
-        a: "Yes. Our websites can be structured with technical SEO, page-level metadata, internal linking, structured data and location-focused content. Local SEO can also be handled separately.",
-      },
-    ],
-  },
+  faqs: [
+    {
+      q: "Do you provide website design services in Pallavaram?",
+      a: "Yes. SmartPixel provides website design and development for businesses in Pallavaram, including company websites, ecommerce stores, landing pages and custom web applications. Our team is based in Chrompet, so we can work with Pallavaram businesses locally or remotely.",
+    },
 
+    {
+      q: "Can you build a website for a business in Pallavaram?",
+      a: "Yes. We build websites for local businesses that need a professional online presence, clearer enquiry paths and a website that works well on mobile devices. Each website is structured around the business's services, customers and goals rather than using a generic layout.",
+    },
+
+    {
+      q: "Can you build an ecommerce website for a Pallavaram business?",
+      a: "Yes. SmartPixel builds ecommerce websites with product catalogues, mobile-first shopping experiences, payment gateways, enquiry or checkout flows and inventory-related features. We can also structure product and category pages for search visibility.",
+    },
+
+    {
+      q: "Do you provide SEO with website development in Pallavaram?",
+      a: "Yes. Websites can be built with technical SEO foundations including clean URLs, page-level metadata, internal linking, structured data, sitemap support and location-relevant content. Ongoing local SEO can also be handled separately.",
+    },
+
+    {
+      q: "Does SmartPixel work with businesses outside Pallavaram?",
+      a: "Yes. SmartPixel is based in Chrompet and works with businesses across Pallavaram, Tambaram, Chrompet and other parts of Chennai. Projects can also be handled remotely for businesses elsewhere in India.",
+    },
+
+    {
+      q: "Can you connect WhatsApp to a business website?",
+      a: "Yes. WhatsApp can be integrated into business websites for enquiries, lead capture, customer communication and automated workflows. The setup can be tailored to how the business currently handles incoming enquiries.",
+    },
+  ],
+},
   chrompet: {
     landmark: "Chrompet and GST Road",
 
