@@ -1,175 +1,596 @@
-@import url('https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&f[]=cabinet-grotesk@400,500,700,800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Premium dark luxury design system. All colors HSL. */
+/* =========================================================
+   SMARTPIXEL — PREMIUM LIGHT EDITORIAL DESIGN SYSTEM
+   Performance-optimized version
+   ========================================================= */
 
 @layer base {
   :root {
-  /* Core palette — Warm editorial neutrals + gold */
-  --background: 60 20% 98%;     /* #FAFAF8 Off-White */
-  --surface: 45 13% 94%;        /* #F2F1EE Soft Gray */
-  --foreground: 0 0% 7%;        /* #111111 Ink Black */
-  --body: 0 0% 23%;             /* #3A3A3A Charcoal */
-  --muted-foreground: 45 7% 51%;/* #8A8578 Warm Gray */
-  --accent: 43 89% 38%;         /* #B8860B Deep Gold (text on light) */
-  --accent-foreground: 60 20% 98%;
-  --border: 42 16% 87%;         /* #E4E1DA Divider */
+    /* Core palette */
+    --background: 60 20% 98%;
+    --surface: 45 13% 94%;
+    --foreground: 0 0% 7%;
+    --body: 0 0% 23%;
+    --muted-foreground: 45 7% 51%;
 
-  /* shadcn */
-  --card: 0 0% 100%;
-  --card-foreground: 0 0% 7%;
-  --popover: 0 0% 100%;
-  --popover-foreground: 0 0% 7%;
-  --primary: 43 89% 38%;
-  --primary-foreground: 60 20% 98%;
-  --secondary: 45 13% 94%;
-  --secondary-foreground: 0 0% 7%;
-  --muted: 45 13% 94%;
-  --destructive: 0 62% 40%;
-  --destructive-foreground: 0 0% 98%;
-  --input: 42 16% 87%;
-  --ring: 43 89% 38%;
-  --radius: 0.25rem;
+    /* Gold */
+    --accent: 43 89% 38%;
+    --accent-foreground: 60 20% 98%;
 
-  /* Editorial tokens */
-  --gold: 43 89% 38%;           /* Deep Gold */
-  --gold-bright: 46 65% 52%;    /* #D4AF37 icons, dots, dark bg */
-  --gold-soft: 46 65% 52%;
-  --hairline: 228 225 218;
-  --shadow-elegant: 0 30px 80px -20px hsl(0 0% 7% / 0.12);
-}
+    /* Borders */
+    --border: 42 16% 87%;
 
-}
+    /* shadcn */
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 7%;
 
-@layer base {
-  * {
-    border-color: hsl(var(--border));
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 7%;
+
+    --primary: 43 89% 38%;
+    --primary-foreground: 60 20% 98%;
+
+    --secondary: 45 13% 94%;
+    --secondary-foreground: 0 0% 7%;
+
+    --muted: 45 13% 94%;
+
+    --destructive: 0 62% 40%;
+    --destructive-foreground: 0 0% 98%;
+
+    --input: 42 16% 87%;
+    --ring: 43 89% 38%;
+
+    --radius: 0.25rem;
+
+    /* Editorial tokens */
+    --gold: 43 89% 38%;
+    --gold-bright: 46 65% 52%;
+    --gold-soft: 46 65% 52%;
+
+    --hairline: 228 225 218;
+
+    --shadow-elegant:
+      0 30px 80px -20px hsl(0 0% 7% / 0.12);
   }
-  html, body, #root {
+
+  /* =======================================================
+     GLOBAL RESET
+     ======================================================= */
+
+  *,
+  *::before,
+  *::after {
+    border-color: hsl(var(--border));
+    box-sizing: border-box;
+  }
+
+  html {
     background-color: hsl(var(--background));
     color: hsl(var(--body));
-    font-family: 'Inter', 'Satoshi', system-ui, sans-serif;
-    -webkit-font-smoothing: antialiased;
-  }
-  body {
+
+    /*
+      Prevent horizontal overflow without forcing layout
+      calculations on every element.
+    */
     overflow-x: hidden;
-    font-family: 'Inter', 'Satoshi', system-ui, sans-serif;
+
+    /*
+      Better scrolling behaviour.
+    */
+    scroll-behavior: smooth;
   }
-  h1, h2, h3, h4, h5, h6 {
+
+  body {
+    margin: 0;
+    min-width: 320px;
+
+    background-color: hsl(var(--background));
+    color: hsl(var(--body));
+
+    /*
+      System font = no external font request.
+      This is considerably faster than loading Google Fonts
+      + Fontshare before the page can render.
+    */
+    font-family:
+      Inter,
+      ui-sans-serif,
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      sans-serif;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    overflow-x: hidden;
+  }
+
+  #root {
+    min-height: 100vh;
+
+    background-color: hsl(var(--background));
+    color: hsl(var(--body));
+
+    font-family:
+      Inter,
+      ui-sans-serif,
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      sans-serif;
+  }
+
+  /* =======================================================
+     HEADINGS
+     ======================================================= */
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+
     color: hsl(var(--foreground));
+
+    font-family:
+      Inter,
+      ui-sans-serif,
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      sans-serif;
+
+    text-wrap: balance;
   }
+
+  h1 {
+    letter-spacing: -0.04em;
+  }
+
+  h2 {
+    letter-spacing: -0.035em;
+  }
+
+  h3 {
+    letter-spacing: -0.025em;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  img {
+    height: auto;
+  }
+
+  /* =======================================================
+     TEXT SELECTION
+     ======================================================= */
+
   ::selection {
     background: hsl(var(--gold-bright) / 0.3);
     color: hsl(var(--foreground));
   }
+
+  /* =======================================================
+     FOCUS
+     ======================================================= */
+
+  :focus-visible {
+    outline: 2px solid hsl(var(--accent));
+    outline-offset: 3px;
+  }
 }
+
+/* =========================================================
+   COMPONENTS
+   ========================================================= */
+
 @layer components {
+  /* =======================================================
+     DISPLAY FONT
+
+     Previously:
+       Fraunces + Playfair Display
+
+     Now:
+       System serif fallback
+
+     This avoids additional font downloads.
+     ======================================================= */
+
   .font-display {
-    font-family: 'Fraunces', 'Playfair Display', Georgia, serif;
+    font-family:
+      Georgia,
+      "Times New Roman",
+      serif;
+
     font-optical-sizing: auto;
+
     letter-spacing: -0.025em;
+
     font-weight: 400;
   }
+
+  /* =======================================================
+     NUMERIC DISPLAY
+     ======================================================= */
+
+  .num-display {
+    font-family:
+      Georgia,
+      "Times New Roman",
+      serif;
+
+    font-weight: 500;
+
+    letter-spacing: -0.04em;
+  }
+
+  /* =======================================================
+     HAIRLINE
+     ======================================================= */
+
   .hairline {
     background: hsl(var(--border));
   }
-  .text-balance { text-wrap: balance; }
+
+  /* =======================================================
+     TEXT BALANCE
+     ======================================================= */
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* =======================================================
+     EYEBROW
+     ======================================================= */
 
   .eyebrow {
-    @apply text-xs uppercase tracking-[0.3em] text-muted-foreground;
+    @apply text-xs uppercase tracking-[0.3em];
+
+    /*
+      Slightly stronger contrast than the previous
+      muted-foreground/opacity combinations.
+    */
+    color: hsl(var(--muted-foreground));
   }
+
+  /* =======================================================
+     GOLD BUTTON
+     ======================================================= */
 
   .btn-gold {
     @apply inline-flex items-center gap-3 px-7 py-4 text-sm uppercase tracking-[0.2em] transition-all duration-500;
+
     background: hsl(var(--accent));
     color: hsl(var(--accent-foreground));
+
+    /*
+      Prevent unnecessary layout movement.
+    */
+    will-change: transform;
   }
+
   .btn-gold:hover {
     background: hsl(var(--accent) / 0.85);
+
     transform: translateY(-1px);
   }
+
+  /* =======================================================
+     GHOST BUTTON
+     ======================================================= */
+
   .btn-ghost {
     @apply inline-flex items-center gap-3 px-7 py-4 text-sm uppercase tracking-[0.2em] transition-all duration-500;
+
     border: 1px solid hsl(var(--border));
     color: hsl(var(--foreground));
   }
+
   .btn-ghost:hover {
     border-color: hsl(var(--accent));
     color: hsl(var(--accent));
   }
 
+  /* =======================================================
+     REVEAL MASK
+     ======================================================= */
 
   .reveal-mask {
-    overflow: hidden;
     display: inline-block;
+    overflow: hidden;
   }
+
   .reveal-mask > span {
     display: inline-block;
+
     transform: translateY(110%);
+
+    /*
+      transform is compositor-friendly.
+    */
+    will-change: transform;
   }
 
-  /* .glow-bg removed — no radial glow backgrounds. */
-  .glow-bg { background-image: none; }
+  /* =======================================================
+     GLOW BACKGROUND
+     ======================================================= */
 
-  .num-display {
-    font-family: 'Playfair Display', serif;
-    font-weight: 500;
-    letter-spacing: -0.04em;
+  .glow-bg {
+    background-image: none;
   }
 
-  /* Frosted layers — tuned for light editorial background */
+  /* =======================================================
+     GLASS
+     ======================================================= */
+
+  /*
+    IMPORTANT:
+    backdrop-filter is visually expensive.
+
+    Keep it, but isolate the effect so it doesn't
+    unnecessarily affect surrounding rendering.
+  */
+
   .glass {
     background: hsl(var(--surface) / 0.7);
+
     backdrop-filter: blur(18px) saturate(140%);
     -webkit-backdrop-filter: blur(18px) saturate(140%);
+
     border: 1px solid hsl(var(--border));
-    box-shadow: 0 12px 30px -20px hsl(0 0% 7% / 0.18);
+
+    box-shadow:
+      0 12px 30px -20px hsl(0 0% 7% / 0.18);
+
+    isolation: isolate;
   }
+
+  /* =======================================================
+     STRONG GLASS
+     ======================================================= */
+
   .glass-strong {
     background: hsl(0 0% 100% / 0.85);
+
     backdrop-filter: blur(28px) saturate(160%);
     -webkit-backdrop-filter: blur(28px) saturate(160%);
+
     border: 1px solid hsl(var(--border));
-    box-shadow: 0 20px 50px -25px hsl(0 0% 7% / 0.22);
+
+    box-shadow:
+      0 20px 50px -25px hsl(0 0% 7% / 0.22);
+
+    isolation: isolate;
   }
+
+  /* =======================================================
+     GOLD GLASS
+     ======================================================= */
+
   .glass-gold {
-    background: hsl(var(--gold-bright) / 0.10);
+    background: hsl(var(--gold-bright) / 0.1);
+
     backdrop-filter: blur(20px) saturate(150%);
     -webkit-backdrop-filter: blur(20px) saturate(150%);
+
     border: 1px solid hsl(var(--accent) / 0.35);
-    box-shadow: 0 16px 40px -24px hsl(var(--accent) / 0.35);
+
+    box-shadow:
+      0 16px 40px -24px hsl(var(--accent) / 0.35);
+
+    isolation: isolate;
   }
+
+  /* =======================================================
+     NAVIGATION GLASS
+     ======================================================= */
+
   .glass-nav {
     background: hsl(var(--background) / 0.8);
+
     backdrop-filter: blur(22px) saturate(160%);
     -webkit-backdrop-filter: blur(22px) saturate(160%);
+
     border-bottom: 1px solid hsl(var(--border));
+
+    isolation: isolate;
   }
 }
 
+/* =========================================================
+   UTILITIES
+   ========================================================= */
 
 @layer utilities {
+  /* =======================================================
+     MARQUEE
+     ======================================================= */
+
   @keyframes marquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+      transform: translate3d(-50%, 0, 0);
+    }
   }
+
   .animate-marquee {
     animation: marquee 38s linear infinite;
+
     width: max-content;
+
+    /*
+      GPU-friendly transform animation.
+    */
+    will-change: transform;
   }
-  /* shimmer-underline gradient removed — flat solid underline only. */
+
+  /* =======================================================
+     SHIMMER UNDERLINE
+     ======================================================= */
+
   .shimmer-underline {
     position: relative;
   }
+
   .shimmer-underline::after {
     content: "";
+
     position: absolute;
+
     inset: auto 0 0 0;
+
     height: 1px;
+
     background: hsl(var(--accent));
+  }
+
+  /* =======================================================
+     GPU-FRIENDLY ANIMATION HELPERS
+     ======================================================= */
+
+  .transform-gpu {
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+  }
+
+  .will-change-transform {
+    will-change: transform;
+  }
+
+  .will-change-opacity {
+    will-change: opacity;
+  }
+
+  /* =======================================================
+     CONTENT VISIBILITY
+
+     Use this ONLY on large below-the-fold sections.
+     Do NOT put this on the hero/LCP content.
+     ======================================================= */
+
+  .content-auto {
+    content-visibility: auto;
+    contain-intrinsic-size: 800px;
+  }
+}
+
+/* =========================================================
+   ACCESSIBILITY / PERFORMANCE
+   ========================================================= */
+
+/*
+  Respect users who don't want animations.
+
+  This is also useful for Lighthouse accessibility/performance
+  testing and improves experience on low-power devices.
+*/
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* =========================================================
+   MOBILE OPTIMIZATION
+   ========================================================= */
+
+@media (max-width: 768px) {
+  /*
+    Reduce expensive blur on mobile.
+
+    Mobile devices are where the PageSpeed test is most
+    sensitive to rendering cost.
+  */
+
+  .glass {
+    backdrop-filter: blur(12px) saturate(120%);
+    -webkit-backdrop-filter: blur(12px) saturate(120%);
+  }
+
+  .glass-strong {
+    backdrop-filter: blur(16px) saturate(130%);
+    -webkit-backdrop-filter: blur(16px) saturate(130%);
+  }
+
+  .glass-gold {
+    backdrop-filter: blur(14px) saturate(130%);
+    -webkit-backdrop-filter: blur(14px) saturate(130%);
+  }
+
+  .glass-nav {
+    backdrop-filter: blur(14px) saturate(130%);
+    -webkit-backdrop-filter: blur(14px) saturate(130%);
+  }
+}
+
+/* =========================================================
+   FALLBACK FOR DEVICES WITHOUT BACKDROP FILTER
+   ========================================================= */
+
+@supports not (
+  backdrop-filter: blur(1px)
+) {
+  .glass {
+    background: hsl(var(--surface) / 0.95);
+  }
+
+  .glass-strong {
+    background: hsl(0 0% 100% / 0.97);
+  }
+
+  .glass-gold {
+    background: hsl(var(--gold-bright) / 0.15);
+  }
+
+  .glass-nav {
+    background: hsl(var(--background) / 0.95);
   }
 }

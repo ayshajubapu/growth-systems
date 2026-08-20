@@ -1,6 +1,14 @@
-import { useEffect, useRef, useState, lazy, Suspense } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  lazy,
+  Suspense,
+} from "react";
+
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 import {
   Users,
   Star,
@@ -8,12 +16,22 @@ import {
   Trophy,
   MessageSquare,
 } from "lucide-react";
+
 import { Helmet } from "react-helmet-async";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// WebGL orb is decorative, so keep it out of the initial bundle.
-const Orb = lazy(() => import("@/components/Orb"));
+/* =========================================================
+   LAZY LOAD ORB
+   ========================================================= */
+
+const Orb = lazy(
+  () => import("@/components/Orb")
+);
+
+/* =========================================================
+   CLIENTS
+   ========================================================= */
 
 const clients = [
   "Al Miraj",
@@ -28,6 +46,10 @@ const clients = [
   "Fotrio Edu",
   "Manha Hajj & Umrah",
 ];
+
+/* =========================================================
+   SERVICE AREAS
+   ========================================================= */
 
 const areas = [
   {
@@ -52,54 +74,106 @@ const areas = [
   },
 ];
 
+/* =========================================================
+   COMPONENT
+   ========================================================= */
+
 const HorizontalScroll = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+
   const [showOrb, setShowOrb] = useState(false);
+
+  /* =======================================================
+     ORB + GSAP
+     ======================================================= */
 
   useEffect(() => {
     const reduceMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
 
-    if (reduceMotion) return;
+    const isMobile = window.matchMedia(
+      "(max-width: 767px)"
+    ).matches;
 
-    // Load WebGL after initial paint.
-    const id = window.setTimeout(() => {
-      setShowOrb(true);
-    }, 300);
+    /*
+      The Orb is decorative WebGL content.
+
+      It is not loaded on mobile or reduced-motion devices.
+      On desktop it loads after 800ms so it doesn't compete
+      with the initial page render.
+    */
+
+    let timeoutId:
+      | ReturnType<typeof setTimeout>
+      | undefined;
+
+    if (!reduceMotion && !isMobile) {
+      timeoutId = setTimeout(() => {
+        setShowOrb(true);
+      }, 800);
+    }
+
+    /* =====================================================
+       GSAP REVEAL ANIMATIONS
+       ===================================================== */
 
     const ctx = gsap.context(() => {
-      gsap.utils
-        .toArray<HTMLElement>("[data-reveal]")
-        .forEach((el) => {
-          gsap.from(el, {
+      const elements =
+        gsap.utils.toArray<HTMLElement>(
+          "[data-reveal]"
+        );
+
+      elements.forEach((element) => {
+        gsap.fromTo(
+          element,
+          {
             y: 40,
             opacity: 0,
+          },
+          {
+            y: 0,
+            opacity: 1,
             duration: 0.8,
             ease: "power3.out",
+
             scrollTrigger: {
-              trigger: el,
+              trigger: element,
               start: "top 90%",
-              toggleActions: "play none none none",
+              toggleActions:
+                "play none none none",
             },
-          });
-        });
+          }
+        );
+      });
     }, containerRef);
 
+    /* =====================================================
+       CLEANUP
+       ===================================================== */
+
     return () => {
-      window.clearTimeout(id);
+      if (timeoutId !== undefined) {
+        clearTimeout(timeoutId);
+      }
+
       ctx.revert();
     };
   }, []);
+
+  /* =======================================================
+     RENDER
+     ======================================================= */
 
   return (
     <section
       ref={containerRef}
       className="relative bg-background"
     >
-      {/* =========================================================
-          SEO / META
-      ========================================================== */}
+      {/* ===================================================
+          SEO
+          =================================================== */}
+
       <Helmet>
         <title>
           Web Design & Development Company in Chennai | SmartPixel
@@ -125,7 +199,6 @@ const HorizontalScroll = () => {
           href="https://smartpixel.in/"
         />
 
-        {/* Open Graph */}
         <meta
           property="og:title"
           content="Web Design & Development Company in Chennai | SmartPixel"
@@ -156,7 +229,6 @@ const HorizontalScroll = () => {
           content="SmartPixel"
         />
 
-        {/* Twitter */}
         <meta
           name="twitter:card"
           content="summary_large_image"
@@ -178,15 +250,42 @@ const HorizontalScroll = () => {
         />
       </Helmet>
 
-      {/* =========================================================
+      {/* ===================================================
           HERO
-      ========================================================== */}
-      <section className="relative w-full flex flex-col px-5 sm:px-10 lg:px-20 pt-28 pb-12">
-        {/* Background grid */}
-        <div className="absolute inset-0 pointer-events-none bg-background">
+          =================================================== */}
+
+      <section
+        className="
+          relative
+          w-full
+          flex
+          flex-col
+          px-5
+          sm:px-10
+          lg:px-20
+          pt-28
+          pb-12
+        "
+      >
+        {/* =================================================
+            BACKGROUND GRID
+            ================================================= */}
+
+        <div
+          aria-hidden="true"
+          className="
+            absolute
+            inset-0
+            pointer-events-none
+            bg-background
+          "
+        >
           <div
-            aria-hidden
-            className="absolute inset-0 opacity-[0.05]"
+            className="
+              absolute
+              inset-0
+              opacity-[0.05]
+            "
             style={{
               backgroundImage:
                 "repeating-linear-gradient(to right, hsl(var(--accent)) 0 1px, transparent 1px 9%)",
@@ -194,13 +293,30 @@ const HorizontalScroll = () => {
           />
         </div>
 
-        {/* Decorative WebGL Orb */}
+        {/* =================================================
+            DESKTOP ORB
+            ================================================= */}
+
         {showOrb && (
           <div
-            aria-hidden
-            className="absolute inset-0 flex items-center justify-center pointer-events-none"
+            aria-hidden="true"
+            className="
+              absolute
+              inset-0
+              flex
+              items-center
+              justify-center
+              pointer-events-none
+            "
           >
-            <div className="relative w-[min(90vw,760px)] aspect-square opacity-[0.55]">
+            <div
+              className="
+                relative
+                w-[min(90vw,760px)]
+                aspect-square
+                opacity-[0.55]
+              "
+            >
               <Suspense fallback={null}>
                 <Orb
                   hue={210}
@@ -213,72 +329,178 @@ const HorizontalScroll = () => {
           </div>
         )}
 
-        <div className="relative flex items-center justify-center w-full">
-          <div className="w-full max-w-4xl mx-auto text-center flex flex-col items-center">
-            {/* H1 */}
+        {/* =================================================
+            HERO CONTENT
+            ================================================= */}
+
+        <div
+          className="
+            relative
+            flex
+            items-center
+            justify-center
+            w-full
+          "
+        >
+          <div
+            className="
+              w-full
+              max-w-4xl
+              mx-auto
+              text-center
+              flex
+              flex-col
+              items-center
+            "
+          >
+            {/* =================================================
+                H1
+                ================================================= */}
+
             <h1
               data-reveal
-              className="font-display text-[8.5vw] sm:text-[6.5vw] lg:text-[4.2vw] leading-[1.05] tracking-tight text-balance font-normal"
+              className="
+                font-display
+                text-[8.5vw]
+                sm:text-[6.5vw]
+                lg:text-[4.2vw]
+                leading-[1.05]
+                tracking-tight
+                text-balance
+                font-normal
+              "
             >
-              <span className="font-light text-muted-foreground text-sm sm:text-base uppercase tracking-[0.3em] block mb-3">
+              <span
+                className="
+                  font-light
+                  text-muted-foreground
+                  text-sm
+                  sm:text-base
+                  uppercase
+                  tracking-[0.3em]
+                  block
+                  mb-3
+                "
+              >
                 Web Design & Development Company in Chennai
               </span>
 
               We build high-converting websites that act as your{" "}
-              <span className="font-normal italic text-accent">
+              <span
+                className="
+                  font-normal
+                  italic
+                  text-accent
+                "
+              >
                 best salesperson
               </span>
               .
             </h1>
 
-            {/* Intro */}
+            {/* =================================================
+                INTRO
+                ================================================= */}
+
             <p
               data-reveal
-              className="mt-5 text-base sm:text-lg text-muted-foreground max-w-2xl leading-relaxed mx-auto"
+              className="
+                mt-5
+                text-base
+                sm:text-lg
+                text-muted-foreground
+                max-w-2xl
+                leading-relaxed
+                mx-auto
+              "
             >
-              SmartPixel is a web design and development company based in
-              Chrompet, Chennai. We build fast, conversion-focused websites,
-              ecommerce stores and web applications designed to turn search
-              traffic into enquiries and customers.
+              SmartPixel is a web design and development
+              company based in Chrompet, Chennai. We build
+              fast, conversion-focused websites, ecommerce
+              stores and web applications designed to turn
+              search traffic into enquiries and customers.
             </p>
 
-            {/* Chennai service area links */}
+            {/* =================================================
+                AREAS
+                ================================================= */}
+
             <nav
               data-reveal
               aria-label="Chennai areas we serve"
-              className="mt-6 flex flex-wrap justify-center gap-2 text-xs text-muted-foreground"
+              className="
+                mt-6
+                flex
+                flex-wrap
+                justify-center
+                gap-2
+                text-xs
+                text-muted-foreground
+              "
             >
-              <span className="uppercase tracking-widest mr-1 opacity-50">
+              <span
+                className="
+                  uppercase
+                  tracking-widest
+                  mr-1
+                  opacity-50
+                "
+              >
                 Areas:
               </span>
 
               {areas.map((area, index) => (
                 <span
                   key={area.name}
-                  className="flex items-center gap-2"
+                  className="
+                    flex
+                    items-center
+                    gap-2
+                  "
                 >
                   <a
                     href={area.href}
-                    className="hover:text-accent underline underline-offset-2 transition-colors"
+                    className="
+                      hover:text-accent
+                      underline
+                      underline-offset-2
+                      transition-colors
+                    "
                   >
                     {area.name}
                   </a>
 
                   {index < areas.length - 1 && (
-                    <span className="opacity-30">·</span>
+                    <span className="opacity-30">
+                      ·
+                    </span>
                   )}
                 </span>
               ))}
             </nav>
 
-            {/* CTA */}
+            {/* =================================================
+                CTA
+                ================================================= */}
+
             <div
               data-reveal
-              className="mt-7 flex flex-wrap items-center justify-center gap-4"
+              className="
+                mt-7
+                flex
+                flex-wrap
+                items-center
+                justify-center
+                gap-4
+              "
             >
               <a
                 href="/contact"
-                className="btn-gold shadow-lg shadow-accent/10"
+                className="
+                  btn-gold
+                  shadow-lg
+                  shadow-accent/10
+                "
               >
                 Book 20-Min Strategy Call
               </a>
@@ -287,53 +509,113 @@ const HorizontalScroll = () => {
                 href="https://wa.me/919886069488?text=Hi%20SmartPixel,%20I%27d%20like%20to%20inquire%20about%20your%20web%20development%20services."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-foreground text-background px-5 py-3 rounded text-sm uppercase tracking-wider border border-foreground transition-all hover:opacity-90"
+                className="
+                  inline-flex
+                  items-center
+                  gap-2
+                  bg-foreground
+                  text-background
+                  px-5
+                  py-3
+                  rounded
+                  text-sm
+                  uppercase
+                  tracking-wider
+                  border
+                  border-foreground
+                  transition-all
+                  hover:opacity-90
+                "
               >
                 <MessageSquare size={16} />
                 Chat on WhatsApp
               </a>
             </div>
 
-            {/* Service links */}
+            {/* =================================================
+                EXPERTISE
+                ================================================= */}
+
             <nav
               data-reveal
               aria-label="SmartPixel services"
-              className="mt-6 flex flex-wrap justify-center gap-2 text-xs text-muted-foreground"
+              className="
+                mt-6
+                flex
+                flex-wrap
+                justify-center
+                gap-2
+                text-xs
+                text-muted-foreground
+              "
             >
-              <span className="uppercase tracking-widest mr-1 opacity-50">
+              <span
+                className="
+                  uppercase
+                  tracking-widest
+                  mr-1
+                  opacity-50
+                "
+              >
                 Expertise:
               </span>
 
               <a
                 href="/services/web-design-chennai"
-                className="hover:text-accent underline underline-offset-2 transition-colors"
+                className="
+                  hover:text-accent
+                  underline
+                  underline-offset-2
+                  transition-colors
+                "
               >
                 Web Design
               </a>
 
-              <span className="opacity-30">·</span>
+              <span className="opacity-30">
+                ·
+              </span>
 
               <a
                 href="/ecommerce-website-chennai"
-                className="hover:text-accent underline underline-offset-2 transition-colors"
+                className="
+                  hover:text-accent
+                  underline
+                  underline-offset-2
+                  transition-colors
+                "
               >
                 E-commerce Stores
               </a>
 
-              <span className="opacity-30">·</span>
+              <span className="opacity-30">
+                ·
+              </span>
 
               <a
                 href="/seo-services-chennai"
-                className="hover:text-accent underline underline-offset-2 transition-colors"
+                className="
+                  hover:text-accent
+                  underline
+                  underline-offset-2
+                  transition-colors
+                "
               >
                 SEO
               </a>
 
-              <span className="opacity-30">·</span>
+              <span className="opacity-30">
+                ·
+              </span>
 
               <a
                 href="/whatsapp-automation-chennai"
-                className="hover:text-accent underline underline-offset-2 transition-colors"
+                className="
+                  hover:text-accent
+                  underline
+                  underline-offset-2
+                  transition-colors
+                "
               >
                 WhatsApp Automation
               </a>
@@ -341,14 +623,28 @@ const HorizontalScroll = () => {
           </div>
         </div>
 
-        {/* =======================================================
+        {/* =================================================
             TRUST STRIP
-        ======================================================== */}
+            ================================================= */}
+
         <div
           data-reveal
-          className="relative mt-10 border-t border-foreground/10 pt-6"
+          className="
+            relative
+            mt-10
+            border-t
+            border-foreground/10
+            pt-6
+          "
         >
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div
+            className="
+              grid
+              grid-cols-2
+              md:grid-cols-4
+              gap-4
+            "
+          >
             {[
               {
                 v: "20+",
@@ -370,34 +666,84 @@ const HorizontalScroll = () => {
                 l: "Avg turnaround",
                 I: Trophy,
               },
-            ].map(({ v, l, I }) => (
-              <div
-                key={l}
-                className="flex flex-col items-center text-center"
-              >
-                <I
-                  size={20}
-                  className="text-accent mb-2"
-                />
+            ].map(
+              ({
+                v,
+                l,
+                I,
+              }) => (
+                <div
+                  key={l}
+                  className="
+                    flex
+                    flex-col
+                    items-center
+                    text-center
+                  "
+                >
+                  <I
+                    size={20}
+                    className="
+                      text-accent
+                      mb-2
+                    "
+                  />
 
-                <div className="num-display text-3xl md:text-4xl text-accent">
-                  {v}
-                </div>
+                  <div
+                    className="
+                      num-display
+                      text-3xl
+                      md:text-4xl
+                      text-accent
+                    "
+                  >
+                    {v}
+                  </div>
 
-                <div className="text-[9px] sm:text-[10px] uppercase tracking-[0.3em] text-muted-foreground mt-1.5">
-                  {l}
+                  <div
+                    className="
+                      text-[9px]
+                      sm:text-[10px]
+                      uppercase
+                      tracking-[0.3em]
+                      text-muted-foreground
+                      mt-1.5
+                    "
+                  >
+                    {l}
+                  </div>
                 </div>
-              </div>
-            ))}
+              )
+            )}
           </div>
         </div>
       </section>
 
-      {/* =========================================================
-          WHY SMARTPIXEL
-      ========================================================== */}
-      <section className="relative w-full grid md:grid-cols-2 border-t border-border">
-        <div className="flex flex-col justify-center px-5 sm:px-10 lg:px-24 py-14">
+      {/* =====================================================
+          DIFFERENCE SECTION
+          ===================================================== */}
+
+      <section
+        className="
+          relative
+          w-full
+          grid
+          md:grid-cols-2
+          border-t
+          border-border
+        "
+      >
+        <div
+          className="
+            flex
+            flex-col
+            justify-center
+            px-5
+            sm:px-10
+            lg:px-24
+            py-14
+          "
+        >
           <p
             data-reveal
             className="eyebrow mb-5"
@@ -407,10 +753,18 @@ const HorizontalScroll = () => {
 
           <h2
             data-reveal
-            className="font-display text-4xl sm:text-5xl md:text-6xl leading-[1.05] mb-6"
+            className="
+              font-display
+              text-4xl
+              sm:text-5xl
+              md:text-6xl
+              leading-[1.05]
+              mb-6
+            "
           >
             Chennai agencies promise.
             <br />
+
             We show up in your{" "}
             <span className="italic text-accent">
               analytics
@@ -420,7 +774,11 @@ const HorizontalScroll = () => {
 
           <p
             data-reveal
-            className="text-muted-foreground max-w-md leading-relaxed"
+            className="
+              text-muted-foreground
+              max-w-md
+              leading-relaxed
+            "
           >
             Here's what working with a{" "}
             <strong className="text-foreground/70">
@@ -430,7 +788,22 @@ const HorizontalScroll = () => {
           </p>
         </div>
 
-        <div className="bg-surface flex flex-col justify-center px-5 sm:px-10 lg:px-24 py-12 border-t md:border-t-0 md:border-l border-border">
+        <div
+          className="
+            bg-surface
+            flex
+            flex-col
+            justify-center
+            px-5
+            sm:px-10
+            lg:px-24
+            py-12
+            border-t
+            md:border-t-0
+            md:border-l
+            border-border
+          "
+        >
           {[
             {
               k: "Unlimited Revisions",
@@ -444,60 +817,141 @@ const HorizontalScroll = () => {
               k: "One Team, Zero Handoffs",
               v: "No account managers who don't know the code. One team owns your project, and you talk to the people doing the work.",
             },
-          ].map((item, i) => (
-            <div
-              key={item.k}
-              data-reveal
-              className={`py-5 ${
-                i !== 0 ? "border-t border-border" : ""
-              }`}
-            >
-              <div className="flex items-baseline gap-4 sm:gap-6">
-                <span className="text-xs text-muted-foreground tracking-[0.3em]">
-                  0{i + 1}
-                </span>
+          ].map(
+            (item, i) => (
+              <div
+                key={item.k}
+                data-reveal
+                className={`
+                  py-5
+                  ${
+                    i !== 0
+                      ? "border-t border-border"
+                      : ""
+                  }
+                `}
+              >
+                <div
+                  className="
+                    flex
+                    items-baseline
+                    gap-4
+                    sm:gap-6
+                  "
+                >
+                  <span
+                    className="
+                      text-xs
+                      text-muted-foreground
+                      tracking-[0.3em]
+                    "
+                  >
+                    0{i + 1}
+                  </span>
 
-                <div>
-                  <h3 className="font-display text-xl sm:text-2xl md:text-3xl mb-2">
-                    {item.k}
-                  </h3>
+                  <div>
+                    <h3
+                      className="
+                        font-display
+                        text-xl
+                        sm:text-2xl
+                        md:text-3xl
+                        mb-2
+                      "
+                    >
+                      {item.k}
+                    </h3>
 
-                  <p className="text-sm text-muted-foreground">
-                    {item.v}
-                  </p>
+                    <p
+                      className="
+                        text-sm
+                        text-muted-foreground
+                      "
+                    >
+                      {item.v}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            )
+          )}
         </div>
       </section>
 
-      {/* =========================================================
+      {/* =====================================================
           CLIENT MARQUEE
-      ========================================================== */}
-      <div className="relative overflow-hidden border-y border-border bg-background py-5">
-        <p className="text-center text-[9px] uppercase tracking-[0.4em] text-muted-foreground/60 mb-3">
+          ===================================================== */}
+
+      <div
+        className="
+          relative
+          overflow-hidden
+          border-y
+          border-border
+          bg-background
+          py-5
+        "
+      >
+        <p
+          className="
+            text-center
+            text-[9px]
+            uppercase
+            tracking-[0.4em]
+            text-muted-foreground/60
+            mb-3
+          "
+        >
           Trusted by businesses across India and beyond
         </p>
 
-        <div className="flex whitespace-nowrap animate-marquee gap-12 text-muted-foreground mt-1">
-          {Array.from({ length: 2 }).map((_, k) => (
+        <div
+          className="
+            flex
+            whitespace-nowrap
+            animate-marquee
+            gap-12
+            text-muted-foreground
+            mt-1
+          "
+        >
+          {Array.from({
+            length: 2,
+          }).map((_, k) => (
             <div
               key={k}
-              className="flex items-center gap-12 shrink-0"
+              className="
+                flex
+                items-center
+                gap-12
+                shrink-0
+              "
             >
-              {clients.map((client) => (
-                <span
-                  key={`${k}-${client}`}
-                  className="font-display text-2xl sm:text-3xl italic"
-                >
-                  {client}
+              {clients.map(
+                (client) => (
+                  <span
+                    key={`${k}-${client}`}
+                    className="
+                      font-display
+                      text-2xl
+                      sm:text-3xl
+                      italic
+                    "
+                  >
+                    {client}
 
-                  <span className="text-accent not-italic ml-12">
-                    ·
+                    <span
+                      className="
+                        text-accent
+                        not-italic
+                        ml-12
+                      "
+                    >
+                      ·
+                    </span>
                   </span>
-                </span>
-              ))}
+                )
+              )}
             </div>
           ))}
         </div>
