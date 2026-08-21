@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- Core pages -->
+  <!-- =========================================
+       CORE PAGES
+  ========================================== -->
 
   <url>
     <loc>https://smartpixel.in/</loc>
@@ -34,7 +36,9 @@
   </url>
 
 
-  <!-- Main service pages -->
+  <!-- =========================================
+       MAIN SERVICE PAGES
+  ========================================== -->
 
   <url>
     <loc>https://smartpixel.in/services/web-design-chennai</loc>
@@ -72,7 +76,9 @@
   </url>
 
 
-  <!-- Web Design location pages -->
+  <!-- =========================================
+       WEB DESIGN LOCATION PAGES
+  ========================================== -->
 
   <url>
     <loc>https://smartpixel.in/web-design-pallavaram</loc>
@@ -115,7 +121,9 @@
   </url>
 
 
-  <!-- SEO location pages -->
+  <!-- =========================================
+       SEO LOCATION PAGES
+  ========================================== -->
 
   <url>
     <loc>https://smartpixel.in/seo-services-pallavaram</loc>
@@ -158,7 +166,9 @@
   </url>
 
 
-  <!-- Case studies -->
+  <!-- =========================================
+       CASE STUDIES
+  ========================================== -->
 
   <url>
     <loc>https://smartpixel.in/case-studies</loc>
@@ -171,7 +181,9 @@
   </url>
 
 
-  <!-- Legal pages -->
+  <!-- =========================================
+       LEGAL PAGES
+  ========================================== -->
 
   <url>
     <loc>https://smartpixel.in/privacy-policy</loc>
