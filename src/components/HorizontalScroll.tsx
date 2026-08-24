@@ -119,7 +119,7 @@ const HorizontalScroll = () => {
       return () => {
         cancelled = true;
 
-        if ("cancelIdleCallback" in window) {
+        if ("cancelIdleCallback" in  window) {
           window.cancelIdleCallback(idleId);
         }
       };
