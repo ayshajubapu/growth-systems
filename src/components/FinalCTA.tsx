@@ -33,20 +33,32 @@ const FinalCTA = () => {
     return () => ctx.revert();
   }, []);
 
-  const handleQuickSubmit = async (e: FormEvent) => {
+  const handleQuickSubmit = (e: FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    try {
-      // Direct API simulation line
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      setIsSuccess(true);
-      setEmail("");
-    } catch (err) {
-      console.error(err);
-    } finally {
-      setIsSubmitting(false);
-    }
+
+    const whatsappNumber = "919886069488";
+
+    const whatsappMessage = [
+      "Hi SmartPixel,",
+      "",
+      "I'd like a callback about a project.",
+      "",
+      `Email: ${email.trim()}`,
+      "",
+      "Please get back to me regarding this.",
+    ].join("\n");
+
+    const whatsappUrl =
+      `https://wa.me/${whatsappNumber}?text=` +
+      encodeURIComponent(whatsappMessage);
+
+    // Open WhatsApp in a new tab so the visitor's site session stays open.
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+
+    setIsSuccess(true);
+    setEmail("");
+    setIsSubmitting(false);
   };
 
   return (
@@ -141,7 +153,7 @@ const FinalCTA = () => {
                 <CheckCircle2 size={36} className="text-emerald-400 mb-3" />
                 <h4 className="text-base font-medium mb-1">We'll reach out shortly!</h4>
                 <p className="text-xs text-muted-foreground max-w-[240px] mx-auto">
-                  Our development strategist will drop you an email within 2 business hours.
+                  Your details were sent to us on WhatsApp — we'll get back to you within 2 business hours.
                 </p>
               </div>
             ) : (

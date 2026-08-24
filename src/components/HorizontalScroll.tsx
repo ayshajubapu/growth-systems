@@ -1,25 +1,19 @@
 import {
   useEffect,
-  useRef,
   useState,
   lazy,
   Suspense,
 } from "react";
 
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
 import {
   Users,
   Star,
-  TrendingUp,
   Trophy,
+  Phone,
   MessageSquare,
 } from "lucide-react";
 
 import { Helmet } from "react-helmet-async";
-
-gsap.registerPlugin(ScrollTrigger);
 
 /* =========================================================
    LAZY LOAD ORB
@@ -79,12 +73,13 @@ const areas = [
    ========================================================= */
 
 const HorizontalScroll = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-
   const [showOrb, setShowOrb] = useState(false);
 
   /* =======================================================
-     ORB + GSAP
+     LAZY LOAD DECORATIVE ORB
+     
+     The Orb is decorative only.
+     It should never block the main content or CTA.
      ======================================================= */
 
   useEffect(() => {
@@ -96,85 +91,63 @@ const HorizontalScroll = () => {
       "(max-width: 767px)"
     ).matches;
 
-    /*
-      The Orb is decorative WebGL content.
-
-      It is not loaded on mobile or reduced-motion devices.
-      On desktop it loads after 800ms so it doesn't compete
-      with the initial page render.
-    */
-
-    let timeoutId:
-      | ReturnType<typeof setTimeout>
-      | undefined;
-
-    if (!reduceMotion && !isMobile) {
-      timeoutId = setTimeout(() => {
-        setShowOrb(true);
-      }, 800);
+    if (reduceMotion || isMobile) {
+      return;
     }
 
-    /* =====================================================
-       GSAP REVEAL ANIMATIONS
-       ===================================================== */
+    let cancelled = false;
 
-    const ctx = gsap.context(() => {
-      const elements =
-        gsap.utils.toArray<HTMLElement>(
-          "[data-reveal]"
-        );
+    const loadOrb = () => {
+      if (!cancelled) {
+        setShowOrb(true);
+      }
+    };
 
-      elements.forEach((element) => {
-        gsap.fromTo(
-          element,
-          {
-            y: 40,
-            opacity: 0,
-          },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.8,
-            ease: "power3.out",
+    /*
+     * Use requestIdleCallback where available.
+     * This allows the browser to finish important
+     * page work before loading the decorative Orb.
+     */
+    if ("requestIdleCallback" in window) {
+      const idleId = window.requestIdleCallback(
+        loadOrb,
+        {
+          timeout: 1800,
+        }
+      );
 
-            scrollTrigger: {
-              trigger: element,
-              start: "top 90%",
-              toggleActions:
-                "play none none none",
-            },
-          }
-        );
-      });
-    }, containerRef);
+      return () => {
+        cancelled = true;
 
-    /* =====================================================
-       CLEANUP
-       ===================================================== */
+        if ("cancelIdleCallback" in window) {
+          window.cancelIdleCallback(idleId);
+        }
+      };
+    }
+
+    /*
+     * Fallback for browsers without requestIdleCallback.
+     */
+    const timeoutId = window.setTimeout(
+      loadOrb,
+      1200
+    );
 
     return () => {
-      if (timeoutId !== undefined) {
-        clearTimeout(timeoutId);
-      }
-
-      ctx.revert();
+      cancelled = true;
+      window.clearTimeout(timeoutId);
     };
   }, []);
 
-  /* =======================================================
-     RENDER
-     ======================================================= */
-
   return (
-    <section
-      ref={containerRef}
-      className="relative bg-background"
-    >
+    <section className="relative bg-background">
+
       {/* ===================================================
           SEO
           =================================================== */}
 
       <Helmet>
+
         <title>
           Web Design & Development Company in Chennai | SmartPixel
         </title>
@@ -248,6 +221,7 @@ const HorizontalScroll = () => {
           name="twitter:image"
           content="https://smartpixel.in/og-banner.jpg"
         />
+
       </Helmet>
 
       {/* ===================================================
@@ -267,6 +241,7 @@ const HorizontalScroll = () => {
           pb-12
         "
       >
+
         {/* =================================================
             BACKGROUND GRID
             ================================================= */}
@@ -295,6 +270,9 @@ const HorizontalScroll = () => {
 
         {/* =================================================
             DESKTOP ORB
+
+            Decorative only.
+            It loads after the important content.
             ================================================= */}
 
         {showOrb && (
@@ -353,12 +331,12 @@ const HorizontalScroll = () => {
               items-center
             "
           >
+
             {/* =================================================
                 H1
                 ================================================= */}
 
             <h1
-              data-reveal
               className="
                 font-display
                 text-[8.5vw]
@@ -370,6 +348,7 @@ const HorizontalScroll = () => {
                 font-normal
               "
             >
+
               <span
                 className="
                   font-light
@@ -385,7 +364,8 @@ const HorizontalScroll = () => {
                 Web Design & Development Company in Chennai
               </span>
 
-              We build high-converting websites that act as your{" "}
+              Websites that bring your business{" "}
+
               <span
                 className="
                   font-normal
@@ -393,9 +373,10 @@ const HorizontalScroll = () => {
                   text-accent
                 "
               >
-                best salesperson
+                more enquiries
               </span>
               .
+
             </h1>
 
             {/* =================================================
@@ -403,7 +384,6 @@ const HorizontalScroll = () => {
                 ================================================= */}
 
             <p
-              data-reveal
               className="
                 mt-5
                 text-base
@@ -414,11 +394,10 @@ const HorizontalScroll = () => {
                 mx-auto
               "
             >
-              SmartPixel is a web design and development
-              company based in Chrompet, Chennai. We build
-              fast, conversion-focused websites, ecommerce
-              stores and web applications designed to turn
-              search traffic into enquiries and customers.
+              SmartPixel builds fast, SEO-ready websites for
+              businesses in Chennai that turn Google visitors
+              into calls, WhatsApp enquiries and customers.
+              Get a clear quote and speak directly with our team.
             </p>
 
             {/* =================================================
@@ -426,7 +405,6 @@ const HorizontalScroll = () => {
                 ================================================= */}
 
             <nav
-              data-reveal
               aria-label="Chennai areas we serve"
               className="
                 mt-6
@@ -438,6 +416,7 @@ const HorizontalScroll = () => {
                 text-muted-foreground
               "
             >
+
               <span
                 className="
                   uppercase
@@ -458,6 +437,7 @@ const HorizontalScroll = () => {
                     gap-2
                   "
                 >
+
                   <a
                     href={area.href}
                     className="
@@ -475,16 +455,17 @@ const HorizontalScroll = () => {
                       ·
                     </span>
                   )}
+
                 </span>
               ))}
+
             </nav>
 
             {/* =================================================
-                CTA
+                PRIMARY CTA
                 ================================================= */}
 
             <div
-              data-reveal
               className="
                 mt-7
                 flex
@@ -494,24 +475,38 @@ const HorizontalScroll = () => {
                 gap-4
               "
             >
+
+              {/* PHONE CTA */}
+
               <a
-                href="/contact"
+                href="tel:+919886069488"
+                aria-label="Call SmartPixel at +91 98860 69488"
                 className="
                   btn-gold
                   shadow-lg
                   shadow-accent/10
+                  inline-flex
+                  items-center
+                  justify-center
+                  gap-2
                 "
               >
-                Book 20-Min Strategy Call
+                <Phone size={16} />
+
+                Call SmartPixel
               </a>
 
+              {/* WHATSAPP CTA */}
+
               <a
-                href="https://wa.me/919886069488?text=Hi%20SmartPixel,%20I%27d%20like%20to%20inquire%20about%20your%20web%20development%20services."
+                href="https://wa.me/919886069488?text=Hi%20SmartPixel%2C%20I%20found%20you%20online%20and%20I%27d%20like%20to%20get%20a%20free%20website%20quote."
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Get a free website quote from SmartPixel on WhatsApp"
                 className="
                   inline-flex
                   items-center
+                  justify-center
                   gap-2
                   bg-foreground
                   text-background
@@ -528,16 +523,31 @@ const HorizontalScroll = () => {
                 "
               >
                 <MessageSquare size={16} />
-                Chat on WhatsApp
+
+                Get Free Quote on WhatsApp
               </a>
+
             </div>
+
+            {/* REASSURANCE */}
+
+            <p
+              className="
+                mt-4
+                text-xs
+                text-muted-foreground
+                text-center
+              "
+            >
+              No pressure. Tell us what you need and
+              we’ll suggest the right solution.
+            </p>
 
             {/* =================================================
                 EXPERTISE
                 ================================================= */}
 
             <nav
-              data-reveal
               aria-label="SmartPixel services"
               className="
                 mt-6
@@ -549,6 +559,7 @@ const HorizontalScroll = () => {
                 text-muted-foreground
               "
             >
+
               <span
                 className="
                   uppercase
@@ -619,7 +630,9 @@ const HorizontalScroll = () => {
               >
                 WhatsApp Automation
               </a>
+
             </nav>
+
           </div>
         </div>
 
@@ -628,7 +641,6 @@ const HorizontalScroll = () => {
             ================================================= */}
 
         <div
-          data-reveal
           className="
             relative
             mt-10
@@ -637,6 +649,7 @@ const HorizontalScroll = () => {
             pt-6
           "
         >
+
           <div
             className="
               grid
@@ -645,10 +658,11 @@ const HorizontalScroll = () => {
               gap-4
             "
           >
+
             {[
               {
                 v: "20+",
-                l: "Clients",
+                l: "Projects",
                 I: Users,
               },
               {
@@ -657,14 +671,14 @@ const HorizontalScroll = () => {
                 I: Star,
               },
               {
-                v: "3×",
-                l: "Avg conversion lift",
-                I: TrendingUp,
-              },
-              {
                 v: "2 wk",
                 l: "Avg turnaround",
                 I: Trophy,
+              },
+              {
+                v: "Chennai",
+                l: "Based team",
+                I: Phone,
               },
             ].map(
               ({
@@ -681,6 +695,7 @@ const HorizontalScroll = () => {
                     text-center
                   "
                 >
+
                   <I
                     size={20}
                     className="
@@ -712,11 +727,134 @@ const HorizontalScroll = () => {
                   >
                     {l}
                   </div>
+
                 </div>
               )
             )}
+
           </div>
         </div>
+
+      </section>
+
+      {/* =====================================================
+          CONVERSION CTA
+          ===================================================== */}
+
+      <section
+        className="
+          w-full
+          border-y
+          border-border
+          bg-surface
+          px-5
+          sm:px-10
+          lg:px-20
+          py-12
+        "
+      >
+
+        <div
+          className="
+            max-w-5xl
+            mx-auto
+            flex
+            flex-col
+            md:flex-row
+            items-center
+            justify-between
+            gap-6
+          "
+        >
+
+          <div className="text-center md:text-left">
+
+            <p className="eyebrow mb-3">
+              — Ready to grow?
+            </p>
+
+            <h2
+              className="
+                font-display
+                text-3xl
+                sm:text-4xl
+                leading-tight
+              "
+            >
+              Need a website that brings enquiries?
+            </h2>
+
+            <p
+              className="
+                mt-3
+                text-sm
+                text-muted-foreground
+                max-w-xl
+              "
+            >
+              Tell us about your business. Get a clear
+              recommendation and quote without a complicated
+              sales process.
+            </p>
+
+          </div>
+
+          <div
+            className="
+              flex
+              flex-wrap
+              justify-center
+              gap-3
+              shrink-0
+            "
+          >
+
+            <a
+              href="tel:+919886069488"
+              className="
+                btn-gold
+                inline-flex
+                items-center
+                justify-center
+                gap-2
+              "
+            >
+              <Phone size={16} />
+              Call SmartPixel
+            </a>
+
+            <a
+              href="https://wa.me/919886069488?text=Hi%20SmartPixel%2C%20I%20want%20to%20discuss%20a%20website%20for%20my%20business."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+                inline-flex
+                items-center
+                justify-center
+                gap-2
+                border
+                border-border
+                bg-background
+                text-foreground
+                px-5
+                py-3
+                rounded
+                text-sm
+                uppercase
+                tracking-wider
+                transition-all
+                hover:border-accent
+                hover:text-accent
+              "
+            >
+              <MessageSquare size={16} />
+              WhatsApp Us
+            </a>
+
+          </div>
+
+        </div>
+
       </section>
 
       {/* =====================================================
@@ -733,6 +871,9 @@ const HorizontalScroll = () => {
           border-border
         "
       >
+
+        {/* LEFT */}
+
         <div
           className="
             flex
@@ -744,15 +885,14 @@ const HorizontalScroll = () => {
             py-14
           "
         >
+
           <p
-            data-reveal
             className="eyebrow mb-5"
           >
             — The Difference
           </p>
 
           <h2
-            data-reveal
             className="
               font-display
               text-4xl
@@ -763,9 +903,11 @@ const HorizontalScroll = () => {
             "
           >
             Chennai agencies promise.
+
             <br />
 
             We show up in your{" "}
+
             <span className="italic text-accent">
               analytics
             </span>
@@ -773,7 +915,6 @@ const HorizontalScroll = () => {
           </h2>
 
           <p
-            data-reveal
             className="
               text-muted-foreground
               max-w-md
@@ -781,12 +922,17 @@ const HorizontalScroll = () => {
             "
           >
             Here's what working with a{" "}
+
             <strong className="text-foreground/70">
               website development team in Chennai
             </strong>{" "}
+
             that takes ownership actually looks like.
           </p>
+
         </div>
+
+        {/* RIGHT */}
 
         <div
           className="
@@ -804,6 +950,7 @@ const HorizontalScroll = () => {
             border-border
           "
         >
+
           {[
             {
               k: "Unlimited Revisions",
@@ -821,7 +968,6 @@ const HorizontalScroll = () => {
             (item, i) => (
               <div
                 key={item.k}
-                data-reveal
                 className={`
                   py-5
                   ${
@@ -831,6 +977,7 @@ const HorizontalScroll = () => {
                   }
                 `}
               >
+
                 <div
                   className="
                     flex
@@ -839,6 +986,7 @@ const HorizontalScroll = () => {
                     sm:gap-6
                   "
                 >
+
                   <span
                     className="
                       text-xs
@@ -850,6 +998,7 @@ const HorizontalScroll = () => {
                   </span>
 
                   <div>
+
                     <h3
                       className="
                         font-display
@@ -870,12 +1019,17 @@ const HorizontalScroll = () => {
                     >
                       {item.v}
                     </p>
+
                   </div>
+
                 </div>
+
               </div>
             )
           )}
+
         </div>
+
       </section>
 
       {/* =====================================================
@@ -892,6 +1046,7 @@ const HorizontalScroll = () => {
           py-5
         "
       >
+
         <p
           className="
             text-center
@@ -915,9 +1070,11 @@ const HorizontalScroll = () => {
             mt-1
           "
         >
+
           {Array.from({
             length: 2,
           }).map((_, k) => (
+
             <div
               key={k}
               className="
@@ -927,8 +1084,10 @@ const HorizontalScroll = () => {
                 shrink-0
               "
             >
+
               {clients.map(
                 (client) => (
+
                   <span
                     key={`${k}-${client}`}
                     className="
@@ -938,6 +1097,7 @@ const HorizontalScroll = () => {
                       italic
                     "
                   >
+
                     {client}
 
                     <span
@@ -949,13 +1109,98 @@ const HorizontalScroll = () => {
                     >
                       ·
                     </span>
+
                   </span>
+
                 )
               )}
+
             </div>
+
           ))}
+
         </div>
+
       </div>
+
+      {/* =====================================================
+          MOBILE CALL / WHATSAPP BAR
+          ===================================================== */}
+
+      <div
+        className="
+          fixed
+          bottom-0
+          left-0
+          right-0
+          z-50
+          md:hidden
+          border-t
+          border-border
+          bg-background/95
+          backdrop-blur
+          px-3
+          py-2
+        "
+      >
+
+        <div
+          className="
+            grid
+            grid-cols-2
+            gap-2
+            max-w-lg
+            mx-auto
+          "
+        >
+
+          <a
+            href="tel:+919886069488"
+            aria-label="Call SmartPixel"
+            className="
+              inline-flex
+              items-center
+              justify-center
+              gap-2
+              btn-gold
+              py-3
+              rounded
+              text-xs
+              uppercase
+              tracking-wider
+            "
+          >
+            <Phone size={15} />
+            Call Now
+          </a>
+
+          <a
+            href="https://wa.me/919886069488?text=Hi%20SmartPixel%2C%20I%20want%20to%20discuss%20a%20website%20for%20my%20business."
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="WhatsApp SmartPixel"
+            className="
+              inline-flex
+              items-center
+              justify-center
+              gap-2
+              bg-foreground
+              text-background
+              py-3
+              rounded
+              text-xs
+              uppercase
+              tracking-wider
+            "
+          >
+            <MessageSquare size={15} />
+            WhatsApp
+          </a>
+
+        </div>
+
+      </div>
+
     </section>
   );
 };
