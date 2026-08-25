@@ -191,7 +191,7 @@ const ServicesDeep = () => {
 
               {/* Service Title */}
               <div className="md:col-span-4">
-                <p className="text-xs uppercase tracking-[0.3em] text-accent font-semibold mb-3">
+                <p className="text-xs tracking-[0.08em] text-accent font-semibold mb-3">
                   {it.tag}
                 </p>
 
@@ -243,9 +243,12 @@ const ServicesDeep = () => {
                 {it.badges && it.badges.length > 0 && (
                   <div className="flex flex-wrap gap-2 pt-1">
                     {it.badges.map((badge) => (
-                    <span className="text-xs tracking-[0.08em] font-bold px-3 py-1 rounded-full border border-accent/40 text-accent/90 bg-accent/5 select-none">
-  + {badge}
-</span>
+                      <span
+                        key={badge}
+                        className="text-xs tracking-[0.08em] font-bold px-3 py-1 rounded-full border border-accent/40 text-accent/90 bg-accent/5 select-none"
+                      >
+                        + {badge}
+                      </span>
                     ))}
                   </div>
                 )}

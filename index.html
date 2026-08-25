@@ -1,452 +1,597 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
-    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+/* =========================================================
+   SMARTPIXEL — PREMIUM LIGHT EDITORIAL DESIGN SYSTEM
+   Performance-optimized version
+   ========================================================= */
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+@layer base {
+  :root {
+    /* Core palette */
+    --background: 60 20% 98%;
+    --surface: 45 13% 94%;
+    --foreground: 0 0% 7%;
+    --body: 0 0% 23%;
+    --muted-foreground: 45 7% 51%;
 
-    <!-- Primary SEO Optimization Metas -->
-    <title>Web Design & Development Agency in Chennai | SmartPixel</title>
+    /* Gold */
+    --accent: 43 89% 38%;
+    --accent-foreground: 60 20% 98%;
 
-    <meta
-      name="description"
-      content="SmartPixel is a premier web design and development agency in Chrompet, Chennai. We build high-conversion websites, premium e-commerce stores, and high-performance mobile apps for scaling businesses."
-    />
+    /* Borders */
+    --border: 42 16% 87%;
 
-    <meta
-      name="robots"
-      content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
-    />
+    /* shadcn */
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 7%;
 
-    <meta name="author" content="SmartPixel" />
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 7%;
 
-    <link rel="canonical" href="https://smartpixel.in/" />
+    --primary: 43 89% 38%;
+    --primary-foreground: 60 20% 98%;
 
-    <!-- Open Graph / Facebook Protocol -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://smartpixel.in/" />
-    <meta
-      property="og:title"
-      content="Web Design & Development Agency in Chennai | SmartPixel"
-    />
-    <meta
-      property="og:description"
-      content="SmartPixel is a premier web design and development agency in Chrompet, Chennai. We build high-conversion websites, premium e-commerce stores, and high-performance mobile apps for scaling businesses."
-    />
-    <meta
-      property="og:image"
-      content="https://smartpixel.in/og-banner.jpg"
-    />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:type" content="image/jpeg" />
-    <meta
-      property="og:image:alt"
-      content="SmartPixel — web design and development agency in Chennai"
-    />
-    <meta property="og:site_name" content="SmartPixel" />
+    --secondary: 45 13% 94%;
+    --secondary-foreground: 0 0% 7%;
 
-    <!-- Twitter Card Protocol -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://smartpixel.in/" />
-    <meta
-      name="twitter:title"
-      content="Web Design & Development Agency in Chennai | SmartPixel"
-    />
-    <meta
-      name="twitter:description"
-      content="SmartPixel is a premier web design and development agency in Chrompet, Chennai. We build high-conversion websites, premium e-commerce stores, and high-performance mobile apps for scaling businesses."
-    />
-    <meta
-      name="twitter:image"
-      content="https://smartpixel.in/og-banner.jpg"
-    />
+    --muted: 45 13% 94%;
 
-    <!-- Master Connected Semantic SEO Schema Graph -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@graph": [
-          {
-            "@type": [
-              "Organization",
-              "LocalBusiness",
-              "ProfessionalService"
-            ],
-            "@id": "https://smartpixel.in/#organization",
-            "name": "SmartPixel",
-            "alternateName": "SmartPixel Web Agency",
-            "url": "https://smartpixel.in/",
-            "image": "https://smartpixel.in/og-banner.jpg",
-            "logo": {
-              "@type": "ImageObject",
-              "@id": "https://smartpixel.in/#logo",
-              "url": "https://smartpixel.in/logo.png",
-              "contentUrl": "https://smartpixel.in/logo.png",
-              "width": 512,
-              "height": 512,
-              "caption": "SmartPixel logo"
-            },
-            "description": "SmartPixel is a Chennai-based web design and development agency building conversion-focused websites, ecommerce stores, mobile apps, SEO and WhatsApp automation for small and mid-size businesses.",
-            "foundingDate": "2023",
-            "founder": {
-              "@id": "https://smartpixel.in/#founder"
-            },
-            "telephone": [
-              "+91-9886069488",
-              "+91-9164975073"
-            ],
-            "email": "workwithsmartpixel@gmail.com",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Chrompet",
-              "addressLocality": "Chennai",
-              "addressRegion": "Tamil Nadu",
-              "postalCode": "600044",
-              "addressCountry": "IN"
-            },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": "12.9516",
-              "longitude": "80.2012"
-            },
-            "openingHoursSpecification": [
-              {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday",
-                  "Friday",
-                  "Saturday"
-                ],
-                "opens": "09:00",
-                "closes": "18:00"
-              }
-            ],
-            "priceRange": "₹₹",
-            "areaServed": [
-              {
-                "@type": "AdministrativeArea",
-                "name": "Chrompet, Chennai"
-              },
-              {
-                "@type": "AdministrativeArea",
-                "name": "Tambaram, Chennai"
-              },
-              {
-                "@type": "AdministrativeArea",
-                "name": "Pallavaram, Chennai"
-              },
-              {
-                "@type": "AdministrativeArea",
-                "name": "Guindy, Chennai"
-              },
-              {
-                "@type": "AdministrativeArea",
-                "name": "T Nagar, Chennai"
-              },
-              {
-                "@type": "AdministrativeArea",
-                "name": "Saidapet, Chennai"
-              },
-              {
-                "@type": "AdministrativeArea",
-                "name": "Nungambakkam, Chennai"
-              },
-              {
-                "@type": "AdministrativeArea",
-                "name": "Chitlapakkam, Chennai"
-              }
-            ],
-            "knowsAbout": [
-              "Website Development",
-              "Web Design",
-              "Ecommerce Development",
-              "SEO Services",
-              "WhatsApp Automation",
-              "Mobile App Development",
-              "Digital Marketing",
-              "Conversion Rate Optimization"
-            ],
-            "contactPoint": [
-              {
-                "@type": "ContactPoint",
-                "telephone": "+91-9886069488",
-                "contactType": "customer service",
-                "email": "workwithsmartpixel@gmail.com",
-                "areaServed": "IN",
-                "availableLanguage": [
-                  "English",
-                  "Tamil",
-                  "Hindi"
-                ]
-              }
-            ],
-            "sameAs": [
-              "https://www.instagram.com/smartpiixel/",
-              "https://www.threads.net/@smartpiixel"
-            ],
-            "hasOfferCatalog": {
-              "@type": "OfferCatalog",
-              "name": "SmartPixel Services",
-              "itemListElement": [
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@id": "https://smartpixel.in/#service-webdesign"
-                  }
-                },
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@id": "https://smartpixel.in/#service-ecommerce"
-                  }
-                },
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@id": "https://smartpixel.in/#service-mobileapp"
-                  }
-                },
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@id": "https://smartpixel.in/#service-seo"
-                  }
-                }
-              ]
-            }
-          },
+    --destructive: 0 62% 40%;
+    --destructive-foreground: 0 0% 98%;
 
-          {
-            "@type": "Person",
-            "@id": "https://smartpixel.in/#founder",
-            "name": "Aysha",
-            "jobTitle": "Founder, Web & SEO Strategist",
-            "worksFor": {
-              "@id": "https://smartpixel.in/#organization"
-            },
-            "sameAs": [
-              "https://www.instagram.com/smartpiixel/"
-            ]
-          },
+    --input: 42 16% 87%;
+    --ring: 43 89% 38%;
 
-          {
-            "@type": "Service",
-            "@id": "https://smartpixel.in/#service-webdesign",
-            "serviceType": "Web Design & Development",
-            "provider": {
-              "@id": "https://smartpixel.in/#organization"
-            },
-            "areaServed": {
-              "@type": "City",
-              "name": "Chennai"
-            },
-            "description": "Conversion-focused website design and development for small and mid-size businesses in Chennai.",
-            "offers": {
-              "@type": "Offer",
-              "priceCurrency": "INR",
-              "price": "25000",
-              "priceSpecification": {
-                "@type": "PriceSpecification",
-                "minPrice": "25000",
-                "maxPrice": "150000",
-                "priceCurrency": "INR"
-              }
-            }
-          },
+    --radius: 0.25rem;
 
-          {
-            "@type": "Service",
-            "@id": "https://smartpixel.in/#service-ecommerce",
-            "serviceType": "Ecommerce Website Development",
-            "provider": {
-              "@id": "https://smartpixel.in/#organization"
-            },
-            "areaServed": {
-              "@type": "City",
-              "name": "Chennai"
-            },
-            "description": "Custom ecommerce stores with payment integration, product catalogues and conversion optimisation.",
-            "offers": {
-              "@type": "Offer",
-              "priceCurrency": "INR",
-              "price": "50000",
-              "priceSpecification": {
-                "@type": "PriceSpecification",
-                "minPrice": "50000",
-                "maxPrice": "200000",
-                "priceCurrency": "INR"
-              }
-            }
-          },
+    /* Shared radius tokens */
+    --radius-control: 0.5rem;
+    --radius-card: 0.75rem;
+    --radius-pill: 9999px;
 
-          {
-            "@type": "Service",
-            "@id": "https://smartpixel.in/#service-mobileapp",
-            "serviceType": "Mobile App Development",
-            "provider": {
-              "@id": "https://smartpixel.in/#organization"
-            },
-            "areaServed": {
-              "@type": "City",
-              "name": "Chennai"
-            },
-            "description": "iOS and Android mobile app development for service businesses and startups.",
-            "offers": {
-              "@type": "Offer",
-              "priceCurrency": "INR",
-              "price": "150000",
-              "priceSpecification": {
-                "@type": "PriceSpecification",
-                "minPrice": "150000",
-                "maxPrice": "600000",
-                "priceCurrency": "INR"
-              }
-            }
-          },
+    /* Editorial tokens */
+    --gold: 43 89% 38%;
+    --gold-bright: 46 65% 52%;
+    --gold-soft: 46 65% 52%;
 
-          {
-            "@type": "Service",
-            "@id": "https://smartpixel.in/#service-seo",
-            "serviceType": "SEO Services",
-            "provider": {
-              "@id": "https://smartpixel.in/#organization"
-            },
-            "areaServed": {
-              "@type": "City",
-              "name": "Chennai"
-            },
-            "description": "On-page, technical and local SEO to help Chennai businesses rank for high-intent searches.",
-            "offers": {
-              "@type": "Offer",
-              "priceCurrency": "INR",
-              "price": "15000",
-              "priceSpecification": {
-                "@type": "PriceSpecification",
-                "minPrice": "15000",
-                "maxPrice": "60000",
-                "priceCurrency": "INR"
-              }
-            }
-          },
+    --hairline: 228 225 218;
 
-          {
-            "@type": "FAQPage",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "How much does SmartPixel charge for a website?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Our projects start from ₹15,000 for business sites and go up to ₹1,50,000+ for custom ecommerce or web app builds. Every project includes a free strategy call before we quote."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "How long does a website build take?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Our average is 2 weeks from brief to launch. Ecommerce stores typically take 2–3 weeks. Mobile apps start from 6 weeks."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Does SmartPixel work with businesses outside Chennai?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Yes. We're based in Chrompet but work with clients across India remotely. Most of our team communication is async."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "What makes SmartPixel different from other Chennai agencies?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "One team owns your project start to finish — no account managers, no handoffs. You talk directly to the people doing the work."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Do you offer ongoing support after launch?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Yes. All projects include a support period post-launch. We offer ongoing retainers for maintenance and growth."
-                }
-              }
-            ]
-          },
+    --shadow-elegant:
+      0 30px 80px -20px hsl(0 0% 7% / 0.12);
+  }
 
-          {
-            "@type": "WebSite",
-            "@id": "https://smartpixel.in/#website",
-            "url": "https://smartpixel.in/",
-            "name": "SmartPixel",
-            "publisher": {
-              "@id": "https://smartpixel.in/#organization"
-            },
-            "inLanguage": "en-IN",
-            "potentialAction": {
-              "@type": "SearchAction",
-              "target": {
-                "@type": "EntryPoint",
-                "urlTemplate": "https://smartpixel.in/blog?q={search_term_string}"
-              },
-              "query-input": "required name=search_term_string"
-            }
-          },
+  /* =======================================================
+     GLOBAL RESET
+     ======================================================= */
 
-          {
-            "@type": "WebPage",
-            "@id": "https://smartpixel.in/#webpage",
-            "url": "https://smartpixel.in/",
-            "name": "Web Design & Development Agency in Chennai | SmartPixel",
-            "isPartOf": {
-              "@id": "https://smartpixel.in/#website"
-            },
-            "about": {
-              "@id": "https://smartpixel.in/#organization"
-            },
-            "breadcrumb": {
-              "@id": "https://smartpixel.in/#breadcrumb"
-            },
-            "speakable": {
-              "@type": "SpeakableSpecification",
-              "cssSelector": [
-                "h1",
-                "h2",
-                ".speakable",
-                "[data-speakable]"
-              ]
-            }
-          },
+  *,
+  *::before,
+  *::after {
+    border-color: hsl(var(--border));
+    box-sizing: border-box;
+  }
 
-          {
-            "@type": "BreadcrumbList",
-            "@id": "https://smartpixel.in/#breadcrumb",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://smartpixel.in/"
-              }
-            ]
-          }
-        ]
-      }
-    </script>
-  </head>
+  html {
+    background-color: hsl(var(--background));
+    color: hsl(var(--body));
 
-  <body>
-    <div id="root"></div>
+    /*
+      Prevent horizontal overflow without forcing layout
+      calculations on every element.
+    */
+    overflow-x: hidden;
 
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
+    /*
+      Better scrolling behaviour.
+    */
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    min-width: 320px;
+
+    background-color: hsl(var(--background));
+    color: hsl(var(--body));
+
+    /*
+      System font = no external font request.
+      This is considerably faster than loading Google Fonts
+      + Fontshare before the page can render.
+    */
+    font-family:
+      Inter,
+      ui-sans-serif,
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      sans-serif;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    overflow-x: hidden;
+  }
+
+  #root {
+    min-height: 100vh;
+
+    background-color: hsl(var(--background));
+    color: hsl(var(--body));
+
+    font-family:
+      Inter,
+      ui-sans-serif,
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      sans-serif;
+  }
+
+  /* =======================================================
+     HEADINGS
+     ======================================================= */
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+
+    color: hsl(var(--foreground));
+
+    font-family:
+      Inter,
+      ui-sans-serif,
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      sans-serif;
+
+    text-wrap: balance;
+  }
+
+  h1 {
+    letter-spacing: -0.04em;
+  }
+
+  h2 {
+    letter-spacing: -0.035em;
+  }
+
+  h3 {
+    letter-spacing: -0.025em;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  img {
+    height: auto;
+  }
+
+  /* =======================================================
+     TEXT SELECTION
+     ======================================================= */
+
+  ::selection {
+    background: hsl(var(--gold-bright) / 0.3);
+    color: hsl(var(--foreground));
+  }
+
+  /* =======================================================
+     FOCUS
+     ======================================================= */
+
+  :focus-visible {
+    outline: 2px solid hsl(var(--accent));
+    outline-offset: 3px;
+  }
+}
+
+/* =========================================================
+   COMPONENTS
+   ========================================================= */
+
+@layer components {
+  /* =======================================================
+     DISPLAY FONT
+
+     Previously:
+       Fraunces + Playfair Display
+
+     Now:
+       System serif fallback
+
+     This avoids additional font downloads.
+     ======================================================= */
+
+  .font-display {
+    font-family:
+      Georgia,
+      "Times New Roman",
+      serif;
+
+    font-optical-sizing: auto;
+
+    letter-spacing: -0.025em;
+
+    font-weight: 400;
+  }
+
+  /* =======================================================
+     NUMERIC DISPLAY
+     ======================================================= */
+
+  .num-display {
+    font-family:
+      Georgia,
+      "Times New Roman",
+      serif;
+
+    font-weight: 500;
+
+    letter-spacing: -0.04em;
+  }
+
+  /* =======================================================
+     HAIRLINE
+     ======================================================= */
+
+  .hairline {
+    background: hsl(var(--border));
+  }
+
+  /* =======================================================
+     TEXT BALANCE
+     ======================================================= */
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* =======================================================
+     EYEBROW
+     ======================================================= */
+
+  .eyebrow {
+    @apply text-xs uppercase tracking-[0.3em];
+
+    color: hsl(var(--muted-foreground));
+  }
+
+  /* =======================================================
+     BUTTON SYSTEM
+     ======================================================= */
+
+  .btn-base {
+    @apply inline-flex items-center justify-center gap-3 px-7 py-4 text-sm transition-all duration-500;
+  }
+
+  /* Primary Button */
+
+  .btn-gold {
+    @apply btn-base tracking-[0.2em];
+
+    background: hsl(var(--accent));
+    color: hsl(var(--accent-foreground));
+
+    will-change: transform;
+  }
+
+  .btn-gold:hover {
+    background: hsl(var(--accent) / 0.85);
+    transform: translateY(-1px);
+  }
+
+  /* Secondary Button */
+
+  .btn-ghost {
+    @apply btn-base tracking-[0.2em];
+
+    border: 1px solid hsl(var(--border));
+    color: hsl(var(--foreground));
+  }
+
+  .btn-ghost:hover {
+    border-color: hsl(var(--accent));
+    color: hsl(var(--accent));
+  }
+
+  /* =======================================================
+     REVEAL MASK
+     ======================================================= */
+
+  .reveal-mask {
+    display: inline-block;
+    overflow: hidden;
+  }
+
+  .reveal-mask > span {
+    display: inline-block;
+
+    transform: translateY(110%);
+
+    /*
+      transform is compositor-friendly.
+    */
+    will-change: transform;
+  }
+
+  /* =======================================================
+     GLOW BACKGROUND
+     ======================================================= */
+
+  .glow-bg {
+    background-image: none;
+  }
+
+  /* =======================================================
+     GLASS
+     ======================================================= */
+
+  /*
+    IMPORTANT:
+    backdrop-filter is visually expensive.
+
+    Keep it, but isolate the effect so it doesn't
+    unnecessarily affect surrounding rendering.
+  */
+
+  .glass {
+    background: hsl(var(--surface) / 0.7);
+
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+
+    border: 1px solid hsl(var(--border));
+
+    box-shadow:
+      0 12px 30px -20px hsl(0 0% 7% / 0.18);
+
+    isolation: isolate;
+  }
+
+  /* =======================================================
+     STRONG GLASS
+     ======================================================= */
+
+  .glass-strong {
+    background: hsl(0 0% 100% / 0.85);
+
+    backdrop-filter: blur(28px) saturate(160%);
+    -webkit-backdrop-filter: blur(28px) saturate(160%);
+
+    border: 1px solid hsl(var(--border));
+
+    box-shadow:
+      0 20px 50px -25px hsl(0 0% 7% / 0.22);
+
+    isolation: isolate;
+  }
+
+  /* =======================================================
+     GOLD GLASS
+     ======================================================= */
+
+  .glass-gold {
+    background: hsl(var(--gold-bright) / 0.1);
+
+    backdrop-filter: blur(20px) saturate(150%);
+    -webkit-backdrop-filter: blur(20px) saturate(150%);
+
+    border: 1px solid hsl(var(--accent) / 0.35);
+
+    box-shadow:
+      0 16px 40px -24px hsl(var(--accent) / 0.35);
+
+    isolation: isolate;
+  }
+
+  /* =======================================================
+     NAVIGATION GLASS
+     ======================================================= */
+
+  .glass-nav {
+    background: hsl(var(--background) / 0.8);
+
+    backdrop-filter: blur(22px) saturate(160%);
+    -webkit-backdrop-filter: blur(22px) saturate(160%);
+
+    border-bottom: 1px solid hsl(var(--border));
+
+    isolation: isolate;
+  }
+}
+
+/* =========================================================
+   UTILITIES
+   ========================================================= */
+
+@layer utilities {
+  /* =======================================================
+     MARQUEE
+     ======================================================= */
+
+  @keyframes marquee {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+      transform: translate3d(-50%, 0, 0);
+    }
+  }
+
+  .animate-marquee {
+    animation: marquee 38s linear infinite;
+
+    width: max-content;
+
+    /*
+      GPU-friendly transform animation.
+    */
+    will-change: transform;
+  }
+
+  /* =======================================================
+     SHIMMER UNDERLINE
+     ======================================================= */
+
+  .shimmer-underline {
+    position: relative;
+  }
+
+  .shimmer-underline::after {
+    content: "";
+
+    position: absolute;
+
+    inset: auto 0 0 0;
+
+    height: 1px;
+
+    background: hsl(var(--accent));
+  }
+
+  /* =======================================================
+     GPU-FRIENDLY ANIMATION HELPERS
+     ======================================================= */
+
+  .transform-gpu {
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+  }
+
+  .will-change-transform {
+    will-change: transform;
+  }
+
+  .will-change-opacity {
+    will-change: opacity;
+  }
+
+  /* =======================================================
+     CONTENT VISIBILITY
+
+     Use this ONLY on large below-the-fold sections.
+     Do NOT put this on the hero/LCP content.
+     ======================================================= */
+
+  .content-auto {
+    content-visibility: auto;
+    contain-intrinsic-size: 800px;
+  }
+}
+
+/* =========================================================
+   ACCESSIBILITY / PERFORMANCE
+   ========================================================= */
+
+/*
+  Respect users who don't want animations.
+
+  This is also useful for Lighthouse accessibility/performance
+  testing and improves experience on low-power devices.
+*/
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* =========================================================
+   MOBILE OPTIMIZATION
+   ========================================================= */
+
+@media (max-width: 768px) {
+  /*
+    Reduce expensive blur on mobile.
+
+    Mobile devices are where the PageSpeed test is most
+    sensitive to rendering cost.
+  */
+
+  .glass {
+    backdrop-filter: blur(12px) saturate(120%);
+    -webkit-backdrop-filter: blur(12px) saturate(120%);
+  }
+
+  .glass-strong {
+    backdrop-filter: blur(16px) saturate(130%);
+    -webkit-backdrop-filter: blur(16px) saturate(130%);
+  }
+
+  .glass-gold {
+    backdrop-filter: blur(14px) saturate(130%);
+    -webkit-backdrop-filter: blur(14px) saturate(130%);
+  }
+
+  .glass-nav {
+    backdrop-filter: blur(14px) saturate(130%);
+    -webkit-backdrop-filter: blur(14px) saturate(130%);
+  }
+}
+
+/* =========================================================
+   FALLBACK FOR DEVICES WITHOUT BACKDROP FILTER
+   ========================================================= */
+
+@supports not (
+  backdrop-filter: blur(1px)
+) {
+  .glass {
+    background: hsl(var(--surface) / 0.95);
+  }
+
+  .glass-strong {
+    background: hsl(0 0% 100% / 0.97);
+  }
+
+  .glass-gold {
+    background: hsl(var(--gold-bright) / 0.15);
+  }
+
+  .glass-nav {
+    background: hsl(var(--background) / 0.95);
+  }
+}
