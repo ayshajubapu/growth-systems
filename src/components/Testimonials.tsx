@@ -47,16 +47,11 @@ const Testimonials = () => {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Safety: if ref not mounted yet, bail
     if (!ref.current) return;
 
-    // Force ScrollTrigger to recalculate page dimensions
-    // (fixes cases where it fires before layout is complete)
     ScrollTrigger.refresh();
 
     const ctx = gsap.context(() => {
-      // Set initial state explicitly BEFORE ScrollTrigger is created
-      // This prevents flash of invisible content if trigger never fires
       gsap.set(".t-card", { y: 40, opacity: 0 });
       gsap.set(".t-reveal > *", { y: 30, opacity: 0 });
 
@@ -69,9 +64,7 @@ const Testimonials = () => {
         scrollTrigger: {
           trigger: ref.current,
           start: "top 85%",
-          // Once fired, don't reverse — prevents re-hiding on scroll back up
           once: true,
-          // Fallback: if trigger never fires (short pages), animate anyway
           onEnter: () => {
             gsap.to(".t-reveal > *", {
               y: 0,
@@ -120,10 +113,14 @@ const Testimonials = () => {
         <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full glass text-xs uppercase tracking-[0.3em] text-foreground mb-6">
           Testimonials
         </div>
+
         <h2 className="font-display text-4xl sm:text-5xl md:text-6xl leading-[1.05] tracking-tight">
           <span className="block text-foreground">Real founders.</span>
-          <span className="block text-muted-foreground italic">Real results.</span>
+          <span className="block text-muted-foreground italic">
+            Real results.
+          </span>
         </h2>
+
         <p className="mt-5 text-base text-muted-foreground max-w-xl mx-auto">
           We let our clients do the talking. Here's what working with
           SmartPixel actually looks like.
@@ -134,9 +131,15 @@ const Testimonials = () => {
         {testimonials.map((t) => {
           const isCTA = t.initials === "+";
           const Wrapper = (t.link ? "a" : "div") as "a" | "div";
+
           const wrapperProps = t.link
-            ? { href: t.link, target: "_blank", rel: "noopener noreferrer" }
+            ? {
+                href: t.link,
+                target: "_blank",
+                rel: "noopener noreferrer",
+              }
             : {};
+
           return (
             <Wrapper
               key={t.name + t.company}
@@ -157,8 +160,12 @@ const Testimonials = () => {
                 >
                   {t.initials}
                 </div>
+
                 <div>
-                  <p className="font-display text-lg leading-tight">{t.name}</p>
+                  <p className="font-display text-lg leading-tight">
+                    {t.name}
+                  </p>
+
                   <p className="text-xs text-muted-foreground tracking-wide mt-0.5">
                     {t.company}
                   </p>
@@ -168,6 +175,7 @@ const Testimonials = () => {
               <p className="text-xs uppercase tracking-[0.25em] text-accent mb-3">
                 {isCTA ? "Open slot" : "Result"}
               </p>
+
               <p className="font-display text-lg sm:text-xl leading-snug mb-5">
                 {t.result}
               </p>
@@ -178,6 +186,7 @@ const Testimonials = () => {
                   className="text-accent/60 mb-2"
                   aria-hidden
                 />
+
                 <p className="text-sm text-muted-foreground leading-relaxed italic">
                   "{t.quote}"
                 </p>
@@ -186,7 +195,7 @@ const Testimonials = () => {
               {isCTA && (
                 <a
                   href="/contact"
-                  className="mt-6 inline-flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-accent hover:gap-4 transition-all"
+                  className="mt-6 inline-flex items-center gap-2 text-xs tracking-[0.08em] text-accent hover:gap-4 transition-all"
                 >
                   Book a strategy call →
                 </a>

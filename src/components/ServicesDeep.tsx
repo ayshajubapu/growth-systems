@@ -148,7 +148,7 @@ const ServicesDeep = () => {
         {/* Section Header */}
         <div className="flex items-end justify-between mb-12 sm:mb-20 flex-wrap gap-6 sm:gap-8">
           <div>
-            <p className="eyebrow mb-4 sm:mb-6 opacity-60 text-xs tracking-wider">
+            <p className="eyebrow normal-case mb-4 sm:mb-6 opacity-60 text-xs tracking-[0.08em]">
               — Website Development & Digital Marketing Services in Chennai
             </p>
 
