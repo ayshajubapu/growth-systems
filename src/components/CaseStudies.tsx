@@ -661,17 +661,9 @@ const CaseStudies = ({
                   {c.client}
                 </h3>
 
-                <p
-                  className="
-                    text-xs
-                    uppercase
-                    tracking-[0.15em]
-                    text-muted-foreground
-                    mt-2
-                  "
-                >
-                  {c.industry}
-                </p>
+               <p className="text-xs tracking-[0.08em] text-muted-foreground mt-2">
+  {c.industry}
+</p>
 
                 <p
                   className="

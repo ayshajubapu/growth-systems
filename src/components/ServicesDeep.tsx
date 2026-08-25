@@ -243,12 +243,9 @@ const ServicesDeep = () => {
                 {it.badges && it.badges.length > 0 && (
                   <div className="flex flex-wrap gap-2 pt-1">
                     {it.badges.map((badge) => (
-                      <span
-                        key={badge}
-                        className="text-xs uppercase tracking-[0.15em] font-bold px-3 py-1 rounded-full border border-accent/40 text-accent/90 bg-accent/5 select-none"
-                      >
-                        + {badge}
-                      </span>
+                    <span className="text-xs tracking-[0.08em] font-bold px-3 py-1 rounded-full border border-accent/40 text-accent/90 bg-accent/5 select-none">
+  + {badge}
+</span>
                     ))}
                   </div>
                 )}
@@ -258,7 +255,7 @@ const ServicesDeep = () => {
                   <Link
                     to={it.href}
                     aria-label={`Learn more about ${it.title} from SmartPixel`}
-                    className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.25em] text-accent hover:gap-4 transition-all duration-300"
+                    className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.08em] text-accent hover:gap-4 transition-all duration-300"
                   >
                     Explore {it.title} →
                   </Link>
