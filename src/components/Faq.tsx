@@ -40,17 +40,16 @@ const faqs = [
 const Faq = () => {
   const [open, setOpen] = useState<number | null>(0);
 
-  // Generate dynamic Google FAQPage Schema markup for automated SEO Rich Snippet crawling
   const faqSchema = useMemo(() => {
     return {
       "@context": "https://schema.org",
       "@type": "FAQPage",
-      "mainEntity": faqs.map((f) => ({
+      mainEntity: faqs.map((f) => ({
         "@type": "Question",
-        "name": f.q,
-        "acceptedAnswer": {
+        name: f.q,
+        acceptedAnswer: {
           "@type": "Answer",
-          "text": f.a,
+          text: f.a,
         },
       })),
     };
@@ -59,7 +58,6 @@ const Faq = () => {
   return (
     <>
       <Helmet>
-        {/* Dynamic JSON-LD Injection to trigger rich snippet display on search queries */}
         <script type="application/ld+json">
           {JSON.stringify(faqSchema)}
         </script>
@@ -75,26 +73,31 @@ const Faq = () => {
             <p className="eyebrow mb-5 text-xs uppercase tracking-widest text-muted-foreground font-semibold">
               — Questions, Answered
             </p>
-            <h2 
-              id="faq-section-title" 
+
+            <h2
+              id="faq-section-title"
               className="font-display text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.05] tracking-tight text-foreground"
             >
               Everything you'd ask
               <br />
-              on the <span className="italic text-accent font-normal">first call</span>.
+              on the{" "}
+              <span className="italic text-accent font-normal">
+                first call
+              </span>
+              .
             </h2>
           </div>
 
           {/* Semantic Accordion Layout */}
-          <div 
-            className="divide-y divide-border border-y border-border" 
+          <div
+            className="divide-y divide-border border-y border-border"
             role="presentation"
           >
             {faqs.map((f, i) => {
               const isOpen = open === i;
               const panelId = `faq-panel-${i}`;
               const buttonId = `faq-btn-${i}`;
-              
+
               return (
                 <div key={f.q} className="overflow-hidden">
                   <h3>
@@ -109,19 +112,27 @@ const Faq = () => {
                       <span className="font-display text-lg sm:text-xl md:text-2xl font-semibold leading-snug group-hover:text-accent transition-colors text-foreground">
                         {f.q}
                       </span>
-                      <span className="shrink-0 w-9 h-9 rounded-full border border-accent/40 flex items-center justify-center text-accent group-hover:border-accent transition-colors">
-                        {isOpen ? <Minus size={16} /> : <Plus size={16} />}
+
+                      <span
+                        aria-hidden="true"
+                        className="shrink-0 w-9 h-9 rounded-full border border-accent/40 flex items-center justify-center text-accent group-hover:border-accent transition-colors"
+                      >
+                        {isOpen ? (
+                          <Minus size={16} />
+                        ) : (
+                          <Plus size={16} />
+                        )}
                       </span>
                     </button>
                   </h3>
-                  
+
                   <div
                     id={panelId}
                     role="region"
                     aria-labelledby={buttonId}
                     className={`transition-all duration-300 ease-in-out ${
-                      isOpen 
-                        ? "max-h-[500px] opacity-100 pb-7" 
+                      isOpen
+                        ? "max-h-[500px] opacity-100 pb-7"
                         : "max-h-0 opacity-0 pointer-events-none"
                     }`}
                   >

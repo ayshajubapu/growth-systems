@@ -46,6 +46,11 @@
 
     --radius: 0.25rem;
 
+    /* Shared radius tokens */
+    --radius-control: 0.5rem;
+    --radius-card: 0.75rem;
+    --radius-pill: 9999px;
+
     /* Editorial tokens */
     --gold: 43 89% 38%;
     --gold-bright: 46 65% 52%;
@@ -281,41 +286,37 @@
   .eyebrow {
     @apply text-xs uppercase tracking-[0.3em];
 
-    /*
-      Slightly stronger contrast than the previous
-      muted-foreground/opacity combinations.
-    */
     color: hsl(var(--muted-foreground));
   }
 
   /* =======================================================
-     GOLD BUTTON
+     BUTTON SYSTEM
      ======================================================= */
 
+  .btn-base {
+    @apply inline-flex items-center justify-center gap-3 px-7 py-4 text-sm transition-all duration-500;
+  }
+
+  /* Primary Button */
+
   .btn-gold {
-    @apply inline-flex items-center gap-3 px-7 py-4 text-sm uppercase tracking-[0.2em] transition-all duration-500;
+    @apply btn-base uppercase tracking-[0.2em];
 
     background: hsl(var(--accent));
     color: hsl(var(--accent-foreground));
 
-    /*
-      Prevent unnecessary layout movement.
-    */
     will-change: transform;
   }
 
   .btn-gold:hover {
     background: hsl(var(--accent) / 0.85);
-
     transform: translateY(-1px);
   }
 
-  /* =======================================================
-     GHOST BUTTON
-     ======================================================= */
+  /* Secondary Button */
 
   .btn-ghost {
-    @apply inline-flex items-center gap-3 px-7 py-4 text-sm uppercase tracking-[0.2em] transition-all duration-500;
+    @apply btn-base uppercase tracking-[0.2em];
 
     border: 1px solid hsl(var(--border));
     color: hsl(var(--foreground));

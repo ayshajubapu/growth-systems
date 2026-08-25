@@ -1,4 +1,4 @@
-import { useEffect, useRef, useMemo } from "react";
+import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Phone, Mail, MessageCircle, MapPin } from "lucide-react";
@@ -108,184 +108,6 @@ const areaLinks = [
 const Footer = () => {
   const ref = useRef<HTMLElement>(null);
 
-  /*
-   * Master relational SEO schema graph.
-   *
-   * Important:
-   * - LocalBusiness identifies the physical business.
-   * - Organization establishes the brand entity.
-   * - WebSite establishes the website entity.
-   * - No generic FAQPage is injected globally.
-   * - No generic Service entities are injected globally.
-   * - Avoids hardcoding a generic WebPage URL for every route.
-   */
-  const masterGraphSchema = useMemo(() => {
-    return {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "LocalBusiness",
-          "@id": "https://smartpixel.in/#business",
-          name: "SmartPixel",
-          image: "https://smartpixel.in/og-banner.jpg",
-          logo: "https://smartpixel.in/logo.png",
-          url: "https://smartpixel.in/",
-          telephone: [
-            "+91-9886069488",
-            "+91-9164975073",
-          ],
-          email: "workwithsmartpixel@gmail.com",
-          description:
-            "SmartPixel is a web design and development agency in Chrompet, Chennai. We build conversion-focused websites, ecommerce stores, web applications and mobile apps for small and mid-size businesses across Chennai and India.",
-          foundingDate: "2023",
-          founder: {
-            "@type": "Person",
-            name: "Aysha",
-          },
-          address: {
-            "@type": "PostalAddress",
-            streetAddress: "Chrompet",
-            addressLocality: "Chennai",
-            addressRegion: "Tamil Nadu",
-            postalCode: "600044",
-            addressCountry: "IN",
-          },
-          geo: {
-            "@type": "GeoCoordinates",
-            latitude: "12.9516",
-            longitude: "80.2012",
-          },
-          openingHoursSpecification: [
-            {
-              "@type": "OpeningHoursSpecification",
-              dayOfWeek: [
-                "Monday",
-                "Tuesday",
-                "Wednesday",
-                "Thursday",
-                "Friday",
-                "Saturday",
-              ],
-              opens: "09:00",
-              closes: "18:00",
-            },
-          ],
-          priceRange: "INR",
-          areaServed: [
-            {
-              "@type": "AdministrativeArea",
-              name: "Chrompet, Chennai",
-            },
-            {
-              "@type": "AdministrativeArea",
-              name: "Tambaram, Chennai",
-            },
-            {
-              "@type": "AdministrativeArea",
-              name: "Pallavaram, Chennai",
-            },
-            {
-              "@type": "AdministrativeArea",
-              name: "Guindy, Chennai",
-            },
-            {
-              "@type": "AdministrativeArea",
-              name: "T Nagar, Chennai",
-            },
-            {
-              "@type": "AdministrativeArea",
-              name: "Saidapet, Chennai",
-            },
-            {
-              "@type": "AdministrativeArea",
-              name: "Nungambakkam, Chennai",
-            },
-            {
-              "@type": "AdministrativeArea",
-              name: "Chitlapakkam, Chennai",
-            },
-          ],
-          sameAs: [
-            "https://www.instagram.com/smartpiixel/",
-            "https://www.threads.net/@smartpiixel",
-          ],
-          aggregateRating: {
-            "@type": "AggregateRating",
-            ratingValue: "4.9",
-            reviewCount: "40",
-            bestRating: "5",
-          },
-        },
-
-        {
-          "@type": "Organization",
-          "@id": "https://smartpixel.in/#organization",
-          name: "SmartPixel",
-          alternateName: "SmartPixel Web Agency",
-          url: "https://smartpixel.in/",
-          logo: "https://smartpixel.in/logo.png",
-          description:
-            "SmartPixel is a Chennai-based web design and development agency building conversion-focused websites, ecommerce stores, mobile apps and WhatsApp automation for small and mid-size businesses.",
-          foundingDate: "2023",
-          founder: {
-            "@type": "Person",
-            name: "Aysha",
-            jobTitle: "Founder",
-          },
-          knowsAbout: [
-            "Website Development",
-            "Web Design",
-            "Ecommerce Development",
-            "SEO Services",
-            "WhatsApp Automation",
-            "Mobile App Development",
-            "Digital Marketing",
-            "Conversion Rate Optimization",
-          ],
-          contactPoint: [
-            {
-              "@type": "ContactPoint",
-              telephone: "+91-9886069488",
-              contactType: "customer service",
-              email: "workwithsmartpixel@gmail.com",
-              areaServed: "IN",
-              availableLanguage: [
-                "English",
-                "Tamil",
-                "Hindi",
-              ],
-            },
-          ],
-          sameAs: [
-            "https://www.instagram.com/smartpiixel/",
-            "https://www.threads.net/@smartpiixel",
-          ],
-        },
-
-        {
-          "@type": "WebSite",
-          "@id": "https://smartpixel.in/#website",
-          url: "https://smartpixel.in/",
-          name: "SmartPixel",
-          publisher: {
-            "@id": "https://smartpixel.in/#organization",
-          },
-          inLanguage: "en-IN",
-          potentialAction: {
-            "@type": "SearchAction",
-            target: {
-              "@type": "EntryPoint",
-              urlTemplate:
-                "https://smartpixel.in/blog?q={search_term_string}",
-            },
-            "query-input":
-              "required name=search_term_string",
-          },
-        },
-      ],
-    };
-  }, []);
-
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.from(".foot-mark", {
@@ -320,14 +142,8 @@ const Footer = () => {
       ref={ref}
       className="relative bg-background border-t border-border overflow-hidden"
     >
-      {/* SEO structured data */}
-      <script type="application/ld+json">
-        {JSON.stringify(masterGraphSchema)}
-      </script>
-
       <div className="relative w-full px-5 sm:px-10 lg:px-24 pt-20 sm:pt-28 lg:pt-36 pb-10">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
-
           {/* LEFT — CTA + contact */}
           <div className="lg:col-span-5">
             <p className="eyebrow mb-5">
@@ -363,7 +179,6 @@ const Footer = () => {
 
             {/* Contact Cards */}
             <div className="mt-8 sm:mt-10 grid grid-cols-1 sm:grid-cols-2 gap-3">
-
               <a
                 href="tel:+919886069488"
                 className="glass p-4 flex items-center gap-3 hover:border-accent/30 transition-colors"
@@ -449,13 +264,11 @@ const Footer = () => {
                   </div>
                 </div>
               </a>
-
             </div>
           </div>
 
           {/* RIGHT — Navigation */}
           <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8 sm:gap-12 lg:gap-8 lg:pl-10">
-
             {/* Services + Pages */}
             {cols.map((c) => (
               <div
@@ -489,14 +302,12 @@ const Footer = () => {
 
             {/* Areas We Serve */}
             <div className="foot-col col-span-2 sm:col-span-1">
-
               <p className="text-[10px] uppercase tracking-[0.3em] text-accent mb-5 sm:mb-6 font-semibold">
                 — Areas We Serve
               </p>
 
               <nav aria-label="Web design and development areas served across Chennai">
                 <ul className="space-y-3">
-
                   {areaLinks.map((lk) => (
                     <li key={lk.l}>
                       <a
@@ -513,21 +324,17 @@ const Footer = () => {
                       </a>
                     </li>
                   ))}
-
                 </ul>
               </nav>
-
             </div>
 
             {/* Address / Studio */}
             <div className="foot-col col-span-2 sm:col-span-3">
-
               <p className="text-[10px] uppercase tracking-[0.3em] text-accent mb-5 sm:mb-6 font-semibold">
                 — Studio
               </p>
 
               <address className="not-italic text-sm text-muted-foreground leading-[1.9] flex flex-col gap-2 font-light">
-
                 <a
                   href="mailto:workwithsmartpixel@gmail.com"
                   className="flex items-center gap-2 hover:text-accent transition-colors"
@@ -576,23 +383,17 @@ const Footer = () => {
                 <span className="text-xs text-muted-foreground/70 mt-2 font-normal">
                   Founded 2023 · By Aysha
                 </span>
-
               </address>
             </div>
-
           </div>
         </div>
 
         {/* Wordmark */}
-        <div className="mt-16 sm:mt-24 lg:mt-28 overflow-hidden">
-          <div className="foot-mark font-display text-[16vw] font-bold leading-[0.85] tracking-tight whitespace-nowrap text-foreground/[0.07] select-none">
-            Smart Pixel
-          </div>
-        </div>
+       
+      
 
         {/* Bottom bar */}
         <div className="mt-8 pt-7 border-t border-border flex flex-wrap items-center justify-between gap-4 text-[11px] uppercase tracking-[0.3em] text-muted-foreground font-medium">
-
           <div className="flex items-center gap-3 select-none">
             <span
               className="inline-block h-1.5 w-1.5 rounded-full bg-accent animate-pulse"
@@ -607,7 +408,6 @@ const Footer = () => {
           </div>
 
           <div className="flex gap-5">
-
             <a
               href="/privacy-policy"
               className="hover:text-accent transition-colors"
@@ -635,7 +435,6 @@ const Footer = () => {
             >
               Cookie settings
             </button>
-
           </div>
         </div>
       </div>

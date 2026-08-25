@@ -48,48 +48,44 @@ const areaContent: Record<
   }
 > = {
   pallavaram: {
-  landmark: "Pallavaram GST Road and surrounding business areas",
+    landmark: "Pallavaram GST Road and surrounding business areas",
 
-  localNote:
-    "SmartPixel serves businesses in Pallavaram and nearby South Chennai areas from our Chrompet studio. Pallavaram businesses often serve customers locally as well as across Chennai, so we focus on websites that make the business, services, location, contact options and next step clear from the first visit. Our websites are mobile-friendly, fast, SEO-ready and structured around enquiries and conversions.",
+    localNote:
+      "SmartPixel serves businesses in Pallavaram and nearby South Chennai areas from our Chrompet studio. Pallavaram businesses often serve customers locally as well as across Chennai, so we focus on websites that make the business, services, location, contact options and next step clear from the first visit. Our websites are mobile-friendly, fast, SEO-ready and structured around enquiries and conversions.",
 
-  metaDescription:
-    "SmartPixel provides web design and website development for businesses in Pallavaram, Chennai. We build business websites, ecommerce stores and web applications with SEO-ready structures.",
+    metaDescription:
+      "SmartPixel provides web design and website development for businesses in Pallavaram, Chennai. We build business websites, ecommerce stores and web applications with SEO-ready structures.",
 
-  headline: "Web Design Company in Pallavaram, Chennai",
+    headline: "Web Design Company in Pallavaram, Chennai",
 
-  faqs: [
-    {
-      q: "Do you provide website design services in Pallavaram?",
-      a: "Yes. SmartPixel provides website design and development for businesses in Pallavaram, including company websites, ecommerce stores, landing pages and custom web applications. Our team is based in Chrompet, so we can work with Pallavaram businesses locally or remotely.",
-    },
+    faqs: [
+      {
+        q: "Do you provide website design services in Pallavaram?",
+        a: "Yes. SmartPixel provides website design and development for businesses in Pallavaram, including company websites, ecommerce stores, landing pages and custom web applications. Our team is based in Chrompet, so we can work with Pallavaram businesses locally or remotely.",
+      },
+      {
+        q: "Can you build a website for a business in Pallavaram?",
+        a: "Yes. We build websites for local businesses that need a professional online presence, clearer enquiry paths and a website that works well on mobile devices. Each website is structured around the business's services, customers and goals rather than using a generic layout.",
+      },
+      {
+        q: "Can you build an ecommerce website for a Pallavaram business?",
+        a: "Yes. SmartPixel builds ecommerce websites with product catalogues, mobile-first shopping experiences, payment gateways, enquiry or checkout flows and inventory-related features. We can also structure product and category pages for search visibility.",
+      },
+      {
+        q: "Do you provide SEO with website development in Pallavaram?",
+        a: "Yes. Websites can be built with technical SEO foundations including clean URLs, page-level metadata, internal linking, structured data, sitemap support and location-relevant content. Ongoing local SEO can also be handled separately.",
+      },
+      {
+        q: "Does SmartPixel work with businesses outside Pallavaram?",
+        a: "Yes. SmartPixel is based in Chrompet and works with businesses across Pallavaram, Tambaram, Chrompet and other parts of Chennai. Projects can also be handled remotely for businesses elsewhere in India.",
+      },
+      {
+        q: "Can you connect WhatsApp to a business website?",
+        a: "Yes. WhatsApp can be integrated into business websites for enquiries, lead capture, customer communication and automated workflows. The setup can be tailored to how the business currently handles incoming enquiries.",
+      },
+    ],
+  },
 
-    {
-      q: "Can you build a website for a business in Pallavaram?",
-      a: "Yes. We build websites for local businesses that need a professional online presence, clearer enquiry paths and a website that works well on mobile devices. Each website is structured around the business's services, customers and goals rather than using a generic layout.",
-    },
-
-    {
-      q: "Can you build an ecommerce website for a Pallavaram business?",
-      a: "Yes. SmartPixel builds ecommerce websites with product catalogues, mobile-first shopping experiences, payment gateways, enquiry or checkout flows and inventory-related features. We can also structure product and category pages for search visibility.",
-    },
-
-    {
-      q: "Do you provide SEO with website development in Pallavaram?",
-      a: "Yes. Websites can be built with technical SEO foundations including clean URLs, page-level metadata, internal linking, structured data, sitemap support and location-relevant content. Ongoing local SEO can also be handled separately.",
-    },
-
-    {
-      q: "Does SmartPixel work with businesses outside Pallavaram?",
-      a: "Yes. SmartPixel is based in Chrompet and works with businesses across Pallavaram, Tambaram, Chrompet and other parts of Chennai. Projects can also be handled remotely for businesses elsewhere in India.",
-    },
-
-    {
-      q: "Can you connect WhatsApp to a business website?",
-      a: "Yes. WhatsApp can be integrated into business websites for enquiries, lead capture, customer communication and automated workflows. The setup can be tailored to how the business currently handles incoming enquiries.",
-    },
-  ],
-},
   chrompet: {
     landmark: "Chrompet and GST Road",
 
@@ -297,6 +293,7 @@ const getAreaData = (slug: string, area: string) => {
 
   return {
     landmark: undefined,
+
     localNote: `SmartPixel provides website design and development services for businesses in ${area}, Chennai. We build responsive business websites, ecommerce stores, web applications and SEO-ready websites with a focus on clear communication and enquiries.`,
 
     metaDescription: `SmartPixel provides web design and development services in ${area}, Chennai, including business websites, ecommerce stores, web applications and SEO-ready websites.`,
@@ -337,7 +334,8 @@ const LocationPage = ({
   const finalMetaDescription =
     metaDescription ?? areaData.metaDescription;
   const finalHeadline = headline ?? areaData.headline;
-  const finalFaqs = faqs && faqs.length > 0 ? faqs : areaData.faqs;
+  const finalFaqs =
+    faqs && faqs.length > 0 ? faqs : areaData.faqs;
 
   const url = `https://smartpixel.in/web-design-${slug}`;
 
@@ -347,32 +345,23 @@ const LocationPage = ({
     .filter((item) => item.slug !== slug)
     .slice(0, 4);
 
+  /*
+   * Canonical business entity.
+   *
+   * SmartPixel is already defined once globally in index.html as:
+   * https://smartpixel.in/#organization
+   *
+   * Location pages should reference that entity rather than
+   * creating a new LocalBusiness / ProfessionalService entity
+   * for every location URL.
+   */
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    "@id": `${url}#localbusiness`,
-    name: "SmartPixel",
-    url,
-    image: "https://smartpixel.in/logo.png",
-    telephone: "+91-9886069488",
-    email: "workwithsmartpixel@gmail.com",
-    priceRange: "₹₹",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "Chrompet",
-      addressLocality: "Chennai",
-      addressRegion: "Tamil Nadu",
-      postalCode: "600044",
-      addressCountry: "IN",
-    },
+    "@id": "https://smartpixel.in/#organization",
     areaServed: {
       "@type": "AdministrativeArea",
       name: `${area}, Chennai`,
-    },
-    parentOrganization: {
-      "@type": "Organization",
-      name: "SmartPixel",
-      url: "https://smartpixel.in/",
     },
   };
 
@@ -390,9 +379,7 @@ const LocationPage = ({
       url: "https://smartpixel.in/",
     },
     about: {
-      "@type": "Organization",
-      name: "SmartPixel",
-      url: "https://smartpixel.in/",
+      "@id": "https://smartpixel.in/#organization",
     },
     breadcrumb: {
       "@id": `${url}#breadcrumb`,
@@ -478,9 +465,12 @@ const LocationPage = ({
           <strong className="text-foreground/70">
             {area}, Chennai
           </strong>
-          {finalLandmark ? `, including businesses around ${finalLandmark}` : ""}.
-          We build responsive, conversion-focused websites designed to make it
-          easier for customers to understand your business and get in touch.{" "}
+          {finalLandmark
+            ? `, including businesses around ${finalLandmark}`
+            : ""}
+          . We build responsive, conversion-focused websites designed
+          to make it easier for customers to understand your business
+          and get in touch.{" "}
           <Link
             to="/contact"
             className="text-accent underline hover:text-accent/80 transition-colors"
@@ -573,8 +563,8 @@ const LocationPage = ({
                 >
                   SEO services
                 </Link>{" "}
-                — technical SEO, on-page optimisation, internal linking and
-                local search optimisation.
+                — technical SEO, on-page optimisation, internal linking
+                and local search optimisation.
               </li>
 
               <li>
@@ -584,8 +574,8 @@ const LocationPage = ({
                 >
                   WhatsApp automation
                 </Link>{" "}
-                — help businesses manage enquiries and customer communication
-                more efficiently.
+                — help businesses manage enquiries and customer
+                communication more efficiently.
               </li>
 
               <li>
@@ -595,8 +585,8 @@ const LocationPage = ({
                 >
                   Mobile and web applications
                 </Link>{" "}
-                — custom digital systems for booking, ordering, management and
-                business workflows.
+                — custom digital systems for booking, ordering,
+                management and business workflows.
               </li>
             </ul>
           ),
@@ -607,19 +597,19 @@ const LocationPage = ({
           body: (
             <>
               <p className="leading-relaxed text-muted-foreground">
-                Customers often search for a service together with a location
-                before deciding which business to contact. A location page can
-                help when it represents a genuine service area and provides
-                useful information rather than simply repeating the location
-                name.
+                Customers often search for a service together with a
+                location before deciding which business to contact. A
+                location page can help when it represents a genuine service
+                area and provides useful information rather than simply
+                repeating the location name.
               </p>
 
               <p className="leading-relaxed text-muted-foreground mt-4">
-                For {area} businesses, we focus on useful service information,
-                clear contact options, relevant internal links, page-level
-                metadata and a technically sound website structure. The goal
-                is to build a useful page for customers first and search
-                engines second.
+                For {area} businesses, we focus on useful service
+                information, clear contact options, relevant internal
+                links, page-level metadata and a technically sound website
+                structure. The goal is to build a useful page for
+                customers first and search engines second.
               </p>
             </>
           ),

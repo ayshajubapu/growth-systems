@@ -223,7 +223,7 @@ const ServicesDeep = () => {
                       className="flex items-center gap-2"
                     >
                       <span
-                        className="text-accent text-[10px] select-none"
+                        className="text-accent text-xs select-none"
                         aria-hidden="true"
                       >
                         ◆
@@ -245,7 +245,7 @@ const ServicesDeep = () => {
                     {it.badges.map((badge) => (
                       <span
                         key={badge}
-                        className="text-[10px] uppercase tracking-[0.25em] font-bold px-3 py-1 rounded-full border border-accent/40 text-accent/90 bg-accent/5 select-none"
+                        className="text-xs uppercase tracking-[0.15em] font-bold px-3 py-1 rounded-full border border-accent/40 text-accent/90 bg-accent/5 select-none"
                       >
                         + {badge}
                       </span>
@@ -281,7 +281,7 @@ const ServicesDeep = () => {
                 <div className="absolute inset-0 bg-foreground/60 select-none pointer-events-none" />
 
                 <div className="absolute bottom-3 left-3 right-3 text-white">
-                  <p className="text-[10px] uppercase tracking-[0.3em] text-accent font-bold">
+                  <p className="text-xs uppercase tracking-[0.15em] text-accent font-bold">
                     {it.tag}
                   </p>
 

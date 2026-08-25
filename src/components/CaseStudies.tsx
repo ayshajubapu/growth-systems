@@ -663,9 +663,9 @@ const CaseStudies = ({
 
                 <p
                   className="
-                    text-[10px]
+                    text-xs
                     uppercase
-                    tracking-[0.3em]
+                    tracking-[0.15em]
                     text-muted-foreground
                     mt-2
                   "
@@ -688,9 +688,8 @@ const CaseStudies = ({
                 <p
                   className="
                     mt-3
-                    text-[10px]
-                    uppercase
-                    tracking-[0.3em]
+                    text-xs
+                    tracking-[0.12em]
                     text-accent
                   "
                 >
@@ -705,9 +704,9 @@ const CaseStudies = ({
               <div className="md:col-span-3">
                 <p
                   className="
-                    text-[10px]
+                    text-xs
                     uppercase
-                    tracking-[0.3em]
+                    tracking-[0.15em]
                     text-muted-foreground
                     mb-2
                   "
@@ -732,9 +731,9 @@ const CaseStudies = ({
               <div className="md:col-span-3">
                 <p
                   className="
-                    text-[10px]
+                    text-xs
                     uppercase
-                    tracking-[0.3em]
+                    tracking-[0.15em]
                     text-accent
                     mb-2
                   "
@@ -766,9 +765,9 @@ const CaseStudies = ({
               >
                 <p
                   className="
-                    text-[10px]
+                    text-xs
                     uppercase
-                    tracking-[0.3em]
+                    tracking-[0.15em]
                     text-muted-foreground
                     mb-3
                   "

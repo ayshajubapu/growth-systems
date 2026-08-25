@@ -769,7 +769,7 @@ const HorizontalScroll = () => {
 
           <div className="text-center md:text-left">
 
-            <p className="eyebrow mb-3">
+            <p className="eyebrow mb-3 normal-case tracking-[0.12em]">
               — Ready to grow?
             </p>
 
@@ -1050,9 +1050,8 @@ const HorizontalScroll = () => {
         <p
           className="
             text-center
-            text-[9px]
-            uppercase
-            tracking-[0.4em]
+            text-xs
+            tracking-[0.15em]
             text-muted-foreground/60
             mb-3
           "
