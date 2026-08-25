@@ -355,8 +355,7 @@ const HorizontalScroll = () => {
                   text-muted-foreground
                   text-sm
                   sm:text-base
-                  uppercase
-                  tracking-[0.3em]
+                  tracking-[0.08em]
                   block
                   mb-3
                 "
@@ -514,8 +513,6 @@ const HorizontalScroll = () => {
                   py-3
                   rounded
                   text-sm
-                  uppercase
-                  tracking-wider
                   border
                   border-foreground
                   transition-all
@@ -840,8 +837,6 @@ const HorizontalScroll = () => {
                 py-3
                 rounded
                 text-sm
-                uppercase
-                tracking-wider
                 transition-all
                 hover:border-accent
                 hover:text-accent
@@ -887,7 +882,7 @@ const HorizontalScroll = () => {
         >
 
           <p
-            className="eyebrow mb-5"
+            className="eyebrow mb-5 normal-case tracking-[0.12em]"
           >
             — The Difference
           </p>
