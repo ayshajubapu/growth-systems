@@ -44,11 +44,11 @@
     --input: 42 16% 87%;
     --ring: 43 89% 38%;
 
-    /* Shared radius system */
-    --radius: 0.5rem;
+    --radius: 0.25rem;
+
+    /* Shared radius tokens */
     --radius-control: 0.5rem;
     --radius-card: 0.75rem;
-    --radius-feature: 1rem;
     --radius-pill: 9999px;
 
     /* Editorial tokens */
@@ -294,13 +294,13 @@
      ======================================================= */
 
   .btn-base {
-    @apply inline-flex items-center justify-center gap-3 px-7 py-4 text-sm rounded-lg transition-all duration-500;
+    @apply inline-flex items-center justify-center gap-3 px-7 py-4 text-sm transition-all duration-500;
   }
 
   /* Primary Button */
 
   .btn-gold {
-    @apply btn-base uppercase tracking-[0.2em];
+    @apply btn-base tracking-[0.2em];
 
     background: hsl(var(--accent));
     color: hsl(var(--accent-foreground));
@@ -316,7 +316,7 @@
   /* Secondary Button */
 
   .btn-ghost {
-    @apply btn-base uppercase tracking-[0.2em];
+    @apply btn-base tracking-[0.2em];
 
     border: 1px solid hsl(var(--border));
     color: hsl(var(--foreground));
