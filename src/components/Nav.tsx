@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, Phone } from "lucide-react";
 
-
 const links = [
   { href: "/", label: "Home" },
   { href: "/services", label: "Services" },
@@ -17,112 +16,213 @@ const Nav = () => {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [open]);
 
   return (
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
-          scrolled || open ? "py-3 glass-nav" : "py-4 md:py-6"
+          scrolled || open
+            ? "py-3 glass-nav"
+            : "py-4 md:py-6"
         }`}
       >
         <div className="w-full px-5 sm:px-8 lg:px-14 flex items-center justify-between gap-4">
-      <Link
-  to="/"
-  onClick={() => setOpen(false)}
-  className="font-display text-xl sm:text-2xl tracking-tight flex items-center gap-3"
->
-  <img
-    src="/logo.png"
-    alt="SmartPixel Logo"
-    className="w-10 h-10 object-contain"
-  />
+          {/* Logo */}
+          <Link
+            to="/"
+            onClick={() => setOpen(false)}
+            className="font-display text-xl sm:text-2xl tracking-tight flex items-center gap-3"
+            aria-label="SmartPixel home"
+          >
+            <img
+              src="/logo.webp"
+              alt="SmartPixel"
+              width="70"
+              height="70"
+              loading="eager"
+              decoding="async"
+              className="w-10 h-10 object-contain"
+            />
 
-  <span>
-    Smart<span className="text-accent">Pixel</span>
-  </span>
-</Link>
-          <nav className="hidden lg:flex items-center gap-8 xl:gap-10 text-xs uppercase tracking-[0.25em] text-muted-foreground">
+            <span>
+              Smart<span className="text-accent">Pixel</span>
+            </span>
+          </Link>
+
+          {/* Desktop Navigation */}
+          <nav
+            aria-label="Primary navigation"
+            className="hidden lg:flex items-center gap-8 xl:gap-10 text-xs uppercase tracking-[0.25em] text-muted-foreground"
+          >
             {links.map((l) => (
-              <Link key={l.href} to={l.href} className="relative hover:text-foreground transition-colors group py-2">
+              <Link
+                key={l.href}
+                to={l.href}
+                className="relative hover:text-foreground transition-colors group py-2"
+              >
                 {l.label}
-                <span className="absolute left-0 -bottom-0.5 h-px w-0 bg-accent group-hover:w-full transition-all duration-500" />
+
+                <span
+                  className="absolute left-0 -bottom-0.5 h-px w-0 bg-accent group-hover:w-full transition-all duration-500"
+                  aria-hidden="true"
+                />
               </Link>
             ))}
           </nav>
+
+          {/* Desktop Actions */}
           <div className="hidden lg:flex items-center gap-4">
-            <a href="tel:+919886069488" className="text-xs uppercase tracking-[0.2em] text-muted-foreground hover:text-accent transition-colors flex items-center gap-2">
-              <Phone size={13} /> 98860 69488
+            <a
+              href="tel:+919886069488"
+              className="text-xs uppercase tracking-[0.2em] text-muted-foreground hover:text-accent transition-colors flex items-center gap-2"
+              aria-label="Call SmartPixel at 98860 69488"
+            >
+              <Phone
+                size={13}
+                aria-hidden="true"
+              />
+
+              98860 69488
             </a>
-            <Link to="/contact" className="glass-gold inline-flex items-center gap-2 px-5 py-2.5 text-xs uppercase tracking-[0.2em] text-accent hover:text-foreground transition-colors">
+
+            <Link
+              to="/contact"
+              className="glass-gold inline-flex items-center gap-2 px-5 py-2.5 text-xs uppercase tracking-[0.2em] text-accent hover:text-foreground transition-colors"
+            >
               Let's Talk →
             </Link>
           </div>
+
+          {/* Mobile Menu Button */}
           <button
+            type="button"
             aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            aria-controls="mobile-navigation"
             onClick={() => setOpen((v) => !v)}
             className="lg:hidden glass w-10 h-10 flex items-center justify-center"
           >
-            {open ? <X size={20} /> : <Menu size={20} />}
+            {open ? (
+              <X size={20} aria-hidden="true" />
+            ) : (
+              <Menu size={20} aria-hidden="true" />
+            )}
           </button>
         </div>
       </header>
 
-      {/* Mobile drawer */}
+      {/* Mobile Drawer */}
       <div
+        id="mobile-navigation"
         className={`fixed inset-0 z-40 lg:hidden transition-all duration-500 ${
-          open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          open
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
         }`}
+        aria-hidden={!open}
       >
-        <div className="absolute inset-0 bg-background/85 backdrop-blur-2xl" onClick={() => setOpen(false)} />
-        <nav className="relative h-full flex flex-col justify-center px-7 sm:px-10 gap-1 overflow-y-auto py-24">
-          <p className="eyebrow mb-8" style={{ transitionDelay: open ? "60ms" : "0ms" }}>— Navigate</p>
+        {/* Backdrop */}
+        <div
+          className="absolute inset-0 bg-background/85 backdrop-blur-2xl"
+          onClick={() => setOpen(false)}
+          aria-hidden="true"
+        />
+
+        {/* Navigation */}
+        <nav
+          aria-label="Mobile navigation"
+          className="relative h-full flex flex-col justify-center px-7 sm:px-10 gap-1 overflow-y-auto py-24"
+        >
+          <p
+            className="eyebrow mb-8"
+            style={{
+              transitionDelay: open ? "60ms" : "0ms",
+            }}
+          >
+            — Navigate
+          </p>
+
           {links.map((l, i) => (
             <Link
               key={l.href}
               to={l.href}
               onClick={() => setOpen(false)}
-              style={{ transitionDelay: open ? `${120 + i * 60}ms` : "0ms" }}
+              style={{
+                transitionDelay: open
+                  ? `${120 + i * 60}ms`
+                  : "0ms",
+              }}
               className={`font-display text-4xl sm:text-5xl py-3 border-b border-border transition-all duration-700 hover:text-accent ${
-                open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+                open
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-6"
               }`}
             >
               {l.label}
             </Link>
           ))}
+
+          {/* Mobile Phone */}
           <a
             href="tel:+919886069488"
             onClick={() => setOpen(false)}
-            style={{ transitionDelay: open ? `${120 + links.length * 60}ms` : "0ms" }}
+            style={{
+              transitionDelay: open
+                ? `${120 + links.length * 60}ms`
+                : "0ms",
+            }}
             className={`mt-8 inline-flex items-center gap-3 text-sm text-muted-foreground transition-all duration-700 ${
-              open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+              open
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-6"
             }`}
+            aria-label="Call SmartPixel at 98860 69488"
           >
-            <Phone size={14} className="text-accent" /> +91 98860 69488
+            <Phone
+              size={14}
+              className="text-accent"
+              aria-hidden="true"
+            />
+
+            +91 98860 69488
           </a>
+
+          {/* Mobile CTA */}
           <Link
             to="/contact"
             onClick={() => setOpen(false)}
-            style={{ transitionDelay: open ? `${180 + links.length * 60}ms` : "0ms" }}
+            style={{
+              transitionDelay: open
+                ? `${180 + links.length * 60}ms`
+                : "0ms",
+            }}
             className={`mt-6 glass-gold inline-flex w-fit items-center gap-3 px-6 py-4 text-sm uppercase tracking-[0.2em] text-accent transition-all duration-700 ${
-              open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+              open
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-6"
             }`}
           >
             Let's Talk About Your Project →
           </Link>
-
-          {/* Playful physics text — drops in when the menu opens */}
-       
         </nav>
-
       </div>
     </>
   );

@@ -1,9 +1,4 @@
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Phone, Mail, MessageCircle, MapPin } from "lucide-react";
-
-gsap.registerPlugin(ScrollTrigger);
+import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 
 const cols = [
   {
@@ -106,51 +101,15 @@ const areaLinks = [
 ];
 
 const Footer = () => {
-  const ref = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(".foot-mark", {
-        y: 80,
-        opacity: 0,
-        duration: 1.4,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: ref.current,
-          start: "top 80%",
-        },
-      });
-
-      gsap.from(".foot-col", {
-        y: 30,
-        opacity: 0,
-        duration: 0.9,
-        stagger: 0.1,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: ref.current,
-          start: "top 75%",
-        },
-      });
-    }, ref);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <footer
-      ref={ref}
-      className="relative bg-background border-t border-border overflow-hidden"
-    >
+    <footer className="relative bg-background border-t border-border overflow-hidden">
       <div className="relative w-full px-5 sm:px-10 lg:px-24 pt-20 sm:pt-28 lg:pt-36 pb-10">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
           {/* LEFT — CTA + contact */}
           <div className="lg:col-span-5">
-            <p className="eyebrow mb-5">
-              — Get In Touch
-            </p>
+            <p className="eyebrow mb-5">— Get In Touch</p>
 
-            <h2 className="foot-mark font-display text-3xl sm:text-4xl lg:text-5xl leading-[1.05] font-bold text-foreground tracking-tight">
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl leading-[1.05] font-bold text-foreground tracking-tight">
               Ready to build
               <br />
               something that{" "}
@@ -161,8 +120,8 @@ const Footer = () => {
             </h2>
 
             <p className="mt-5 sm:mt-7 text-muted-foreground max-w-md leading-relaxed text-sm sm:text-base font-light">
-              SmartPixel — Conversion-focused websites, apps, and
-              growth systems for businesses in{" "}
+              SmartPixel — Conversion-focused websites, apps, and growth
+              systems for businesses in{" "}
               <strong className="text-foreground/80 font-semibold">
                 Chennai
               </strong>{" "}
@@ -187,6 +146,7 @@ const Footer = () => {
                 <Phone
                   size={16}
                   className="text-accent shrink-0"
+                  aria-hidden="true"
                 />
 
                 <div>
@@ -208,6 +168,7 @@ const Footer = () => {
                 <Phone
                   size={16}
                   className="text-accent shrink-0"
+                  aria-hidden="true"
                 />
 
                 <div>
@@ -231,6 +192,7 @@ const Footer = () => {
                 <MessageCircle
                   size={16}
                   className="text-accent shrink-0"
+                  aria-hidden="true"
                 />
 
                 <div>
@@ -252,6 +214,7 @@ const Footer = () => {
                 <Mail
                   size={16}
                   className="text-accent shrink-0"
+                  aria-hidden="true"
                 />
 
                 <div>
@@ -271,10 +234,7 @@ const Footer = () => {
           <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8 sm:gap-12 lg:gap-8 lg:pl-10">
             {/* Services + Pages */}
             {cols.map((c) => (
-              <div
-                key={c.title}
-                className="foot-col"
-              >
+              <div key={c.title}>
                 <p className="text-[10px] uppercase tracking-[0.3em] text-accent mb-5 sm:mb-6 font-semibold">
                   — {c.title}
                 </p>
@@ -301,7 +261,7 @@ const Footer = () => {
             ))}
 
             {/* Areas We Serve */}
-            <div className="foot-col col-span-2 sm:col-span-1">
+            <div className="col-span-2 sm:col-span-1">
               <p className="text-[10px] uppercase tracking-[0.3em] text-accent mb-5 sm:mb-6 font-semibold">
                 — Areas We Serve
               </p>
@@ -329,7 +289,7 @@ const Footer = () => {
             </div>
 
             {/* Address / Studio */}
-            <div className="foot-col col-span-2 sm:col-span-3">
+            <div className="col-span-2 sm:col-span-3">
               <p className="text-[10px] uppercase tracking-[0.3em] text-accent mb-5 sm:mb-6 font-semibold">
                 — Studio
               </p>
@@ -342,8 +302,8 @@ const Footer = () => {
                   <Mail
                     size={13}
                     className="text-accent shrink-0"
+                    aria-hidden="true"
                   />
-
                   workwithsmartpixel@gmail.com
                 </a>
 
@@ -354,8 +314,8 @@ const Footer = () => {
                   <Phone
                     size={13}
                     className="text-accent shrink-0"
+                    aria-hidden="true"
                   />
-
                   +91 98860 69488
                 </a>
 
@@ -366,8 +326,8 @@ const Footer = () => {
                   <Phone
                     size={13}
                     className="text-accent shrink-0"
+                    aria-hidden="true"
                   />
-
                   +91 91649 75073
                 </a>
 
@@ -375,8 +335,8 @@ const Footer = () => {
                   <MapPin
                     size={13}
                     className="text-accent shrink-0"
+                    aria-hidden="true"
                   />
-
                   Chrompet, Chennai, Tamil Nadu 600044
                 </span>
 
@@ -387,10 +347,6 @@ const Footer = () => {
             </div>
           </div>
         </div>
-
-        {/* Wordmark */}
-       
-      
 
         {/* Bottom bar */}
         <div className="mt-8 pt-7 border-t border-border flex flex-wrap items-center justify-between gap-4 text-[11px] uppercase tracking-[0.3em] text-muted-foreground font-medium">
@@ -427,9 +383,7 @@ const Footer = () => {
             <button
               type="button"
               onClick={() =>
-                window.dispatchEvent(
-                  new Event("open-cookie-settings")
-                )
+                window.dispatchEvent(new Event("open-cookie-settings"))
               }
               className="hover:text-accent transition-colors uppercase tracking-[0.3em]"
             >
