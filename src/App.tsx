@@ -237,6 +237,60 @@ const SeoChitlapakkam = lazy(() =>
 
 /*
 |--------------------------------------------------------------------------
+| ECOMMERCE LOCATION PAGES
+|--------------------------------------------------------------------------
+*/
+
+const EcommercePallavaram = lazy(() =>
+  import("./pages/seo/ecommerceLocations.tsx").then((module) => ({
+    default: module.EcommercePallavaram,
+  }))
+);
+
+const EcommerceTambaram = lazy(() =>
+  import("./pages/seo/ecommerceLocations.tsx").then((module) => ({
+    default: module.EcommerceTambaram,
+  }))
+);
+
+const EcommerceChrompet = lazy(() =>
+  import("./pages/seo/ecommerceLocations.tsx").then((module) => ({
+    default: module.EcommerceChrompet,
+  }))
+);
+
+const EcommerceGuindy = lazy(() =>
+  import("./pages/seo/ecommerceLocations.tsx").then((module) => ({
+    default: module.EcommerceGuindy,
+  }))
+);
+
+const EcommerceTNagar = lazy(() =>
+  import("./pages/seo/ecommerceLocations.tsx").then((module) => ({
+    default: module.EcommerceTNagar,
+  }))
+);
+
+const EcommerceSaidapet = lazy(() =>
+  import("./pages/seo/ecommerceLocations.tsx").then((module) => ({
+    default: module.EcommerceSaidapet,
+  }))
+);
+
+const EcommerceNungambakkam = lazy(() =>
+  import("./pages/seo/ecommerceLocations.tsx").then((module) => ({
+    default: module.EcommerceNungambakkam,
+  }))
+);
+
+const EcommerceChitlapakkam = lazy(() =>
+  import("./pages/seo/ecommerceLocations.tsx").then((module) => ({
+    default: module.EcommerceChitlapakkam,
+  }))
+);
+
+/*
+|--------------------------------------------------------------------------
 | QUERY CLIENT
 |--------------------------------------------------------------------------
 */
@@ -246,11 +300,6 @@ const queryClient = new QueryClient();
 /*
 |--------------------------------------------------------------------------
 | LOADING FALLBACK
-|--------------------------------------------------------------------------
-|
-| Keep this extremely lightweight.
-| Do not load another large component here.
-|
 |--------------------------------------------------------------------------
 */
 
@@ -528,6 +577,50 @@ const App = () => {
               <Route
                 path="/seo-services-chitlapakkam"
                 element={<SeoChitlapakkam />}
+              />
+
+              {/* =====================================================
+                  ECOMMERCE LOCATION PAGES
+              ===================================================== */}
+
+              <Route
+                path="/ecommerce-website-pallavaram"
+                element={<EcommercePallavaram />}
+              />
+
+              <Route
+                path="/ecommerce-website-tambaram"
+                element={<EcommerceTambaram />}
+              />
+
+              <Route
+                path="/ecommerce-website-chrompet"
+                element={<EcommerceChrompet />}
+              />
+
+              <Route
+                path="/ecommerce-website-guindy"
+                element={<EcommerceGuindy />}
+              />
+
+              <Route
+                path="/ecommerce-website-t-nagar"
+                element={<EcommerceTNagar />}
+              />
+
+              <Route
+                path="/ecommerce-website-saidapet"
+                element={<EcommerceSaidapet />}
+              />
+
+              <Route
+                path="/ecommerce-website-nungambakkam"
+                element={<EcommerceNungambakkam />}
+              />
+
+              <Route
+                path="/ecommerce-website-chitlapakkam"
+                element={<EcommerceChitlapakkam />}
               />
 
               {/* =====================================================

@@ -1,6 +1,6 @@
 # SmartPixel
 
-> SmartPixel is a Chennai-based web design and development agency building conversion-focused websites, ecommerce stores, web applications, mobile apps, SEO solutions and WhatsApp automation for businesses across Chennai, India and international markets.
+> SmartPixel is a Chennai-based web design and development agency building conversion-focused websites, ecommerce stores, web applications, mobile apps, SEO solutions, AEO strategies and WhatsApp automation for businesses across Chennai, India and international markets.
 
 SmartPixel was founded in 2023 by Aysha and is based in Chrompet, Chennai, Tamil Nadu, India. The company works with small and mid-size businesses across Chennai and provides remote services to clients across India and international markets.
 
@@ -84,9 +84,24 @@ SmartPixel develops digital platforms and websites for:
 - Service-based businesses
 - Product-based businesses
 
-## Locations Served in Chennai
+## Chennai Locations Served
 
-SmartPixel provides web design, website development, SEO and digital solutions to businesses across Chennai, including:
+SmartPixel provides web design, ecommerce development, SEO and digital solutions to businesses across Chennai.
+
+Primary local service areas include:
+
+- Pallavaram
+- Tambaram
+- Chrompet
+- Guindy
+- T Nagar
+- Saidapet
+- Nungambakkam
+- Chitlapakkam
+
+SmartPixel's studio is based in Chrompet and serves businesses throughout the Chennai metropolitan area.
+
+## Web Design Location Pages
 
 - [Web Design Pallavaram](https://smartpixel.in/web-design-pallavaram)
 - [Web Design Tambaram](https://smartpixel.in/web-design-tambaram)
@@ -97,7 +112,27 @@ SmartPixel provides web design, website development, SEO and digital solutions t
 - [Web Design Nungambakkam](https://smartpixel.in/web-design-nungambakkam)
 - [Web Design Chitlapakkam](https://smartpixel.in/web-design-chitlapakkam)
 
-SmartPixel's studio is based in Chrompet and serves businesses throughout the Chennai metropolitan area.
+## SEO Location Pages
+
+- [SEO Services Pallavaram](https://smartpixel.in/seo-services-pallavaram)
+- [SEO Services Tambaram](https://smartpixel.in/seo-services-tambaram)
+- [SEO Services Chrompet](https://smartpixel.in/seo-services-chrompet)
+- [SEO Services Guindy](https://smartpixel.in/seo-services-guindy)
+- [SEO Services T Nagar](https://smartpixel.in/seo-services-t-nagar)
+- [SEO Services Saidapet](https://smartpixel.in/seo-services-saidapet)
+- [SEO Services Nungambakkam](https://smartpixel.in/seo-services-nungambakkam)
+- [SEO Services Chitlapakkam](https://smartpixel.in/seo-services-chitlapakkam)
+
+## Ecommerce Website Location Pages
+
+- [Ecommerce Website Pallavaram](https://smartpixel.in/ecommerce-website-pallavaram)
+- [Ecommerce Website Tambaram](https://smartpixel.in/ecommerce-website-tambaram)
+- [Ecommerce Website Chrompet](https://smartpixel.in/ecommerce-website-chrompet)
+- [Ecommerce Website Guindy](https://smartpixel.in/ecommerce-website-guindy)
+- [Ecommerce Website T Nagar](https://smartpixel.in/ecommerce-website-t-nagar)
+- [Ecommerce Website Saidapet](https://smartpixel.in/ecommerce-website-saidapet)
+- [Ecommerce Website Nungambakkam](https://smartpixel.in/ecommerce-website-nungambakkam)
+- [Ecommerce Website Chitlapakkam](https://smartpixel.in/ecommerce-website-chitlapakkam)
 
 ## International and Remote Services
 
@@ -143,17 +178,6 @@ Services can be delivered remotely through online consultations, project managem
 - [SEO Services Chennai](https://smartpixel.in/seo-services-chennai)
 - [WhatsApp Automation Chennai](https://smartpixel.in/whatsapp-automation-chennai)
 - [Digital Marketing Chennai](https://smartpixel.in/services/digital-marketing-chennai)
-
-## Local Service Pages
-
-- [Web Design Pallavaram](https://smartpixel.in/web-design-pallavaram)
-- [Web Design Tambaram](https://smartpixel.in/web-design-tambaram)
-- [Web Design Chrompet](https://smartpixel.in/web-design-chrompet)
-- [Web Design Guindy](https://smartpixel.in/web-design-guindy)
-- [Web Design T Nagar](https://smartpixel.in/web-design-t-nagar)
-- [Web Design Saidapet](https://smartpixel.in/web-design-saidapet)
-- [Web Design Nungambakkam](https://smartpixel.in/web-design-nungambakkam)
-- [Web Design Chitlapakkam](https://smartpixel.in/web-design-chitlapakkam)
 
 ## Blog Posts
 

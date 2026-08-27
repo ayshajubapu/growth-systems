@@ -49,6 +49,9 @@ const ServicePage = (p: ServiceProps) => {
    *
    * Ecommerce:
    * /ecommerce-website-pallavaram
+   *
+   * WhatsApp:
+   * /whatsapp-automation-pallavaram
    */
   const localizedLinks = useMemo(() => {
     const defaultPrefix = "web-design";
@@ -77,6 +80,9 @@ const ServicePage = (p: ServiceProps) => {
       chrompet: `/${activePrefix}-chrompet`,
       guindy: `/${activePrefix}-guindy`,
       tnagar: `/${activePrefix}-t-nagar`,
+      saidapet: `/${activePrefix}-saidapet`,
+      nungambakkam: `/${activePrefix}-nungambakkam`,
+      chitlapakkam: `/${activePrefix}-chitlapakkam`,
     };
   }, [cleanSlug]);
 
@@ -232,7 +238,7 @@ const ServicePage = (p: ServiceProps) => {
               We also serve businesses in{" "}
 
               <Link
-                to="/web-design-saidapet"
+                to={localizedLinks.saidapet}
                 className="text-accent underline font-medium hover:text-accent/80 transition-colors"
               >
                 Saidapet
@@ -240,7 +246,7 @@ const ServicePage = (p: ServiceProps) => {
               ,{" "}
 
               <Link
-                to="/web-design-nungambakkam"
+                to={localizedLinks.nungambakkam}
                 className="text-accent underline font-medium hover:text-accent/80 transition-colors"
               >
                 Nungambakkam
@@ -248,7 +254,7 @@ const ServicePage = (p: ServiceProps) => {
               {" "}and{" "}
 
               <Link
-                to="/web-design-chitlapakkam"
+                to={localizedLinks.chitlapakkam}
                 className="text-accent underline font-medium hover:text-accent/80 transition-colors"
               >
                 Chitlapakkam
@@ -265,9 +271,6 @@ const ServicePage = (p: ServiceProps) => {
               >
                 SEO services in Chennai
               </Link>
-              
-
-           
               .
 
               {" "}
@@ -304,7 +307,6 @@ const ServicePage = (p: ServiceProps) => {
           href: "/seo-services-chennai",
         },
 
-       
         {
           label: "Ecommerce website development Chennai",
           href: "/ecommerce-website-chennai",

@@ -293,6 +293,39 @@ export const SeoServicesChennai = () => (
           </p>
         ),
       },
+
+      {
+        h2: "Understanding and managing your SEO",
+        body: (
+          <p className="leading-relaxed">
+            Once work is underway, we send{" "}
+            <A to="/blog/how-to-read-google-search-console-report">
+              a Search Console report you can actually read
+            </A>{" "}
+            each month. If you're comparing us against another provider, see{" "}
+            <A to="/blog/how-to-tell-if-your-seo-agency-is-doing-anything">
+              how to tell if your SEO agency is actually doing anything
+            </A>
+            . For budgeting, read{" "}
+            <A to="/blog/seo-cost-chennai">
+              what SEO actually costs in Chennai
+            </A>{" "}
+            and{" "}
+            <A to="/blog/technical-vs-onpage-vs-local-seo">
+              technical vs on-page vs local SEO — what your business needs
+            </A>
+            . If rankings improved and then flattened, read{" "}
+            <A to="/blog/why-seo-rankings-stall-after-a-few-months">
+              why rankings stall after the first few months
+            </A>
+            , and if you're weighing this against paid traffic, see{" "}
+            <A to="/blog/do-you-need-seo-if-running-google-ads">
+              do you need SEO if you're already running Google Ads
+            </A>
+            .
+          </p>
+        ),
+      },
     ]}
     extraLinks={[
       {
@@ -314,6 +347,30 @@ export const SeoServicesChennai = () => (
       {
         label: "SEO mistakes costing businesses customers",
         href: "/blog/25-seo-mistakes-costing-you-customers",
+      },
+      {
+        label: "How to tell if your SEO agency is actually doing anything",
+        href: "/blog/how-to-tell-if-your-seo-agency-is-doing-anything",
+      },
+      {
+        label: "How to read your Search Console report",
+        href: "/blog/how-to-read-google-search-console-report",
+      },
+      {
+        label: "What SEO actually costs in Chennai",
+        href: "/blog/seo-cost-chennai",
+      },
+      {
+        label: "Technical vs on-page vs local SEO",
+        href: "/blog/technical-vs-onpage-vs-local-seo",
+      },
+      {
+        label: "Why rankings stall after a few months",
+        href: "/blog/why-seo-rankings-stall-after-a-few-months",
+      },
+      {
+        label: "Do you need SEO if you're already running Google Ads?",
+        href: "/blog/do-you-need-seo-if-running-google-ads",
       },
     ]}
   />
@@ -373,12 +430,109 @@ export const EcommerceChennai = () => (
         a: "Yes. We can integrate payment gateways such as Razorpay, PayU or Cashfree depending on the project requirements.",
       },
     ]}
+    extraSections={[
+      {
+        h2: "Choosing a platform and payment setup",
+        body: (
+          <p className="leading-relaxed">
+            Not sure where to start? Read{" "}
+            <A to="/blog/shopify-vs-woocommerce-chennai">
+              Shopify vs WooCommerce — the real decision factors
+            </A>{" "}
+            before committing to a platform, and{" "}
+            <A to="/blog/what-is-a-payment-gateway">
+              what a payment gateway actually is
+            </A>{" "}
+            if the terminology is new. When you're ready to pick one, see{" "}
+            <A to="/blog/razorpay-vs-payu-vs-cashfree">
+              Razorpay vs PayU vs Cashfree — which payment gateway
+            </A>
+            , and decide{" "}
+            <A to="/blog/should-you-offer-cash-on-delivery">
+              whether your store should offer cash on delivery
+            </A>{" "}
+            alongside it.
+          </p>
+        ),
+      },
+
+      {
+        h2: "Launch prep, cost and fixing a store that isn't converting",
+        body: (
+          <p className="leading-relaxed">
+            Before launch, check{" "}
+            <A to="/blog/how-many-product-photos-ecommerce">
+              how many product photos a listing actually needs
+            </A>
+            , and avoid common{" "}
+            <A to="/blog/gst-invoicing-online-stores-mistakes">
+              GST invoicing mistakes online sellers make
+            </A>
+            . For budgeting, see{" "}
+            <A to="/blog/ecommerce-website-cost-chennai">
+              what an ecommerce website actually costs in Chennai
+            </A>{" "}
+            and{" "}
+            <A to="/blog/boutique-vs-10000-sku-ecommerce-build">
+              10-product boutique vs 10,000-SKU store — two different builds
+            </A>
+            . If your store is live but underperforming, read{" "}
+            <A to="/blog/why-ecommerce-store-gets-visitors-no-sales">
+              why your store gets visitors but no sales
+            </A>{" "}
+            and{" "}
+            <A to="/blog/reduce-cart-abandonment-india">
+              how to reduce cart abandonment on an Indian ecommerce site
+            </A>
+            .
+          </p>
+        ),
+      },
+    ]}
+    extraLinks={[
+      {
+        label: "Shopify vs WooCommerce — the real decision factors",
+        href: "/blog/shopify-vs-woocommerce-chennai",
+      },
+      {
+        label: "Razorpay vs PayU vs Cashfree — which payment gateway",
+        href: "/blog/razorpay-vs-payu-vs-cashfree",
+      },
+      {
+        label: "Why your store gets visitors but no sales",
+        href: "/blog/why-ecommerce-store-gets-visitors-no-sales",
+      },
+      {
+        label: "How to reduce cart abandonment on an Indian ecommerce site",
+        href: "/blog/reduce-cart-abandonment-india",
+      },
+      {
+        label: "What an ecommerce website actually costs in Chennai",
+        href: "/blog/ecommerce-website-cost-chennai",
+      },
+      {
+        label: "GST invoicing mistakes online sellers make",
+        href: "/blog/gst-invoicing-online-stores-mistakes",
+      },
+      {
+        label: "Should your store offer cash on delivery?",
+        href: "/blog/should-you-offer-cash-on-delivery",
+      },
+      {
+        label: "How many product photos does a listing need?",
+        href: "/blog/how-many-product-photos-ecommerce",
+      },
+      {
+        label: "What is a payment gateway?",
+        href: "/blog/what-is-a-payment-gateway",
+      },
+      {
+        label: "10-product boutique vs 10,000-SKU store",
+        href: "/blog/boutique-vs-10000-sku-ecommerce-build",
+      },
+    ]}
   />
 );
-
-/* =========================================================
-   WHATSAPP AUTOMATION
-   ========================================================= */
 
 export const WhatsappAutomationChennai = () => (
   <ServicePage
@@ -428,6 +582,80 @@ export const WhatsappAutomationChennai = () => (
       {
         q: "Can it book appointments?",
         a: "Yes. We can build booking flows that collect customer information and connect with the relevant calendar or business workflow.",
+      },
+    ]}
+    extraSections={[
+      {
+        h2: "Choosing and setting up WhatsApp automation",
+        body: (
+          <p className="leading-relaxed">
+            If you're still using the free WhatsApp Business app, start with{" "}
+            <A to="/blog/whatsapp-app-vs-api-chennai">
+              when a Chennai business actually needs to move to WhatsApp automation
+            </A>
+            . Once you're on the API, the first real gate is Meta's
+            verification step — see{" "}
+            <A to="/blog/meta-verification-rejected-fixes">
+              why Meta business verification gets rejected and how to fix it
+            </A>
+            . After verification, message templates need their own approval,
+            covered in{" "}
+            <A to="/blog/whatsapp-template-rejected">
+              why WhatsApp template messages keep getting rejected
+            </A>
+            . We also design every flow around{" "}
+            <A to="/blog/whatsapp-24-hour-window-explained">
+              WhatsApp's 24-hour messaging window
+            </A>
+            , since it decides when a template is required versus a free-form
+            reply.
+          </p>
+        ),
+      },
+
+      {
+        h2: "What it costs and where leads come from",
+        body: (
+          <p className="leading-relaxed">
+            For budgeting, read{" "}
+            <A to="/blog/whatsapp-automation-cost-chennai">
+              what WhatsApp automation actually costs for a Chennai business
+            </A>
+            . If you're running or planning ads,{" "}
+            <A to="/blog/click-to-whatsapp-ads-explained">
+              click-to-WhatsApp ads explained
+            </A>{" "}
+            walks through how ad clicks turn into WhatsApp chats and why
+            that funnel needs the API rather than the standard app. This
+            pairs with our{" "}
+            <A to="/services/digital-marketing-chennai">
+              digital marketing services
+            </A>
+            .
+          </p>
+        ),
+      },
+    ]}
+    extraLinks={[
+      {
+        label: "When a Chennai business actually needs WhatsApp automation",
+        href: "/blog/whatsapp-app-vs-api-chennai",
+      },
+      {
+        label: "Meta business verification rejected — real fixes",
+        href: "/blog/meta-verification-rejected-fixes",
+      },
+      {
+        label: "Why WhatsApp template messages get rejected",
+        href: "/blog/whatsapp-template-rejected",
+      },
+      {
+        label: "The 24-hour WhatsApp messaging window, explained",
+        href: "/blog/whatsapp-24-hour-window-explained",
+      },
+      {
+        label: "What WhatsApp automation actually costs in Chennai",
+        href: "/blog/whatsapp-automation-cost-chennai",
       },
     ]}
   />
@@ -671,6 +899,61 @@ export const WebDesignChennai = () => (
           </p>
         ),
       },
+
+      {
+        h2: "Deciding what to build",
+        body: (
+          <p className="leading-relaxed">
+            Still deciding if you need a full site? Start with{" "}
+            <A to="/blog/do-you-need-website-if-on-instagram">
+              do you need a website if your business runs on Instagram
+            </A>{" "}
+            and{" "}
+            <A to="/blog/website-vs-landing-page">
+              website vs landing page — which do you need
+            </A>
+            . If you're weighing tools,{" "}
+            <A to="/blog/website-builder-vs-custom-coded">
+              website builder vs custom-coded — when each makes sense
+            </A>{" "}
+            and{" "}
+            <A to="/blog/what-is-a-cms-do-you-need-one">
+              what is a CMS, and do you need one
+            </A>{" "}
+            cover the two decisions most people get stuck on. Before you
+            reach out, read{" "}
+            <A to="/blog/how-to-brief-a-web-design-agency">
+              how to brief a web design agency
+            </A>{" "}
+            and{" "}
+            <A to="/blog/website-cost-chennai-page-count">
+              what page count and features actually add to the cost
+            </A>
+            .
+          </p>
+        ),
+      },
+
+      {
+        h2: "After launch, or if you're redesigning",
+        body: (
+          <p className="leading-relaxed">
+            If a new site isn't performing, read{" "}
+            <A to="/blog/website-not-generating-enquiries">
+              why your new website isn't generating enquiries
+            </A>{" "}
+            and{" "}
+            <A to="/blog/is-my-website-mobile-friendly-real-test">
+              is my website actually mobile-friendly — a real test
+            </A>
+            . If you're rebuilding an existing site, read{" "}
+            <A to="/blog/redesign-without-losing-google-rankings">
+              how to redesign without losing your Google rankings
+            </A>{" "}
+            first.
+          </p>
+        ),
+      },
     ]}
     extraLinks={[
       {
@@ -684,6 +967,42 @@ export const WebDesignChennai = () => (
       {
         label: "Signs you need a new website",
         href: "/blog/15-signs-your-business-needs-a-new-website",
+      },
+      {
+        label: "Do you need a website if you're on Instagram?",
+        href: "/blog/do-you-need-website-if-on-instagram",
+      },
+      {
+        label: "Website builder vs custom-coded",
+        href: "/blog/website-builder-vs-custom-coded",
+      },
+      {
+        label: "How to brief a web design agency",
+        href: "/blog/how-to-brief-a-web-design-agency",
+      },
+      {
+        label: "Why your new website isn't generating enquiries",
+        href: "/blog/website-not-generating-enquiries",
+      },
+      {
+        label: "How to redesign without losing your Google rankings",
+        href: "/blog/redesign-without-losing-google-rankings",
+      },
+      {
+        label: "Website cost in Chennai by page count",
+        href: "/blog/website-cost-chennai-page-count",
+      },
+      {
+        label: "Is my website actually mobile-friendly?",
+        href: "/blog/is-my-website-mobile-friendly-real-test",
+      },
+      {
+        label: "What is a CMS, and do you need one?",
+        href: "/blog/what-is-a-cms-do-you-need-one",
+      },
+      {
+        label: "Website vs landing page",
+        href: "/blog/website-vs-landing-page",
       },
     ]}
   />
@@ -743,12 +1062,109 @@ export const WebAppDevelopment = () => (
         a: "Yes. Ongoing maintenance and feature development can be provided after launch.",
       },
     ]}
+    extraSections={[
+      {
+        h2: "Deciding what to build",
+        body: (
+          <p className="leading-relaxed">
+            Not sure what you actually need? Start with{" "}
+            <A to="/blog/web-app-vs-website">
+              web app vs website — what's actually different
+            </A>{" "}
+            and{" "}
+            <A to="/blog/web-app-vs-mobile-app-first">
+              web app or mobile app — which should you build first
+            </A>
+            . If spreadsheets and WhatsApp are the current system, read{" "}
+            <A to="/blog/signs-outgrown-spreadsheets-whatsapp">
+              signs your business has outgrown spreadsheets and WhatsApp
+            </A>{" "}
+            and{" "}
+            <A to="/blog/custom-web-app-vs-no-code">
+              custom web app vs no-code tools — when no-code is enough
+            </A>
+            .
+          </p>
+        ),
+      },
+
+      {
+        h2: "Scoping, cost and what happens after launch",
+        body: (
+          <p className="leading-relaxed">
+            Before scoping, read{" "}
+            <A to="/blog/what-is-an-mvp-really">
+              what is an MVP, really
+            </A>{" "}
+            and{" "}
+            <A to="/blog/how-to-scope-mvp-without-overbuilding">
+              how to scope an MVP without overbuilding it
+            </A>
+            , and plan{" "}
+            <A to="/blog/user-roles-permissions-planning">
+              user roles and permissions before you build
+            </A>
+            . For budgeting, see{" "}
+            <A to="/blog/web-app-development-cost">
+              what drives web app development cost up or down
+            </A>{" "}
+            and{" "}
+            <A to="/blog/in-house-vs-agency-vs-freelancer-web-app">
+              in-house developer vs agency vs freelancer
+            </A>
+            . Once it's live,{" "}
+            <A to="/blog/after-mvp-launches-how-to-tell-if-working">
+              how to tell if your MVP is actually working
+            </A>{" "}
+            covers what to check next.
+          </p>
+        ),
+      },
+    ]}
+    extraLinks={[
+      {
+        label: "Web app vs website — what's actually different",
+        href: "/blog/web-app-vs-website",
+      },
+      {
+        label: "Web app or mobile app — which should you build first",
+        href: "/blog/web-app-vs-mobile-app-first",
+      },
+      {
+        label: "Custom web app vs no-code tools",
+        href: "/blog/custom-web-app-vs-no-code",
+      },
+      {
+        label: "How to scope an MVP without overbuilding it",
+        href: "/blog/how-to-scope-mvp-without-overbuilding",
+      },
+      {
+        label: "Signs you've outgrown spreadsheets and WhatsApp",
+        href: "/blog/signs-outgrown-spreadsheets-whatsapp",
+      },
+      {
+        label: "What is an MVP, really?",
+        href: "/blog/what-is-an-mvp-really",
+      },
+      {
+        label: "Web app development cost — what drives the number",
+        href: "/blog/web-app-development-cost",
+      },
+      {
+        label: "User roles and permissions — what to plan first",
+        href: "/blog/user-roles-permissions-planning",
+      },
+      {
+        label: "In-house vs agency vs freelancer",
+        href: "/blog/in-house-vs-agency-vs-freelancer-web-app",
+      },
+      {
+        label: "After the MVP launches — how to tell if it's working",
+        href: "/blog/after-mvp-launches-how-to-tell-if-working",
+      },
+    ]}
   />
 );
-
-/* =========================================================
-   MOBILE APP DEVELOPMENT
-   ========================================================= */
 
 export const MobileAppDevelopment = () => (
   <ServicePage
@@ -798,6 +1214,107 @@ export const MobileAppDevelopment = () => (
       {
         q: "Do you handle App Store submission?",
         a: "Yes. We can support App Store and Google Play deployment as part of the project.",
+      },
+    ]}
+    extraSections={[
+      {
+        h2: "Deciding if an app is the right call",
+        body: (
+          <p className="leading-relaxed">
+            Start with{" "}
+            <A to="/blog/do-you-need-a-mobile-app">
+              do you actually need a mobile app, or would a website do
+            </A>{" "}
+            and{" "}
+            <A to="/blog/pwa-vs-native-app">
+              progressive web app vs native app — is a PWA enough
+            </A>
+            . If you've decided to build,{" "}
+            <A to="/blog/ios-first-or-android-first-india">
+              iOS first or Android first for an Indian market launch
+            </A>{" "}
+            and{" "}
+            <A to="/blog/react-native-vs-flutter-vs-native">
+              React Native vs Flutter vs native
+            </A>{" "}
+            cover the two decisions that come next. New to the terms?{" "}
+            <A to="/blog/what-is-react-native-explained">
+              what is React Native, explained plainly
+            </A>{" "}
+            and{" "}
+            <A to="/blog/does-your-app-need-a-backend">
+              do you need a backend for your mobile app
+            </A>{" "}
+            help before you scope.
+          </p>
+        ),
+      },
+
+      {
+        h2: "Cost, launch and what happens after",
+        body: (
+          <p className="leading-relaxed">
+            For budgeting, see{" "}
+            <A to="/blog/mobile-app-cost-chennai">
+              mobile app cost in Chennai — screens, backend and store submission
+            </A>
+            . Before submitting, read{" "}
+            <A to="/blog/why-apps-get-rejected-app-store">
+              why apps get rejected from the App Store
+            </A>{" "}
+            and set up{" "}
+            <A to="/blog/crash-reporting-analytics-before-launch">
+              crash reporting and analytics before you launch
+            </A>
+            . If your app is live but not gaining traction, read{" "}
+            <A to="/blog/app-live-no-downloads-now-what">
+              my app is live but getting no downloads — now what
+            </A>
+            .
+          </p>
+        ),
+      },
+    ]}
+    extraLinks={[
+      {
+        label: "Do you actually need a mobile app?",
+        href: "/blog/do-you-need-a-mobile-app",
+      },
+      {
+        label: "iOS first or Android first for an Indian launch",
+        href: "/blog/ios-first-or-android-first-india",
+      },
+      {
+        label: "React Native vs Flutter vs native",
+        href: "/blog/react-native-vs-flutter-vs-native",
+      },
+      {
+        label: "Why apps get rejected from the App Store",
+        href: "/blog/why-apps-get-rejected-app-store",
+      },
+      {
+        label: "What is React Native, explained plainly",
+        href: "/blog/what-is-react-native-explained",
+      },
+      {
+        label: "Mobile app cost in Chennai",
+        href: "/blog/mobile-app-cost-chennai",
+      },
+      {
+        label: "Progressive web app vs native app",
+        href: "/blog/pwa-vs-native-app",
+      },
+      {
+        label: "My app is live but getting no downloads",
+        href: "/blog/app-live-no-downloads-now-what",
+      },
+      {
+        label: "Do you need a backend for your mobile app?",
+        href: "/blog/does-your-app-need-a-backend",
+      },
+      {
+        label: "Crash reporting and analytics before you launch",
+        href: "/blog/crash-reporting-analytics-before-launch",
       },
     ]}
   />
@@ -855,6 +1372,107 @@ export const DigitalMarketingChennai = () => (
       {
         q: "Do you provide SEO as part of digital marketing?",
         a: "Yes. SEO can be included alongside paid advertising and content when organic search is part of the overall growth strategy.",
+      },
+    ]}
+    extraSections={[
+      {
+        h2: "Choosing a channel and a budget",
+        body: (
+          <p className="leading-relaxed">
+            Start with{" "}
+            <A to="/blog/google-ads-vs-meta-ads-chennai">
+              Google Ads vs Meta Ads — which should you start with
+            </A>{" "}
+            and{" "}
+            <A to="/blog/boosting-post-vs-real-ad-campaign">
+              boosting a post vs running a real ad campaign
+            </A>
+            . Before committing spend, read{" "}
+            <A to="/blog/ad-budget-how-much-to-start">
+              how much ad budget you actually need to start
+            </A>{" "}
+            and{" "}
+            <A to="/blog/diy-ads-vs-hiring-agency">
+              DIY ads vs hiring an agency
+            </A>
+            .
+          </p>
+        ),
+      },
+
+      {
+        h2: "Reading results and fixing underperformance",
+        body: (
+          <p className="leading-relaxed">
+            If clicks aren't turning into enquiries, read{" "}
+            <A to="/blog/clicks-but-no-enquiries-ads">
+              why you're getting clicks but no enquiries
+            </A>{" "}
+            and{" "}
+            <A to="/blog/what-is-cro-landing-page">
+              what is CRO, and why it matters more than ad spend
+            </A>
+            , then apply our{" "}
+            <A to="/blog/landing-page-checklist-ad-conversion">
+              landing page checklist for ad conversion
+            </A>
+            . To interpret your numbers, see{" "}
+            <A to="/blog/how-to-read-ads-reporting">
+              how to read your ads reporting
+            </A>{" "}
+            before deciding whether to{" "}
+            <A to="/blog/pause-or-scale-underperforming-campaign">
+              pause or scale an underperforming campaign
+            </A>
+            , and set expectations with{" "}
+            <A to="/blog/how-long-before-ads-profitable">
+              how long before ads become profitable
+            </A>
+            .
+          </p>
+        ),
+      },
+    ]}
+    extraLinks={[
+      {
+        label: "Google Ads vs Meta Ads — which should you start with",
+        href: "/blog/google-ads-vs-meta-ads-chennai",
+      },
+      {
+        label: "Boosting a post vs running a real ad campaign",
+        href: "/blog/boosting-post-vs-real-ad-campaign",
+      },
+      {
+        label: "How much ad budget do you need to start",
+        href: "/blog/ad-budget-how-much-to-start",
+      },
+      {
+        label: "Why you're getting clicks but no enquiries",
+        href: "/blog/clicks-but-no-enquiries-ads",
+      },
+      {
+        label: "How to read your ads reporting",
+        href: "/blog/how-to-read-ads-reporting",
+      },
+      {
+        label: "What is CRO, and why it matters more than ad spend",
+        href: "/blog/what-is-cro-landing-page",
+      },
+      {
+        label: "Should you pause or scale an underperforming campaign",
+        href: "/blog/pause-or-scale-underperforming-campaign",
+      },
+      {
+        label: "DIY ads vs hiring an agency",
+        href: "/blog/diy-ads-vs-hiring-agency",
+      },
+      {
+        label: "How long before ads become profitable",
+        href: "/blog/how-long-before-ads-profitable",
+      },
+      {
+        label: "Landing page checklist for ad conversion",
+        href: "/blog/landing-page-checklist-ad-conversion",
       },
     ]}
   />
